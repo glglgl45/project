@@ -20,6 +20,6 @@ public class Test {
 	}
 	
 	public void list() {
-		
+		System.out.println("재희수정");
 	}
 }
