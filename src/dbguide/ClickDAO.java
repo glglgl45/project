@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DAO {
+public class ClickDAO {
 	// 드라이버 클래스 로드
 	static {
 		try {
