@@ -57,6 +57,7 @@ public class login extends JFrame implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
+		setVisible(true);
 		setContentPane(contentPane);
 		
 		dao=new ClickDAO();
@@ -95,6 +96,7 @@ public class login extends JFrame implements ActionListener {
 		panel_2.add(btnLogin);
 		
 		btnBack = new JButton("돌아가기");
+		
 		panel_2.add(btnBack);
 		
 		btnLogin.addActionListener(this);
@@ -112,6 +114,8 @@ public class login extends JFrame implements ActionListener {
 				System.out.println("로그인 정보 확인");
 				System.out.println(vo.getId()+"\t"+vo.getPwd());
 			}
+		}else {
+			
 		}
 	}
 

@@ -93,5 +93,4 @@ public class store extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("내구도");
 		panel_5.add(lblNewLabel_2);
 	}
-
 }

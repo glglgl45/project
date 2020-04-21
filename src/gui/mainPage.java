@@ -2,15 +2,18 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class mainPage extends JFrame {
+public class mainPage extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	private JButton btnLogin, btnSignUp;
 
 	/**
 	 * Launch the application.
@@ -45,11 +48,25 @@ public class mainPage extends JFrame {
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		
-		JButton btnLogin = new JButton("로그인");
+		btnLogin = new JButton("로그인");
+		btnLogin.addActionListener(this);
 		panel_1.add(btnLogin);
 		
-		JButton btnSingUp = new JButton("회원가입");
-		panel_1.add(btnSingUp);
+		btnSignUp = new JButton("회원가입");
+		btnSignUp.addActionListener(this);
+		panel_1.add(btnSignUp);
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		JButton btn = (JButton) e.getSource();
+		if(btn==btnLogin) {
+			login l = new login();
+			
+		}else if(btn==btnSignUp) {
+			signUp s = new signUp();
+//			contentPane.add(s);
+		}
+	}
 }
