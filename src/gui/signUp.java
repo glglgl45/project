@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickDAO;
-import test01.ClickUserVO;
+import dbguide.ClickUserVO;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

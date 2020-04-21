@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickDAO;
-import test01.ClickUserVO;
+import dbguide.ClickUserVO;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -104,7 +104,7 @@ public class login extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그인")) {
 			
-			dbguide.ClickUserVO vo=dao.login(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
+			ClickUserVO vo=dao.login(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
 			
 			if(vo.getId().equals(txtID.getText()) && vo.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요
 				System.out.println("로그인 성공");

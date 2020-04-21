@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import test01.ClickUserVO;
+import dbguide.ClickUserVO;
 
 public class ClickDAO {
 	// 드라이버 클래스 로드
@@ -20,7 +20,7 @@ public class ClickDAO {
 	
 	// 커넥션 연결
 	public Connection getConnection() {
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
 		String user = "javadb";	// 허가받은 사용자 아이디
 		String password = "12345";	// 비밀번호
 		
@@ -35,7 +35,7 @@ public class ClickDAO {
 	
 	public int signUp(ClickUserVO vo) {
 		int result=0;
-		String sql="insert into usertbl(id, pwd) values(?, ?)";
+		String sql="insert into clickerusertbl(id, pwd) values(?, ?)";
 		
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)) {
@@ -52,7 +52,7 @@ public class ClickDAO {
 	
 	public ClickUserVO login(String id) {
 		ClickUserVO vo=null;
-		String sql="select * from usertbl where id like ?";
+		String sql="select * from clickerusertbl where id like ?";
 		
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)) {
