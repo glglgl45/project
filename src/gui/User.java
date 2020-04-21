@@ -17,7 +17,7 @@ public class User extends JFrame {
 	private JPanel contentPane;
 	private JTextField textID;
 	private JTextField textSword;
-	private JTextField textField_2;
+	private JTextField gold;
 
 	/**
 	 * Launch the application.
@@ -76,9 +76,9 @@ public class User extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("소지금");
 		panel_1.add(lblNewLabel_2);
 		
-		textField_2 = new JTextField();
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
+		gold = new JTextField();
+		panel_1.add(gold);
+		gold.setColumns(10);
 	}
 
 }
