@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class MainPage extends JFrame implements ActionListener {
+public class mainPage extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnLogin, btnSignUp;
@@ -22,7 +22,7 @@ public class MainPage extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainPage frame = new MainPage();
+					mainPage frame = new mainPage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +34,7 @@ public class MainPage extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public MainPage() {
+	public mainPage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -62,10 +62,10 @@ public class MainPage extends JFrame implements ActionListener {
 		
 		JButton btn = (JButton) e.getSource();
 		if(btn==btnLogin) {
-			Login l = new Login();
+			login l = new login();
 			
 		}else if(btn==btnSignUp) {
-			SignUp s = new SignUp();
+			signUp s = new signUp();
 //			contentPane.add(s);
 		}
 	}

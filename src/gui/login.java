@@ -7,15 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import dbguide.ClickerDAO;
-import dbguide.ClickerUserVO;
+import dbguide.ClickDAO;
+import dbguide.ClickUserVO;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -24,14 +23,14 @@ import javax.swing.Box;
 import java.awt.FlowLayout;
 import javax.swing.JPasswordField;
 
-public class Login extends JFrame implements ActionListener {
+public class login extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField txtID;
 	private JPasswordField txtPW;
 	private JButton btnLogin, btnBack;
 	
-	private ClickerDAO dao;
+	private ClickDAO dao;
 
 	/**
 	 * Launch the application.
@@ -40,7 +39,7 @@ public class Login extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login frame = new Login();
+					login frame = new login();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +51,7 @@ public class Login extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Login() {
+	public login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -61,7 +60,7 @@ public class Login extends JFrame implements ActionListener {
 		setVisible(true);
 		setContentPane(contentPane);
 		
-		dao=new ClickerDAO();
+		dao=new ClickDAO();
 		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
@@ -107,14 +106,17 @@ public class Login extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그인")) {
 			
-			ClickerUserVO userVO=dao.login(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
-			if(userVO.getId().equals(txtID.getText()) && userVO.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요				
-				User user = new User();
-				user.playInfo(userVO);
-				user.setVisible(true);
+			ClickUserVO vo=dao.login(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
+			
+			if(vo.getId().equals(txtID.getText()) && vo.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요
+				System.out.println("로그인 성공");
 			}else {
-				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
+				System.out.println("로그인 정보 확인");
+				System.out.println(vo.getId()+"\t"+vo.getPwd());
 			}
+		}else {
+			
 		}
 	}
+
 }

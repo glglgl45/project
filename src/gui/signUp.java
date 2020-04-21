@@ -7,15 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import dbguide.ClickerDAO;
-import dbguide.ClickerUserVO;
+import dbguide.ClickDAO;
+import dbguide.ClickUserVO;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -23,13 +22,14 @@ import java.awt.Component;
 import javax.swing.Box;
 import java.awt.FlowLayout;
 
-public class SignUp extends JFrame implements ActionListener {
+public class signUp extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField txtID, txtPW, txtVerifyPW;
+	private JTextField txtID, txtPW;
 	private JButton btnSignUp, btnBack;
 	
-	private ClickerDAO dao;
+	private ClickDAO dao;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -50,7 +50,7 @@ public class SignUp extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public SignUp() {
+	public signUp() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); -- x키 누르면 같이 꺼짐
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -59,7 +59,7 @@ public class SignUp extends JFrame implements ActionListener {
 		setVisible(true);
 		setContentPane(contentPane);
 		
-		dao=new ClickerDAO();
+		dao=new ClickDAO();
 		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
@@ -93,9 +93,9 @@ public class SignUp extends JFrame implements ActionListener {
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblNewLabel_3);
 		
-		txtVerifyPW = new JTextField();
-		panel_1.add(txtVerifyPW);
-		txtVerifyPW.setColumns(10);
+		textField = new JTextField();
+		panel_1.add(textField);
+		textField.setColumns(10);
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);
@@ -118,30 +118,17 @@ public class SignUp extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("회원가입")) {
-			ClickerUserVO userVO = new ClickerUserVO();
+			dbguide.ClickUserVO vo = new dbguide.ClickUserVO();
+			vo.setId(txtID.getText());	
+			vo.setPwd(txtPW.getText());				
+			txtID.setText("");
+			txtPW.setText("");
 			
-			userVO.setItemName("돌칼");	//최초 시작 무기 설정
-			userVO.setCurrentDurability(1000);			
-			
-			if(txtID.getText()!=null && txtPW.getText()!=null && txtVerifyPW.getText()!=null) {
-				if(txtPW.getText().equals(txtVerifyPW.getText())) {	//비밀번호-비밀번호 확인의 정보 비교
-					userVO.setId(txtID.getText());	
-					userVO.setPwd(txtPW.getText());
-					txtID.setText("");
-					txtPW.setText("");
-					txtVerifyPW.setText("");	
-					
-					int result=dao.signUp(userVO);
-					if(result>0) {
-						System.out.println("가입 완료");
-					}else {
-						JOptionPane.showMessageDialog(this, "아이디 중복");
-					}				
-				}else if(!(txtPW.getText().equals(txtVerifyPW.getText()))) {
-					JOptionPane.showMessageDialog(this, "비밀번호가 일치하지 않습니다.");
-				}				
+			int result=dao.signUp(vo);
+			if(result>0) {
+				System.out.println("가입 완료");
 			}else {
-				JOptionPane.showMessageDialog(this, "정보를 모두 기입해 주세요");
+				System.out.println("내용확인필요"); //힘내요................ㅂㅂㅂㅂㅂㅂㅂ
 			}
 		}
 	}
