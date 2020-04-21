@@ -6,7 +6,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dbguide.ClickDAO;
+import test01.ClickUserVO;
+
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -15,11 +22,13 @@ import java.awt.Component;
 import javax.swing.Box;
 import java.awt.FlowLayout;
 
-public class signUp extends JFrame {
+public class signUp extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField txtID;
-	private JTextField txtPW;
+	private JTextField txtID, txtPW;
+	private JButton btnSignUp, btnBack;
+	
+	private ClickDAO dao;
 
 	/**
 	 * Launch the application.
@@ -47,6 +56,8 @@ public class signUp extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		dao=new ClickDAO();
 		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
@@ -79,11 +90,30 @@ public class signUp extends JFrame {
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);
 		
-		JButton btnSignUp = new JButton("회원가입");
+		btnSignUp = new JButton("회원가입");
 		panel_2.add(btnSignUp);
 		
-		JButton btnBack = new JButton("돌아가기");
+		btnBack = new JButton("돌아가기");
 		panel_2.add(btnBack);
+		
+		btnSignUp.addActionListener(this);
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("회원가입")) {
+			dbguide.ClickUserVO vo = new dbguide.ClickUserVO();
+			vo.setId(txtID.getText());	
+			vo.setPwd(txtPW.getText());				
+			txtID.setText("");
+			txtPW.setText("");
+			
+			int result=dao.signUp(vo);
+			if(result>0) {
+				System.out.println("가입 완료");
+			}else {
+				System.out.println("내용확인필요");
+			}
+		}
+	}
 }

@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 public class ClickUserVO {
 
 	private String id;
-	private String pwd;
-	
+	private String pwd;	
 }
