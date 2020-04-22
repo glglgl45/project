@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -56,6 +59,12 @@ public class MiddlePage extends JFrame {
 		panel.add(lblNewLabel);
 		
 		JButton btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Pickax pic = new Pickax();
+			}
+		});
 		panel.add(btnNewButton_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
