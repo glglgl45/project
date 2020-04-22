@@ -1,20 +1,22 @@
-package gui;
+package dbguide;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import gui.Store;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import dbguide.ClickerDAO;
-import dbguide.ClickerUserVO;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class UserData extends JFrame implements ActionListener{
 
@@ -23,7 +25,7 @@ public class UserData extends JFrame implements ActionListener{
 	private JLabel lblPickax, lblID, lblGold;
 	
 	private ClickerDAO dao;
-		
+
 	/**
 	 * Launch the application. 
 	 */
@@ -57,19 +59,19 @@ public class UserData extends JFrame implements ActionListener{
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		btnMine = new JButton("광산");
-		btnMine.setIcon(new ImageIcon(UserData.class.getResource("/gui/mining.png")));
+		btnMine.setIcon(new ImageIcon(UserData.class.getResource("")));
 		
 		panel.add(btnMine);
 		
 		btnShop = new JButton("상점");
-		btnShop.setIcon(new ImageIcon(UserData.class.getResource("/gui/shop.png")));
+		btnShop.setIcon(new ImageIcon(UserData.class.getResource("")));
 		panel.add(btnShop);
 		
 		lblPickax = new JLabel("");
 		panel.add(lblPickax);
 		
 		btnPickax = new JButton("곡괭이 정보");
-		btnPickax.setIcon(new ImageIcon(UserData.class.getResource("/gui/infi.png")));
+		btnPickax.setIcon(new ImageIcon(UserData.class.getResource("")));
 		panel.add(btnPickax);
 		
 		lblID = new JLabel("");
@@ -87,7 +89,6 @@ public class UserData extends JFrame implements ActionListener{
 		ClickerUserVO userVO=dao.searchUser(lblID.getText());
 		if(e.getActionCommand().equals("곡괭이 정보")) {			
 			Pickax pick = new Pickax();
-			pick.setVisible(true);
 			int result=dao.saveUser(userVO);
 			if(result>0) {
 				System.out.println("저장");
