@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-public class MineSteel extends JFrame implements ActionListener {
+public class MineIron extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
@@ -33,7 +33,7 @@ public class MineSteel extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MineSteel frame = new MineSteel();
+					MineIron frame = new MineIron();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class MineSteel extends JFrame implements ActionListener {
 		});
 	}
 
-	public MineSteel() {
+	public MineIron() {
 		pick = new Pickax();
 		pick.infoPick();
 		steel1 = new Steel();

@@ -115,9 +115,9 @@ public class Login extends JFrame implements ActionListener {
 			
 			userVO=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
 			if(userVO.getId().equals(txtID.getText()) && userVO.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요				
-				UserData user = new UserData();
-				user.playInfo(userVO);
-				user.setVisible(true);
+				MiddlePage mp = new MiddlePage();
+				mp.playInfo(userVO);
+				mp.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
 			}

@@ -1,4 +1,4 @@
-package test;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import gui.MainPage;
-import gui.MiddlePage;
 import gui.UserData;
 
 public class MineSelect extends JFrame {
@@ -127,7 +126,7 @@ public class MineSelect extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MiddlePage mp = new MiddlePage();
+				UserData ud = new UserData();
 			}
 		});
 		panel_2.add(btnBack);
