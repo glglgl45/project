@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class Store extends JFrame {
+public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	
@@ -177,8 +177,6 @@ public class Store extends JFrame {
 		
 		btnLogout.addActionListener(this);
 	}	
-
-<<<<<<< HEAD
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
@@ -187,9 +185,6 @@ public class Store extends JFrame {
 			
 		}
 	}
-	
-=======
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 	public void storeInfo(ClickerUserVO userVO) {
 		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
