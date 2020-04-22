@@ -76,7 +76,7 @@ public class UserData2 extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Pickax pick = new Pickax();
+		PickaxInfo pick = new PickaxInfo();
 		
 	}
 
