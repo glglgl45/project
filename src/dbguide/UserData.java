@@ -87,7 +87,7 @@ public class UserData extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		ClickerUserVO userVO=dao.login(lblID.getText());
-		if(e.getActionCommand().equals("곡괭이정보")) {			
+		if(e.getActionCommand().equals("곡괭이 정보")) {			
 			Pickax pick = new Pickax();
 			pick.itemInfo(userVO);
 			
