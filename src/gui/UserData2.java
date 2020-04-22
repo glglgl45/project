@@ -7,12 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
-public class UserData2 extends JFrame {
+public class UserData2 extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
+	private JButton btnMine, btnShop, btnData;
 
 	/**
 	 * Launch the application.
@@ -45,23 +50,34 @@ public class UserData2 extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JButton btnMine = new JButton("");
+		btnMine = new JButton("광산");
+		btnMine.setIcon(new ImageIcon(UserData2.class.getResource("/gui/mining.png")));
 		panel.add(btnMine);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		panel.add(btnNewButton_1);
+		btnShop = new JButton("상점");
+		btnShop.setIcon(new ImageIcon(UserData2.class.getResource("/gui/shop.png")));
+		panel.add(btnShop);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		panel.add(lblNewLabel);
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		panel.add(btnNewButton_2);
+		btnData = new JButton("곡괭이 정보");
+		btnData.setIcon(new ImageIcon(UserData2.class.getResource("/gui/infi.png")));
+		panel.add(btnData);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("");
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel("");
 		panel.add(lblNewLabel_2);
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Pickax pick = new Pickax();
+		
 	}
 
 }
