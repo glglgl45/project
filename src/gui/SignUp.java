@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import dbguide.ClickDAO;
-import dbguide.ClickUserVO;
+import dbguide.ClickerDAO;
+import dbguide.ClickerUserVO;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -28,7 +28,7 @@ public class SignUp extends JFrame implements ActionListener {
 	private JTextField txtID, txtPW;
 	private JButton btnSignUp, btnBack;
 	
-	private ClickDAO dao;
+	private ClickerDAO dao;
 	private JTextField textField;
 
 	/**
@@ -59,7 +59,7 @@ public class SignUp extends JFrame implements ActionListener {
 		setVisible(true);
 		setContentPane(contentPane);
 		
-		dao=new ClickDAO();
+		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
@@ -118,7 +118,7 @@ public class SignUp extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("회원가입")) {
-			dbguide.ClickUserVO vo = new dbguide.ClickUserVO();
+			ClickerUserVO vo = new ClickerUserVO();
 			vo.setId(txtID.getText());	
 			vo.setPwd(txtPW.getText());				
 			txtID.setText("");
