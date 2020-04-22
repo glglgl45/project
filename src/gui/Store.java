@@ -63,6 +63,7 @@ public class Store extends JFrame implements ActionListener{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		setVisible(true);
 
 		JPanel mainPanel = new JPanel();
 		contentPane.add(mainPanel, BorderLayout.CENTER);

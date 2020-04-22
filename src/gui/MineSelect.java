@@ -38,6 +38,7 @@ public class MineSelect extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setVisible(true);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
@@ -74,8 +75,14 @@ public class MineSelect extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
 		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
 		
-		JButton btnNewButton = new JButton("돌 곡괭이 +3 내구도 : 100");
-		panel_1.add(btnNewButton, BorderLayout.CENTER);
+		JButton btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
+		btnpi.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+			}
+		});
+		panel_1.add(btnpi, BorderLayout.CENTER);
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.CENTER);

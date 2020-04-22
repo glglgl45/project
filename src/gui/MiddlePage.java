@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class MiddlePage extends JFrame {
 
@@ -48,29 +50,49 @@ public class MiddlePage extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JButton btnNewButton = new JButton("New button");
-		panel.add(btnNewButton);
+		JButton btnMine = new JButton("광산");
+		btnMine.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineSelect ms = new MineSelect();
+			}
+		});
+		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
+		panel.add(btnMine);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		panel.add(btnNewButton_1);
+		JButton btnStore = new JButton("상점");
+		btnStore.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Store s = new Store();
+			}
+		});
+		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/shop.png")));
+		panel.add(btnStore);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnPickaxInfo = new JButton("곡괭이 정보");
+		btnPickaxInfo.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/infi.png")));
+		btnPickaxInfo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PickaxInfo pic = new PickaxInfo();
 			}
 		});
-		panel.add(btnNewButton_2);
+		panel.add(btnPickaxInfo);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
 		
-		JButton btnNewButton_3 = new JButton("New button");
-		panel.add(btnNewButton_3);
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lblNewLabel_2);
 	}
 
 }
