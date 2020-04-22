@@ -123,7 +123,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				UserData ud = new UserData();
+				MineSelect ms = new MineSelect();
 			}
 		});
 		contentPane.add(back);
