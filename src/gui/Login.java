@@ -56,7 +56,7 @@ public class Login extends JFrame implements ActionListener {
 	 */
 	public Login() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mPanel = new JPanel();
 		mPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		mPanel.setLayout(new BorderLayout(0, 0));
