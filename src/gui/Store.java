@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -112,6 +113,20 @@ public class Store extends JFrame implements ActionListener{
 		panel_6.add(btnBack);
 		
 		JButton btnLogout = new JButton("로그아웃");
+		btnLogout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String option[] = {"메인화면으로","게임 종료"};
+				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+				if(result==0) {
+					dispose();
+					MainPage m = new MainPage();
+					m.setVisible(true);
+				}else if(result==1) {
+					System.exit(0);
+				}
+			}
+		});
 		panel_6.add(btnLogout);
 		
 		JPanel panel_4 = new JPanel();
@@ -149,11 +164,11 @@ public class Store extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals("로그아웃")) {
-			UserData user = new UserData();
-			user.
-			int result=dao.saveUser(vo);
-		}		
+//		if(e.getActionCommand().equals("로그아웃")) {
+//			UserData user = new UserData();
+//			user.
+//			int result=dao.saveUser(vo);
+//		}		
 	}
 	
 	public void storeInfo(ClickerUserVO userVO) {
