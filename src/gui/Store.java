@@ -2,16 +2,17 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Store extends JFrame {
 
@@ -52,7 +53,12 @@ public class Store extends JFrame {
 		panel.add(panel_1);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JButton btnRepair = new JButton("수리하기");
+		Image image;
+		JButton btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
+		btnRepair.setBorderPainted(false);
+		btnRepair.setContentAreaFilled(false);
+		btnRepair.setFocusPainted(false);
+		btnRepair.setBounds(220, 150, 220, 150);
 		panel_1.add(btnRepair);
 		
 		JButton btnNewButton_1 = new JButton("강화하기");
