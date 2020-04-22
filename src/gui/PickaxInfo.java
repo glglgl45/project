@@ -6,17 +6,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
+
+import dbguide.ClickerDAO;
+import dbguide.ClickerItemVO;
+import dbguide.ClickerUserVO;
+
 import java.awt.GridLayout;
+import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class Pickax extends JFrame {
-
+public class PickaxInfo extends JFrame{
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
+	private JLabel lblNewLabel_1, lblNewLabel_3, lblNewLabel_5;
+	
+	private ClickerDAO dao;
+//	/**
+//	 * Launch the application.
+//	 */
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -33,8 +39,8 @@ public class Pickax extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Pickax() {
-		
+	public PickaxInfo() {
+
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -42,15 +48,17 @@ public class Pickax extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 		
+		dao=new ClickerDAO();
+		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("★곡괭이 강화수치★");
+		JLabel lblNewLabel = new JLabel("★곡괭이★");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
 		
@@ -58,7 +66,7 @@ public class Pickax extends JFrame {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_3);
 		
@@ -66,9 +74,17 @@ public class Pickax extends JFrame {
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_5);
 	}
-
+	
+	public void itemInfo(ClickerUserVO userVO) {
+//		ClickerUserVO userVO=dao.login(id);
+		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
+		lblNewLabel_1.setText(userVO.getItemName());
+		lblNewLabel_3.setText(itemVO.getAttack()+"");
+		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");		
+	}
 }
+
