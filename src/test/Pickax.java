@@ -11,6 +11,14 @@ public class Pickax {
 	private static int pickLevel = 1;
 	private static int dura = 100;
 	
+	public static int getDura() {
+		return dura;
+	}
+
+	public static void setDura(int dura) {
+		Pickax.dura = dura;
+	}
+
 	public int getLevel() {
 		return level;
 	}
