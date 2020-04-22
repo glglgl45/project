@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class UserData extends JFrame implements ActionListener{
 
@@ -45,7 +47,7 @@ public class UserData extends JFrame implements ActionListener{
 	 */
 	public UserData() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -57,15 +59,19 @@ public class UserData extends JFrame implements ActionListener{
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		btnMine = new JButton("광산");
+		btnMine.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/mining.png")));
+		
 		panel.add(btnMine);
 		
 		btnShop = new JButton("상점");
+		btnShop.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/shop.png")));
 		panel.add(btnShop);
 		
 		lblPickax = new JLabel("");
 		panel.add(lblPickax);
 		
-		btnPickax = new JButton("곡괭이정보");
+		btnPickax = new JButton("곡괭이 정보");
+		btnPickax.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/infi.png")));
 		panel.add(btnPickax);
 		
 		lblID = new JLabel("");
