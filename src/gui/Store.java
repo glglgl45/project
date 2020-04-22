@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
+import dbguide.UserData;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -149,7 +150,8 @@ public class Store extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
-			
+			UserData user = new UserData();
+			user.
 			int result=dao.saveUser(vo);
 		}		
 	}
