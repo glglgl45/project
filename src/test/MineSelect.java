@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import gui.SignUp;
+
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -66,9 +69,23 @@ public class MineSelect extends JFrame {
 		panel_2.setLayout(new GridLayout(2, 3, 0, 0));
 		
 		JButton btnMineStone = new JButton("돌 광산");
+		btnMineStone.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineStone ms = new MineStone();
+			}
+		});
 		panel_2.add(btnMineStone);
 		
 		JButton btnMineCopper = new JButton("구리 광산");
+		btnMineCopper.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineCopper mc = new MineCopper();
+			}
+		});
 		panel_2.add(btnMineCopper);
 		
 		JButton btnMineIron = new JButton("철 광산");

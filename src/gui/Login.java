@@ -55,7 +55,7 @@ public class Login extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Login() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		mPanel = new JPanel();
 		mPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -102,7 +102,7 @@ public class Login extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MainPage m = new MainPage();
+				MainPage mp = new MainPage();
 			}
 		});
 		panel_2.add(btnBack);

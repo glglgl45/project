@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -18,7 +19,7 @@ import javax.swing.JButton;
 
 public class MineCopper extends JFrame implements ActionListener{
 
-	private JPanel contentPane;
+	private JPanel mainPanel, contentPane;
 	private Pickax pick;
 	private Ore copper1;
 	private Ore copper2;
@@ -52,14 +53,39 @@ public class MineCopper extends JFrame implements ActionListener{
 		copper3 = new Copper();
 		copper4 = new Copper();
 		copper5 = new Copper();
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		setBounds(100, 100, 450, 300);
+		mainPanel = new JPanel();
+		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(mainPanel);
+		mainPanel.setLayout(new BorderLayout(0, 0));
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		setVisible(true);
+		mainPanel.add(contentPane, BorderLayout.CENTER);
 		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
+		setVisible(true);
+		
+		JPanel panel_0 = new JPanel();
+		mainPanel.add(panel_0, BorderLayout.NORTH);
+		panel_0.setLayout(new BorderLayout(0, 0));
+		
+		JButton btnNewButton_1 = new JButton("로그아웃");
+		panel_0.add(btnNewButton_1, BorderLayout.EAST);
+		
+		JButton btnNewButton_2 = new JButton("점수 : 999999");
+		panel_0.add(btnNewButton_2, BorderLayout.WEST);
+		
+		JPanel panel_1 = new JPanel();
+		mainPanel.add(panel_1, BorderLayout.SOUTH);
+		panel_1.setLayout(new BorderLayout(0, 0));
+		
+		JLabel lblNewLabel = new JLabel("ID : 아이디");
+		panel_1.add(lblNewLabel, BorderLayout.WEST);
+		
+		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
+		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
+		
+		JButton btnNewButton = new JButton("돌 곡괭이 +3 내구도 : 100");
+		panel_1.add(btnNewButton, BorderLayout.CENTER);
 		
 		btnCopper1 = new JButton(copper1.name + " : " + copper1.hp);
 		contentPane.add(btnCopper1);

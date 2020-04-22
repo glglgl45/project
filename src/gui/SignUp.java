@@ -34,18 +34,18 @@ public class SignUp extends JFrame implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					signUp frame = new signUp();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SignUp frame = new SignUp();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the frame.
@@ -108,6 +108,7 @@ public class SignUp extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				MainPage mp = new MainPage();
 			}
 		});
 		panel_2.add(btnBack);
@@ -128,7 +129,7 @@ public class SignUp extends JFrame implements ActionListener {
 			if(result>0) {
 				System.out.println("가입 완료");
 			}else {
-				System.out.println("내용확인필요"); //힘내요................ㅂㅂㅂㅂㅂㅂㅂ
+				System.out.println("내용확인필요");
 			}
 		}
 	}
