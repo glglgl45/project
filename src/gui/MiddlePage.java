@@ -2,16 +2,15 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class MiddlePage extends JFrame {
 
@@ -62,7 +61,7 @@ public class MiddlePage extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Pickax pic = new Pickax();
+				PickaxInfo pic = new PickaxInfo();
 			}
 		});
 		panel.add(btnNewButton_2);

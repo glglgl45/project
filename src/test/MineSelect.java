@@ -15,7 +15,6 @@ import javax.swing.border.EmptyBorder;
 
 import gui.MainPage;
 import gui.MiddlePage;
-import gui.UserData;
 
 public class MineSelect extends JFrame {
 

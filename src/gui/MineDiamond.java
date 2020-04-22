@@ -15,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import gui.MainPage;
-import gui.UserData;
 
 import ore.*;
 import system.*;

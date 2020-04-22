@@ -18,7 +18,6 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
-import gui.UserData;
 import system.Pickax;
 import system.Upgrade;
 
@@ -111,7 +110,7 @@ public class Store extends JFrame implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {				
 				dispose();
-				MainPage m = new MainPage();
+				MiddlePage m = new MiddlePage();
 			}
 		});
 		panel_6.add(btnBack);
