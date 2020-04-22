@@ -7,8 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClickUserVO {
+public class ClickerUserVO {
 
 	private String id;
-	private String pwd;	
+	private String pwd;
+	private String itemName;
+	private int gold;
+	private int CurrentEnhance;
+	private int CurrentDurability;
 }

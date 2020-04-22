@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dbguide.ClickUserVO;
+import dbguide.ClickerUserVO;
 
 public class ClickDAO {
 	// 드라이버 클래스 로드
@@ -33,7 +33,7 @@ public class ClickDAO {
 		return con;
 	}
 	
-	public int signUp(ClickUserVO vo) {
+	public int signUp(ClickerUserVO vo) {
 		int result=0;
 		String sql="insert into clickerusertbl(id, pwd) values(?, ?)";
 		
@@ -50,8 +50,8 @@ public class ClickDAO {
 		return result;	
 	}
 	
-	public ClickUserVO login(String id) {
-		ClickUserVO vo=null;
+	public ClickerUserVO login(String id) {
+		ClickerUserVO vo=null;
 		String sql="select * from clickerusertbl where id like ?";
 		
 		try(Connection con=getConnection();
@@ -61,7 +61,7 @@ public class ClickDAO {
 			ResultSet rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				vo=new ClickUserVO();
+				vo=new ClickerUserVO();
 				vo.setId(rs.getString("id"));
 				vo.setPwd(rs.getString("pwd"));
 			}
