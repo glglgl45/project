@@ -66,7 +66,6 @@ public class UserData extends JFrame implements ActionListener{
 		
 		btnPickax = new JButton("곡괭이 정보");
 		btnPickax.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/infi.png")));
-		//btnPickax.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/info icon.png")));
 		panel.add(btnPickax);
 		
 		lblID = new JLabel("");
