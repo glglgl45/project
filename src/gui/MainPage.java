@@ -2,15 +2,18 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class mainPage extends JFrame {
+public class MainPage extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	private JButton btnLogin, btnSignUp;
 
 	/**
 	 * Launch the application.
@@ -19,7 +22,7 @@ public class mainPage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					mainPage frame = new mainPage();
+					MainPage frame = new MainPage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,13 +34,14 @@ public class mainPage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public mainPage() {
+	public MainPage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		setVisible(true);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -45,11 +49,25 @@ public class mainPage extends JFrame {
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		
-		JButton btnLogin = new JButton("로그인");
+		btnLogin = new JButton("로그인");
+		btnLogin.addActionListener(this);
 		panel_1.add(btnLogin);
 		
-		JButton btnSingUp = new JButton("회원가입");
-		panel_1.add(btnSingUp);
+		btnSignUp = new JButton("회원가입");
+		btnSignUp.addActionListener(this);
+		panel_1.add(btnSignUp);
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		JButton btn = (JButton) e.getSource();
+		if(btn==btnLogin) {
+			dispose();
+			Login l = new Login();
+			
+		}else if(btn==btnSignUp) {
+			SignUp s = new SignUp();
+		}
+	}
 }

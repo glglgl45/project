@@ -22,39 +22,41 @@ import java.awt.Component;
 import javax.swing.Box;
 import java.awt.FlowLayout;
 
-public class signUp extends JFrame implements ActionListener {
+public class SignUp extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField txtID, txtPW;
 	private JButton btnSignUp, btnBack;
 	
 	private ClickDAO dao;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					signUp frame = new signUp();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					signUp frame = new signUp();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public signUp() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public SignUp() {
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); -- x키 누르면 같이 꺼짐
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
+		setVisible(true);
 		setContentPane(contentPane);
 		
 		dao=new ClickDAO();
@@ -71,7 +73,7 @@ public class signUp extends JFrame implements ActionListener {
 		contentPane.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("ID");
+		JLabel lblNewLabel = new JLabel("아이디");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblNewLabel);
 		
@@ -79,13 +81,21 @@ public class signUp extends JFrame implements ActionListener {
 		panel_1.add(txtID);
 		txtID.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Password");
+		JLabel lblNewLabel_1 = new JLabel("비밀번호");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblNewLabel_1);
 		
 		txtPW = new JTextField();
 		panel_1.add(txtPW);
 		txtPW.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("비밀번호 확인");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(lblNewLabel_3);
+		
+		textField = new JTextField();
+		panel_1.add(textField);
+		textField.setColumns(10);
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);
@@ -94,6 +104,12 @@ public class signUp extends JFrame implements ActionListener {
 		panel_2.add(btnSignUp);
 		
 		btnBack = new JButton("돌아가기");
+		btnBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		panel_2.add(btnBack);
 		
 		btnSignUp.addActionListener(this);
@@ -112,7 +128,7 @@ public class signUp extends JFrame implements ActionListener {
 			if(result>0) {
 				System.out.println("가입 완료");
 			}else {
-				System.out.println("내용확인필요");
+				System.out.println("내용확인필요"); //힘내요................ㅂㅂㅂㅂㅂㅂㅂ
 			}
 		}
 	}
