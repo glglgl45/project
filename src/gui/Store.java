@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class Store extends JFrame implements ActionListener{
+public class Store extends JFrame {
 
 	private JPanel contentPane;
 	
@@ -99,7 +99,7 @@ public class Store extends JFrame implements ActionListener{
 		
 		JPanel panel_6 = new JPanel();
 		panel_3.add(panel_6, BorderLayout.SOUTH);
-		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_6.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JButton btnBack = new JButton("돌아가기");
 		btnBack.addActionListener(new ActionListener() {
@@ -128,6 +128,22 @@ public class Store extends JFrame implements ActionListener{
 			}
 		});
 		panel_6.add(btnLogout);
+		
+		JPanel panel_7 = new JPanel();
+		panel_3.add(panel_7, BorderLayout.CENTER);
+		panel_7.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JLabel lblNewLabel_3 = new JLabel("아이디");
+		panel_7.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		panel_7.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("소지금");
+		panel_7.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		panel_7.add(lblNewLabel_6);
 		
 		JPanel panel_4 = new JPanel();
 		panel_2.add(panel_4);
@@ -162,15 +178,6 @@ public class Store extends JFrame implements ActionListener{
 		txtDuribility.setColumns(10);
 	}	
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-//		if(e.getActionCommand().equals("로그아웃")) {
-//			UserData user = new UserData();
-//			user.
-//			int result=dao.saveUser(vo);
-//		}		
-	}
-	
 	public void storeInfo(ClickerUserVO userVO) {
 		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
