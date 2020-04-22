@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class MineStone extends JFrame implements ActionListener {
 
@@ -33,6 +34,8 @@ public class MineStone extends JFrame implements ActionListener {
 	private JButton btnStone3;
 	private JButton btnStone4;
 	private JButton btnStone5;
+	private JLabel labelMoney;
+	private JLabel lavelDura;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -87,7 +90,7 @@ public class MineStone extends JFrame implements ActionListener {
 		});
 		panel_0.add(btnLogout, BorderLayout.EAST);
 		
-		JButton btnNewButton_2 = new JButton("점수 : 999999");
+		JButton btnNewButton_2 = new JButton("점수 : " + pick.getScore());
 		panel_0.add(btnNewButton_2, BorderLayout.WEST);
 		
 		JPanel panel_1 = new JPanel();
@@ -97,11 +100,26 @@ public class MineStone extends JFrame implements ActionListener {
 		JLabel lblNewLabel = new JLabel("ID : 아이디");
 		panel_1.add(lblNewLabel, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
-		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
+		JPanel panel_2 = new JPanel();
+		panel_1.add(panel_2, BorderLayout.CENTER);
 		
-		JButton btnNewButton = new JButton("돌 곡괭이 +3 내구도 : 100");
-		panel_1.add(btnNewButton, BorderLayout.CENTER);
+		JButton btnNewButton = new JButton(pick.getPickName() + " " + pick.getLevel());
+		panel_2.add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
+		panel_2.add(lblNewLabel_2);
+		
+		lavelDura = new JLabel(pick.getDura()+"");
+		panel_2.add(lavelDura);
+		
+		JPanel panel = new JPanel();
+		panel_1.add(panel, BorderLayout.EAST);
+		
+		JLabel lblNewLabel_1 = new JLabel("소지금 : ");
+		panel.add(lblNewLabel_1);
+		
+		labelMoney = new JLabel(pick.getMoney()+"");
+		panel.add(labelMoney);
 		
 		btnStone1 = new JButton(stone1.name+" : "+stone1.hp);
 		contentPane.add(btnStone1);
@@ -158,25 +176,35 @@ public class MineStone extends JFrame implements ActionListener {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone1.hit(pick.atk()));
 		btnStone1.setText(stone1.name+" : "+ stone1.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
 	}
 	public void hitStone2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone2.hit(pick.atk()));
 		btnStone2.setText(stone2.name+" : " + stone2.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
 	}
 	public void hitStone3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone3.hit(pick.atk()));
 		btnStone3.setText(stone3.name+" : "+ stone3.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
 	}
 	public void hitStone4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone4.hit(pick.atk()));
 		btnStone4.setText(stone4.name+" : "+ stone4.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
 	}
 	public void hitStone5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone5.hit(pick.atk()));
 		btnStone5.setText(stone5.name+" : "+ stone5.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
 	}
 }

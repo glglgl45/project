@@ -3,14 +3,23 @@ package system;
 
 public class Pickax {
 	
-	private static String pickName = "stone";
+	private static String pickName = "돌 곡괭이";
 	private static int dmg = 3;
 	private static int level = 0;
 	private static double mul = 1;
 	private static int money;
 	private static int pickLevel = 1;
 	private static int dura = 100;
+	private static int score = 99999;
 	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		Pickax.score = score;
+	}
+
 	public String getPickName() {
 		return pickName;
 	}
@@ -60,7 +69,7 @@ public class Pickax {
 	}
 
 	public void initPick() {
-		pickName = "stone";
+		pickName = "돌 곡괭이";
 		dmg = 3;
 		level = 0;
 		mul = 1;
@@ -73,27 +82,27 @@ public class Pickax {
 	
 	// 종류 별 정보
 	public void stonePick() {
-		pickName = "stone";
+		pickName = "돌 곡괭이";
 		dmg = 3;
 		pickLevel = 1;
 	}
 	public void copperPick() {
-		pickName = "copper";
+		pickName = "구리 곡괭이";
 		dmg = 10;
 		pickLevel = 2;
 	}
 	public void ironPick() {
-		pickName = "iron";
+		pickName = "철 곡괭이";
 		dmg = 30;
 		pickLevel = 3;
 	}
 	public void titaniumPick() {
-		pickName = "titanium";
+		pickName = "티타늄 곡괭이";
 		dmg = 50;
 		pickLevel = 4;
 	}
 	public void diamondPick() {
-		pickName = "diamond";
+		pickName = "다이아 곡괭이";
 		dmg = 80;
 		pickLevel = 5;
 	}
