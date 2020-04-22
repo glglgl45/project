@@ -1,4 +1,4 @@
-package dbguide;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dbguide.ClickerDAO;
+import dbguide.ClickerItemVO;
+import dbguide.ClickerUserVO;
+
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -80,7 +85,6 @@ public class Pickax extends JFrame {
 		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
 		lblNewLabel_1.setText(userVO.getItemName());
 		lblNewLabel_3.setText(itemVO.getAttack()+"");
-		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");
-		
+		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");		
 	}
 }

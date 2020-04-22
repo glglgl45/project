@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
-import dbguide.UserData;
+import gui.UserData;
 import system.Pickax;
 import system.Upgrade;
 
