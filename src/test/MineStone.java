@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-public class MineStone extends JFrame implements ActionListener{
+public class MineStone extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private Pickax pick;
@@ -43,7 +43,6 @@ public class MineStone extends JFrame implements ActionListener{
 
 	public MineStone() {
 		pick = new Pickax();
-		pick.initPick();
 		pick.infoPick();
 		stone1 = new Stone();
 		stone2 = new Stone();
