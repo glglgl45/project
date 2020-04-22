@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -118,17 +119,32 @@ public class SignUp extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("회원가입")) {
-			ClickerUserVO vo = new ClickerUserVO();
-			vo.setId(txtID.getText());	
-			vo.setPwd(txtPW.getText());				
-			txtID.setText("");
-			txtPW.setText("");
+			ClickerUserVO userVO = new ClickerUserVO();
 			
-			int result=dao.signUp(vo);
-			if(result>0) {
-				System.out.println("가입 완료");
-			}else {
-				System.out.println("내용확인필요"); //힘내요................ㅂㅂㅂㅂㅂㅂㅂ
+			userVO.setItemName("돌칼");	//최초 시작 무기 설정
+			userVO.setCurrentEnhance(0);
+			userVO.setCurrentDurability(1000);			
+			userVO.setGold(999);
+			
+			if(txtID.getText()!=null && txtPW.getText()!=null && textField.getText()!=null) {
+				if(txtPW.getText().equals(textField.getText())) {	//비밀번호-비밀번호 확인의 정보 비교
+					userVO.setId(txtID.getText());	
+					userVO.setPwd(txtPW.getText());
+					txtID.setText("");
+					txtPW.setText("");
+					textField.setText("");	
+					
+					int result=dao.signUp(userVO);
+					if(result>0) {
+						JOptionPane.showMessageDialog(this, "가입 완료");
+					}else {
+						JOptionPane.showMessageDialog(this, "아이디 중복");
+					}				
+				}else if(!(txtPW.getText().equals(textField.getText()))) {
+					JOptionPane.showMessageDialog(this, "비밀번호가 일치하지 않습니다.");
+				}				
+			}else if(txtID.getText()==null || txtPW.getText()==null || textField.getText()==null) {
+				JOptionPane.showMessageDialog(this, "정보를 모두 기입해 주세요");
 			}
 		}
 	}

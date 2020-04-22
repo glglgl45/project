@@ -36,7 +36,7 @@ public class ClickerDAO {
 	//회원가입
 	public int signUp(ClickerUserVO vo) {
 		int result=0;
-		String sql="insert into ClickerUserInfo(id, pwd, itemname, CurrentDurability) values(?, ?, ?, ?)";
+		String sql="insert into ClickerUserInfo values(?, ?, ?, ?, ?, ?)";
 		
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)) {
@@ -44,7 +44,9 @@ public class ClickerDAO {
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPwd());
 			pstmt.setString(3, vo.getItemName());
-			pstmt.setInt(4, vo.getCurrentDurability());
+			pstmt.setInt(4, vo.getCurrentEnhance());
+			pstmt.setInt(5, vo.getCurrentDurability());
+			pstmt.setInt(6, vo.getGold());
 			result=pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -80,18 +82,19 @@ public class ClickerDAO {
 		return vo;
 	}
 	
-	public int logout(ClickerUserVO vo) {
+	public int saveUser(ClickerUserVO vo) {
 		int result=0;
-		String sql="update ClickerUserInfo set itemname=?, gold=?, where id=?;";
+		String sql="update ClickerUserInfo set itemname=?, gold=?, currentenhance=?, currentdurability=? where id=?";
 		
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)) {
 						
 			pstmt.setString(1, vo.getItemName());
 			pstmt.setInt(2, vo.getGold());
-			pstmt.setString(3, vo.getId());
-			result=pstmt.executeUpdate();
-			
+			pstmt.setInt(3, vo.getCurrentEnhance());
+			pstmt.setInt(4, vo.getCurrentDurability());
+			pstmt.setString(5, vo.getId());
+			result=pstmt.executeUpdate();			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
