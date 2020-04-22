@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import gui.MainPage;
 import gui.SignUp;
 
 import javax.swing.JButton;
@@ -14,6 +15,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 public class MineSelect extends JFrame {
@@ -45,8 +47,22 @@ public class MineSelect extends JFrame {
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnNewButton_1 = new JButton("로그아웃");
-		panel.add(btnNewButton_1, BorderLayout.EAST);
+		JButton btnLogout = new JButton("로그아웃");
+		btnLogout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String option[] = {"메인화면으로","게임 종료"};
+				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+				if(result==0) {
+					dispose();
+					MainPage m = new MainPage();
+					m.setVisible(true);
+				}else if(result==1) {
+					System.exit(0);
+				}
+			}
+		});
+		panel.add(btnLogout, BorderLayout.EAST);
 		
 		JButton btnNewButton_2 = new JButton("점수 : 999999");
 		panel.add(btnNewButton_2, BorderLayout.WEST);
