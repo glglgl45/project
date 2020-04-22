@@ -2,20 +2,38 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dbguide.ClickerDAO;
+import dbguide.ClickerItemVO;
+import dbguide.ClickerUserVO;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class Store extends JFrame {
 
 	private JPanel contentPane;
+	
+	private ClickerDAO dao;
+	private JTextField txtItemName;
+	private JTextField txtAttack;
+	private JTextField txtDuribility;
 
 	/**
 	 * Launch the application.
@@ -44,6 +62,8 @@ public class Store extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+		dao=new ClickerDAO();
+		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -52,7 +72,13 @@ public class Store extends JFrame {
 		panel.add(panel_1);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JButton btnRepair = new JButton("수리하기");
+		Image image;
+		JButton btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
+		btnRepair.setBorderPainted(false);
+		btnRepair.setContentAreaFilled(false);
+		btnRepair.setFocusPainted(false);
+//		btnRepair.setBounds(220, 150, 220, 150);
+//		btnRepair.setIcon(resizeIcon(getClass().getResource("repair.png"), btnRepair.getWidth() - offset, btnRepair.getHeight() - offset));
 		panel_1.add(btnRepair);
 		
 		JButton btnNewButton_1 = new JButton("강화하기");
@@ -90,15 +116,38 @@ public class Store extends JFrame {
 		
 		JPanel panel_5 = new JPanel();
 		panel_2.add(panel_5);
-		panel_5.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_5.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("검이름(강화수치)");
 		panel_5.add(lblNewLabel);
 		
+		txtItemName = new JTextField();
+		txtItemName.setEditable(false);
+		panel_5.add(txtItemName);
+		txtItemName.setColumns(10);
+		
 		JLabel lblNewLabel_1 = new JLabel("공격력");
 		panel_5.add(lblNewLabel_1);
 		
+		txtAttack = new JTextField();
+		txtAttack.setEditable(false);
+		panel_5.add(txtAttack);
+		txtAttack.setColumns(10);
+		
 		JLabel lblNewLabel_2 = new JLabel("내구도");
 		panel_5.add(lblNewLabel_2);
+		
+		txtDuribility = new JTextField();
+		txtDuribility.setEditable(false);
+		panel_5.add(txtDuribility);
+		txtDuribility.setColumns(10);
+	}
+	
+	public void storeInfo(ClickerUserVO userVO) {
+		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
+		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
+		txtDuribility.setText(userVO.getCurrentDurability()+"");
+		txtAttack.setText(itemVO.getAttack()+"");
+		System.out.println(userVO.toString());
 	}
 }
