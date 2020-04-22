@@ -9,8 +9,6 @@ import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
-import dbguide.UserData;
-
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

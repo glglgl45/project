@@ -17,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
-import dbguide.UserData;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
