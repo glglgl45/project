@@ -66,7 +66,6 @@ public class MainPage extends JFrame implements ActionListener {
 			
 		}else if(btn==btnSignUp) {
 			SignUp s = new SignUp();
-//			contentPane.add(s);
 		}
 	}
 }
