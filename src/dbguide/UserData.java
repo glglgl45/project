@@ -59,7 +59,7 @@ public class UserData extends JFrame implements ActionListener{
 		lblPickax = new JLabel("");
 		panel.add(lblPickax);
 		
-		btnPickax = new JButton(" 곡괭이정보");
+		btnPickax = new JButton("곡괭이정보");
 		panel.add(btnPickax);
 		
 		lblID = new JLabel("");
