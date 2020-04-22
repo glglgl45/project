@@ -18,6 +18,9 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
+import gui.UserData;
+import system.Pickax;
+import system.Upgrade;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -35,6 +38,8 @@ public class Store extends JFrame implements ActionListener{
 	private JTextField txtItemName;
 	private JTextField txtAttack;
 	private JTextField txtDuribility;
+	private Pickax pick;
+	private Upgrade grade;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -50,6 +55,9 @@ public class Store extends JFrame implements ActionListener{
 	}
 
 	public Store() {
+		pick = new Pickax();
+		grade = new Upgrade();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
@@ -79,9 +87,11 @@ public class Store extends JFrame implements ActionListener{
 		
 		JButton btnEvol = new JButton("진화하기");
 		panel_1.add(btnEvol);
+		btnEvol.addActionListener(this);
 		
 		JButton btnUpgrade = new JButton("강화하기");
 		panel_1.add(btnUpgrade);
+		btnUpgrade.addActionListener(this);
 		
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
@@ -147,7 +157,7 @@ public class Store extends JFrame implements ActionListener{
 		panel_2.add(panel_5);
 		panel_5.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("검이름(강화수치)");
+		JLabel lblNewLabel = new JLabel("곡괭이 이름\n(강화수치)");
 		panel_5.add(lblNewLabel);
 		
 		txtItemName = new JTextField();
@@ -158,7 +168,7 @@ public class Store extends JFrame implements ActionListener{
 		JLabel lblNewLabel_1 = new JLabel("공격력");
 		panel_5.add(lblNewLabel_1);
 		
-		txtAttack = new JTextField();
+		txtAttack = new JTextField(pick.getDmg());
 		txtAttack.setEditable(false);
 		panel_5.add(txtAttack);
 		txtAttack.setColumns(10);
@@ -177,8 +187,15 @@ public class Store extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
 			
-		}else if(e.getActionCommand().equals("돌아가기")) {
+		}
+		if(e.getActionCommand().equals("돌아가기")) {
 			
+		}
+		if(e.getActionCommand().equals("진화하기")) {
+			grade.evol();
+		}
+		if(e.getActionCommand().equals("강화하기")) {
+			grade.upgrade();
 		}
 	}
 	public void storeInfo(ClickerUserVO userVO) {
