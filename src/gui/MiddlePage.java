@@ -65,6 +65,8 @@ public class MiddlePage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MineSelect ms = new MineSelect();
+				userVO=dao.searchUser(lblNewLabel_1.getText());
+				ms.mineInfo(userVO);
 			}
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
@@ -74,11 +76,11 @@ public class MiddlePage extends JFrame {
 		btnStore.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				userVO=dao.searchUser(lblNewLabel_1.getText());				
 				Store s = new Store();
-				userVO=dao.searchUser(lblNewLabel_1.getText());
 				s.storeInfo(userVO);
 				s.setVisible(true);
+				dispose();
 			}
 		});
 		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/shop.png")));

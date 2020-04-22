@@ -208,7 +208,7 @@ public class Store extends JFrame implements ActionListener{
 		}
 	}
 	public void storeInfo(ClickerUserVO userVO) {
-		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
+		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName(), userVO.getCurrentEnhance());
 		lblNewLabel_4.setText(userVO.getId());
 		lblNewLabel_6.setText(userVO.getGold()+"");
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");

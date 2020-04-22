@@ -81,7 +81,7 @@ public class PickaxInfo extends JFrame{
 	
 	public void itemInfo(ClickerUserVO userVO) {
 //		ClickerUserVO userVO=dao.login(id);
-		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
+		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName(), userVO.getCurrentEnhance());
 		lblNewLabel_1.setText(userVO.getItemName());
 		lblNewLabel_3.setText(itemVO.getAttack()+"");
 		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");		
