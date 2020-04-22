@@ -2,11 +2,17 @@ package test;
 
 
 public class Pickax {
-	private String pickName;
-	private int dmg;
-	private int level;
-	private double mul;
-	private int money;
+//	private String pickName;
+//	private int dmg;
+//	private int level;
+//	private double mul;
+//	private int money;
+	
+	private static String pickName = "stone";
+	private static int dmg = 3;
+	private static int level = 0;
+	private static double mul = 1;
+	private static int money;
 	
 	public int getMoney() {
 		return money;
