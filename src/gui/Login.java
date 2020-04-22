@@ -7,15 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import dbguide.ClickerDAO;
-import dbguide.ClickerUserVO;
+import dbguide.ClickDAO;
+import dbguide.ClickUserVO;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -26,12 +25,12 @@ import javax.swing.JPasswordField;
 
 public class Login extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
+	private JPanel mPanel;
 	private JTextField txtID;
 	private JPasswordField txtPW;
-	private JButton btnLogin, btnBack;
+	private JButton btnLog, btnBack;
 	
-	private ClickerDAO dao;
+	private ClickDAO dao;
 
 	/**
 	 * Launch the application.
@@ -55,24 +54,23 @@ public class Login extends JFrame implements ActionListener {
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
+		mPanel = new JPanel();
+		mPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		mPanel.setLayout(new BorderLayout(0, 0));
+		setContentPane(mPanel);
 		setVisible(true);
-		setContentPane(contentPane);
-		
-		dao=new ClickerDAO();
+		dao=new ClickDAO();
 		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
-		contentPane.add(panel, BorderLayout.NORTH);
+		mPanel.add(panel, BorderLayout.NORTH);
 		
 		JLabel lblNewLabel_2 = new JLabel("로그인이 필요합니다");
 		panel.add(lblNewLabel_2);
 		
 		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
+		mPanel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("ID");
@@ -91,30 +89,39 @@ public class Login extends JFrame implements ActionListener {
 		panel_1.add(txtPW);
 		
 		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.SOUTH);
+		mPanel.add(panel_2, BorderLayout.SOUTH);
 		
-		btnLogin = new JButton("로그인");
-		panel_2.add(btnLogin);
+		btnLog = new JButton("로그인");
+		panel_2.add(btnLog);
 		
 		btnBack = new JButton("돌아가기");
-		
+		btnBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainPage m = new MainPage();
+			}
+		});
 		panel_2.add(btnBack);
 		
-		btnLogin.addActionListener(this);
+		btnLog.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그인")) {
 			
-			ClickerUserVO userVO=dao.login(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
-			if(userVO.getId().equals(txtID.getText()) && userVO.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요				
-				User user = new User();
-				user.playInfo(userVO);
-				user.setVisible(true);
+			ClickUserVO vo=dao.login(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
+			
+			if(vo.getId().equals(txtID.getText()) && vo.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요
+				System.out.println("로그인 성공");
 			}else {
-				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
+				System.out.println("로그인 정보 확인");
+				System.out.println(vo.getId()+"\t"+vo.getPwd());
 			}
+		}else {
+			
 		}
 	}
+
 }

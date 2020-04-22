@@ -6,25 +6,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import dbguide.ClickerDAO;
-import dbguide.ClickerItemVO;
-import dbguide.ClickerUserVO;
-
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
 
-public class Store extends JFrame implements ActionListener {
+public class Store extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtItemName, txtAttack, txtDuribility;
 
-	private ClickerDAO dao;
 	/**
 	 * Launch the application.
 	 */
@@ -52,8 +44,6 @@ public class Store extends JFrame implements ActionListener {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		dao=new ClickerDAO();
-		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -62,8 +52,8 @@ public class Store extends JFrame implements ActionListener {
 		panel.add(panel_1);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JButton btnNewButton = new JButton("수리하기");
-		panel_1.add(btnNewButton);
+		JButton btnRepair = new JButton("수리하기");
+		panel_1.add(btnRepair);
 		
 		JButton btnNewButton_1 = new JButton("강화하기");
 		panel_1.add(btnNewButton_1);
@@ -80,11 +70,19 @@ public class Store extends JFrame implements ActionListener {
 		panel_3.add(panel_6, BorderLayout.SOUTH);
 		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnNewButton_2 = new JButton("돌아가기");
-		panel_6.add(btnNewButton_2);
+		JButton btnBack = new JButton("돌아가기");
+		btnBack.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainPage m = new MainPage();
+			}
+		});
+		panel_6.add(btnBack);
 		
-		JButton btnNewButton_3 = new JButton("로그아웃");
-		panel_6.add(btnNewButton_3);
+		JButton btnLogout = new JButton("로그아웃");
+		panel_6.add(btnLogout);
 		
 		JPanel panel_4 = new JPanel();
 		panel_2.add(panel_4);
@@ -92,40 +90,15 @@ public class Store extends JFrame implements ActionListener {
 		
 		JPanel panel_5 = new JPanel();
 		panel_2.add(panel_5);
-		panel_5.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_5.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("검이름(강화수치)");
 		panel_5.add(lblNewLabel);
 		
-		txtItemName = new JTextField();
-		panel_5.add(txtItemName);
-		txtItemName.setColumns(10);
-		
 		JLabel lblNewLabel_1 = new JLabel("공격력");
 		panel_5.add(lblNewLabel_1);
 		
-		txtAttack = new JTextField();
-		panel_5.add(txtAttack);
-		txtAttack.setColumns(10);
-		
 		JLabel lblNewLabel_2 = new JLabel("내구도");
 		panel_5.add(lblNewLabel_2);
-		
-		txtDuribility = new JTextField();
-		panel_5.add(txtDuribility);
-		txtDuribility.setColumns(10);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-	}
-	
-	public void storeInfo(ClickerUserVO userVO) {
-		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
-		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
-		txtDuribility.setText(userVO.getCurrentDurability()+"");
-		txtAttack.setText(itemVO.getAttack()+"");
-		System.out.println(userVO.toString());
 	}
 }

@@ -1,26 +1,11 @@
 package test;
 
+public class Stone extends Ore {
 
-public class Stone {
-	private int hp= 100;
-	private String name = "돌";
-	private int reward = 3;
-	
-	public int hit(int atk) {		
-		if(hp > 0 && hp > atk) {
-			hp = hp - atk;
-			System.out.println(name+ " : " + hp);
-			return 0;
-		} else {
-			if(hp > 0 && hp < atk) {
-				hp = 0;
-				System.out.println(name + " : " + hp);
-				System.out.println(name + "채광 완료");
-				return reward;
-			} else {
-				System.out.println("더 이상 채광할 수 없습니다.");
-				return 0;
-			}
-		}
-	}
+	public Stone() {
+		super();
+		super.hp = 20;
+		super.name = "stone";
+		super.reward = 3;
+	}	
 }

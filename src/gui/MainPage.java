@@ -41,6 +41,7 @@ public class MainPage extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		setVisible(true);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -62,6 +63,7 @@ public class MainPage extends JFrame implements ActionListener {
 		
 		JButton btn = (JButton) e.getSource();
 		if(btn==btnLogin) {
+			dispose();
 			Login l = new Login();
 			
 		}else if(btn==btnSignUp) {
