@@ -84,19 +84,19 @@ public class MineStone extends JFrame implements ActionListener {
 		JButton btnNewButton = new JButton("돌 곡괭이 +3 내구도 : 100");
 		panel_1.add(btnNewButton, BorderLayout.CENTER);
 		
-		btnStone1 = new JButton("돌 : 20");
+		btnStone1 = new JButton(stone1.name+" : "+stone1.hp);
 		contentPane.add(btnStone1);
 		btnStone1.addActionListener(this);
 		
-		btnStone2 = new JButton("돌 : 20");
+		btnStone2 = new JButton(stone2.name+" : "+stone2.hp);
 		contentPane.add(btnStone2);
 		btnStone2.addActionListener(this);
 		
-		btnStone3 = new JButton("돌 : 20");
+		btnStone3 = new JButton(stone3.name+" : "+stone3.hp);
 		contentPane.add(btnStone3);
 		btnStone3.addActionListener(this);
 		
-		btnStone4 = new JButton("돌 : 20");
+		btnStone4 = new JButton(stone4.name+" : "+stone4.hp);
 		contentPane.add(btnStone4);
 		btnStone4.addActionListener(this);
 		
@@ -111,7 +111,7 @@ public class MineStone extends JFrame implements ActionListener {
 		});
 		contentPane.add(back);
 		
-		btnStone5 = new JButton("돌 : 20");
+		btnStone5 = new JButton(stone5.name+" : "+stone5.hp);
 		contentPane.add(btnStone5);
 		btnStone5.addActionListener(this);
 	}
@@ -138,26 +138,26 @@ public class MineStone extends JFrame implements ActionListener {
 	public void hitStone1() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone1.hit(pick.atk()));
-		btnStone1.setText("돌 : " + stone1.hp);
+		btnStone1.setText(stone1.name+" : "+ stone1.hp);
 	}
 	public void hitStone2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone2.hit(pick.atk()));
-		btnStone2.setText("돌 : " + stone2.hp);
+		btnStone2.setText(stone2.name+" : " + stone2.hp);
 	}
 	public void hitStone3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone3.hit(pick.atk()));
-		btnStone3.setText("돌 : " + stone3.hp);
+		btnStone3.setText(stone3.name+" : "+ stone3.hp);
 	}
 	public void hitStone4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone4.hit(pick.atk()));
-		btnStone4.setText("돌 : " + stone4.hp);
+		btnStone4.setText(stone4.name+" : "+ stone4.hp);
 	}
 	public void hitStone5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone5.hit(pick.atk()));
-		btnStone5.setText("돌 : " + stone5.hp);
+		btnStone5.setText(stone5.name+" : "+ stone5.hp);
 	}
 }
