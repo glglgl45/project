@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class Store extends JFrame implements ActionListener{
+public class Store extends JFrame {
 
 	private JPanel contentPane;
 	
@@ -82,8 +82,6 @@ public class Store extends JFrame implements ActionListener{
 		btnRepair.setBorderPainted(false);
 		btnRepair.setContentAreaFilled(false);
 		btnRepair.setFocusPainted(false);
-//		btnRepair.setBounds(220, 150, 220, 150);
-//		btnRepair.setIcon(resizeIcon(getClass().getResource("repair.png"), btnRepair.getWidth() - offset, btnRepair.getHeight() - offset));
 		panel_1.add(btnRepair);
 		
 		JButton btnNewButton_1 = new JButton("강화하기");
@@ -99,7 +97,7 @@ public class Store extends JFrame implements ActionListener{
 		
 		JPanel panel_6 = new JPanel();
 		panel_3.add(panel_6, BorderLayout.SOUTH);
-		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
+		panel_6.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JButton btnBack = new JButton("돌아가기");
 		btnBack.addActionListener(new ActionListener() {
@@ -113,7 +111,37 @@ public class Store extends JFrame implements ActionListener{
 		panel_6.add(btnBack);
 		
 		JButton btnLogout = new JButton("로그아웃");
+		btnLogout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String option[] = {"메인화면으로","게임 종료"};
+				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+				if(result==0) {
+					dispose();
+					MainPage m = new MainPage();
+					m.setVisible(true);
+				}else if(result==1) {
+					System.exit(0);
+				}
+			}
+		});
 		panel_6.add(btnLogout);
+		
+		JPanel panel_7 = new JPanel();
+		panel_3.add(panel_7, BorderLayout.CENTER);
+		panel_7.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JLabel lblNewLabel_3 = new JLabel("아이디");
+		panel_7.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		panel_7.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("소지금");
+		panel_7.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		panel_7.add(lblNewLabel_6);
 		
 		JPanel panel_4 = new JPanel();
 		panel_2.add(panel_4);
@@ -150,6 +178,7 @@ public class Store extends JFrame implements ActionListener{
 		btnLogout.addActionListener(this);
 	}	
 
+<<<<<<< HEAD
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
@@ -159,6 +188,8 @@ public class Store extends JFrame implements ActionListener{
 		}
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 	public void storeInfo(ClickerUserVO userVO) {
 		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");

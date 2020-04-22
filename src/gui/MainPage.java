@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class MainPage extends JFrame implements ActionListener {
+public class MainPage extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnLogin, btnSignUp;
@@ -36,7 +36,7 @@ public class MainPage extends JFrame implements ActionListener {
 	 */
 	public MainPage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -50,24 +50,23 @@ public class MainPage extends JFrame implements ActionListener {
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		
 		btnLogin = new JButton("로그인");
-		btnLogin.addActionListener(this);
+		btnLogin.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Login l = new Login();
+			}
+		});
 		panel_1.add(btnLogin);
 		
 		btnSignUp = new JButton("회원가입");
-		btnSignUp.addActionListener(this);
+		btnSignUp.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SignUp s = new SignUp();
+			}
+		});
 		panel_1.add(btnSignUp);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		JButton btn = (JButton) e.getSource();
-		if(btn==btnLogin) {
-			dispose();
-			Login l = new Login();
-			
-		}else if(btn==btnSignUp) {
-			SignUp s = new SignUp();
-		}
 	}
 }
