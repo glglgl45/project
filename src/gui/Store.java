@@ -58,7 +58,8 @@ public class Store extends JFrame {
 		btnRepair.setBorderPainted(false);
 		btnRepair.setContentAreaFilled(false);
 		btnRepair.setFocusPainted(false);
-		btnRepair.setBounds(220, 150, 220, 150);
+//		btnRepair.setBounds(220, 150, 220, 150);
+//		btnRepair.setIcon(resizeIcon(getClass().getResource("repair.png"), btnRepair.getWidth() - offset, btnRepair.getHeight() - offset));
 		panel_1.add(btnRepair);
 		
 		JButton btnNewButton_1 = new JButton("강화하기");
