@@ -106,15 +106,36 @@ public class MineSelect extends JFrame {
 		
 		JButton btnMineIron = new JButton("철 광산");
 		panel_2.add(btnMineIron);
-		
+		btnMineIron.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineSteel mc = new MineSteel();
+			}
+		});
 		JButton btnMineTitanium = new JButton("티타늄 광산");
 		panel_2.add(btnMineTitanium);
+		btnMineTitanium.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineTitanium mc = new MineTitanium();
+			}
+		});
 		
 		JButton btnBack = new JButton("뒤로가기");
 		panel_2.add(btnBack);
 		
 		JButton btnMineDiamond = new JButton("다이아몬드 광산");
 		panel_2.add(btnMineDiamond);
+		btnMineDiamond.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineDiamond mc = new MineDiamond();
+			}
+		});
+		
 		setVisible(true);
 	}
 
