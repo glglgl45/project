@@ -84,6 +84,9 @@ public class UserData extends JFrame implements ActionListener{
 		Pickax pick = new Pickax();
 		
 	}
-
+	public void playInfo(ClickerUserVO userVO) {			
+		lblID.setText(userVO.getId());
+		lblGold.setText(userVO.getGold()+"");	
+	}
  }
 
