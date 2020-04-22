@@ -138,6 +138,7 @@ public class SignUp extends JFrame implements ActionListener {
 					int result=dao.insertUser(userVO);
 					if(result>0) {
 						JOptionPane.showMessageDialog(this, "가입 완료");
+						MiddlePage mp = new MiddlePage();
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
 					}				
