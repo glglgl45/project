@@ -2,28 +2,30 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import dbguide.ClickerDAO;
+import dbguide.ClickerUserVO;
 
 public class UserData extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
-	private JLabel lblimage;
-	private JButton btnMine, btnShop, btnData;
+	private JButton btnMine, btnShop, btnPickax;
+	private JLabel lblPickax, lblID, lblGold;
+	
+	private ClickerDAO dao;
 
 	/**
-	 * Launch the application.
+	 * Launch the application. 
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,55 +45,79 @@ public class UserData extends JFrame implements ActionListener{
 	 */
 	public UserData() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+		dao=new ClickerDAO();
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		btnMine = new JButton("광산");
+		btnMine.setIcon(new ImageIcon(UserData.class.getResource("/gui/mining.png")));
+		
 		panel.add(btnMine);
 		
 		btnShop = new JButton("상점");
+		btnShop.setIcon(new ImageIcon(UserData.class.getResource("/gui/shop.png")));
 		panel.add(btnShop);
 		
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		lblPickax = new JLabel("");
+		panel.add(lblPickax);
 		
-		lblimage = new JLabel("");
-		panel_1.add(lblimage, BorderLayout.CENTER);
+		btnPickax = new JButton("곡괭이 정보");
+		btnPickax.setIcon(new ImageIcon(UserData.class.getResource("/gui/infi.png")));
+		panel.add(btnPickax);
 		
-		btnData = new JButton("곡괭이정보");
-		panel.add(btnData);
+		lblID = new JLabel("");
+		panel.add(lblID);
 		
-		JPanel panel_2 = new JPanel();
-		panel.add(panel_2);
-		panel_2.setLayout(new BorderLayout(0, 0));
-		
-		JLabel lblNewLabel = new JLabel("");
-		panel_2.add(lblNewLabel, BorderLayout.CENTER);
-		
-		JPanel panel_3 = new JPanel();
-		panel.add(panel_3);
-		panel_3.setLayout(new BorderLayout(0, 0));
-		
-		JLabel lblNewLabel_1 = new JLabel("");
-		panel_3.add(lblNewLabel_1, BorderLayout.CENTER);
+		lblGold = new JLabel("");
+		panel.add(lblGold);
 		
 		btnMine.addActionListener(this);
 		btnShop.addActionListener(this);
-		btnData.addActionListener(this);
-		
+		btnPickax.addActionListener(this);
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		ClickerUserVO userVO=dao.searchUser(lblID.getText());
+		if(e.getActionCommand().equals("곡괭이 정보")) {			
+			Pickax pick = new Pickax();
+			int result=dao.saveUser(userVO);
+			if(result>0) {
+				System.out.println("저장");
+			}else {
+				System.err.println("실패");
+			}
+			pick.itemInfo(userVO);
+			
+			
+		}else if(e.getActionCommand().equals("상점")) {
+			Store store = new Store();
+			store.storeInfo(userVO);
+			store.setVisible(true);
+		}
 	}
+	
+	public void playInfo(ClickerUserVO userVO) {	
+		lblID.setText(userVO.getId());
+		lblGold.setText(userVO.getGold()+"");
+		int result=dao.saveUser(userVO);
+		if(result>0) {
+			System.out.println("저장");
+		}else {
+			System.out.println("실패");
+		}
+	}
+	
+	public ClickerUserVO userInfo() {
+		ClickerUserVO userVO=dao.searchUser(lblID.getText());
+		System.out.println(userVO.toString());
+		return userVO;
+	}
+ }
 
-}

@@ -18,7 +18,6 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
-import dbguide.UserData;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -28,7 +27,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class Store extends JFrame {
+public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	
@@ -37,9 +36,6 @@ public class Store extends JFrame {
 	private JTextField txtAttack;
 	private JTextField txtDuribility;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -53,9 +49,6 @@ public class Store extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Store() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -75,7 +68,7 @@ public class Store extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_1.setLayout(new GridLayout(1, 1, 0, 0));
 		
 		Image image;
 		JButton btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
@@ -84,8 +77,11 @@ public class Store extends JFrame {
 		btnRepair.setFocusPainted(false);
 		panel_1.add(btnRepair);
 		
-		JButton btnNewButton_1 = new JButton("강화하기");
-		panel_1.add(btnNewButton_1);
+		JButton btnEvol = new JButton("진화하기");
+		panel_1.add(btnEvol);
+		
+		JButton btnUpgrade = new JButton("강화하기");
+		panel_1.add(btnUpgrade);
 		
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
@@ -103,7 +99,7 @@ public class Store extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
 				dispose();
 				MainPage m = new MainPage();
 			}
@@ -174,13 +170,21 @@ public class Store extends JFrame {
 		txtDuribility.setEditable(false);
 		panel_5.add(txtDuribility);
 		txtDuribility.setColumns(10);
+		
+		btnLogout.addActionListener(this);
 	}	
-
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("로그아웃")) {
+			
+		}else if(e.getActionCommand().equals("돌아가기")) {
+			
+		}
+	}
 	public void storeInfo(ClickerUserVO userVO) {
 		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
 		txtDuribility.setText(userVO.getCurrentDurability()+"");
 		txtAttack.setText(itemVO.getAttack()+"");
-		System.out.println(userVO.toString());
 	}
 }
