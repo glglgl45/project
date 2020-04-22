@@ -53,7 +53,7 @@ public class SignUp extends JFrame implements ActionListener {
 	 */
 	public SignUp() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); -- x키 누르면 같이 꺼짐
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -135,7 +135,7 @@ public class SignUp extends JFrame implements ActionListener {
 					txtPW.setText("");
 					textField.setText("");	
 					
-					int result=dao.signUp(userVO);
+					int result=dao.insertUser(userVO);
 					if(result>0) {
 						JOptionPane.showMessageDialog(this, "가입 완료");
 					}else {

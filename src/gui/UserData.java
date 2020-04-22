@@ -2,22 +2,19 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
-
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 
 public class UserData extends JFrame implements ActionListener{
 
@@ -60,19 +57,19 @@ public class UserData extends JFrame implements ActionListener{
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		btnMine = new JButton("광산");
-		btnMine.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/mining.png")));
+		btnMine.setIcon(new ImageIcon(UserData.class.getResource("/gui/mining.png")));
 		
 		panel.add(btnMine);
 		
 		btnShop = new JButton("상점");
-		btnShop.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/shop.png")));
+		btnShop.setIcon(new ImageIcon(UserData.class.getResource("/gui/shop.png")));
 		panel.add(btnShop);
 		
 		lblPickax = new JLabel("");
 		panel.add(lblPickax);
 		
 		btnPickax = new JButton("곡괭이 정보");
-		btnPickax.setIcon(new ImageIcon(UserData.class.getResource("/dbguide/infi.png")));
+		btnPickax.setIcon(new ImageIcon(UserData.class.getResource("/gui/infi.png")));
 		panel.add(btnPickax);
 		
 		lblID = new JLabel("");
@@ -87,10 +84,17 @@ public class UserData extends JFrame implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ClickerUserVO userVO=dao.login(lblID.getText());
+		ClickerUserVO userVO=dao.searchUser(lblID.getText());
 		if(e.getActionCommand().equals("곡괭이 정보")) {			
 			Pickax pick = new Pickax();
+			int result=dao.saveUser(userVO);
+			if(result>0) {
+				System.out.println("저장");
+			}else {
+				System.err.println("실패");
+			}
 			pick.itemInfo(userVO);
+			
 			
 		}else if(e.getActionCommand().equals("상점")) {
 			Store store = new Store();
@@ -108,6 +112,12 @@ public class UserData extends JFrame implements ActionListener{
 		}else {
 			System.out.println("실패");
 		}
+	}
+	
+	public ClickerUserVO userInfo() {
+		ClickerUserVO userVO=dao.searchUser(lblID.getText());
+		System.out.println(userVO.toString());
+		return userVO;
 	}
  }
 

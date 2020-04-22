@@ -101,7 +101,7 @@ public class User extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("상점")) {
 			Store store = new Store();
-			ClickerUserVO userVO=dao.login(txtID.getText());
+			ClickerUserVO userVO=dao.searchUser(txtID.getText());
 			store.storeInfo(userVO);
 			store.setVisible(true);
 		}

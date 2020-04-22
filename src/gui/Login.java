@@ -54,7 +54,7 @@ public class Login extends JFrame implements ActionListener {
 	 */
 	public Login() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mPanel = new JPanel();
 		mPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		mPanel.setLayout(new BorderLayout(0, 0));
@@ -113,7 +113,7 @@ public class Login extends JFrame implements ActionListener {
 		ClickerUserVO userVO=null;
 		if(e.getActionCommand().equals("로그인")) {
 			
-			userVO=dao.login(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
+			userVO=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
 			if(userVO.getId().equals(txtID.getText()) && userVO.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요				
 				UserData user = new UserData();
 				user.playInfo(userVO);

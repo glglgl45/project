@@ -34,7 +34,7 @@ public class ClickerDAO {
 	}
 	
 	//회원가입
-	public int signUp(ClickerUserVO vo) {
+	public int insertUser(ClickerUserVO vo) {
 		int result=0;
 		String sql="insert into ClickerUserInfo values(?, ?, ?, ?, ?, ?)";
 		
@@ -56,7 +56,7 @@ public class ClickerDAO {
 	}
 	
 	//로그인
-	public ClickerUserVO login(String id) {
+	public ClickerUserVO searchUser(String id) {
 		ClickerUserVO vo=null;
 		String sql="select * from ClickerUserInfo where id=?";
 		
