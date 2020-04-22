@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class store extends JFrame {
+public class Store extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +24,7 @@ public class store extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					store frame = new store();
+					Store frame = new Store();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class store extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public store() {
+	public Store() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -52,8 +52,8 @@ public class store extends JFrame {
 		panel.add(panel_1);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JButton btnNewButton = new JButton("수리하기");
-		panel_1.add(btnNewButton);
+		JButton btnRepair = new JButton("수리하기");
+		panel_1.add(btnRepair);
 		
 		JButton btnNewButton_1 = new JButton("강화하기");
 		panel_1.add(btnNewButton_1);
@@ -70,11 +70,11 @@ public class store extends JFrame {
 		panel_3.add(panel_6, BorderLayout.SOUTH);
 		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnNewButton_2 = new JButton("돌아가기");
-		panel_6.add(btnNewButton_2);
+		JButton btnBack = new JButton("돌아가기");
+		panel_6.add(btnBack);
 		
-		JButton btnNewButton_3 = new JButton("로그아웃");
-		panel_6.add(btnNewButton_3);
+		JButton btnLogout = new JButton("로그아웃");
+		panel_6.add(btnLogout);
 		
 		JPanel panel_4 = new JPanel();
 		panel_2.add(panel_4);

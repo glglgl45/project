@@ -22,7 +22,7 @@ import java.awt.Component;
 import javax.swing.Box;
 import java.awt.FlowLayout;
 
-public class signUp extends JFrame implements ActionListener {
+public class SignUp extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField txtID, txtPW;
@@ -50,7 +50,7 @@ public class signUp extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public signUp() {
+	public SignUp() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); -- x키 누르면 같이 꺼짐
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
