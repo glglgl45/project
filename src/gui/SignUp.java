@@ -135,7 +135,7 @@ public class SignUp extends JFrame implements ActionListener {
 					txtPW.setText("");
 					textField.setText("");	
 					
-					int result=dao.signUp(userVO);
+					int result=dao.insertUser(userVO);
 					if(result>0) {
 						JOptionPane.showMessageDialog(this, "가입 완료");
 					}else {

@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class Store extends JFrame {
+public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	
@@ -100,7 +100,7 @@ public class Store extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
 				dispose();
 				MainPage m = new MainPage();
 			}
@@ -171,13 +171,21 @@ public class Store extends JFrame {
 		txtDuribility.setEditable(false);
 		panel_5.add(txtDuribility);
 		txtDuribility.setColumns(10);
+		
+		btnLogout.addActionListener(this);
 	}	
-
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("로그아웃")) {
+			
+		}else if(e.getActionCommand().equals("돌아가기")) {
+			
+		}
+	}
 	public void storeInfo(ClickerUserVO userVO) {
 		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
 		txtDuribility.setText(userVO.getCurrentDurability()+"");
 		txtAttack.setText(itemVO.getAttack()+"");
-		System.out.println(userVO.toString());
 	}
 }
