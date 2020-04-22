@@ -7,6 +7,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import gui.MainPage;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,6 +59,7 @@ public class MineCopper extends JFrame implements ActionListener{
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setVisible(true);
 		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
 		
 		btnCopper1 = new JButton(copper1.name + " : " + copper1.hp);
@@ -75,6 +79,14 @@ public class MineCopper extends JFrame implements ActionListener{
 		btnCopper4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineSelect m = new MineSelect();
+			}
+		});
 		contentPane.add(back);
 		
 		btnCopper5 = new JButton(copper5.name + " : " + copper5.hp);

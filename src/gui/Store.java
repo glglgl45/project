@@ -71,6 +71,14 @@ public class Store extends JFrame {
 		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnBack = new JButton("돌아가기");
+		btnBack.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainPage m = new MainPage();
+			}
+		});
 		panel_6.add(btnBack);
 		
 		JButton btnLogout = new JButton("로그아웃");

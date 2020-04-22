@@ -56,6 +56,7 @@ public class MineStone extends JFrame implements ActionListener{
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setVisible(true);
 		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
 		
 		btnStone1 = new JButton("돌 : 20");
@@ -75,6 +76,14 @@ public class MineStone extends JFrame implements ActionListener{
 		btnStone4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineSelect m = new MineSelect();
+			}
+		});
 		contentPane.add(back);
 		
 		btnStone5 = new JButton("돌 : 20");

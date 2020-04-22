@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MineSelect extends JFrame {
 
@@ -32,13 +34,30 @@ public class MineSelect extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setVisible(true);
 		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JButton btnNewButton = new JButton("돌 광산");
-		contentPane.add(btnNewButton);
+		JButton btnStone = new JButton("돌 광산");
+		btnStone.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineStone m = new MineStone();
+			}
+		});
+		contentPane.add(btnStone);
 		
-		JButton btnNewButton_1 = new JButton("구리 광산");
-		contentPane.add(btnNewButton_1);
+		JButton btnSelect = new JButton("구리 광산");
+		btnSelect.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MineCopper m = new MineCopper();
+			}
+		});
+		contentPane.add(btnSelect);
 	}
 
 }
