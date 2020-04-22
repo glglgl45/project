@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
+import dbguide.UserData;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -26,7 +27,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class Store extends JFrame {
+public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	
@@ -144,6 +145,15 @@ public class Store extends JFrame {
 		txtDuribility.setEditable(false);
 		panel_5.add(txtDuribility);
 		txtDuribility.setColumns(10);
+	}	
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("로그아웃")) {
+			UserData user = new UserData();
+			user.
+			int result=dao.saveUser(vo);
+		}		
 	}
 	
 	public void storeInfo(ClickerUserVO userVO) {

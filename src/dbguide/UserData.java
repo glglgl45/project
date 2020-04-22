@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import gui.Store;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +23,8 @@ public class UserData extends JFrame implements ActionListener{
 	private JPanel contentPane;
 	private JButton btnMine, btnShop, btnPickax;
 	private JLabel lblPickax, lblID, lblGold;
+	
+	private ClickerDAO dao;
 
 	/**
 	 * Launch the application. 
@@ -48,6 +53,7 @@ public class UserData extends JFrame implements ActionListener{
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+		dao=new ClickerDAO();
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
@@ -80,12 +86,27 @@ public class UserData extends JFrame implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Pickax pick = new Pickax();
-		
+		ClickerUserVO userVO=dao.login(lblID.getText());
+		if(e.getActionCommand().equals("곡괭이 정보")) {			
+			Pickax pick = new Pickax();
+			pick.itemInfo(userVO);
+			
+		}else if(e.getActionCommand().equals("상점")) {
+			Store store = new Store();
+			store.storeInfo(userVO);
+			store.setVisible(true);
+		}
 	}
-	public void playInfo(ClickerUserVO userVO) {			
+	
+	public void playInfo(ClickerUserVO userVO) {	
 		lblID.setText(userVO.getId());
-		lblGold.setText(userVO.getGold()+"");	
+		lblGold.setText(userVO.getGold()+"");
+		int result=dao.saveUser(userVO);
+		if(result>0) {
+			System.out.println("저장");
+		}else {
+			System.out.println("실패");
+		}
 	}
  }
 
