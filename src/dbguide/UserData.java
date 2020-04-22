@@ -86,10 +86,17 @@ public class UserData extends JFrame implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ClickerUserVO userVO=dao.login(lblID.getText());
+		ClickerUserVO userVO=dao.searchUser(lblID.getText());
 		if(e.getActionCommand().equals("곡괭이 정보")) {			
 			Pickax pick = new Pickax();
+			int result=dao.saveUser(userVO);
+			if(result>0) {
+				System.out.println("저장");
+			}else {
+				System.err.println("실패");
+			}
 			pick.itemInfo(userVO);
+			
 			
 		}else if(e.getActionCommand().equals("상점")) {
 			Store store = new Store();
@@ -107,6 +114,12 @@ public class UserData extends JFrame implements ActionListener{
 		}else {
 			System.out.println("실패");
 		}
+	}
+	
+	public ClickerUserVO userInfo() {
+		ClickerUserVO userVO=dao.searchUser(lblID.getText());
+		System.out.println(userVO.toString());
+		return userVO;
 	}
  }
 

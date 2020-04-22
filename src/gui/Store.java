@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -104,7 +105,7 @@ public class Store extends JFrame implements ActionListener{
 		btnBack.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
 				dispose();
 				MainPage m = new MainPage();
 			}
@@ -145,15 +146,17 @@ public class Store extends JFrame implements ActionListener{
 		txtDuribility.setEditable(false);
 		panel_5.add(txtDuribility);
 		txtDuribility.setColumns(10);
+		
+		btnLogout.addActionListener(this);
 	}	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
-			UserData user = new UserData();
-			user.
-			int result=dao.saveUser(vo);
-		}		
+			
+		}else if(e.getActionCommand().equals("돌아가기")) {
+			
+		}
 	}
 	
 	public void storeInfo(ClickerUserVO userVO) {
@@ -161,6 +164,5 @@ public class Store extends JFrame implements ActionListener{
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
 		txtDuribility.setText(userVO.getCurrentDurability()+"");
 		txtAttack.setText(itemVO.getAttack()+"");
-		System.out.println(userVO.toString());
 	}
 }

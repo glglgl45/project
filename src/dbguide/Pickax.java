@@ -80,6 +80,7 @@ public class Pickax extends JFrame {
 		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
 		lblNewLabel_1.setText(userVO.getItemName());
 		lblNewLabel_3.setText(itemVO.getAttack()+"");
-		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");		
+		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");
+		
 	}
 }
