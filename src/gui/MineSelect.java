@@ -84,6 +84,16 @@ public class MineSelect extends JFrame {
 		lblNewLabel_1 = new JLabel("소지금 : "+pick.getMoney()+"");
 		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
 		
+<<<<<<< HEAD
+		btnpi = new JButton("돌 곡괭이 +3 / 내구도 : 100");
+		btnpi.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+			}
+		});
+		panel_1.add(btnpi, BorderLayout.CENTER);
+=======
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.CENTER);
 		
@@ -95,6 +105,7 @@ public class MineSelect extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel(pick.getDura()+"");
 		panel_3.add(lblNewLabel_3);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.CENTER);
@@ -166,5 +177,9 @@ public class MineSelect extends JFrame {
 		lblNewLabel.setText("ID : "+userVO.getId());
 		lblNewLabel_1.setText("소지금 : "+userVO.getGold()+"");
 		btnNewButton_2.setText("점수 : "+userVO.getScore());
+<<<<<<< HEAD
+		btnpi.setText(userVO.getPickName()+" +"+userVO.getCurrentEnhance()+" 내구도 : "+userVO.getCurrentDurability());
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 	}
 }

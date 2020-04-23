@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClickerItemVO {
 
-	private String itemName;
+	private String pickName;
+	private int pickLevel;
+	private int mul;
 	private int enhance;
 	private int attack;
 	private int totalDurability;
-	private int successPercent;
-	private int failPercent;
 }

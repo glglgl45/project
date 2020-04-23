@@ -108,7 +108,7 @@ public class User extends JFrame implements ActionListener {
 	}
 	
 	public void playInfo(ClickerUserVO userVO) {
-		txtSword.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");			
+		txtSword.setText(userVO.getPickName()+"("+userVO.getCurrentEnhance()+")");			
 		txtID.setText(userVO.getId());
 		txtGold.setText(userVO.getGold()+"");	
 	}

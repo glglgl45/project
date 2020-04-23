@@ -143,13 +143,13 @@ public class Store extends JFrame implements ActionListener{
 		JLabel lblNewLabel_3 = new JLabel("아이디");
 		panel_7.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4 = new JLabel("New label");
 		panel_7.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("소지금");
 		panel_7.add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6 = new JLabel("New label");
 		panel_7.add(lblNewLabel_6);
 		
 		JPanel panel_4 = new JPanel();
@@ -221,10 +221,10 @@ public class Store extends JFrame implements ActionListener{
 		}
 	}
 	public void storeInfo(ClickerUserVO userVO) {
-		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName(), userVO.getCurrentEnhance());
+		ClickerItemVO itemVO=dao.searchItem(userVO.getPickName(), userVO.getCurrentEnhance());
 		lblNewLabel_4.setText(userVO.getId());
 		lblNewLabel_6.setText(userVO.getGold()+"");
-		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
+		txtItemName.setText(userVO.getPickName()+"("+userVO.getCurrentEnhance()+")");
 		txtDuribility.setText(userVO.getCurrentDurability()+"");
 		txtAttack.setText(itemVO.getAttack()+"");
 	}
