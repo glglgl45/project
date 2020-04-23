@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
+import dbguide.UserVO;
+import system.Pickax;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -32,6 +34,8 @@ public class Login extends JFrame implements ActionListener {
 	private JButton btnLog, btnBack;
 	
 	private ClickerDAO dao;
+	private Pickax pick;
+	private ClickerUserVO vo;
 
 	/**
 	 * Launch the application.
@@ -53,6 +57,18 @@ public class Login extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Login() {
+		pick = new Pickax();
+		dao=new ClickerDAO();
+		vo=dao.searchUser(pick.getUserId());
+		pick.setMoney(vo.getGold());	
+		pick.setDmg(vo.getDamage());
+		pick.setDura(vo.getDurability());
+		pick.setLevel(vo.getEnhance());
+		pick.setMul(vo.getMul());
+		pick.setPickName(vo.getPickName());
+		pick.setScore(vo.getScore());
+		pick.setPickLevel(vo.getPickLevel());
+		
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mPanel = new JPanel();
@@ -110,13 +126,13 @@ public class Login extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ClickerUserVO userVO=null;
+		
 		if(e.getActionCommand().equals("로그인")) {			
-			userVO=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
-			if(userVO.getId().equals(txtID.getText()) && userVO.getPwd().equals(new String(txtPW.getPassword()))) {					
+			vo=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
+			if(vo.getId().equals(txtID.getText()) && vo.getPwd().equals(new String(txtPW.getPassword()))) {					
 				MiddlePage mp = new MiddlePage();
-				mp.playInfo(userVO);
-				mp.setVisible(true);
+//				mp.playInfo();
+//				mp.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
 			}

@@ -29,7 +29,7 @@ public class MiddlePage extends JFrame {
 	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2;
 
 	private ClickerDAO dao;
-	private ClickerUserVO userVO;
+	private ClickerUserVO vo;
 	/**
 	 * Launch the application.
 	 */
@@ -52,16 +52,15 @@ public class MiddlePage extends JFrame {
 	public MiddlePage() {
 		pick = new Pickax();
 		dao=new ClickerDAO();
-//		dao = pick
-		userVO=dao.searchUser(pick.getUserId());
-		pick.setMoney(userVO.getGold());	
-		pick.setDmg(userVO.getDamage());
-		pick.setDura(userVO.getDurability());
-		pick.setLevel(userVO.getEnhance());
-		pick.setMul(userVO.getMul());
-		pick.setPickName(userVO.getPickName());
-		pick.setScore(userVO.getScore());
-		pick.setPickLevel(userVO.getPickLevel());
+		vo=dao.searchUser(pick.getUserId());
+		pick.setMoney(vo.getGold());	
+		pick.setDmg(vo.getDamage());
+		pick.setDura(vo.getDurability());
+		pick.setLevel(vo.getEnhance());
+		pick.setMul(vo.getMul());
+		pick.setPickName(vo.getPickName());
+		pick.setScore(vo.getScore());
+		pick.setPickLevel(vo.getPickLevel());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -82,8 +81,8 @@ public class MiddlePage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MineSelect ms = new MineSelect();
-				userVO=dao.searchUser(lblNewLabel_1.getText());
-				ms.mineInfo(userVO);
+				vo=dao.searchUser(lblNewLabel_1.getText());
+				ms.mineInfo(vo);
 			}
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
@@ -94,9 +93,9 @@ public class MiddlePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				userVO=dao.searchUser(lblNewLabel_1.getText());	
+				vo=dao.searchUser(lblNewLabel_1.getText());	
 				Store s = new Store();
-				s.storeInfo(userVO);
+				s.storeInfo(vo);
 				s.setVisible(true);
 			}
 		});
@@ -113,9 +112,9 @@ public class MiddlePage extends JFrame {
 		btnPickaxInfo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				userVO=dao.searchUser(lblNewLabel_1.getText());
+				vo=dao.searchUser(lblNewLabel_1.getText());
 				PickaxInfo pic = new PickaxInfo();
-				int result=dao.saveUser(userVO);
+				int result=dao.saveUser();
 				if(result>0) {
 					System.out.println("저장");
 				}else {
@@ -177,15 +176,15 @@ public class MiddlePage extends JFrame {
 		btnLogout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				userVO.setDurability(pick.getDura());
-				userVO.setEnhance(pick.getLevel());
-				userVO.setGold(pick.getMoney());
-				userVO.setPickLevel(pick.getPickLevel());
-				userVO.setScore(pick.getScore());
-				userVO.setPickName(pick.getPickName());
-				userVO.setDamage(pick.getDmg());
-				userVO.setMul(pick.getMul());
-				dao.saveUser(userVO);
+				vo.setDurability(pick.getDura());
+				vo.setEnhance(pick.getLevel());
+				vo.setGold(pick.getMoney());
+				vo.setPickLevel(pick.getPickLevel());
+				vo.setScore(pick.getScore());
+				vo.setPickName(pick.getPickName());
+				vo.setDamage(pick.getDmg());
+				vo.setMul(pick.getMul());
+				dao.saveUser();
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);				
 				if(result==0) {
@@ -201,7 +200,7 @@ public class MiddlePage extends JFrame {
 		panel_2.add(btnLogout, BorderLayout.EAST);
 	}
 	
-	public void playInfo(ClickerUserVO userVO) {	
+	public void playInfo() {	
 		lblNewLabel_1.setText(pick.getPickName());
 		lblNewLabel_2.setText(pick.getMoney()+"");
 	}

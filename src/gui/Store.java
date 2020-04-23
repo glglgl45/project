@@ -204,8 +204,8 @@ public class Store extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
-			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
-			int result=dao.saveUser(userVO);
+			ClickerUserVO vo=dao.searchUser(lblNewLabel_4.getText());
+			int result=dao.saveUser();
 			if(result>0) {
 //				JOptionPane.showMessageDialog(this, "저장 완료");
 				String option[] = {"메인화면으로","게임 종료"};
@@ -220,15 +220,15 @@ public class Store extends JFrame implements ActionListener{
 			}
 		}
 		if(e.getActionCommand().equals("돌아가기")) {
-			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
-			userVO.setGold(pick.getMoney());
-			userVO.setEnhance(pick.getLevel());
-			userVO.setDurability(pick.getDura());
-			userVO.setScore(pick.getScore());
-			userVO.setPickName(pick.getPickName());
-			userVO.setDamage(pick.getDmg());
-			userVO.setPickLevel(pick.getPickLevel());
-			int result=dao.saveUser(userVO);
+			ClickerUserVO vo=dao.searchUser(lblNewLabel_4.getText());
+			vo.setGold(pick.getMoney());
+			vo.setEnhance(pick.getLevel());
+			vo.setDurability(pick.getDura());
+			vo.setScore(pick.getScore());
+			vo.setPickName(pick.getPickName());
+			vo.setDamage(pick.getDmg());
+			vo.setPickLevel(pick.getPickLevel());
+			int result=dao.saveUser();
 			if(result>0) {
 				System.out.println("저장");
 				dispose();
@@ -245,12 +245,12 @@ public class Store extends JFrame implements ActionListener{
 		}
 	}
 	
-	public void storeInfo(ClickerUserVO userVO) {
-		lblNewLabel_4.setText(userVO.getId());
-		lblNewLabel_6.setText(userVO.getGold()+"");
-		txtPickName.setText(userVO.getPickName());
-		txtLevel.setText(userVO.getEnhance()+"");
-		txtPickDura.setText(userVO.getDurability()+"");
-		txtPickDmg.setText(userVO.getDamage()+"");
+	public void storeInfo(ClickerUserVO vo) {
+		lblNewLabel_4.setText(vo.getId());
+		lblNewLabel_6.setText(vo.getGold()+"");
+		txtPickName.setText(vo.getPickName());
+		txtLevel.setText(vo.getEnhance()+"");
+		txtPickDura.setText(vo.getDurability()+"");
+		txtPickDmg.setText(vo.getDamage()+"");
 	}
 }

@@ -179,11 +179,11 @@ public class MineSelect extends JFrame implements ActionListener{
 		setVisible(true);
 	}
 	
-	public void mineInfo(ClickerUserVO userVO) {
-		lblNewLabel.setText("ID : "+userVO.getId());
-		lblNewLabel_1.setText("소지금 : "+userVO.getGold()+"");
-		btnNewButton_2.setText("점수 : "+userVO.getScore());
-		btnpi.setText(userVO.getPickName()+" +"+userVO.getEnhance()+" 내구도 : "+userVO.getDurability());
+	public void mineInfo(ClickerUserVO vo) {
+		lblNewLabel.setText("ID : "+vo.getId());
+		lblNewLabel_1.setText("소지금 : "+vo.getGold()+"");
+		btnNewButton_2.setText("점수 : "+vo.getScore());
+		btnpi.setText(vo.getPickName()+" +"+vo.getEnhance()+" 내구도 : "+userVvoO.getDurability());
 	}
 
 

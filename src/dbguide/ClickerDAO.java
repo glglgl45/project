@@ -24,7 +24,8 @@ public class ClickerDAO {
 	
 	// 커넥션 연결
 	public Connection getConnection() {
-		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+//		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+		String url = "jdbc:oracle:thin:@192.168.31.178:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
 		String user = "javadb";	// 허가받은 사용자 아이디
 		String password = "12345";	// 비밀번호
 		
@@ -95,7 +96,7 @@ public class ClickerDAO {
 	}
 	
 	//데이터 저장
-	public int saveUser(ClickerUserVO vo) {
+	public int saveUser() {
 		int result=0;
 		String sql="update ClickerUserInfo set pickname=?, enhance=?, picklevel=?, durability=?, gold=?, score=?, damage=?, mul=? where id=?";
 		
@@ -110,7 +111,7 @@ public class ClickerDAO {
 			pstmt.setInt(6, pick.getScore());
 			pstmt.setInt(7, pick.getDmg());
 			pstmt.setDouble(8, pick.getMul());
-			pstmt.setString(9, vo.getId());
+			pstmt.setString(9, pick.getUserId());
 			result=pstmt.executeUpdate();			
 			
 		} catch (Exception e) {

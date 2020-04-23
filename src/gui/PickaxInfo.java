@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 public class PickaxInfo extends JFrame{
 	private JPanel contentPane;
 	private JLabel lblNewLabel_1, lblNewLabel_3, lblNewLabel_5;
-	private Pickax pick = new Pickax();
+	private Pickax pick;
 	
 //	private ClickerDAO dao;
 //	/**
@@ -42,7 +42,7 @@ public class PickaxInfo extends JFrame{
 	 * Create the frame.
 	 */
 	public PickaxInfo() {
-
+		pick=new Pickax();
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -81,19 +81,9 @@ public class PickaxInfo extends JFrame{
 		panel.add(lblNewLabel_5);
 	}
 	
-<<<<<<< HEAD
-	public void itemInfo(ClickerUserVO userVO) {
-		lblNewLabel_1.setText(userVO.getPickName());
-		lblNewLabel_3.setText(userVO.getDamage()+"");
-		lblNewLabel_5.setText(userVO.getDurability()+"");		
+	public void itemInfo(ClickerUserVO vo) {
+		lblNewLabel_1.setText(vo.getPickName());
+		lblNewLabel_3.setText(vo.getDamage()+"");
+		lblNewLabel_5.setText(vo.getDurability()+"");		
 	}
-=======
-//	public void itemInfo(ClickerUserVO userVO) {
-//		ClickerItemVO itemVO=dao.searchItem(userVO.getPickName(), userVO.getCurrentEnhance());
-//		lblNewLabel_1.setText(userVO.getPickName());
-//		lblNewLabel_3.setText(itemVO.getAttack()+"");
-//		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");		
-//	}
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 }
-

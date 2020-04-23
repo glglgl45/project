@@ -149,7 +149,7 @@ public class SignUp extends JFrame implements ActionListener {
 						JOptionPane.showMessageDialog(this, "가입 완료");
 						pick.setUserId(txtID.getText());
 						MiddlePage mp = new MiddlePage();
-						mp.playInfo(userVO);
+						mp.playInfo();
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
 					}				
