@@ -151,6 +151,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		btntitanium4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override

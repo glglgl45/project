@@ -151,6 +151,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineStone.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -162,7 +163,7 @@ public class MineStone extends JFrame implements ActionListener {
 		contentPane.add(back);
 		
 		btnStone5 = new JButton(wood.name+" : "+wood.hp);
-		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/wood.png")));
 		contentPane.add(btnStone5);
 		btnStone5.addActionListener(this);
 	}

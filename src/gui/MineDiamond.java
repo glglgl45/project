@@ -151,6 +151,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btndiamond4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override

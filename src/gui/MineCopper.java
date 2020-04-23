@@ -151,6 +151,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		btncopper4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
