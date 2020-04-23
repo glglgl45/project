@@ -111,8 +111,7 @@ public class Login extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		ClickerUserVO userVO=null;
-		if(e.getActionCommand().equals("로그인")) {
-			
+		if(e.getActionCommand().equals("로그인")) {			
 			userVO=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요			
 			if(userVO.getId().equals(txtID.getText()) && userVO.getPwd().equals(txtPW.getText())) {	//passwordtxtfield getText()메서드 대체 메서드 필요				
 				MiddlePage mp = new MiddlePage();

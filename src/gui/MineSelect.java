@@ -78,7 +78,7 @@ public class MineSelect extends JFrame {
 		lblNewLabel_1 = new JLabel("소지금 : 9999");
 		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
 		
-		btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
+		btnpi = new JButton("돌 곡괭이 +3 / 내구도 : 100");
 		btnpi.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -157,6 +157,6 @@ public class MineSelect extends JFrame {
 		lblNewLabel.setText("ID : "+userVO.getId());
 		lblNewLabel_1.setText("소지금 : "+userVO.getGold()+"");
 		btnNewButton_2.setText("점수 : "+userVO.getScore());
-		btnpi.setText(userVO.getItemName()+" +"+userVO.getCurrentEnhance()+" 내구도 : "+userVO.getCurrentDurability());
+		btnpi.setText(userVO.getPickName()+" +"+userVO.getCurrentEnhance()+" 내구도 : "+userVO.getCurrentDurability());
 	}
 }
