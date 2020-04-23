@@ -55,6 +55,7 @@ public class MineStone extends JFrame implements ActionListener {
 	public MineStone() {
 		pick = new Pickax();
 		pick.infoPick();
+		pick.setScore(pick.getScore()-pick.getPickLevel());
 		stone1 = new Stone();
 		stone2 = new Stone();
 		stone3 = new Stone();
