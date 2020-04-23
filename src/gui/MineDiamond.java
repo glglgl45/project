@@ -164,7 +164,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		contentPane.add(back);
 		
 		btndiamond5 = new JButton(diamondWall.name);
-		btndiamond5.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamondwall.png")));
+		btndiamond5.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamondwall.jpg")));
 		contentPane.add(btndiamond5);
 		btndiamond5.addActionListener(this);
 	}
