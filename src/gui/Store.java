@@ -168,7 +168,7 @@ public class Store extends JFrame implements ActionListener{
 		JLabel lblNewLabel_1 = new JLabel("공격력");
 		panel_5.add(lblNewLabel_1);
 		
-		txtAttack = new JTextField(pick.getDmg());
+		txtAttack = new JTextField();
 		txtAttack.setEditable(false);
 		panel_5.add(txtAttack);
 		txtAttack.setColumns(10);
