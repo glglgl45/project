@@ -185,6 +185,10 @@ public class MineDiamond extends JFrame implements ActionListener {
 		}
 		if (e.getSource()==btndiamond5) {
 			hitdiamond5();
+			if(diamondWall.hp==0) { // diamondWall의 hp가 다 닳았을 때
+				dispose();
+				GameClear gc = new GameClear();
+			}
 		}
 	}
 	
