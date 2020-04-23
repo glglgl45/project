@@ -97,7 +97,7 @@ public class ClickerDAO {
 	//데이터 저장
 	public int saveUser(ClickerUserVO vo) {
 		int result=0;
-		String sql="update ClickerUserInfo set pickname=?, enhance=?, picklevel=?, durability=?, gold=?, score=? where id=?";
+		String sql="update ClickerUserInfo set pickname=?, enhance=?, picklevel=?, durability=?, gold=?, score=?, damage=?, mul=? where id=?";
 		
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)) {
@@ -109,7 +109,8 @@ public class ClickerDAO {
 			pstmt.setInt(5, pick.getMoney());
 			pstmt.setInt(6, pick.getScore());
 			pstmt.setInt(7, pick.getDmg());
-			pstmt.setString(8, vo.getId());
+			pstmt.setDouble(8, pick.getMul());
+			pstmt.setString(9, vo.getId());
 			result=pstmt.executeUpdate();			
 			
 		} catch (Exception e) {

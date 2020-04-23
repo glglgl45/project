@@ -138,14 +138,16 @@ public class SignUp extends JFrame implements ActionListener {
 					userVO.setScore(pick.getScore());
 					userVO.setPickName(pick.getPickName());
 					userVO.setDamage(pick.getDmg());
+					userVO.setMul(pick.getMul());
 					
-					txtID.setText("");
+//					txtID.setText("");
 					passwordField.setText("");
 					passwordField_1.setText("");						
 					
 					int result=dao.insertUser(userVO);
 					if(result>0) {						
 						JOptionPane.showMessageDialog(this, "가입 완료");
+						pick.setUserId(txtID.getText());
 						MiddlePage mp = new MiddlePage();
 						mp.playInfo(userVO);
 					}else {

@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
+import system.Pickax;
 
 import java.awt.GridLayout;
 import javax.swing.JLabel;
@@ -18,8 +19,9 @@ import javax.swing.SwingConstants;
 public class PickaxInfo extends JFrame{
 	private JPanel contentPane;
 	private JLabel lblNewLabel_1, lblNewLabel_3, lblNewLabel_5;
+	private Pickax pick = new Pickax();
 	
-	private ClickerDAO dao;
+//	private ClickerDAO dao;
 //	/**
 //	 * Launch the application.
 //	 */
@@ -48,7 +50,7 @@ public class PickaxInfo extends JFrame{
 		setContentPane(contentPane);
 		setVisible(true);
 		
-		dao=new ClickerDAO();
+//		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -58,7 +60,7 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1 = new JLabel(pick.getPickName() + " +" + pick.getLevel());
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
 		
@@ -66,7 +68,7 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_2);
 		
-		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3 = new JLabel(pick.getDmg()+"");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_3);
 		
@@ -74,15 +76,24 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_4);
 		
-		lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5 = new JLabel(pick.getDura()+"");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_5);
 	}
 	
+<<<<<<< HEAD
 	public void itemInfo(ClickerUserVO userVO) {
 		lblNewLabel_1.setText(userVO.getPickName());
 		lblNewLabel_3.setText(userVO.getDamage()+"");
 		lblNewLabel_5.setText(userVO.getDurability()+"");		
 	}
+=======
+//	public void itemInfo(ClickerUserVO userVO) {
+//		ClickerItemVO itemVO=dao.searchItem(userVO.getPickName(), userVO.getCurrentEnhance());
+//		lblNewLabel_1.setText(userVO.getPickName());
+//		lblNewLabel_3.setText(itemVO.getAttack()+"");
+//		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");		
+//	}
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 }
 

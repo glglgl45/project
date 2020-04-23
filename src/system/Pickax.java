@@ -7,10 +7,20 @@ public class Pickax {
 	private static int dmg = 3;
 	private static int level = 0;
 	private static double mul = 1;
-	private static int money;
+	private static int money=0;
 	private static int pickLevel = 1;
 	private static int dura = 100;
 	private static int score = 99999;
+	private static String userId;
+	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		Pickax.userId = userId;
+	}
+
 	
 	public int getScore() {
 		return score;
@@ -87,6 +97,14 @@ public class Pickax {
 		pickLevel = 1;
 		dura = 100;
 	}
+	public double getMul() {
+		return mul;
+	}
+
+	public void setMul(double mul) {
+		Pickax.mul = mul;
+	}
+
 	public void copperPick() {
 		pickName = "구리 곡괭이";
 		dmg = 15;

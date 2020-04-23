@@ -17,7 +17,7 @@ import dbguide.ClickerUserVO;
 import gui.MainPage;
 import system.Pickax;
 
-public class MineSelect extends JFrame {
+public class MineSelect extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel, lblNewLabel_1;
@@ -97,6 +97,14 @@ public class MineSelect extends JFrame {
 		panel_1.add(panel_3, BorderLayout.CENTER);
 		
 		JButton btnNewButton = new JButton("돌 곡괭이 0");
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+				
+			}
+		});
 		panel_3.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
@@ -177,4 +185,16 @@ public class MineSelect extends JFrame {
 		btnNewButton_2.setText("점수 : "+userVO.getScore());
 		btnpi.setText(userVO.getPickName()+" +"+userVO.getEnhance()+" 내구도 : "+userVO.getDurability());
 	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	
 }
