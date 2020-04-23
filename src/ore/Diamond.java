@@ -4,8 +4,8 @@ public class Diamond extends Ore {
 
 	public Diamond() {
 		super();
-		super.hp = 1800;
+		super.hp = 1000;
 		super.name = "diamond";
-		super.reward = 80;
+		super.reward = 600;
 	}	
 }

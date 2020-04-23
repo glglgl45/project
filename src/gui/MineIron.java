@@ -47,11 +47,11 @@ public class MineIron extends JFrame implements ActionListener {
 	public MineIron() {
 		pick = new Pickax();
 		pick.infoPick();
-		steel1 = new Steel();
-		steel2 = new Steel();
-		steel3 = new Steel();
-		steel4 = new Steel();
-		steel5 = new Steel();
+		steel1 = new Iron();
+		steel2 = new Iron();
+		steel3 = new Iron();
+		steel4 = new Iron();
+		steel5 = new Iron();
 
 		setBounds(100, 100, 450, 300);
 		mainPanel = new JPanel();

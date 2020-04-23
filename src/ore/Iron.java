@@ -1,11 +1,11 @@
 package ore;
 
-public class Steel extends Ore {
+public class Iron extends Ore {
 
-	public Steel() {
+	public Iron() {
 		super();
 		super.hp = 250;
 		super.name = "steel";
-		super.reward = 30;
+		super.reward = 90;
 	}	
 }

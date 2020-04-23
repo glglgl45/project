@@ -6,6 +6,6 @@ public class Titanium extends Ore {
 		super();
 		super.hp = 700;
 		super.name = "titanium";
-		super.reward = 50;
+		super.reward = 350;
 	}	
 }
