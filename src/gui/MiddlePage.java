@@ -96,6 +96,7 @@ public class MiddlePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				userVO=dao.searchUser(lblNewLabel_1.getText());
+				System.out.println(lblNewLabel_1.getText());
 				PickaxInfo pic = new PickaxInfo();
 				int result=dao.saveUser(userVO);
 				if(result>0) {

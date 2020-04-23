@@ -123,9 +123,6 @@ public class SignUp extends JFrame implements ActionListener {
 			ClickerUserVO userVO = new ClickerUserVO();
 			
 			userVO.setItemName("돌곡괭이");	//최초 시작 무기 설정
-			userVO.setCurrentEnhance(0);
-			userVO.setCurrentDurability(9);			
-			userVO.setGold(100);
 			
 			if(txtID.getText()!=null && txtPW.getText()!=null && textField.getText()!=null) {
 				if(txtPW.getText().equals(textField.getText())) {	//비밀번호-비밀번호 확인의 정보 비교
