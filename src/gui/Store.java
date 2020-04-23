@@ -31,6 +31,7 @@ import javax.swing.JTextField;
 public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
+	private JButton btnRepair,btnEvol,btnUpgrade;
 	
 	private ClickerDAO dao;
 	private JTextField txtItemName;
@@ -82,28 +83,18 @@ public class Store extends JFrame implements ActionListener{
 		panel_1.add(panel_11, BorderLayout.CENTER);
 		panel_11.setLayout(new GridLayout(1, 1, 0, 0));
 		
-		JButton btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
-		btnRepair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				grade.fixPick();
-			}
-		});
+		btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
 //		btnRepair.setBorderPainted(false);
 		btnRepair.setContentAreaFilled(false);
 		btnRepair.setFocusPainted(false);
 		panel_11.add(btnRepair);
 		
-		JButton btnEvol = new JButton("진화하기");
-<<<<<<< HEAD
-		btnEvol.setIcon(new ImageIcon(Store.class.getResource("/gui/evolve.PNG")));
-		panel_1.add(btnEvol);
+		btnEvol = new JButton(new ImageIcon(getClass().getResource("evolve.PNG")));
 		btnEvol.addActionListener(this);
-=======
 		btnEvol.setBorderPainted(false);
 		panel_11.add(btnEvol);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
-		JButton btnUpgrade = new JButton(new ImageIcon(getClass().getResource("upgrade.png")));
+		btnUpgrade = new JButton(new ImageIcon(getClass().getResource("upgrade.png")));
 		btnUpgrade.setFocusPainted(false);
 		btnUpgrade.setBorderPainted(false);
 		panel_11.add(btnUpgrade);
@@ -218,11 +209,13 @@ public class Store extends JFrame implements ActionListener{
 				dispose();
 				MiddlePage m = new MiddlePage();
 			}
+		}if(e.getSource()==btnRepair) {
+			grade.fixPick();
 		}
-		if(e.getActionCommand().equals("진화하기")) {
+		if(e.getSource()==btnEvol) {
 			grade.evol();
 		}
-		if(e.getActionCommand().equals("강화하기")) {
+		if(e.getSource()==btnUpgrade) {
 			grade.upgrade();
 		}
 	}
