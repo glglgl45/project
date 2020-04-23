@@ -55,6 +55,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	public MineCopper() {
 		pick = new Pickax();
 		pick.infoPick();
+		pick.setScore(pick.getScore()-pick.getPickLevel());
 		copper1 = new Copper();
 		copper2 = new Copper();
 		copper3 = new Copper();
