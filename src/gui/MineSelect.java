@@ -20,7 +20,7 @@ public class MineSelect extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel, lblNewLabel_1;
-	private JButton btnNewButton_2;
+	private JButton btnNewButton_2, btnpi;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -78,7 +78,7 @@ public class MineSelect extends JFrame {
 		lblNewLabel_1 = new JLabel("소지금 : 9999");
 		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
 		
-		JButton btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
+		btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
 		btnpi.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -154,8 +154,9 @@ public class MineSelect extends JFrame {
 	}
 	
 	public void mineInfo(ClickerUserVO userVO) {
-		lblNewLabel.setText(userVO.getId());
-		lblNewLabel_1.setText(userVO.getGold()+"");
-		btnNewButton_2.setText(userVO.getScore()+"");
+		lblNewLabel.setText("ID : "+userVO.getId());
+		lblNewLabel_1.setText("소지금 : "+userVO.getGold()+"");
+		btnNewButton_2.setText("점수 : "+userVO.getScore());
+		btnpi.setText(userVO.getItemName()+" +"+userVO.getCurrentEnhance()+" 내구도 : "+userVO.getCurrentDurability());
 	}
 }
