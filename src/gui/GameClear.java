@@ -12,7 +12,7 @@ public class GameClear extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Launch the application.clear
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
