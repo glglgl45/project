@@ -84,13 +84,13 @@ public class Store extends JFrame implements ActionListener{
 		panel_11.setLayout(new GridLayout(1, 1, 0, 0));
 		
 		btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
-//		btnRepair.setBorderPainted(false);
-		btnRepair.setContentAreaFilled(false);
+		btnRepair.setBorderPainted(false);
 		btnRepair.setFocusPainted(false);
+//		btnRepair.setContentAreaFilled(false);
 		panel_11.add(btnRepair);
 		
 		btnEvol = new JButton(new ImageIcon(getClass().getResource("evolve.PNG")));
-		btnEvol.addActionListener(this);
+		btnEvol.setFocusPainted(false);
 		btnEvol.setBorderPainted(false);
 		panel_11.add(btnEvol);
 		
