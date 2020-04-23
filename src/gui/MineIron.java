@@ -151,6 +151,7 @@ public class MineIron extends JFrame implements ActionListener {
 		btniron4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineIron.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
