@@ -36,6 +36,7 @@ public class MineStone extends JFrame implements ActionListener {
 	private JButton btnStone5;
 	private JLabel labelMoney;
 	private JLabel lavelDura;
+	private JButton btnScore;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -90,8 +91,9 @@ public class MineStone extends JFrame implements ActionListener {
 		});
 		panel_0.add(btnLogout, BorderLayout.EAST);
 		
-		JButton btnNewButton_2 = new JButton("점수 : " + pick.getScore());
-		panel_0.add(btnNewButton_2, BorderLayout.WEST);
+		btnScore = new JButton("점수 : " + pick.getScore());
+		panel_0.add(btnScore, BorderLayout.WEST);
+		btnScore.addActionListener(this);
 		
 		JPanel panel_1 = new JPanel();
 		mainPanel.add(panel_1, BorderLayout.SOUTH);
@@ -178,6 +180,8 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone1.setText(stone1.name+" : "+ stone1.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		
 	}
 	public void hitStone2() {
 		pick.infoPick();
@@ -185,6 +189,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone2.setText(stone2.name+" : " + stone2.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitStone3() {
 		pick.infoPick();
@@ -192,6 +197,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone3.setText(stone3.name+" : "+ stone3.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitStone4() {
 		pick.infoPick();
@@ -199,6 +205,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone4.setText(stone4.name+" : "+ stone4.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitStone5() {
 		pick.infoPick();
@@ -206,5 +213,6 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone5.setText(stone5.name+" : "+ stone5.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 }

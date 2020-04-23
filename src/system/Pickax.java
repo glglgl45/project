@@ -128,9 +128,11 @@ public class Pickax {
 		if(getDura() > 0) {
 			double atk = dmg * mul;
 			setDura(getDura()-1);
+			setScore(getScore()-1);
 			return (int) atk;
 		} else {
 			double atk = 0;
+			setScore(getScore()-1);
 			return (int) atk;
 		}
 	}
