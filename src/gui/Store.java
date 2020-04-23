@@ -92,6 +92,7 @@ public class Store extends JFrame implements ActionListener{
 		panel_1.add(btnRepair);
 		
 		JButton btnEvol = new JButton("진화하기");
+		btnEvol.setIcon(new ImageIcon(Store.class.getResource("/gui/evolve.PNG")));
 		panel_1.add(btnEvol);
 		btnEvol.addActionListener(this);
 		
