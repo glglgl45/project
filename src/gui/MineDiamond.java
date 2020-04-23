@@ -55,7 +55,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 	public MineDiamond() {
 		pick = new Pickax();
 		pick.infoPick();
-		pick.setScore(pick.getScore()-pick.getPickLevel());
+		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
 		diamond1 = new Diamond();
 		diamond2 = new Diamond();
 		diamond3 = new Diamond();
