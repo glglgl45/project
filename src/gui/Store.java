@@ -81,6 +81,11 @@ public class Store extends JFrame implements ActionListener{
 		
 		Image image;
 		JButton btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
+		btnRepair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				grade.fixPick();
+			}
+		});
 		btnRepair.setBorderPainted(false);
 		btnRepair.setContentAreaFilled(false);
 		btnRepair.setFocusPainted(false);

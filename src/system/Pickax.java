@@ -85,26 +85,31 @@ public class Pickax {
 		pickName = "돌 곡괭이";
 		dmg = 3;
 		pickLevel = 1;
+		dura = 100;
 	}
 	public void copperPick() {
 		pickName = "구리 곡괭이";
 		dmg = 10;
 		pickLevel = 2;
+		dura = 100;
 	}
 	public void ironPick() {
 		pickName = "철 곡괭이";
 		dmg = 30;
 		pickLevel = 3;
+		dura = 100;
 	}
 	public void titaniumPick() {
 		pickName = "티타늄 곡괭이";
 		dmg = 50;
 		pickLevel = 4;
+		dura = 100;
 	}
 	public void diamondPick() {
 		pickName = "다이아 곡괭이";
 		dmg = 80;
 		pickLevel = 5;
+		dura = 100;
 	}
 	
 	public double multi () {
@@ -132,6 +137,7 @@ public class Pickax {
 			return (int) atk;
 		} else {
 			double atk = 0;
+			System.out.println("내구도가 부족합니다.");
 			setScore(getScore()-1);
 			return (int) atk;
 		}
