@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Clear extends JFrame {
+public class GameClear extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class Clear extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Clear frame = new Clear();
+					GameClear frame = new GameClear();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class Clear extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Clear() {
+	public GameClear() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
