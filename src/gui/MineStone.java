@@ -103,8 +103,14 @@ public class MineStone extends JFrame implements ActionListener {
 		JPanel panel_2 = new JPanel();
 		panel_1.add(panel_2, BorderLayout.CENTER);
 		
-		JButton btnNewButton = new JButton(pick.getPickName() + " " + pick.getLevel());
-		panel_2.add(btnNewButton);
+		JButton btnpi = new JButton(pick.getPickName() + " " + pick.getLevel());
+		btnpi.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+			}
+		});
+		panel_2.add(btnpi);
 		
 		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
 		panel_2.add(lblNewLabel_2);

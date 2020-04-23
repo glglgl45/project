@@ -100,8 +100,14 @@ public class MineDiamond extends JFrame implements ActionListener {
 		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
 		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
 		
-		JButton btnNewButton = new JButton("돌 곡괭이 +3 내구도 : 100");
-		panel_1.add(btnNewButton, BorderLayout.CENTER);
+		JButton btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
+		btnpi.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+			}
+		});
+		panel_1.add(btnpi, BorderLayout.CENTER);
 		
 		btnDiamond1 = new JButton(diamond1.name+" : "+diamond1.hp);
 		contentPane.add(btnDiamond1);
