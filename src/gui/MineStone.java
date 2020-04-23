@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class MineStone extends JFrame implements ActionListener {
 
@@ -60,7 +61,7 @@ public class MineStone extends JFrame implements ActionListener {
 		stone4 = new Stone();
 		stone5 = new Stone();
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
@@ -130,18 +131,22 @@ public class MineStone extends JFrame implements ActionListener {
 		panel.add(labelMoney);
 		
 		btnStone1 = new JButton(stone1.name+" : "+stone1.hp);
+		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone1);
 		btnStone1.addActionListener(this);
 		
 		btnStone2 = new JButton(stone2.name+" : "+stone2.hp);
+		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone2);
 		btnStone2.addActionListener(this);
 		
 		btnStone3 = new JButton(stone3.name+" : "+stone3.hp);
+		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone3);
 		btnStone3.addActionListener(this);
 		
 		btnStone4 = new JButton(stone4.name+" : "+stone4.hp);
+		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone4);
 		btnStone4.addActionListener(this);
 		
@@ -157,6 +162,7 @@ public class MineStone extends JFrame implements ActionListener {
 		contentPane.add(back);
 		
 		btnStone5 = new JButton(stone5.name+" : "+stone5.hp);
+		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone5);
 		btnStone5.addActionListener(this);
 	}

@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class MineTitanium extends JFrame implements ActionListener {
 
@@ -29,11 +30,11 @@ public class MineTitanium extends JFrame implements ActionListener {
 	private Ore titanium3;
 	private Ore titanium4;
 	private Ore titanium5;
-	private JButton btnTitanium1;
-	private JButton btnTitanium2;
-	private JButton btnTitanium3;
-	private JButton btnTitanium4;
-	private JButton btnTitanium5;
+	private JButton btntitanium1;
+	private JButton btntitanium2;
+	private JButton btntitanium3;
+	private JButton btntitanium4;
+	private JButton btntitanium5;
 	private JLabel labelMoney;
 	private JLabel lavelDura;
 	private JButton btnScore;
@@ -60,7 +61,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		titanium4 = new Titanium();
 		titanium5 = new Titanium();
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
@@ -129,21 +130,25 @@ public class MineTitanium extends JFrame implements ActionListener {
 		labelMoney = new JLabel(pick.getMoney()+"");
 		panel.add(labelMoney);
 		
-		btnTitanium1 = new JButton(titanium1.name+" : "+titanium1.hp);
-		contentPane.add(btnTitanium1);
-		btnTitanium1.addActionListener(this);
+		btntitanium1 = new JButton(titanium1.name+" : "+titanium1.hp);
+		btntitanium1.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		contentPane.add(btntitanium1);
+		btntitanium1.addActionListener(this);
 		
-		btnTitanium2 = new JButton(titanium2.name+" : "+titanium2.hp);
-		contentPane.add(btnTitanium2);
-		btnTitanium2.addActionListener(this);
+		btntitanium2 = new JButton(titanium2.name+" : "+titanium2.hp);
+		btntitanium2.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		contentPane.add(btntitanium2);
+		btntitanium2.addActionListener(this);
 		
-		btnTitanium3 = new JButton(titanium3.name+" : "+titanium3.hp);
-		contentPane.add(btnTitanium3);
-		btnTitanium3.addActionListener(this);
+		btntitanium3 = new JButton(titanium3.name+" : "+titanium3.hp);
+		btntitanium3.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		contentPane.add(btntitanium3);
+		btntitanium3.addActionListener(this);
 		
-		btnTitanium4 = new JButton(titanium4.name+" : "+titanium4.hp);
-		contentPane.add(btnTitanium4);
-		btnTitanium4.addActionListener(this);
+		btntitanium4 = new JButton(titanium4.name+" : "+titanium4.hp);
+		btntitanium4.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		contentPane.add(btntitanium4);
+		btntitanium4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
 		back.addActionListener(new ActionListener() {
@@ -156,26 +161,27 @@ public class MineTitanium extends JFrame implements ActionListener {
 		});
 		contentPane.add(back);
 		
-		btnTitanium5 = new JButton(titanium5.name+" : "+titanium5.hp);
-		contentPane.add(btnTitanium5);
-		btnTitanium5.addActionListener(this);
+		btntitanium5 = new JButton(titanium5.name+" : "+titanium5.hp);
+		btntitanium5.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		contentPane.add(btntitanium5);
+		btntitanium5.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btnTitanium1) {
+		if (e.getSource()==btntitanium1) {
 			hittitanium1();
 		}
-		if (e.getSource()==btnTitanium2) {
+		if (e.getSource()==btntitanium2) {
 			hittitanium2();
 		}
-		if (e.getSource()==btnTitanium3) {
+		if (e.getSource()==btntitanium3) {
 			hittitanium3();
 		}
-		if (e.getSource()==btnTitanium4) {
+		if (e.getSource()==btntitanium4) {
 			hittitanium4();
 		}
-		if (e.getSource()==btnTitanium5) {
+		if (e.getSource()==btntitanium5) {
 			hittitanium5();
 		}
 	}
@@ -183,7 +189,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 	public void hittitanium1() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium1.hit(pick.atk()));
-		btnTitanium1.setText(titanium1.name+" : "+ titanium1.hp);
+		btntitanium1.setText(titanium1.name+" : "+ titanium1.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -192,7 +198,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 	public void hittitanium2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium2.hit(pick.atk()));
-		btnTitanium2.setText(titanium2.name+" : " + titanium2.hp);
+		btntitanium2.setText(titanium2.name+" : " + titanium2.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -200,7 +206,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 	public void hittitanium3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium3.hit(pick.atk()));
-		btnTitanium3.setText(titanium3.name+" : "+ titanium3.hp);
+		btntitanium3.setText(titanium3.name+" : "+ titanium3.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -208,7 +214,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 	public void hittitanium4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium4.hit(pick.atk()));
-		btnTitanium4.setText(titanium4.name+" : "+ titanium4.hp);
+		btntitanium4.setText(titanium4.name+" : "+ titanium4.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -216,7 +222,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 	public void hittitanium5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium5.hit(pick.atk()));
-		btnTitanium5.setText(titanium5.name+" : "+ titanium5.hp);
+		btntitanium5.setText(titanium5.name+" : "+ titanium5.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());

@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class MineIron extends JFrame implements ActionListener {
 
@@ -29,11 +30,11 @@ public class MineIron extends JFrame implements ActionListener {
 	private Ore iron3;
 	private Ore iron4;
 	private Ore iron5;
-	private JButton btnIron1;
-	private JButton btnIron2;
-	private JButton btnIron3;
-	private JButton btnIron4;
-	private JButton btnIron5;
+	private JButton btniron1;
+	private JButton btniron2;
+	private JButton btniron3;
+	private JButton btniron4;
+	private JButton btniron5;
 	private JLabel labelMoney;
 	private JLabel lavelDura;
 	private JButton btnScore;
@@ -60,7 +61,7 @@ public class MineIron extends JFrame implements ActionListener {
 		iron4 = new Iron();
 		iron5 = new Iron();
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
@@ -129,21 +130,25 @@ public class MineIron extends JFrame implements ActionListener {
 		labelMoney = new JLabel(pick.getMoney()+"");
 		panel.add(labelMoney);
 		
-		btnIron1 = new JButton(iron1.name+" : "+iron1.hp);
-		contentPane.add(btnIron1);
-		btnIron1.addActionListener(this);
+		btniron1 = new JButton(iron1.name+" : "+iron1.hp);
+		btniron1.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		contentPane.add(btniron1);
+		btniron1.addActionListener(this);
 		
-		btnIron2 = new JButton(iron2.name+" : "+iron2.hp);
-		contentPane.add(btnIron2);
-		btnIron2.addActionListener(this);
+		btniron2 = new JButton(iron2.name+" : "+iron2.hp);
+		btniron2.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		contentPane.add(btniron2);
+		btniron2.addActionListener(this);
 		
-		btnIron3 = new JButton(iron3.name+" : "+iron3.hp);
-		contentPane.add(btnIron3);
-		btnIron3.addActionListener(this);
+		btniron3 = new JButton(iron3.name+" : "+iron3.hp);
+		btniron3.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		contentPane.add(btniron3);
+		btniron3.addActionListener(this);
 		
-		btnIron4 = new JButton(iron4.name+" : "+iron4.hp);
-		contentPane.add(btnIron4);
-		btnIron4.addActionListener(this);
+		btniron4 = new JButton(iron4.name+" : "+iron4.hp);
+		btniron4.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		contentPane.add(btniron4);
+		btniron4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
 		back.addActionListener(new ActionListener() {
@@ -156,26 +161,27 @@ public class MineIron extends JFrame implements ActionListener {
 		});
 		contentPane.add(back);
 		
-		btnIron5 = new JButton(iron5.name+" : "+iron5.hp);
-		contentPane.add(btnIron5);
-		btnIron5.addActionListener(this);
+		btniron5 = new JButton(iron5.name+" : "+iron5.hp);
+		btniron5.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		contentPane.add(btniron5);
+		btniron5.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btnIron1) {
+		if (e.getSource()==btniron1) {
 			hitiron1();
 		}
-		if (e.getSource()==btnIron2) {
+		if (e.getSource()==btniron2) {
 			hitiron2();
 		}
-		if (e.getSource()==btnIron3) {
+		if (e.getSource()==btniron3) {
 			hitiron3();
 		}
-		if (e.getSource()==btnIron4) {
+		if (e.getSource()==btniron4) {
 			hitiron4();
 		}
-		if (e.getSource()==btnIron5) {
+		if (e.getSource()==btniron5) {
 			hitiron5();
 		}
 	}
@@ -183,7 +189,7 @@ public class MineIron extends JFrame implements ActionListener {
 	public void hitiron1() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + iron1.hit(pick.atk()));
-		btnIron1.setText(iron1.name+" : "+ iron1.hp);
+		btniron1.setText(iron1.name+" : "+ iron1.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -192,7 +198,7 @@ public class MineIron extends JFrame implements ActionListener {
 	public void hitiron2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + iron2.hit(pick.atk()));
-		btnIron2.setText(iron2.name+" : " + iron2.hp);
+		btniron2.setText(iron2.name+" : " + iron2.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -200,7 +206,7 @@ public class MineIron extends JFrame implements ActionListener {
 	public void hitiron3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + iron3.hit(pick.atk()));
-		btnIron3.setText(iron3.name+" : "+ iron3.hp);
+		btniron3.setText(iron3.name+" : "+ iron3.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -208,7 +214,7 @@ public class MineIron extends JFrame implements ActionListener {
 	public void hitiron4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + iron4.hit(pick.atk()));
-		btnIron4.setText(iron4.name+" : "+ iron4.hp);
+		btniron4.setText(iron4.name+" : "+ iron4.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -216,7 +222,7 @@ public class MineIron extends JFrame implements ActionListener {
 	public void hitiron5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + iron5.hit(pick.atk()));
-		btnIron5.setText(iron5.name+" : "+ iron5.hp);
+		btniron5.setText(iron5.name+" : "+ iron5.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());

@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class MineCopper extends JFrame implements ActionListener {
 
@@ -29,11 +30,11 @@ public class MineCopper extends JFrame implements ActionListener {
 	private Ore copper3;
 	private Ore copper4;
 	private Ore copper5;
-	private JButton btnCopper1;
-	private JButton btnCopper2;
-	private JButton btnCopper3;
-	private JButton btnCopper4;
-	private JButton btnCopper5;
+	private JButton btncopper1;
+	private JButton btncopper2;
+	private JButton btncopper3;
+	private JButton btncopper4;
+	private JButton btncopper5;
 	private JLabel labelMoney;
 	private JLabel lavelDura;
 	private JButton btnScore;
@@ -60,7 +61,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		copper4 = new Copper();
 		copper5 = new Copper();
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
@@ -129,21 +130,25 @@ public class MineCopper extends JFrame implements ActionListener {
 		labelMoney = new JLabel(pick.getMoney()+"");
 		panel.add(labelMoney);
 		
-		btnCopper1 = new JButton(copper1.name+" : "+copper1.hp);
-		contentPane.add(btnCopper1);
-		btnCopper1.addActionListener(this);
+		btncopper1 = new JButton(copper1.name+" : "+copper1.hp);
+		btncopper1.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper1);
+		btncopper1.addActionListener(this);
 		
-		btnCopper2 = new JButton(copper2.name+" : "+copper2.hp);
-		contentPane.add(btnCopper2);
-		btnCopper2.addActionListener(this);
+		btncopper2 = new JButton(copper2.name+" : "+copper2.hp);
+		btncopper2.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper2);
+		btncopper2.addActionListener(this);
 		
-		btnCopper3 = new JButton(copper3.name+" : "+copper3.hp);
-		contentPane.add(btnCopper3);
-		btnCopper3.addActionListener(this);
+		btncopper3 = new JButton(copper3.name+" : "+copper3.hp);
+		btncopper3.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper3);
+		btncopper3.addActionListener(this);
 		
-		btnCopper4 = new JButton(copper4.name+" : "+copper4.hp);
-		contentPane.add(btnCopper4);
-		btnCopper4.addActionListener(this);
+		btncopper4 = new JButton(copper4.name+" : "+copper4.hp);
+		btncopper4.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper4);
+		btncopper4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
 		back.addActionListener(new ActionListener() {
@@ -156,26 +161,27 @@ public class MineCopper extends JFrame implements ActionListener {
 		});
 		contentPane.add(back);
 		
-		btnCopper5 = new JButton(copper5.name+" : "+copper5.hp);
-		contentPane.add(btnCopper5);
-		btnCopper5.addActionListener(this);
+		btncopper5 = new JButton(copper5.name+" : "+copper5.hp);
+		btncopper5.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper5);
+		btncopper5.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btnCopper1) {
+		if (e.getSource()==btncopper1) {
 			hitcopper1();
 		}
-		if (e.getSource()==btnCopper2) {
+		if (e.getSource()==btncopper2) {
 			hitcopper2();
 		}
-		if (e.getSource()==btnCopper3) {
+		if (e.getSource()==btncopper3) {
 			hitcopper3();
 		}
-		if (e.getSource()==btnCopper4) {
+		if (e.getSource()==btncopper4) {
 			hitcopper4();
 		}
-		if (e.getSource()==btnCopper5) {
+		if (e.getSource()==btncopper5) {
 			hitcopper5();
 		}
 	}
@@ -183,7 +189,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	public void hitcopper1() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper1.hit(pick.atk()));
-		btnCopper1.setText(copper1.name+" : "+ copper1.hp);
+		btncopper1.setText(copper1.name+" : "+ copper1.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -192,7 +198,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	public void hitcopper2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper2.hit(pick.atk()));
-		btnCopper2.setText(copper2.name+" : " + copper2.hp);
+		btncopper2.setText(copper2.name+" : " + copper2.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -200,7 +206,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	public void hitcopper3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper3.hit(pick.atk()));
-		btnCopper3.setText(copper3.name+" : "+ copper3.hp);
+		btncopper3.setText(copper3.name+" : "+ copper3.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -208,7 +214,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	public void hitcopper4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper4.hit(pick.atk()));
-		btnCopper4.setText(copper4.name+" : "+ copper4.hp);
+		btncopper4.setText(copper4.name+" : "+ copper4.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
@@ -216,7 +222,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	public void hitcopper5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper5.hit(pick.atk()));
-		btnCopper5.setText(copper5.name+" : "+ copper5.hp);
+		btncopper5.setText(copper5.name+" : "+ copper5.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
