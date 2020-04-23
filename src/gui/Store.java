@@ -27,6 +27,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import java.awt.CardLayout;
 
 public class Store extends JFrame implements ActionListener{
 
@@ -34,12 +35,13 @@ public class Store extends JFrame implements ActionListener{
 	private JButton btnRepair,btnEvol,btnUpgrade;
 	
 	private ClickerDAO dao;
-	private JTextField txtItemName;
-	private JTextField txtAttack;
-	private JTextField txtDuribility;
 	private JLabel lblNewLabel_4, lblNewLabel_6;
 	private Pickax pick;
 	private Upgrade grade;
+	private JTextField txtPickDmg;
+	private JTextField txtPickDura;
+	private JTextField txtPickName;
+	private JTextField txtLevel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -157,31 +159,55 @@ public class Store extends JFrame implements ActionListener{
 		
 		JPanel panel_5 = new JPanel();
 		panel_2.add(panel_5);
-		panel_5.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_5.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("곡괭이 이름\n(강화수치)");
-		panel_5.add(lblNewLabel);
+		JPanel panel_9 = new JPanel();
+		panel_5.add(panel_9);
+		panel_9.setLayout(new BorderLayout(0, 0));
 		
-		txtItemName = new JTextField();
-		txtItemName.setEditable(false);
-		panel_5.add(txtItemName);
-		txtItemName.setColumns(10);
+		JPanel panel_13 = new JPanel();
+		panel_9.add(panel_13);
+		panel_13.setLayout(new GridLayout(1, 1, 0, 0));
+		
+		txtPickName = new JTextField();
+		txtPickName.setEditable(false);
+		txtPickName.setColumns(10);
+		panel_13.add(txtPickName);
+		
+		txtLevel = new JTextField();
+		txtLevel.setEditable(false);
+		txtLevel.setColumns(10);
+		panel_13.add(txtLevel);
+		
+		JLabel lblNewLabel = new JLabel("곡괭이 정보");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_9.add(lblNewLabel, BorderLayout.NORTH);
+		
+		JPanel panel_10 = new JPanel();
+		panel_5.add(panel_10);
+		panel_10.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel_1 = new JLabel("공격력");
-		panel_5.add(lblNewLabel_1);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_10.add(lblNewLabel_1);
 		
-		txtAttack = new JTextField();
-		txtAttack.setEditable(false);
-		panel_5.add(txtAttack);
-		txtAttack.setColumns(10);
+		txtPickDmg = new JTextField();
+		txtPickDmg.setEditable(false);
+		txtPickDmg.setColumns(10);
+		panel_10.add(txtPickDmg);
+		
+		JPanel panel_12 = new JPanel();
+		panel_5.add(panel_12);
+		panel_12.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel_2 = new JLabel("내구도");
-		panel_5.add(lblNewLabel_2);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_12.add(lblNewLabel_2);
 		
-		txtDuribility = new JTextField();
-		txtDuribility.setEditable(false);
-		panel_5.add(txtDuribility);
-		txtDuribility.setColumns(10);
+		txtPickDura = new JTextField();
+		txtPickDura.setEditable(false);
+		txtPickDura.setColumns(10);
+		panel_12.add(txtPickDura);
 	}	
 	@Override
 	public void actionPerformed(ActionEvent e) {
