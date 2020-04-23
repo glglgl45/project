@@ -21,7 +21,7 @@ public class MineSelect extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel, lblNewLabel_1;
-	private JButton btnNewButton_2;
+	private JButton btnNewButton_2,btnpi;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -83,6 +83,15 @@ public class MineSelect extends JFrame {
 		
 		lblNewLabel_1 = new JLabel("소지금 : "+pick.getMoney()+"");
 		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
+		
+		btnpi = new JButton("돌 곡괭이 +3 / 내구도 : 100");
+		btnpi.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+			}
+		});
+		panel_1.add(btnpi, BorderLayout.CENTER);
 		
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.CENTER);
@@ -166,5 +175,6 @@ public class MineSelect extends JFrame {
 		lblNewLabel.setText("ID : "+userVO.getId());
 		lblNewLabel_1.setText("소지금 : "+userVO.getGold()+"");
 		btnNewButton_2.setText("점수 : "+userVO.getScore());
+		btnpi.setText(userVO.getPickName()+" +"+userVO.getCurrentEnhance()+" 내구도 : "+userVO.getCurrentDurability());
 	}
 }

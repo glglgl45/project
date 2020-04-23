@@ -76,12 +76,11 @@ public class MiddlePage extends JFrame {
 		btnStore.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				userVO=dao.searchUser(lblNewLabel_1.getText());
 				dispose();
+				userVO=dao.searchUser(lblNewLabel_1.getText());	
 				Store s = new Store();
 				s.storeInfo(userVO);
 				s.setVisible(true);
-				dispose();
 			}
 		});
 		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/shop.png")));
@@ -97,7 +96,6 @@ public class MiddlePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				userVO=dao.searchUser(lblNewLabel_1.getText());
-				System.out.println(lblNewLabel_1.getText());
 				PickaxInfo pic = new PickaxInfo();
 				int result=dao.saveUser(userVO);
 				if(result>0) {
