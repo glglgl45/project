@@ -142,4 +142,17 @@ public class Pickax {
 			return (int) atk;
 		}
 	}
+	
+	public int atkWood() {
+		if(getDura() > 0) {
+			double atk = dmg * mul;
+			setDura(getDura()-1);
+			setScore(getScore()-1);
+			return (int) atk;
+		} else {
+			double atkWood = dmg/3;
+			setScore(getScore()-1);
+			return (int) atkWood;			
+		}
+	}
 }
