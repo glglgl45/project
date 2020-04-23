@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class MineStone extends JFrame implements ActionListener {
 
@@ -28,7 +29,7 @@ public class MineStone extends JFrame implements ActionListener {
 	private Ore stone2;
 	private Ore stone3;
 	private Ore stone4;
-	private Ore stone5;
+	private Ore wood;
 	private JButton btnStone1;
 	private JButton btnStone2;
 	private JButton btnStone3;
@@ -58,9 +59,9 @@ public class MineStone extends JFrame implements ActionListener {
 		stone2 = new Stone();
 		stone3 = new Stone();
 		stone4 = new Stone();
-		stone5 = new Stone();
+		wood = new Wood();
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
@@ -130,22 +131,27 @@ public class MineStone extends JFrame implements ActionListener {
 		panel.add(labelMoney);
 		
 		btnStone1 = new JButton(stone1.name+" : "+stone1.hp);
+		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone1);
 		btnStone1.addActionListener(this);
 		
 		btnStone2 = new JButton(stone2.name+" : "+stone2.hp);
+		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone2);
 		btnStone2.addActionListener(this);
 		
 		btnStone3 = new JButton(stone3.name+" : "+stone3.hp);
+		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone3);
 		btnStone3.addActionListener(this);
 		
 		btnStone4 = new JButton(stone4.name+" : "+stone4.hp);
+		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		contentPane.add(btnStone4);
 		btnStone4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineStone.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -156,7 +162,8 @@ public class MineStone extends JFrame implements ActionListener {
 		});
 		contentPane.add(back);
 		
-		btnStone5 = new JButton(stone5.name+" : "+stone5.hp);
+		btnStone5 = new JButton(wood.name+" : "+wood.hp);
+		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/wood.png")));
 		contentPane.add(btnStone5);
 		btnStone5.addActionListener(this);
 	}
@@ -215,8 +222,8 @@ public class MineStone extends JFrame implements ActionListener {
 	}
 	public void hitStone5() {
 		pick.infoPick();
-		pick.setMoney(pick.getMoney() + stone5.hit(pick.atk()));
-		btnStone5.setText(stone5.name+" : "+ stone5.hp);
+		pick.setMoney(pick.getMoney() + wood.hit(pick.atkWood()));
+		btnStone5.setText(wood.name+" : "+ wood.hp);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());

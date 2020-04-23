@@ -18,8 +18,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
-public class MineCopper extends JFrame implements ActionListener{
+public class MineCopper extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
@@ -28,11 +30,14 @@ public class MineCopper extends JFrame implements ActionListener{
 	private Ore copper3;
 	private Ore copper4;
 	private Ore copper5;
-	private JButton btnCopper1;
-	private JButton btnCopper2;
-	private JButton btnCopper3;
-	private JButton btnCopper4;
-	private JButton btnCopper5;
+	private JButton btncopper1;
+	private JButton btncopper2;
+	private JButton btncopper3;
+	private JButton btncopper4;
+	private JButton btncopper5;
+	private JLabel labelMoney;
+	private JLabel lavelDura;
+	private JButton btnScore;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -56,7 +61,7 @@ public class MineCopper extends JFrame implements ActionListener{
 		copper4 = new Copper();
 		copper5 = new Copper();
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
@@ -87,8 +92,9 @@ public class MineCopper extends JFrame implements ActionListener{
 		});
 		panel_0.add(btnLogout, BorderLayout.EAST);
 		
-		JButton btnNewButton_2 = new JButton("점수 : 999999");
-		panel_0.add(btnNewButton_2, BorderLayout.WEST);
+		btnScore = new JButton("점수 : " + pick.getScore());
+		panel_0.add(btnScore, BorderLayout.WEST);
+		btnScore.addActionListener(this);
 		
 		JPanel panel_1 = new JPanel();
 		mainPanel.add(panel_1, BorderLayout.SOUTH);
@@ -97,35 +103,55 @@ public class MineCopper extends JFrame implements ActionListener{
 		JLabel lblNewLabel = new JLabel("ID : 아이디");
 		panel_1.add(lblNewLabel, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
-		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
+		JPanel panel_2 = new JPanel();
+		panel_1.add(panel_2, BorderLayout.CENTER);
 		
-		JButton btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
+		JButton btnpi = new JButton(pick.getPickName() + " " + pick.getLevel());
 		btnpi.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PickaxInfo mc = new PickaxInfo();
 			}
 		});
-		panel_1.add(btnpi, BorderLayout.CENTER);
+		panel_2.add(btnpi);
 		
-		btnCopper1 = new JButton(copper1.name + " : " + copper1.hp);
-		contentPane.add(btnCopper1);
-		btnCopper1.addActionListener(this);
+		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
+		panel_2.add(lblNewLabel_2);
 		
-		btnCopper2 = new JButton(copper2.name + " : " + copper2.hp);
-		contentPane.add(btnCopper2);
-		btnCopper2.addActionListener(this);
+		lavelDura = new JLabel(pick.getDura()+"");
+		panel_2.add(lavelDura);
 		
-		btnCopper3 = new JButton(copper3.name + " : " + copper3.hp);
-		contentPane.add(btnCopper3);
-		btnCopper3.addActionListener(this);
+		JPanel panel = new JPanel();
+		panel_1.add(panel, BorderLayout.EAST);
 		
-		btnCopper4 = new JButton(copper4.name + " : " + copper4.hp);
-		contentPane.add(btnCopper4);
-		btnCopper4.addActionListener(this);
+		JLabel lblNewLabel_1 = new JLabel("소지금 : ");
+		panel.add(lblNewLabel_1);
+		
+		labelMoney = new JLabel(pick.getMoney()+"");
+		panel.add(labelMoney);
+		
+		btncopper1 = new JButton(copper1.name+" : "+copper1.hp);
+		btncopper1.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper1);
+		btncopper1.addActionListener(this);
+		
+		btncopper2 = new JButton(copper2.name+" : "+copper2.hp);
+		btncopper2.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper2);
+		btncopper2.addActionListener(this);
+		
+		btncopper3 = new JButton(copper3.name+" : "+copper3.hp);
+		btncopper3.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper3);
+		btncopper3.addActionListener(this);
+		
+		btncopper4 = new JButton(copper4.name+" : "+copper4.hp);
+		btncopper4.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper4);
+		btncopper4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -136,53 +162,70 @@ public class MineCopper extends JFrame implements ActionListener{
 		});
 		contentPane.add(back);
 		
-		btnCopper5 = new JButton(copper5.name + " : " + copper5.hp);
-		contentPane.add(btnCopper5);
-		btnCopper5.addActionListener(this);
+		btncopper5 = new JButton(copper5.name+" : "+copper5.hp);
+		btncopper5.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
+		contentPane.add(btncopper5);
+		btncopper5.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btnCopper1) {
-			hitCopper1();
+		if (e.getSource()==btncopper1) {
+			hitcopper1();
 		}
-		if (e.getSource()==btnCopper2) {
-			hitCopper2();
+		if (e.getSource()==btncopper2) {
+			hitcopper2();
 		}
-		if (e.getSource()==btnCopper3) {
-			hitCopper3();
+		if (e.getSource()==btncopper3) {
+			hitcopper3();
 		}
-		if (e.getSource()==btnCopper4) {
-			hitCopper4();
+		if (e.getSource()==btncopper4) {
+			hitcopper4();
 		}
-		if (e.getSource()==btnCopper5) {
-			hitCopper5();
+		if (e.getSource()==btncopper5) {
+			hitcopper5();
 		}
 	}
 	
-	public void hitCopper1() {
+	public void hitcopper1() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper1.hit(pick.atk()));
-		btnCopper1.setText(copper1.name + " : " + copper1.hp);
+		btncopper1.setText(copper1.name+" : "+ copper1.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		
 	}
-	public void hitCopper2() {
+	public void hitcopper2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper2.hit(pick.atk()));
-		btnCopper2.setText(copper2.name + " : " + copper2.hp);
+		btncopper2.setText(copper2.name+" : " + copper2.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
-	public void hitCopper3() {
+	public void hitcopper3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper3.hit(pick.atk()));
-		btnCopper3.setText(copper3.name + " : " + copper3.hp);
+		btncopper3.setText(copper3.name+" : "+ copper3.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
-	public void hitCopper4() {
+	public void hitcopper4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper4.hit(pick.atk()));
-		btnCopper4.setText(copper4.name + " : " + copper4.hp);
+		btncopper4.setText(copper4.name+" : "+ copper4.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
-	public void hitCopper5() {
+	public void hitcopper5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + copper5.hit(pick.atk()));
-		btnCopper5.setText(copper5.name + " : " + copper5.hp);
+		btncopper5.setText(copper5.name+" : "+ copper5.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 }

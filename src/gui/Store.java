@@ -3,7 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -84,9 +83,14 @@ public class Store extends JFrame implements ActionListener{
 		panel_11.setLayout(new GridLayout(1, 1, 0, 0));
 		
 		JButton btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
+		btnRepair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				grade.fixPick();
+			}
+		});
 //		btnRepair.setBorderPainted(false);
+		btnRepair.setContentAreaFilled(false);
 		btnRepair.setFocusPainted(false);
-		btnRepair.setBorderPainted(false);
 		panel_11.add(btnRepair);
 		
 		JButton btnEvol = new JButton("진화하기");
@@ -127,22 +131,10 @@ public class Store extends JFrame implements ActionListener{
 		panel_6.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JButton btnBack = new JButton("돌아가기");
-//		btnBack.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {				
-//				
-//			}
-//		});
 		panel_6.add(btnBack);
 		btnBack.addActionListener(this);
 		
 		JButton btnLogout = new JButton("로그아웃");
-//		btnLogout.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				
-//			}
-//		});
 		panel_6.add(btnLogout);
 		btnLogout.addActionListener(this);
 		

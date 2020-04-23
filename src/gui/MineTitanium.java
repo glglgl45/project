@@ -5,15 +5,21 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import gui.MainPage;
 import ore.*;
 import system.*;
 
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class MineTitanium extends JFrame implements ActionListener {
 
@@ -29,6 +35,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 	private JButton btntitanium3;
 	private JButton btntitanium4;
 	private JButton btntitanium5;
+	private JLabel labelMoney;
+	private JLabel lavelDura;
+	private JButton btnScore;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -52,7 +61,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		titanium4 = new Titanium();
 		titanium5 = new Titanium();
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
@@ -66,11 +75,26 @@ public class MineTitanium extends JFrame implements ActionListener {
 		mainPanel.add(panel_0, BorderLayout.NORTH);
 		panel_0.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnNewButton_1 = new JButton("로그아웃");
-		panel_0.add(btnNewButton_1, BorderLayout.EAST);
+		JButton btnLogout = new JButton("로그아웃");
+		btnLogout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String option[] = {"메인화면으로","게임 종료"};
+				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+				if(result==0) {
+					dispose();
+					MainPage m = new MainPage();
+					m.setVisible(true);
+				}else if(result==1) {
+					System.exit(0);
+				}
+			}
+		});
+		panel_0.add(btnLogout, BorderLayout.EAST);
 		
-		JButton btnNewButton_2 = new JButton("점수 : 999999");
-		panel_0.add(btnNewButton_2, BorderLayout.WEST);
+		btnScore = new JButton("점수 : " + pick.getScore());
+		panel_0.add(btnScore, BorderLayout.WEST);
+		btnScore.addActionListener(this);
 		
 		JPanel panel_1 = new JPanel();
 		mainPanel.add(panel_1, BorderLayout.SOUTH);
@@ -79,29 +103,55 @@ public class MineTitanium extends JFrame implements ActionListener {
 		JLabel lblNewLabel = new JLabel("ID : 아이디");
 		panel_1.add(lblNewLabel, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
-		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
+		JPanel panel_2 = new JPanel();
+		panel_1.add(panel_2, BorderLayout.CENTER);
 		
-		JButton btnNewButton = new JButton("돌 곡괭이 +3 내구도 : 100");
-		panel_1.add(btnNewButton, BorderLayout.CENTER);
+		JButton btnpi = new JButton(pick.getPickName() + " " + pick.getLevel());
+		btnpi.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+			}
+		});
+		panel_2.add(btnpi);
+		
+		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
+		panel_2.add(lblNewLabel_2);
+		
+		lavelDura = new JLabel(pick.getDura()+"");
+		panel_2.add(lavelDura);
+		
+		JPanel panel = new JPanel();
+		panel_1.add(panel, BorderLayout.EAST);
+		
+		JLabel lblNewLabel_1 = new JLabel("소지금 : ");
+		panel.add(lblNewLabel_1);
+		
+		labelMoney = new JLabel(pick.getMoney()+"");
+		panel.add(labelMoney);
 		
 		btntitanium1 = new JButton(titanium1.name+" : "+titanium1.hp);
+		btntitanium1.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		contentPane.add(btntitanium1);
 		btntitanium1.addActionListener(this);
 		
 		btntitanium2 = new JButton(titanium2.name+" : "+titanium2.hp);
+		btntitanium2.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		contentPane.add(btntitanium2);
 		btntitanium2.addActionListener(this);
 		
 		btntitanium3 = new JButton(titanium3.name+" : "+titanium3.hp);
+		btntitanium3.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		contentPane.add(btntitanium3);
 		btntitanium3.addActionListener(this);
 		
 		btntitanium4 = new JButton(titanium4.name+" : "+titanium4.hp);
+		btntitanium4.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		contentPane.add(btntitanium4);
 		btntitanium4.addActionListener(this);
 		
 		JButton back = new JButton("나가기");
+		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -113,6 +163,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		contentPane.add(back);
 		
 		btntitanium5 = new JButton(titanium5.name+" : "+titanium5.hp);
+		btntitanium5.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		contentPane.add(btntitanium5);
 		btntitanium5.addActionListener(this);
 	}
@@ -140,25 +191,41 @@ public class MineTitanium extends JFrame implements ActionListener {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium1.hit(pick.atk()));
 		btntitanium1.setText(titanium1.name+" : "+ titanium1.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		
 	}
 	public void hittitanium2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium2.hit(pick.atk()));
 		btntitanium2.setText(titanium2.name+" : " + titanium2.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hittitanium3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium3.hit(pick.atk()));
 		btntitanium3.setText(titanium3.name+" : "+ titanium3.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hittitanium4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium4.hit(pick.atk()));
 		btntitanium4.setText(titanium4.name+" : "+ titanium4.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hittitanium5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + titanium5.hit(pick.atk()));
 		btntitanium5.setText(titanium5.name+" : "+ titanium5.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 }
