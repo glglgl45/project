@@ -7,7 +7,7 @@ public class Upgrade {
 	public void upgrade() {
 		int failPer = (pick.getLevel()*pick.getPickLevel()+pick.getPickLevel()*10);
 		int num = (int) (Math.random()*100);
-		int upMoney = pick.getPickLevel()*pick.getPickLevel()/* *100 */+pick.getLevel()*20*pick.getPickLevel();
+		int upMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())/* *100 */+pick.getLevel()*20*pick.getPickLevel());
 		if(pick.getMoney() >= upMoney) {
 			if(pick.getLevel()<5) {
 				if(num > (100-failPer)) {
@@ -35,7 +35,7 @@ public class Upgrade {
 	public void evol() {
 		int failPer = (pick.getLevel()*pick.getPickLevel()+pick.getPickLevel()*10/*진화 확률*/);
 		int num = (int) (Math.random()*100);
-		int evolMoney = pick.getPickLevel()*pick.getPickLevel()*100/*진화 비용*/;
+		int evolMoney = (int) Math.pow(pick.getPickLevel(), pick.getPickLevel()*100)/*진화 비용*/;
 		if(pick.getMoney() >= evolMoney) {
 			if(pick.getLevel()==5 && pick.getPickLevel()!=5) {
 				if(num < (100-failPer)) {
