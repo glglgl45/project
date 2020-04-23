@@ -51,6 +51,9 @@ public class MiddlePage extends JFrame {
 	 */
 	public MiddlePage() {
 		pick = new Pickax();
+		dao=new ClickerDAO();
+//		dao = pick
+		pick.setMoney(userVO.getGold());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
@@ -59,7 +62,6 @@ public class MiddlePage extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 		
-		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
