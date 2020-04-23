@@ -53,7 +53,7 @@ public class SignUp extends JFrame implements ActionListener {
 	 */
 	public SignUp() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); -- x키 누르면 같이 꺼짐
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -122,10 +122,7 @@ public class SignUp extends JFrame implements ActionListener {
 		if(e.getActionCommand().equals("회원가입")) {
 			ClickerUserVO userVO = new ClickerUserVO();
 			
-			userVO.setItemName("돌칼");	//최초 시작 무기 설정
-			userVO.setCurrentEnhance(0);
-			userVO.setCurrentDurability(1000);			
-			userVO.setGold(999);
+			userVO.setItemName("돌곡괭이");	//최초 시작 무기 설정
 			
 			if(txtID.getText()!=null && txtPW.getText()!=null && textField.getText()!=null) {
 				if(txtPW.getText().equals(textField.getText())) {	//비밀번호-비밀번호 확인의 정보 비교
@@ -135,9 +132,10 @@ public class SignUp extends JFrame implements ActionListener {
 					txtPW.setText("");
 					textField.setText("");	
 					
-					int result=dao.signUp(userVO);
+					int result=dao.insertUser(userVO);
 					if(result>0) {
 						JOptionPane.showMessageDialog(this, "가입 완료");
+						MiddlePage mp = new MiddlePage();
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
 					}				

@@ -2,21 +2,19 @@ package test;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import gui.MainPage;
-import gui.SignUp;
-
-import javax.swing.JButton;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
+import gui.MiddlePage;
 
 public class MineSelect extends JFrame {
 
@@ -37,7 +35,7 @@ public class MineSelect extends JFrame {
 
 	public MineSelect() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -110,7 +108,7 @@ public class MineSelect extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MineSteel mc = new MineSteel();
+				MineIron mc = new MineIron();
 			}
 		});
 		JButton btnMineTitanium = new JButton("티타늄 광산");
@@ -124,6 +122,13 @@ public class MineSelect extends JFrame {
 		});
 		
 		JButton btnBack = new JButton("뒤로가기");
+		btnBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MiddlePage mp = new MiddlePage();
+			}
+		});
 		panel_2.add(btnBack);
 		
 		JButton btnMineDiamond = new JButton("다이아몬드 광산");

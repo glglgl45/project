@@ -3,16 +3,18 @@ package test;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import gui.MainPage;
 
 public class MineDiamond extends JFrame implements ActionListener {
 
@@ -65,8 +67,22 @@ public class MineDiamond extends JFrame implements ActionListener {
 		mainPanel.add(panel_0, BorderLayout.NORTH);
 		panel_0.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnNewButton_1 = new JButton("로그아웃");
-		panel_0.add(btnNewButton_1, BorderLayout.EAST);
+		JButton btnLogout = new JButton("로그아웃");
+		btnLogout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String option[] = {"메인화면으로","게임 종료"};
+				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+				if(result==0) {
+					dispose();
+					MainPage m = new MainPage();
+					m.setVisible(true);
+				}else if(result==1) {
+					System.exit(0);
+				}
+			}
+		});
+		panel_0.add(btnLogout, BorderLayout.EAST);
 		
 		JButton btnNewButton_2 = new JButton("점수 : 999999");
 		panel_0.add(btnNewButton_2, BorderLayout.WEST);
@@ -106,7 +122,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MineSelect m = new MineSelect();
+				MineSelect ms = new MineSelect();
 			}
 		});
 		contentPane.add(back);
