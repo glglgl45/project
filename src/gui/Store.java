@@ -205,7 +205,7 @@ public class Store extends JFrame implements ActionListener{
 			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
 			int result=dao.saveUser(userVO);
 			if(result>0) {
-				JOptionPane.showMessageDialog(this, "저장 완료");
+				System.out.println("저장");
 				dispose();
 				MiddlePage m = new MiddlePage();
 			}

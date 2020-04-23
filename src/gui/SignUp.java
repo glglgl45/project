@@ -123,15 +123,20 @@ public class SignUp extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("회원가입")) {
 			ClickerUserVO userVO = new ClickerUserVO();
-			
-			if(txtID.getText()!=null && txtPW.getText()!=null && textField.getText()!=null) {
-				if(txtPW.getText().equals(textField.getText())) {	//비밀번호-비밀번호 확인의 정보 비교
-					userVO.setId(txtID.getText());	
-					userVO.setPwd(txtPW.getText());
+			if(txtID.getText()!=null && new String(passwordField.getPassword())!=null && new String(passwordField_1.getPassword())!=null) {
+				
+				if(new String(passwordField.getPassword()).equals(new String(passwordField_1.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
+					userVO.setId(txtID.getText());	//초기 설정 값
+					userVO.setPwd(new String(passwordField.getPassword()));
 					userVO.setPickName("돌 곡괭이");
+					userVO.setCurrentDurability(100);
+					userVO.setCurrentEnhance(0);
+					userVO.setGold(500000);
+					userVO.setScore(99999);
+					
 					txtID.setText("");
-					txtPW.setText("");
-					textField.setText("");						
+					passwordField.setText("");
+					passwordField_1.setText("");						
 					
 					int result=dao.insertUser(userVO);
 					if(result>0) {						
@@ -141,10 +146,10 @@ public class SignUp extends JFrame implements ActionListener {
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
 					}				
-				}else if(!(txtPW.getText().equals(textField.getText()))) {
+				}else if(!(new String(passwordField.getPassword()).equals(new String(passwordField_1.getPassword())))) {
 					JOptionPane.showMessageDialog(this, "비밀번호가 일치하지 않습니다.");
 				}				
-			}else if(txtID.getText()==null || txtPW.getText()==null || textField.getText()==null) {
+			}else if(txtID.getText()==null || new String(passwordField.getPassword())==null || new String(passwordField_1.getPassword())==null) {
 				JOptionPane.showMessageDialog(this, "정보를 모두 기입해 주세요");
 			}
 		}
