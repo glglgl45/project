@@ -89,25 +89,25 @@ public class Pickax {
 	}
 	public void copperPick() {
 		pickName = "구리 곡괭이";
-		dmg = 10;
+		dmg = 15;
 		pickLevel = 2;
 		dura = 100;
 	}
 	public void ironPick() {
 		pickName = "철 곡괭이";
-		dmg = 30;
+		dmg = 150;
 		pickLevel = 3;
 		dura = 100;
 	}
 	public void titaniumPick() {
 		pickName = "티타늄 곡괭이";
-		dmg = 50;
+		dmg = 500;
 		pickLevel = 4;
 		dura = 100;
 	}
 	public void diamondPick() {
 		pickName = "다이아 곡괭이";
-		dmg = 80;
+		dmg = 2500;
 		pickLevel = 5;
 		dura = 100;
 	}
