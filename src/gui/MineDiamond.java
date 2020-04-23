@@ -1,13 +1,8 @@
 package gui;
 
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -15,9 +10,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import gui.MainPage;
-
 import ore.*;
 import system.*;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class MineDiamond extends JFrame implements ActionListener {
 
@@ -33,6 +34,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 	private JButton btnDiamond3;
 	private JButton btnDiamond4;
 	private JButton btnDiamond5;
+	private JLabel labelMoney;
+	private JLabel lavelDura;
+	private JButton btnScore;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -87,8 +91,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		});
 		panel_0.add(btnLogout, BorderLayout.EAST);
 		
-		JButton btnNewButton_2 = new JButton("점수 : 999999");
-		panel_0.add(btnNewButton_2, BorderLayout.WEST);
+		btnScore = new JButton("점수 : " + pick.getScore());
+		panel_0.add(btnScore, BorderLayout.WEST);
+		btnScore.addActionListener(this);
 		
 		JPanel panel_1 = new JPanel();
 		mainPanel.add(panel_1, BorderLayout.SOUTH);
@@ -97,17 +102,32 @@ public class MineDiamond extends JFrame implements ActionListener {
 		JLabel lblNewLabel = new JLabel("ID : 아이디");
 		panel_1.add(lblNewLabel, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
-		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
+		JPanel panel_2 = new JPanel();
+		panel_1.add(panel_2, BorderLayout.CENTER);
 		
-		JButton btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
+		JButton btnpi = new JButton(pick.getPickName() + " " + pick.getLevel());
 		btnpi.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PickaxInfo mc = new PickaxInfo();
 			}
 		});
-		panel_1.add(btnpi, BorderLayout.CENTER);
+		panel_2.add(btnpi);
+		
+		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
+		panel_2.add(lblNewLabel_2);
+		
+		lavelDura = new JLabel(pick.getDura()+"");
+		panel_2.add(lavelDura);
+		
+		JPanel panel = new JPanel();
+		panel_1.add(panel, BorderLayout.EAST);
+		
+		JLabel lblNewLabel_1 = new JLabel("소지금 : ");
+		panel.add(lblNewLabel_1);
+		
+		labelMoney = new JLabel(pick.getMoney()+"");
+		panel.add(labelMoney);
 		
 		btnDiamond1 = new JButton(diamond1.name+" : "+diamond1.hp);
 		contentPane.add(btnDiamond1);
@@ -131,7 +151,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MineSelect ms = new MineSelect();
+				MineSelect m = new MineSelect();
 			}
 		});
 		contentPane.add(back);
@@ -164,25 +184,41 @@ public class MineDiamond extends JFrame implements ActionListener {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond1.hit(pick.atk()));
 		btnDiamond1.setText(diamond1.name+" : "+ diamond1.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		
 	}
 	public void hitdiamond2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond2.hit(pick.atk()));
 		btnDiamond2.setText(diamond2.name+" : " + diamond2.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitdiamond3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond3.hit(pick.atk()));
 		btnDiamond3.setText(diamond3.name+" : "+ diamond3.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitdiamond4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond4.hit(pick.atk()));
 		btnDiamond4.setText(diamond4.name+" : "+ diamond4.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitdiamond5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond5.hit(pick.atk()));
 		btnDiamond5.setText(diamond5.name+" : "+ diamond5.hp);
+		labelMoney.setText(pick.getMoney()+"");
+		lavelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
 	}
 }
