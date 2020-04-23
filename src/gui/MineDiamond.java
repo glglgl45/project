@@ -29,7 +29,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 	private Ore diamond2;
 	private Ore diamond3;
 	private Ore diamond4;
-	private Ore diamond5;
+	private Ore diamondWall;
 	private JButton btndiamond1;
 	private JButton btndiamond2;
 	private JButton btndiamond3;
@@ -55,11 +55,12 @@ public class MineDiamond extends JFrame implements ActionListener {
 	public MineDiamond() {
 		pick = new Pickax();
 		pick.infoPick();
+		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
 		diamond1 = new Diamond();
 		diamond2 = new Diamond();
 		diamond3 = new Diamond();
 		diamond4 = new Diamond();
-		diamond5 = new Diamond();
+		diamondWall = new DiamondWall();
 
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -162,7 +163,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		});
 		contentPane.add(back);
 		
-		btndiamond5 = new JButton(diamond5.name+" : "+diamond5.hp);
+		btndiamond5 = new JButton(diamondWall.name);
 		btndiamond5.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		contentPane.add(btndiamond5);
 		btndiamond5.addActionListener(this);
@@ -222,8 +223,8 @@ public class MineDiamond extends JFrame implements ActionListener {
 	}
 	public void hitdiamond5() {
 		pick.infoPick();
-		pick.setMoney(pick.getMoney() + diamond5.hit(pick.atk()));
-		btndiamond5.setText(diamond5.name+" : "+ diamond5.hp);
+		pick.setMoney(pick.getMoney() + diamondWall.hit(pick.atk()));
+		btndiamond5.setText(diamondWall.name);
 		labelMoney.setText(pick.getMoney()+"");
 		lavelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());

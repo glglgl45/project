@@ -55,6 +55,7 @@ public class MineIron extends JFrame implements ActionListener {
 	public MineIron() {
 		pick = new Pickax();
 		pick.infoPick();
+		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
 		iron1 = new Iron();
 		iron2 = new Iron();
 		iron3 = new Iron();

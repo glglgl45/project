@@ -22,15 +22,19 @@ import javax.swing.SwingConstants;
 import java.awt.Component;
 import javax.swing.Box;
 import java.awt.FlowLayout;
+import javax.swing.JPasswordField;
 
 public class SignUp extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField txtID, txtPW;
+	private JTextField txtID;
+	private JPasswordField txtPW;
 	private JButton btnSignUp, btnBack;
+	private JTextField textField;
 	
 	private ClickerDAO dao;
-	private JTextField textField;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -86,17 +90,15 @@ public class SignUp extends JFrame implements ActionListener {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblNewLabel_1);
 		
-		txtPW = new JTextField();
-		panel_1.add(txtPW);
-		txtPW.setColumns(10);
+		passwordField = new JPasswordField();
+		panel_1.add(passwordField);
 		
 		JLabel lblNewLabel_3 = new JLabel("비밀번호 확인");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblNewLabel_3);
 		
-		textField = new JTextField();
-		panel_1.add(textField);
-		textField.setColumns(10);
+		passwordField_1 = new JPasswordField();
+		panel_1.add(passwordField_1);
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);

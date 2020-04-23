@@ -10,6 +10,7 @@ public class Upgrade {
 		int upMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())/* *100 */+pick.getLevel()*20*pick.getPickLevel());
 		if(pick.getMoney() >= upMoney) {
 			if(pick.getLevel()<5) {
+				pick.setScore(pick.getScore()-(pick.getPickLevel()+pick.getLevel()));
 				if(num > (100-failPer)) {
 					System.out.println("실패");
 					System.out.println(failPer);
@@ -38,6 +39,7 @@ public class Upgrade {
 		int evolMoney = (int) Math.pow(pick.getPickLevel(), pick.getPickLevel()*100)/*진화 비용*/;
 		if(pick.getMoney() >= evolMoney) {
 			if(pick.getLevel()==5 && pick.getPickLevel()!=5) {
+				pick.setScore(pick.getScore()-pick.getPickLevel()*pick.getLevel());
 				if(num < (100-failPer)) {
 					System.out.println("진화 성공");
 					System.out.println(failPer);
@@ -86,6 +88,7 @@ public class Upgrade {
 		if(pick.getDura()>=100) {
 			System.out.println("내구도가 최대치 이므로 수리가 불가능 합니다.");
 		} else {
+			pick.setScore(pick.getScore()-pick.getPickLevel());
 			if(pick.getMoney() < fixMoney) {
 				System.out.println("소지금이 부족합니다.");
 			} else {

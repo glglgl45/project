@@ -55,6 +55,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 	public MineTitanium() {
 		pick = new Pickax();
 		pick.infoPick();
+		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
 		titanium1 = new Titanium();
 		titanium2 = new Titanium();
 		titanium3 = new Titanium();
