@@ -3,7 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -77,23 +76,54 @@ public class Store extends JFrame implements ActionListener{
 		
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(1, 1, 0, 0));
+		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		Image image;
+		JPanel panel_11 = new JPanel();
+		panel_1.add(panel_11, BorderLayout.CENTER);
+		panel_11.setLayout(new GridLayout(1, 1, 0, 0));
+		
 		JButton btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
-		btnRepair.setBorderPainted(false);
+		btnRepair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				grade.fixPick();
+			}
+		});
+//		btnRepair.setBorderPainted(false);
 		btnRepair.setContentAreaFilled(false);
 		btnRepair.setFocusPainted(false);
-		panel_1.add(btnRepair);
+		panel_11.add(btnRepair);
 		
 		JButton btnEvol = new JButton("진화하기");
+<<<<<<< HEAD
+		btnEvol.setIcon(new ImageIcon(Store.class.getResource("/gui/evolve.PNG")));
 		panel_1.add(btnEvol);
 		btnEvol.addActionListener(this);
+=======
+		btnEvol.setBorderPainted(false);
+		panel_11.add(btnEvol);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
-		JButton btnUpgrade = new JButton("강화하기");
-		panel_1.add(btnUpgrade);
-		btnUpgrade.addActionListener(this);
+		JButton btnUpgrade = new JButton(new ImageIcon(getClass().getResource("upgrade.png")));
+		btnUpgrade.setFocusPainted(false);
+		btnUpgrade.setBorderPainted(false);
+		panel_11.add(btnUpgrade);
 		
+		JPanel panel_8 = new JPanel();
+		panel_1.add(panel_8, BorderLayout.SOUTH);
+		panel_8.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JLabel lblNewLabel_7 = new JLabel("수리하기");
+		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("진화하기");
+		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(lblNewLabel_8);
+		
+		JLabel lblNewLabel_9 = new JLabel("강화하기");
+		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(lblNewLabel_9);
+				
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 3, 0, 0));
@@ -107,32 +137,12 @@ public class Store extends JFrame implements ActionListener{
 		panel_6.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JButton btnBack = new JButton("돌아가기");
-		btnBack.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {				
-				dispose();
-				MiddlePage m = new MiddlePage();
-			}
-		});
 		panel_6.add(btnBack);
+		btnBack.addActionListener(this);
 		
 		JButton btnLogout = new JButton("로그아웃");
-		btnLogout.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String option[] = {"메인화면으로","게임 종료"};
-				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
-				if(result==0) {
-					dispose();
-					MainPage m = new MainPage();
-					m.setVisible(true);
-				}else if(result==1) {
-					System.exit(0);
-				}
-			}
-		});
 		panel_6.add(btnLogout);
+		btnLogout.addActionListener(this);
 		
 		JPanel panel_7 = new JPanel();
 		panel_3.add(panel_7, BorderLayout.CENTER);
@@ -181,8 +191,6 @@ public class Store extends JFrame implements ActionListener{
 		txtDuribility.setEditable(false);
 		panel_5.add(txtDuribility);
 		txtDuribility.setColumns(10);
-		
-		btnLogout.addActionListener(this);
 	}	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -190,7 +198,16 @@ public class Store extends JFrame implements ActionListener{
 			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
 			int result=dao.saveUser(userVO);
 			if(result>0) {
-				JOptionPane.showMessageDialog(this, "저장 완료");
+//				JOptionPane.showMessageDialog(this, "저장 완료");
+				String option[] = {"메인화면으로","게임 종료"};
+				int qe=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+				if(qe==0) {
+					dispose();
+					MainPage m = new MainPage();
+					m.setVisible(true);
+				}else if(result==1) {
+					System.exit(0);
+				}
 			}
 		}
 		if(e.getActionCommand().equals("돌아가기")) {
@@ -198,6 +215,8 @@ public class Store extends JFrame implements ActionListener{
 			int result=dao.saveUser(userVO);
 			if(result>0) {
 				JOptionPane.showMessageDialog(this, "저장 완료");
+				dispose();
+				MiddlePage m = new MiddlePage();
 			}
 		}
 		if(e.getActionCommand().equals("진화하기")) {

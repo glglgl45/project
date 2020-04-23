@@ -13,7 +13,7 @@ public class Ore {
 			System.out.println(name+ " : " + hp);
 			return 0;
 		} else {
-			if(hp > 0 && hp < atk) {
+			if(hp > 0 && hp <= atk) {
 				hp = 0;
 				System.out.println(name + " : " + hp);
 				System.out.println(name + "채광 완료");

@@ -76,8 +76,13 @@ public class MiddlePage extends JFrame {
 		btnStore.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 				dispose();
 				userVO=dao.searchUser(lblNewLabel_1.getText());	
+=======
+				userVO=dao.searchUser(lblNewLabel_1.getText());
+				dispose();
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 				Store s = new Store();
 				s.storeInfo(userVO);
 				s.setVisible(true);
@@ -127,5 +132,4 @@ public class MiddlePage extends JFrame {
 			System.out.println("실패");
 		}
 	}
-
 }
