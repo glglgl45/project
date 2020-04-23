@@ -37,6 +37,7 @@ public class Store extends JFrame implements ActionListener{
 	private JTextField txtItemName;
 	private JTextField txtAttack;
 	private JTextField txtDuribility;
+	private JLabel lblNewLabel_4, lblNewLabel_6;
 	private Pickax pick;
 	private Upgrade grade;
 
@@ -63,8 +64,8 @@ public class Store extends JFrame implements ActionListener{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setVisible(true);
-
+		setVisible(true);		
+		
 		JPanel mainPanel = new JPanel();
 		contentPane.add(mainPanel, BorderLayout.CENTER);
 		
@@ -186,10 +187,18 @@ public class Store extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
-			
+			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
+			int result=dao.saveUser(userVO);
+			if(result>0) {
+				JOptionPane.showMessageDialog(this, "저장 완료");
+			}
 		}
 		if(e.getActionCommand().equals("돌아가기")) {
-			
+			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
+			int result=dao.saveUser(userVO);
+			if(result>0) {
+				JOptionPane.showMessageDialog(this, "저장 완료");
+			}
 		}
 		if(e.getActionCommand().equals("진화하기")) {
 			grade.evol();
@@ -199,7 +208,9 @@ public class Store extends JFrame implements ActionListener{
 		}
 	}
 	public void storeInfo(ClickerUserVO userVO) {
-		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName());
+		ClickerItemVO itemVO=dao.searchItem(userVO.getItemName(), userVO.getCurrentEnhance());
+		lblNewLabel_4.setText(userVO.getId());
+		lblNewLabel_6.setText(userVO.getGold()+"");
 		txtItemName.setText(userVO.getItemName()+"("+userVO.getCurrentEnhance()+")");
 		txtDuribility.setText(userVO.getCurrentDurability()+"");
 		txtAttack.setText(itemVO.getAttack()+"");

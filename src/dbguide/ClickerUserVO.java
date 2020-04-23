@@ -13,6 +13,7 @@ public class ClickerUserVO {
 	private String pwd;
 	private String itemName;
 	private int gold;
+	private int score;
 	private int CurrentEnhance;
 	private int CurrentDurability;
 }

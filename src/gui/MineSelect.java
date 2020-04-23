@@ -13,11 +13,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dbguide.ClickerUserVO;
 import gui.MainPage;
 
 public class MineSelect extends JFrame {
 
 	private JPanel contentPane;
+	private JLabel lblNewLabel, lblNewLabel_1;
+	private JButton btnNewButton_2;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -62,17 +65,17 @@ public class MineSelect extends JFrame {
 		});
 		panel.add(btnLogout, BorderLayout.EAST);
 		
-		JButton btnNewButton_2 = new JButton("점수 : 999999");
+		btnNewButton_2 = new JButton("점수 : 999999");
 		panel.add(btnNewButton_2, BorderLayout.WEST);
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("ID : 아이디");
+		lblNewLabel = new JLabel("ID : 아이디");
 		panel_1.add(lblNewLabel, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_1 = new JLabel("소지금 : 9999");
+		lblNewLabel_1 = new JLabel("소지금 : 9999");
 		panel_1.add(lblNewLabel_1, BorderLayout.EAST);
 		
 		JButton btnpi = new JButton("돌 곡괭이 +3 내구도 : 100");
@@ -149,5 +152,10 @@ public class MineSelect extends JFrame {
 		
 		setVisible(true);
 	}
-
+	
+	public void mineInfo(ClickerUserVO userVO) {
+		lblNewLabel.setText(userVO.getId());
+		lblNewLabel_1.setText(userVO.getGold()+"");
+		btnNewButton_2.setText(userVO.getScore()+"");
+	}
 }
