@@ -30,13 +30,14 @@ public class SignUp extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JTextField txtID;
 	private JPasswordField txtPW;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
 	private JButton btnSignUp, btnBack;
 	private JTextField textField;
 	
 	private ClickerDAO dao;
 	private Pickax pick;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
+	private ClickerUserVO vo;
 
 	/**
 	 * Launch the application.
@@ -124,32 +125,32 @@ public class SignUp extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("회원가입")) {
-			ClickerUserVO userVO = new ClickerUserVO();
+			vo = new ClickerUserVO();
 			if(txtID.getText()!=null && new String(passwordField.getPassword())!=null && new String(passwordField_1.getPassword())!=null) {
 				
 				if(new String(passwordField.getPassword()).equals(new String(passwordField_1.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
 					//초기 설정 값
-					userVO.setId(txtID.getText());	
-					userVO.setPwd(new String(passwordField.getPassword()));
-					userVO.setDurability(pick.getDura());
-					userVO.setEnhance(pick.getLevel());
-					userVO.setGold(pick.getMoney());
-					userVO.setPickLevel(pick.getPickLevel());
-					userVO.setScore(pick.getScore());
-					userVO.setPickName(pick.getPickName());
-					userVO.setDamage(pick.getDmg());
-					userVO.setMul(pick.getMul());
+					vo.setId(txtID.getText());	
+					vo.setPwd(new String(passwordField.getPassword()));
+					vo.setDurability(pick.getDura());
+					vo.setEnhance(pick.getLevel());
+					vo.setGold(pick.getMoney());
+					vo.setPickLevel(pick.getPickLevel());
+					vo.setScore(pick.getScore());
+					vo.setPickName(pick.getPickName());
+					vo.setDamage(pick.getDmg());
+					vo.setMul(pick.getMul());
 					
 //					txtID.setText("");
 					passwordField.setText("");
 					passwordField_1.setText("");						
 					
-					int result=dao.insertUser(userVO);
+					int result=dao.insertUser(vo);
 					if(result>0) {						
 						JOptionPane.showMessageDialog(this, "가입 완료");
 						pick.setUserId(txtID.getText());
 						MiddlePage mp = new MiddlePage();
-						mp.playInfo();
+//						mp.playInfo();
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
 					}				

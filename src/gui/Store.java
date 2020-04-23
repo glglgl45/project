@@ -33,11 +33,12 @@ public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JButton btnRepair,btnEvol,btnUpgrade;
+	private JLabel lblNewLabel_4, lblNewLabel_6, txtPickDmg, txtPickDura, txtPickName, txtLevel;
 	
 	private ClickerDAO dao;
-	private JLabel lblNewLabel_4, lblNewLabel_6, txtPickDmg, txtPickDura, txtPickName, txtLevel;
 	private Pickax pick;
 	private Upgrade grade;
+	private ClickerUserVO vo;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -140,13 +141,13 @@ public class Store extends JFrame implements ActionListener{
 		JLabel lblNewLabel_3 = new JLabel("아이디");
 		panel_7.add(lblNewLabel_3);
 		
-		lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4 = new JLabel(pick.getUserId());
 		panel_7.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("소지금");
 		panel_7.add(lblNewLabel_5);
 		
-		lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6 = new JLabel(pick.getMoney()+"");
 		panel_7.add(lblNewLabel_6);
 		
 		JPanel panel_4 = new JPanel();
@@ -165,11 +166,11 @@ public class Store extends JFrame implements ActionListener{
 		panel_9.add(panel_13);
 		panel_13.setLayout(new GridLayout(1, 1, 0, 0));
 		
-		txtPickName = new JLabel();
+		txtPickName = new JLabel(pick.getPickName());
 		txtPickName.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtPickName);
 		
-		txtLevel = new JLabel();
+		txtLevel = new JLabel("+"+pick.getLevel());
 		txtLevel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtLevel);
 		
@@ -185,7 +186,7 @@ public class Store extends JFrame implements ActionListener{
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(lblNewLabel_1);
 		
-		txtPickDmg = new JLabel();
+		txtPickDmg = new JLabel(pick.getDmg()+"");
 		txtPickDmg.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(txtPickDmg);
 		
@@ -197,14 +198,14 @@ public class Store extends JFrame implements ActionListener{
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_12.add(lblNewLabel_2);
 		
-		txtPickDura = new JLabel();
+		txtPickDura = new JLabel(pick.getDura()+"");
 		txtPickDura.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_12.add(txtPickDura);
 	}	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
-			ClickerUserVO vo=dao.searchUser(lblNewLabel_4.getText());
+			vo=dao.searchUser(lblNewLabel_4.getText());
 			int result=dao.saveUser();
 			if(result>0) {
 //				JOptionPane.showMessageDialog(this, "저장 완료");
@@ -220,20 +221,8 @@ public class Store extends JFrame implements ActionListener{
 			}
 		}
 		if(e.getActionCommand().equals("돌아가기")) {
-			ClickerUserVO vo=dao.searchUser(lblNewLabel_4.getText());
-			vo.setGold(pick.getMoney());
-			vo.setEnhance(pick.getLevel());
-			vo.setDurability(pick.getDura());
-			vo.setScore(pick.getScore());
-			vo.setPickName(pick.getPickName());
-			vo.setDamage(pick.getDmg());
-			vo.setPickLevel(pick.getPickLevel());
-			int result=dao.saveUser();
-			if(result>0) {
-				System.out.println("저장");
 				dispose();
-				MiddlePage m = new MiddlePage();
-			}
+				MiddlePage m = new MiddlePage();		
 		}if(e.getSource()==btnRepair) {
 			grade.fixPick();
 		}
@@ -245,12 +234,12 @@ public class Store extends JFrame implements ActionListener{
 		}
 	}
 	
-	public void storeInfo(ClickerUserVO vo) {
-		lblNewLabel_4.setText(vo.getId());
-		lblNewLabel_6.setText(vo.getGold()+"");
-		txtPickName.setText(vo.getPickName());
-		txtLevel.setText(vo.getEnhance()+"");
-		txtPickDura.setText(vo.getDurability()+"");
-		txtPickDmg.setText(vo.getDamage()+"");
+	public void storeInfo() {
+		lblNewLabel_4.setText(pick.getUserId());
+		lblNewLabel_6.setText(pick.getMoney()+"");
+		txtPickName.setText(pick.getPickName());
+		txtLevel.setText(pick.getPickLevel()+"");
+		txtPickDura.setText(pick.getDura()+"");
+		txtPickDmg.setText(pick.getDmg()+"");
 	}
 }

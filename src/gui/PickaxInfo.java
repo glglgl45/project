@@ -81,9 +81,9 @@ public class PickaxInfo extends JFrame{
 		panel.add(lblNewLabel_5);
 	}
 	
-	public void itemInfo(ClickerUserVO vo) {
-		lblNewLabel_1.setText(vo.getPickName());
-		lblNewLabel_3.setText(vo.getDamage()+"");
-		lblNewLabel_5.setText(vo.getDurability()+"");		
+	public void itemInfo() {
+		lblNewLabel_1.setText(pick.getPickName());
+		lblNewLabel_3.setText(pick.getDmg()+"");
+		lblNewLabel_5.setText(pick.getDura()+"");		
 	}
 }

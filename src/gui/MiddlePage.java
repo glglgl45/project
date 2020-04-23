@@ -27,7 +27,8 @@ public class MiddlePage extends JFrame {
 	
 	private JPanel contentPane;
 	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2;
-
+	private ImageIcon img;
+	
 	private ClickerDAO dao;
 	private ClickerUserVO vo;
 	/**
@@ -81,8 +82,8 @@ public class MiddlePage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MineSelect ms = new MineSelect();
-				vo=dao.searchUser(lblNewLabel_1.getText());
-				ms.mineInfo(vo);
+//				vo=dao.searchUser(lblNewLabel_1.getText());
+//				ms.mineInfo();
 			}
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
@@ -93,9 +94,9 @@ public class MiddlePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				vo=dao.searchUser(lblNewLabel_1.getText());	
 				Store s = new Store();
-				s.storeInfo(vo);
+//				vo=dao.searchUser(lblNewLabel_1.getText());	
+//				s.storeInfo();
 				s.setVisible(true);
 			}
 		});
@@ -103,7 +104,25 @@ public class MiddlePage extends JFrame {
 		panel.add(btnStore);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/pickax-dia.png")));
+		int key=pick.getPickLevel();
+		switch (key) {
+		case 1:
+			img=new ImageIcon(getClass().getResource("pickax-stone.png"));
+			break;
+		case 2:
+			img=new ImageIcon(getClass().getResource("pickax-copper.png"));			
+			break;
+		case 3:
+			img=new ImageIcon(getClass().getResource("pickax-steel.png"));
+			break;
+		case 4:
+			img=new ImageIcon(getClass().getResource("pickax-platinum.png"));
+			break;
+		case 5:
+			img=new ImageIcon(getClass().getResource("pickax-dia.png"));
+			break;
+		}
+		lblNewLabel.setIcon(img);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
@@ -112,24 +131,17 @@ public class MiddlePage extends JFrame {
 		btnPickaxInfo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				vo=dao.searchUser(lblNewLabel_1.getText());
 				PickaxInfo pic = new PickaxInfo();
-				int result=dao.saveUser();
-				if(result>0) {
-					System.out.println("저장");
-				}else {
-					System.err.println("실패");
-				}
-//				pic.itemInfo(userVO);
+//				pic.itemInfo();
 			}
 		});
 		panel.add(btnPickaxInfo);
 		
-		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1 = new JLabel(pick.getPickName());
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
 		
-		lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2 = new JLabel(pick.getMoney()+"");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_2);
 		
@@ -140,13 +152,13 @@ public class MiddlePage extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_5 = new JLabel("ID : 아이디");
+		JLabel lblNewLabel_5 = new JLabel("ID : "+pick.getUserId());
 		panel_3.add(lblNewLabel_5);
 		
 		JPanel panel_4 = new JPanel();
 		panel_1.add(panel_4, BorderLayout.CENTER);
 		
-		JButton btnNewButton = new JButton("돌곡괭이 0");
+		JButton btnNewButton = new JButton(pick.getPickName()+" +"+pick.getLevel());
 		panel_4.add(btnNewButton);
 		
 		JLabel lblNewLabel_3 = new JLabel("내구도 : ");
@@ -185,6 +197,7 @@ public class MiddlePage extends JFrame {
 				vo.setDamage(pick.getDmg());
 				vo.setMul(pick.getMul());
 				dao.saveUser();
+				
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);				
 				if(result==0) {
