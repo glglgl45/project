@@ -87,6 +87,7 @@ public class MiddlePage extends JFrame {
 		panel.add(btnStore);
 		
 		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/pickax-dia.png")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
@@ -103,7 +104,7 @@ public class MiddlePage extends JFrame {
 				}else {
 					System.err.println("실패");
 				}
-				pic.itemInfo(userVO);
+//				pic.itemInfo(userVO);
 			}
 		});
 		panel.add(btnPickaxInfo);
