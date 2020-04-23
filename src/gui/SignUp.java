@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
+import system.Pickax;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -33,6 +34,7 @@ public class SignUp extends JFrame implements ActionListener {
 	private JTextField textField;
 	
 	private ClickerDAO dao;
+	private Pickax pick;
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 
@@ -65,7 +67,7 @@ public class SignUp extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		
 		dao=new ClickerDAO();
-		
+		pick=new Pickax();
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
@@ -126,13 +128,16 @@ public class SignUp extends JFrame implements ActionListener {
 			if(txtID.getText()!=null && new String(passwordField.getPassword())!=null && new String(passwordField_1.getPassword())!=null) {
 				
 				if(new String(passwordField.getPassword()).equals(new String(passwordField_1.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
-					userVO.setId(txtID.getText());	//초기 설정 값
+					//초기 설정 값
+					userVO.setId(txtID.getText());	
 					userVO.setPwd(new String(passwordField.getPassword()));
-					userVO.setPickName("돌 곡괭이");
-					userVO.setCurrentDurability(100);
-					userVO.setCurrentEnhance(0);
-					userVO.setGold(500000);
-					userVO.setScore(99999);
+					userVO.setDurability(pick.getDura());
+					userVO.setEnhance(pick.getLevel());
+					userVO.setGold(pick.getMoney());
+					userVO.setPickLevel(pick.getPickLevel());
+					userVO.setScore(pick.getScore());
+					userVO.setPickName(pick.getPickName());
+					userVO.setDamage(pick.getDmg());
 					
 					txtID.setText("");
 					passwordField.setText("");

@@ -35,13 +35,9 @@ public class Store extends JFrame implements ActionListener{
 	private JButton btnRepair,btnEvol,btnUpgrade;
 	
 	private ClickerDAO dao;
-	private JLabel lblNewLabel_4, lblNewLabel_6;
+	private JLabel lblNewLabel_4, lblNewLabel_6, txtPickDmg, txtPickDura, txtPickName, txtLevel;
 	private Pickax pick;
 	private Upgrade grade;
-	private JTextField txtPickDmg;
-	private JTextField txtPickDura;
-	private JTextField txtPickName;
-	private JTextField txtLevel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -169,14 +165,12 @@ public class Store extends JFrame implements ActionListener{
 		panel_9.add(panel_13);
 		panel_13.setLayout(new GridLayout(1, 1, 0, 0));
 		
-		txtPickName = new JTextField();
-		txtPickName.setEditable(false);
-		txtPickName.setColumns(10);
+		txtPickName = new JLabel();
+		txtPickName.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtPickName);
 		
-		txtLevel = new JTextField();
-		txtLevel.setEditable(false);
-		txtLevel.setColumns(10);
+		txtLevel = new JLabel();
+		txtLevel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtLevel);
 		
 		JLabel lblNewLabel = new JLabel("곡괭이 정보");
@@ -191,9 +185,8 @@ public class Store extends JFrame implements ActionListener{
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(lblNewLabel_1);
 		
-		txtPickDmg = new JTextField();
-		txtPickDmg.setEditable(false);
-		txtPickDmg.setColumns(10);
+		txtPickDmg = new JLabel();
+		txtPickDmg.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(txtPickDmg);
 		
 		JPanel panel_12 = new JPanel();
@@ -204,9 +197,8 @@ public class Store extends JFrame implements ActionListener{
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_12.add(lblNewLabel_2);
 		
-		txtPickDura = new JTextField();
-		txtPickDura.setEditable(false);
-		txtPickDura.setColumns(10);
+		txtPickDura = new JLabel();
+		txtPickDura.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_12.add(txtPickDura);
 	}	
 	@Override
@@ -229,6 +221,13 @@ public class Store extends JFrame implements ActionListener{
 		}
 		if(e.getActionCommand().equals("돌아가기")) {
 			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
+			userVO.setGold(pick.getMoney());
+			userVO.setEnhance(pick.getLevel());
+			userVO.setDurability(pick.getDura());
+			userVO.setScore(pick.getScore());
+			userVO.setPickName(pick.getPickName());
+			userVO.setDamage(pick.getDmg());
+			userVO.setPickLevel(pick.getPickLevel());
 			int result=dao.saveUser(userVO);
 			if(result>0) {
 				System.out.println("저장");
@@ -245,12 +244,13 @@ public class Store extends JFrame implements ActionListener{
 			grade.upgrade();
 		}
 	}
+	
 	public void storeInfo(ClickerUserVO userVO) {
-		ClickerItemVO itemVO=dao.searchItem(userVO.getPickName(), userVO.getCurrentEnhance());
 		lblNewLabel_4.setText(userVO.getId());
 		lblNewLabel_6.setText(userVO.getGold()+"");
-		txtItemName.setText(userVO.getPickName()+"("+userVO.getCurrentEnhance()+")");
-		txtDuribility.setText(userVO.getCurrentDurability()+"");
-		txtAttack.setText(itemVO.getAttack()+"");
+		txtPickName.setText(userVO.getPickName());
+		txtLevel.setText(userVO.getEnhance()+"");
+		txtPickDura.setText(userVO.getDurability()+"");
+		txtPickDmg.setText(userVO.getDamage()+"");
 	}
 }

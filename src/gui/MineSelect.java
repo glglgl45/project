@@ -175,6 +175,6 @@ public class MineSelect extends JFrame {
 		lblNewLabel.setText("ID : "+userVO.getId());
 		lblNewLabel_1.setText("소지금 : "+userVO.getGold()+"");
 		btnNewButton_2.setText("점수 : "+userVO.getScore());
-		btnpi.setText(userVO.getPickName()+" +"+userVO.getCurrentEnhance()+" 내구도 : "+userVO.getCurrentDurability());
+		btnpi.setText(userVO.getPickName()+" +"+userVO.getEnhance()+" 내구도 : "+userVO.getDurability());
 	}
 }
