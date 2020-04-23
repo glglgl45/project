@@ -125,7 +125,13 @@ public class Pickax {
 	}
 	
 	public int atk() {
-		double atk = dmg * mul;
-		return (int) atk;
+		if(getDura() > 0) {
+			double atk = dmg * mul;
+			setDura(getDura()-1);
+			return (int) atk;
+		} else {
+			double atk = 0;
+			return (int) atk;
+		}
 	}
 }
