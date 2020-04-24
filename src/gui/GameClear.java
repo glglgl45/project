@@ -101,9 +101,9 @@ class subtitle {
 	
 	public void move() {
 		
-		int x = posX + xSpeed;
-		int y = posY + ySpeed;
-		
-		if
+//		int x = posX + xSpeed;
+//		int y = posY + ySpeed;
+//		
+//		if
 	}
 }

@@ -132,6 +132,7 @@ public class Login extends JFrame implements ActionListener {
 				pick.setPickName(vo.getPickName());
 				pick.setScore(vo.getScore());
 				pick.setPickLevel(vo.getPickLevel());
+				dispose();
 				MiddlePage mp = new MiddlePage();
 			}else {
 				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
