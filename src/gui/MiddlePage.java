@@ -53,15 +53,15 @@ public class MiddlePage extends JFrame {
 	public MiddlePage() {
 		pick = new Pickax();
 		dao=new ClickerDAO();
-		vo=dao.searchUser(pick.getUserId());
-		pick.setMoney(vo.getGold());	
-		pick.setDmg(vo.getDamage());
-		pick.setDura(vo.getDurability());
-		pick.setLevel(vo.getEnhance());
-		pick.setMul(vo.getMul());
-		pick.setPickName(vo.getPickName());
-		pick.setScore(vo.getScore());
-		pick.setPickLevel(vo.getPickLevel());
+//		vo=dao.searchUser(pick.getUserId());
+//		pick.setMoney(vo.getGold());	
+//		pick.setDmg(vo.getDamage());
+//		pick.setDura(vo.getDurability());
+//		pick.setLevel(vo.getEnhance());
+//		pick.setMul(vo.getMul());
+//		pick.setPickName(vo.getPickName());
+//		pick.setScore(vo.getScore());
+//		pick.setPickLevel(vo.getPickLevel());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -188,14 +188,14 @@ public class MiddlePage extends JFrame {
 		btnLogout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				vo.setDurability(pick.getDura());
-				vo.setEnhance(pick.getLevel());
-				vo.setGold(pick.getMoney());
-				vo.setPickLevel(pick.getPickLevel());
-				vo.setScore(pick.getScore());
-				vo.setPickName(pick.getPickName());
-				vo.setDamage(pick.getDmg());
-				vo.setMul(pick.getMul());
+//				vo.setDurability(pick.getDura());
+//				vo.setEnhance(pick.getLevel());
+//				vo.setGold(pick.getMoney());
+//				vo.setPickLevel(pick.getPickLevel());
+//				vo.setScore(pick.getScore());
+//				vo.setPickName(pick.getPickName());
+//				vo.setDamage(pick.getDmg());
+//				vo.setMul(pick.getMul());
 				dao.saveUser();
 				
 				String option[] = {"메인화면으로","게임 종료"};

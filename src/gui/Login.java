@@ -57,17 +57,8 @@ public class Login extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Login() {
-//		pick = new Pickax();
-//		dao=new ClickerDAO();
-//		vo=dao.searchUser(pick.getUserId());
-//		pick.setMoney(vo.getGold());	
-//		pick.setDmg(vo.getDamage());
-//		pick.setDura(vo.getDurability());
-//		pick.setLevel(vo.getEnhance());
-//		pick.setMul(vo.getMul());
-//		pick.setPickName(vo.getPickName());
-//		pick.setScore(vo.getScore());
-//		pick.setPickLevel(vo.getPickLevel());
+		pick = new Pickax();
+		dao=new ClickerDAO();
 		
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -127,13 +118,20 @@ public class Login extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getActionCommand().equals("로그인")) {			
-			vo=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
-			System.out.println(vo.toString());
-			if(vo.getId().equals(txtID.getText()) && vo.getPwd().equals(new String(txtPW.getPassword()))) {					
+		vo=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
+		if(e.getActionCommand().equals("로그인")) {
+			if(vo.getId().equals(txtID.getText()) && vo.getPwd().equals(new String(txtPW.getPassword()))) {		
+				pick.setUserId(txtID.getText());
+				vo=dao.searchUser(txtID.getText());
+				pick.setMoney(vo.getGold());	
+				pick.setDmg(vo.getDamage());
+				pick.setDura(vo.getDurability());
+				pick.setLevel(vo.getEnhance());
+				pick.setMul(vo.getMul());
+				pick.setPickName(vo.getPickName());
+				pick.setScore(vo.getScore());
+				pick.setPickLevel(vo.getPickLevel());
 				MiddlePage mp = new MiddlePage();
-//				mp.playInfo();
-//				mp.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
 			}
