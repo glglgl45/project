@@ -29,10 +29,10 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
-public class Ranking extends JFrame implements ActionListener{
+public class Ranking extends JFrame {
 
 	private JPanel contentPane;
-	private DefaultTableModel model;
+	private DefaultTableModel model1, model2;
 	private ClickerDAO dao;
 	private JTable table;
 	private JTable table_1;
@@ -77,8 +77,7 @@ public class Ranking extends JFrame implements ActionListener{
 		
 		
 		String columnNames[]= {"이름","점수"};
-		model = new DefaultTableModel(columnNames, 0);
-		list();
+		model1 = new DefaultTableModel(columnNames, 0);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(5, 373, 674, 184);
@@ -89,37 +88,39 @@ public class Ranking extends JFrame implements ActionListener{
 		panel_1.add(scrollPane_1, BorderLayout.CENTER);
 		
 		String columnNames1[]= {"이름","점수"};
-		model = new DefaultTableModel(columnNames1, 0);
-		
-		table_2 = new JTable(model);
-		list();
-		scrollPane_1.setViewportView(table_2);
+		model2 = new DefaultTableModel(columnNames1, 0);		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(5, 74, 674, 300);
-		contentPane.add(scrollPane);
+		contentPane.add(scrollPane);		
 		
-		table = new JTable(model);
+		table = new JTable(model1);
 		scrollPane.setViewportView(table);
-	}
-
-	
-
-	
-//	public void list() {
-//		Vector<ClickerUserVO> vecList=dao.getList();
-//		
-//		
-//		for(ClickerUserVO vo:vecList) {
-//			Object[] objList = {vo.getPickName(),vo.getScore()};
-//			model.addRow(objList);
-//		}
-//	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		ingList();		
 		
+		table_2 = new JTable(model2);
+		scrollPane_1.setViewportView(table_2);
+		endList();
 	}
 
+	
+
+	
+	public void ingList() {
+		Vector<ClickerUserVO> vecList=dao.listIngUser();		
+		
+		for(ClickerUserVO vo:vecList) {
+			Object[] objList = {vo.getId(),vo.getScore()};
+			model1.addRow(objList);
+		}
+	}
+	
+	public void endList() {
+		Vector<ClickerUserVO> vecList=dao.listEndUser();		
+		
+		for(ClickerUserVO vo:vecList) {
+			Object[] objList = {vo.getId(),vo.getScore()};
+			model2.addRow(objList);
+		}
+	}
 }
