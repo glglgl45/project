@@ -106,21 +106,9 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 
 	public static void main(String[] args) {
 	    new GameClear();
-	    Thread t = new Thread() {
-	    	@Override
-	    	public void run() {
-	    		try {
-	    			Thread.sleep(5000);
-	    			
-	    			 
-	    		}catch (InterruptedException e) {
-	    			 e.printStackTrace();
-	    		}
-	    	}
-	     };
 	}
 	 
-	ImageIcon setIcon = new ImageIcon("smile.png"); 
+	ImageIcon setIcon = new ImageIcon(GameClear.class.getResource("smile.png")); 
 	String[] str = {"랭킹 보러 가기"};
 	
 	@Override
@@ -131,7 +119,7 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, setIcon, str, str[0]);
 		if(opReturn==0) {
 			dispose();
-			//랭킹 관련 프레임 열기
+			Ranking r = new Ranking();
 		}
 	}
 	@Override
@@ -141,10 +129,10 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		int opReturn= JOptionPane.showOptionDialog(this,"축하합니다\n"+pick.getUserId()+"님의"+"점수는 "+pick.getScore()+"점 입니다.\n", "추카포카찡",
-				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, str, str[0]);
+				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, setIcon, str, str[0]);
 		if(opReturn==0) {
 			dispose();
-			//랭킹 관련 프레임 열기
+			Ranking r = new Ranking();
 		}
 	}
 	@Override
