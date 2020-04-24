@@ -26,7 +26,6 @@ public class MiddlePage extends JFrame {
 	private Pickax pick;
 	
 	private JPanel contentPane;
-	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2;
 	private ImageIcon img;
 	
 	private ClickerDAO dao;
@@ -75,6 +74,16 @@ public class MiddlePage extends JFrame {
 				MineSelect ms = new MineSelect();
 			}
 		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/scroll2.png")));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/scroll1.png")));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lblNewLabel_1);
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
 		panel.add(btnMine);
 		
@@ -89,8 +98,6 @@ public class MiddlePage extends JFrame {
 		});
 		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/shop.png")));
 		panel.add(btnStore);
-		
-		lblNewLabel = new JLabel("");
 		int key=pick.getPickLevel();
 		switch (key) {
 		case 1:
@@ -109,27 +116,6 @@ public class MiddlePage extends JFrame {
 			img=new ImageIcon(getClass().getResource("pickax-dia.png"));
 			break;
 		}
-		lblNewLabel.setIcon(img);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lblNewLabel);
-		
-		JButton btnPickaxInfo = new JButton("곡괭이 정보");
-		btnPickaxInfo.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/infi.png")));
-		btnPickaxInfo.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				PickaxInfo pic = new PickaxInfo();
-			}
-		});
-		panel.add(btnPickaxInfo);
-		
-		lblNewLabel_1 = new JLabel(pick.getPickName());
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lblNewLabel_1);
-		
-		lblNewLabel_2 = new JLabel(pick.getMoney()+"");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lblNewLabel_2);
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.SOUTH);
