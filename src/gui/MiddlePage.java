@@ -166,6 +166,14 @@ public class MiddlePage extends JFrame {
 		
 		JButton btnNewButton_1 = new JButton("점수 : " + pick.getScore());
 		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Ranking ranking = new Ranking();
+				
+			}
+		});
 		panel_2.add(btnNewButton_1, BorderLayout.WEST);
 		
 		JButton btnLogout = new JButton("로그아웃");
