@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 
 class BackImg extends JPanel {
 	
@@ -48,11 +49,8 @@ class BackImg extends JPanel {
 public class MainPage extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnLogin, btnSignUp;
+	private JButton btnLogin, btnSignUp, btnEnd;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -66,9 +64,6 @@ public class MainPage extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public MainPage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -80,14 +75,8 @@ public class MainPage extends JFrame {
 		contentPane.add(backPanel,BorderLayout.CENTER);
 		pack();
 		
-		
-//		JPanel panel = new JPanel();
-//		backPanel.add(panel, BorderLayout.CENTER);
-//		 
-//		JPanel panel_1 = new JPanel();
-//		backPanel.add(panel_1, BorderLayout.SOUTH);
-		
 		btnLogin = new JButton("로그인");
+		btnLogin.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		btnLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -95,11 +84,15 @@ public class MainPage extends JFrame {
 				Login l = new Login();
 			}
 		});
-		btnLogin.setBounds(294, 266, 111, 29);
+		btnLogin.setBounds(227, 270, 250, 50);
+//		btnLogin.setBorderPainted(false);
+		btnLogin.setFocusPainted(false);
+//		btnLogin.setContentAreaFilled(false);
 		backPanel.add(btnLogin);
 		
 		btnSignUp = new JButton("회원가입");
-		btnSignUp.setBounds(294, 325, 111, 29);
+		btnSignUp.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		btnSignUp.setBounds(227, 356, 250, 50);
 		btnSignUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -108,6 +101,18 @@ public class MainPage extends JFrame {
 			}
 		});
 		backPanel.add(btnSignUp);
+		
+		btnEnd = new JButton("게임종료");
+		btnEnd.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		btnEnd.setBounds(227, 440, 250, 50);
+		btnEnd.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		backPanel.add(btnEnd);
+		
 		setVisible(true);
 	}
 }

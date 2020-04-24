@@ -65,7 +65,7 @@ public class MineStone extends JFrame implements ActionListener {
 		stone4 = new Stone();
 		wood = new Wood();
 		dao = new ClickerDAO();
-
+		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
