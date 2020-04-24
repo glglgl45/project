@@ -115,6 +115,36 @@ import javax.swing.JPasswordField;
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 12));
 		btnNewButton.setBounds(246, 477, 97, 23);
 		backPanel.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ClickerDAO dao = new ClickerDAO();
+				ClickerUserVO vo = dao.searchUser(txtId.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
+
+				if(e.getActionCommand().equals("로그인") || e.getSource()==txtPw) {
+					if(((ClickerUserVO) vo).getId().equals(txtId.getText()) && ((ClickerUserVO) vo).getPwd().equals(new String(txtPw.getPassword()))) {		
+						Pickax pick = new Pickax();
+						pick.setUserId(txtId.getText());
+						vo=dao.searchUser(txtId.getText());
+						pick.setMoney(((ClickerUserVO) vo).getGold());	
+						pick.setDmg(((ClickerUserVO) vo).getDamage());
+						pick.setDura(((ClickerUserVO) vo).getDurability());
+						pick.setLevel(((ClickerUserVO) vo).getEnhance());
+						pick.setMul(((ClickerUserVO) vo).getMul());
+						pick.setPickName(((ClickerUserVO) vo).getPickName());
+						pick.setScore(((ClickerUserVO) vo).getScore());
+						pick.setPickLevel(((ClickerUserVO) vo).getPickLevel());
+						dispose();
+					//	MiddlePage mp = new MiddlePage();
+					}else {
+						JOptionPane.showMessageDialog(getParent(), "로그인 정보를 확인해 주세요.");
+					}
+				}
+			}
+		});
+		
+		
 		
 		JButton btnNewButton_1 = new JButton("돌아가기");
 		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 12));
@@ -169,7 +199,7 @@ import javax.swing.JPasswordField;
 				pick.setScore(((ClickerUserVO) vo).getScore());
 				pick.setPickLevel(((ClickerUserVO) vo).getPickLevel());
 				dispose();
-			//	MiddlePage mp = new MiddlePage();
+				MiddlePage mp = new MiddlePage();
 			}else {
 				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
 			}
