@@ -113,13 +113,14 @@ public class Login extends JFrame implements ActionListener {
 		panel_2.add(btnBack);
 		
 		btnLog.addActionListener(this);
+		txtPW.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		vo=dao.searchUser(txtID.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
-		if(e.getActionCommand().equals("로그인")) {
+		if(e.getActionCommand().equals("로그인") || e.getSource()==txtPW) {
 			if(vo.getId().equals(txtID.getText()) && vo.getPwd().equals(new String(txtPW.getPassword()))) {		
 				pick.setUserId(txtID.getText());
 				vo=dao.searchUser(txtID.getText());

@@ -44,7 +44,12 @@ public class MineSelect extends JFrame implements ActionListener{
 	
 
 	public MineSelect() {
+		dao=new ClickerDAO();
+		pick = new Pickax();
+		pick.infoPick();		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(dao.saveUser());
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,11 +57,7 @@ public class MineSelect extends JFrame implements ActionListener{
 		setVisible(true);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		dao=new ClickerDAO();
 		
-		
-		pick = new Pickax();
-		pick.infoPick();
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);

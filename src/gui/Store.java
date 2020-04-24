@@ -56,8 +56,10 @@ public class Store extends JFrame implements ActionListener{
 	public Store() {
 		pick = new Pickax();
 		grade = new Upgrade();
+		dao=new ClickerDAO();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(dao.saveUser());	
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,7 +70,6 @@ public class Store extends JFrame implements ActionListener{
 		JPanel mainPanel = new JPanel();
 		contentPane.add(mainPanel, BorderLayout.CENTER);
 		
-		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
