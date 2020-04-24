@@ -3,15 +3,15 @@ package system;
 
 public class Pickax {
 	
-	private static String pickName = "돌 곡괭이";
-	private static int dmg = 3;
-	private static int level = 0;
-	private static double mul = 1;
-	private static int money=0;
-	private static int pickLevel = 1;
-	private static int dura = 100;
-	private static int score = 99999;
-	private static String userId;
+	private static String pickName = "돌 곡괭이"; // 곡괭이 이름
+	private static int dmg = 3; // 기준 공격력
+	private static int level = 0; // 강화 레벨
+	private static double mul = 1; // 강화에 따른 배수
+	private static int money=0; // 소지금
+	private static int pickLevel = 1; // 곡괭이 진화 단계
+	private static int dura = 100; // 내구도
+	private static int score = 99999; // 점수
+	private static String userId; // 아이디
 	
 	public String getUserId() {
 		return userId;
@@ -163,6 +163,7 @@ public class Pickax {
 		}
 	}
 	
+	// 나무 캐기
 	public int atkWood() {
 		if(getDura() > 0) {
 			double atk = dmg * mul;
