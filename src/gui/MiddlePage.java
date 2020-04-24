@@ -51,17 +51,17 @@ public class MiddlePage extends JFrame {
 	 * Create the frame.
 	 */
 	public MiddlePage() {
+		pick = new Pickax();
+		dao=new ClickerDAO();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(dao.saveUser());
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setVisible(true);
-		
-		pick = new Pickax();
-		dao=new ClickerDAO();
+		setVisible(true);		
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);

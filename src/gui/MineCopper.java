@@ -66,6 +66,8 @@ public class MineCopper extends JFrame implements ActionListener {
 		copper5 = new Copper();
 		dao = new ClickerDAO();
 
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(dao.saveUser());
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
