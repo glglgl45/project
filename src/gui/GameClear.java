@@ -75,7 +75,7 @@ public class GameClear extends JFrame {
 	         contentPane.add(imageLabel, java.awt.BorderLayout.CENTER);
 	         // add the subtitle label
 	         
-	         contentPane.add(sublbl, java.awt.BorderLayout.SOUTH);
+//	         contentPane.add(sublbl, java.awt.BorderLayout.SOUTH);
 	         
 	         
 	         // show it
