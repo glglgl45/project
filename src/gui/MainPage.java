@@ -21,6 +21,7 @@ class BackImg extends JPanel {
 	private BufferedImage img;
 	
 	public BackImg() {
+		setLayout(null);
 		try {
 			URL url = getClass().getResource("main-demo.png");
 			img = ImageIO.read(new File(url.getFile()));
@@ -75,15 +76,16 @@ public class MainPage extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		add(new BackImg());
+		JPanel backPanel = new BackImg();
+		contentPane.add(backPanel,BorderLayout.CENTER);
 		pack();
-		setVisible(true);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.SOUTH);
+//		JPanel panel = new JPanel();
+//		backPanel.add(panel, BorderLayout.CENTER);
+//		 
+//		JPanel panel_1 = new JPanel();
+//		backPanel.add(panel_1, BorderLayout.SOUTH);
 		
 		btnLogin = new JButton("로그인");
 		btnLogin.addActionListener(new ActionListener() {
@@ -93,7 +95,8 @@ public class MainPage extends JFrame {
 				Login l = new Login();
 			}
 		});
-		panel_1.add(btnLogin);
+		btnLogin.setBounds(500, 500, 111, 111);
+		backPanel.add(btnLogin);
 		
 		btnSignUp = new JButton("회원가입");
 		btnSignUp.addActionListener(new ActionListener() {
@@ -103,6 +106,7 @@ public class MainPage extends JFrame {
 				SignUp s = new SignUp();
 			}
 		});
-		panel_1.add(btnSignUp);
+		backPanel.add(btnSignUp);
+		setVisible(true);
 	}
 }
