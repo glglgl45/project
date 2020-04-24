@@ -120,11 +120,12 @@ public class SignUp extends JFrame implements ActionListener {
 		panel_2.add(btnBack);
 		
 		btnSignUp.addActionListener(this);
+		txtPW.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals("회원가입")) {
+		if(e.getActionCommand().equals("회원가입") || e.getSource()==txtPW) {
 			vo = new ClickerUserVO();
 			if(txtID.getText()!=null && new String(passwordField.getPassword())!=null && new String(passwordField_1.getPassword())!=null) {
 				

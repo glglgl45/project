@@ -234,10 +234,7 @@ public class ClickerDAO {
 			e.printStackTrace();
 		}		
 		return list;
-	}
-	
-	
-	
+	}	
 	
 	//아이템 조회 - itemName, currentenhance로 해당 아이템의 설정 정보 조회
 //	public ClickerItemVO searchItem(String pickName, int enhance) {
