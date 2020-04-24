@@ -1,8 +1,11 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,11 +15,6 @@ import javax.swing.SwingConstants;
 
 public class GameClear extends JFrame {
 
-	private JPanel contentPane;
-//
-//	/**
-//	 * Launch the application.
-//	 */
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -30,9 +28,6 @@ public class GameClear extends JFrame {
 //		});
 //	} 
 //
-//	/**
-//	 * Create the frame.
-//	 */
 //	public GameClear() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		setBounds(100, 100, 700, 600);
@@ -43,7 +38,6 @@ public class GameClear extends JFrame {
 //		
 //		add(new MyPanel());
 //	}
-//
 //}
 //
 //class MyPanel extends JPanel { 
@@ -56,16 +50,19 @@ public class GameClear extends JFrame {
 //			g.drawImage(image, 0, 0, this); 
 //		} 
 //	}
-	
+	 private JPanel contentPane;
 	 JLabel imageLabel = new JLabel();
 	 JLabel headerLabel = new JLabel();
-
+	 private JLabel sublbl;
+	 
 	 public GameClear() {
 		 try {
 			 setDefaultCloseOperation(EXIT_ON_CLOSE);
 	         contentPane = (JPanel) getContentPane();
 	         contentPane.setLayout(new BorderLayout());
+	         contentPane.setBackground(Color.BLACK);
 	         setSize(new Dimension(700, 600));
+	         headerLabel.setForeground(Color.WHITE);
 	         headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	         // add the header label
 	         headerLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 35));
@@ -76,6 +73,11 @@ public class GameClear extends JFrame {
 	         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	         imageLabel.setIcon(ii);
 	         contentPane.add(imageLabel, java.awt.BorderLayout.CENTER);
+	         // add the subtitle label
+	         
+	         contentPane.add(sublbl, java.awt.BorderLayout.SOUTH);
+	         
+	         
 	         // show it
 	         this.setLocationRelativeTo(null);
 	         this.setVisible(true);
@@ -83,8 +85,25 @@ public class GameClear extends JFrame {
 	         exception.printStackTrace();
 	     }
 	 }
+	 
+	 @Override
+		public void paintComponents(Graphics g) {
+			super.paintComponents(g);
+			
+		}
 
 	 public static void main(String[] args) {
 	     new GameClear();
 	 }
+}
+
+class subtitle {
+	
+	public void move() {
+		
+//		int x = posX + xSpeed;
+//		int y = posY + ySpeed;
+//		
+//		if
+	}
 }

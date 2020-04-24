@@ -13,6 +13,9 @@ public class Upgrade {
 		int num = (int) (Math.random()*100);
 		// 강화 비용
 		int upMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel());
+		System.out.println(upMoney);
+		System.out.println(pick.getPickLevel());
+		System.out.println(pick.getLevel());
 		//강화 성공 실패 결과
 		if(pick.getMoney() >= upMoney) {
 			if(pick.getLevel()<5) {
