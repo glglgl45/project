@@ -33,15 +33,12 @@ public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JButton btnRepair,btnEvol,btnUpgrade;
+	private JLabel lblNewLabel_4, lblNewLabel_6, txtPickDmg, txtPickDura, txtPickName, txtLevel;
 	
 	private ClickerDAO dao;
-	private JLabel lblNewLabel_4, lblNewLabel_6;
 	private Pickax pick;
 	private Upgrade grade;
-	private JTextField txtPickDmg;
-	private JTextField txtPickDura;
-	private JTextField txtPickName;
-	private JTextField txtLevel;
+	private ClickerUserVO vo;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -144,13 +141,13 @@ public class Store extends JFrame implements ActionListener{
 		JLabel lblNewLabel_3 = new JLabel("아이디");
 		panel_7.add(lblNewLabel_3);
 		
-		lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4 = new JLabel(pick.getUserId());
 		panel_7.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("소지금");
 		panel_7.add(lblNewLabel_5);
 		
-		lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6 = new JLabel(pick.getMoney()+"");
 		panel_7.add(lblNewLabel_6);
 		
 		JPanel panel_4 = new JPanel();
@@ -169,14 +166,12 @@ public class Store extends JFrame implements ActionListener{
 		panel_9.add(panel_13);
 		panel_13.setLayout(new GridLayout(1, 1, 0, 0));
 		
-		txtPickName = new JTextField();
-		txtPickName.setEditable(false);
-		txtPickName.setColumns(10);
+		txtPickName = new JLabel(pick.getPickName());
+		txtPickName.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtPickName);
 		
-		txtLevel = new JTextField();
-		txtLevel.setEditable(false);
-		txtLevel.setColumns(10);
+		txtLevel = new JLabel("+"+pick.getLevel());
+		txtLevel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtLevel);
 		
 		JLabel lblNewLabel = new JLabel("곡괭이 정보");
@@ -191,9 +186,8 @@ public class Store extends JFrame implements ActionListener{
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(lblNewLabel_1);
 		
-		txtPickDmg = new JTextField();
-		txtPickDmg.setEditable(false);
-		txtPickDmg.setColumns(10);
+		txtPickDmg = new JLabel(pick.getDmg()+"");
+		txtPickDmg.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(txtPickDmg);
 		
 		JPanel panel_12 = new JPanel();
@@ -204,18 +198,16 @@ public class Store extends JFrame implements ActionListener{
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_12.add(lblNewLabel_2);
 		
-		txtPickDura = new JTextField();
-		txtPickDura.setEditable(false);
-		txtPickDura.setColumns(10);
+		txtPickDura = new JLabel(pick.getDura()+"");
+		txtPickDura.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_12.add(txtPickDura);
 	}	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
-			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
-			int result=dao.saveUser(userVO);
+			vo=dao.searchUser(lblNewLabel_4.getText());
+			int result=dao.saveUser();
 			if(result>0) {
-//				JOptionPane.showMessageDialog(this, "저장 완료");
 				String option[] = {"메인화면으로","게임 종료"};
 				int qe=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(qe==0) {
@@ -228,13 +220,8 @@ public class Store extends JFrame implements ActionListener{
 			}
 		}
 		if(e.getActionCommand().equals("돌아가기")) {
-			ClickerUserVO userVO=dao.searchUser(lblNewLabel_4.getText());
-			int result=dao.saveUser(userVO);
-			if(result>0) {
-				JOptionPane.showMessageDialog(this, "저장 완료");
 				dispose();
-				MiddlePage m = new MiddlePage();
-			}
+				MiddlePage m = new MiddlePage();		
 		}if(e.getSource()==btnRepair) {
 			grade.fixPick();
 		}
@@ -244,13 +231,5 @@ public class Store extends JFrame implements ActionListener{
 		if(e.getSource()==btnUpgrade) {
 			grade.upgrade();
 		}
-	}
-	public void storeInfo(ClickerUserVO userVO) {
-		ClickerItemVO itemVO=dao.searchItem(userVO.getPickName(), userVO.getCurrentEnhance());
-		lblNewLabel_4.setText(userVO.getId());
-		lblNewLabel_6.setText(userVO.getGold()+"");
-		txtItemName.setText(userVO.getPickName()+"("+userVO.getCurrentEnhance()+")");
-		txtDuribility.setText(userVO.getCurrentDurability()+"");
-		txtAttack.setText(itemVO.getAttack()+"");
 	}
 }

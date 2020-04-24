@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 public class PickaxInfo extends JFrame{
 	private JPanel contentPane;
 	private JLabel lblNewLabel_1, lblNewLabel_3, lblNewLabel_5;
-	private Pickax pick = new Pickax();
+	private Pickax pick;
 	
 //	private ClickerDAO dao;
 //	/**
@@ -42,15 +42,13 @@ public class PickaxInfo extends JFrame{
 	 * Create the frame.
 	 */
 	public PickaxInfo() {
-
+		pick=new Pickax();
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		setVisible(true);
-		
-//		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -80,12 +78,4 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_5);
 	}
-	
-//	public void itemInfo(ClickerUserVO userVO) {
-//		ClickerItemVO itemVO=dao.searchItem(userVO.getPickName(), userVO.getCurrentEnhance());
-//		lblNewLabel_1.setText(userVO.getPickName());
-//		lblNewLabel_3.setText(itemVO.getAttack()+"");
-//		lblNewLabel_5.setText(itemVO.getTotalDurability()+"");		
-//	}
 }
-

@@ -27,9 +27,10 @@ public class MiddlePage extends JFrame {
 	
 	private JPanel contentPane;
 	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2;
-
+	private ImageIcon img;
+	
 	private ClickerDAO dao;
-	private ClickerUserVO userVO;
+	private ClickerUserVO vo;
 	/**
 	 * Launch the application.
 	 */
@@ -50,7 +51,7 @@ public class MiddlePage extends JFrame {
 	 * Create the frame.
 	 */
 	public MiddlePage() {
-		pick = new Pickax();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
@@ -59,6 +60,7 @@ public class MiddlePage extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 		
+		pick = new Pickax();
 		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
@@ -71,8 +73,6 @@ public class MiddlePage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MineSelect ms = new MineSelect();
-				userVO=dao.searchUser(lblNewLabel_1.getText());
-				ms.mineInfo(userVO);
 			}
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
@@ -83,9 +83,7 @@ public class MiddlePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				userVO=dao.searchUser(lblNewLabel_1.getText());	
 				Store s = new Store();
-				s.storeInfo(userVO);
 				s.setVisible(true);
 			}
 		});
@@ -93,7 +91,25 @@ public class MiddlePage extends JFrame {
 		panel.add(btnStore);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/pickax-dia.png")));
+		int key=pick.getPickLevel();
+		switch (key) {
+		case 1:
+			img=new ImageIcon(getClass().getResource("pickax-stone.png"));
+			break;
+		case 2:
+			img=new ImageIcon(getClass().getResource("pickax-copper.png"));			
+			break;
+		case 3:
+			img=new ImageIcon(getClass().getResource("pickax-steel.png"));
+			break;
+		case 4:
+			img=new ImageIcon(getClass().getResource("pickax-platinum.png"));
+			break;
+		case 5:
+			img=new ImageIcon(getClass().getResource("pickax-dia.png"));
+			break;
+		}
+		lblNewLabel.setIcon(img);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
@@ -102,24 +118,16 @@ public class MiddlePage extends JFrame {
 		btnPickaxInfo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				userVO=dao.searchUser(lblNewLabel_1.getText());
 				PickaxInfo pic = new PickaxInfo();
-				int result=dao.saveUser(userVO);
-				if(result>0) {
-					System.out.println("저장");
-				}else {
-					System.err.println("실패");
-				}
-//				pic.itemInfo(userVO);
 			}
 		});
 		panel.add(btnPickaxInfo);
 		
-		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1 = new JLabel(pick.getPickName());
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
 		
-		lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2 = new JLabel(pick.getMoney()+"");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_2);
 		
@@ -130,14 +138,15 @@ public class MiddlePage extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_5 = new JLabel("ID : 아이디");
+		JLabel lblNewLabel_5 = new JLabel("ID : "+pick.getUserId());
 		panel_3.add(lblNewLabel_5);
 		
 		JPanel panel_4 = new JPanel();
 		panel_1.add(panel_4, BorderLayout.CENTER);
 		
-		JButton btnNewButton = new JButton("돌곡괭이 0");
-		btnNewButton.addActionListener(new ActionListener() {
+
+		JButton btnNewButton1 = new JButton("돌곡괭이 0");
+		btnNewButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -145,7 +154,10 @@ public class MiddlePage extends JFrame {
 				
 			}
 		});
-		panel_4.add(btnNewButton);
+
+		//JButton btnNewButton1 = new JButton(pick.getPickName()+" +"+pick.getLevel());
+
+		panel_4.add(btnNewButton1);
 		
 		JLabel lblNewLabel_3 = new JLabel("내구도 : ");
 		panel_4.add(lblNewLabel_3);
@@ -174,28 +186,20 @@ public class MiddlePage extends JFrame {
 		btnLogout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dao.saveUser();
+				
 				String option[] = {"메인화면으로","게임 종료"};
-				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);				
 				if(result==0) {
 					dispose();
 					MainPage m = new MainPage();
 					m.setVisible(true);
 				}else if(result==1) {
+					
 					System.exit(0);
 				}
 			}
 		});
 		panel_2.add(btnLogout, BorderLayout.EAST);
-	}
-	
-	public void playInfo(ClickerUserVO userVO) {	
-		lblNewLabel_1.setText(userVO.getId());
-		lblNewLabel_2.setText(userVO.getGold()+"");
-		int result=dao.saveUser(userVO);
-		if(result>0) {
-			System.out.println("저장");
-		}else {
-			System.out.println("실패");
-		}
 	}
 }
