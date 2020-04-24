@@ -233,8 +233,8 @@ public class Store extends JFrame implements ActionListener{
 			}
 		}
 		if(e.getActionCommand().equals("돌아가기")) {
-				dispose();
-				MiddlePage m = new MiddlePage();		
+			dispose();
+			MiddlePage m = new MiddlePage();		
 		}if(e.getSource()==btnRepair) {
 			grade.fixPick();
 			txtPickDura.setText(pick.getDura()+"");
