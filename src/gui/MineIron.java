@@ -66,8 +66,8 @@ public class MineIron extends JFrame implements ActionListener {
 		iron5 = new Iron();
 		dao = new ClickerDAO();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
