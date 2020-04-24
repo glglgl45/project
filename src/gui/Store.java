@@ -33,7 +33,8 @@ public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JButton btnRepair,btnEvol,btnUpgrade;
-	private JLabel lblNewLabel_4, labelMoney, txtPickDmg, txtPickDura, txtPickName, txtLevel;
+	private JLabel lblNewLabel_4, labelMoney, txtPickDmg, txtPickDura, txtPickName, txtLevel,labelUpgrade,labelRepair,labelEvol;
+	
 	
 	private ClickerDAO dao;
 	private Pickax pick;
@@ -108,17 +109,17 @@ public class Store extends JFrame implements ActionListener{
 		panel_1.add(panel_8, BorderLayout.SOUTH);
 		panel_8.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		JLabel lblNewLabel_7 = new JLabel("수리하기");
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblNewLabel_7);
+		labelRepair = new JLabel("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
+		labelRepair.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(labelRepair);
 		
-		JLabel lblNewLabel_8 = new JLabel("진화하기");
-		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblNewLabel_8);
+		labelEvol = new JLabel("진화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100))+")");
+		labelEvol.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(labelEvol);
 		
-		JLabel lblNewLabel_9 = new JLabel("강화하기");
-		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblNewLabel_9);
+		labelUpgrade = new JLabel("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
+		labelUpgrade.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(labelUpgrade);
 				
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
@@ -237,6 +238,7 @@ public class Store extends JFrame implements ActionListener{
 			grade.fixPick();
 			txtPickDura.setText(pick.getDura()+"");
 			labelMoney.setText(pick.getMoney()+"");
+			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
 		}
 		if(e.getSource()==btnEvol) {
 			grade.evol();
@@ -246,6 +248,9 @@ public class Store extends JFrame implements ActionListener{
 			txtLevel.setText("+" + pick.getLevel());
 			labelMoney.setText(pick.getMoney()+"");
 			pick.infoPick();
+			labelEvol.setText("진화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100))+")");
+			labelUpgrade.setText("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
+			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
 		}
 		if(e.getSource()==btnUpgrade) {
 			grade.upgrade();
@@ -253,6 +258,8 @@ public class Store extends JFrame implements ActionListener{
 			txtLevel.setText("+" + pick.getLevel());
 			labelMoney.setText(pick.getMoney()+"");
 			pick.infoPick();
+			labelUpgrade.setText("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
+			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
 		}
 	}
 }
