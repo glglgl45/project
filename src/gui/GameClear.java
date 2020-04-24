@@ -115,7 +115,7 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 	public void keyTyped(KeyEvent e) {}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int opReturn= JOptionPane.showOptionDialog(this,"축하합니다\n"+pick.getUserId()+"님의"+"점수는 "+pick.getScore()+"점 입니다.\n", "추카포카찡",
+		int opReturn= JOptionPane.showOptionDialog(this,"축하합니다\n"+pick.getUserId()+"님의"+"점수는 "+pick.getScore()+"점 입니다.\n"+"랭킹보러 갑시다아~", "추카포카찡",
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, setIcon, str, str[0]);
 		if(opReturn==0) {
 			dispose();
@@ -128,7 +128,7 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 	public void mouseClicked(MouseEvent e) {}
 	@Override
 	public void mousePressed(MouseEvent e) {
-		int opReturn= JOptionPane.showOptionDialog(this,"축하합니다\n"+pick.getUserId()+"님의"+"점수는 "+pick.getScore()+"점 입니다.\n", "추카포카찡",
+		int opReturn= JOptionPane.showOptionDialog(this,"축하합니다\n"+pick.getUserId()+"님의"+"점수는 "+pick.getScore()+"점 입니다.\n"+"랭킹보러 갑시다아~", "추카포카찡",
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, setIcon, str, str[0]);
 		if(opReturn==0) {
 			dispose();
