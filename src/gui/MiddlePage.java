@@ -75,11 +75,13 @@ public class MiddlePage extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("광산 입구 이미지");
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/scroll2.png")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("상점 이미지");
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/scroll1.png")));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
