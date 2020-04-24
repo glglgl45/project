@@ -83,6 +83,14 @@ public class MineSelect extends JFrame implements ActionListener{
 		
 		btnNewButton_2 = new JButton("점수 : " + pick.getScore());
 		panel.add(btnNewButton_2, BorderLayout.WEST);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Ranking ranking = new Ranking();
+				
+			}
+		});
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.SOUTH);
