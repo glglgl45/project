@@ -33,7 +33,8 @@ public class Store extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JButton btnRepair,btnEvol,btnUpgrade;
-	private JLabel lblNewLabel_4, lblNewLabel_6, txtPickDmg, txtPickDura, txtPickName, txtLevel;
+	private JLabel lblNewLabel_4, labelMoney, txtPickDmg, txtPickDura, txtPickName, txtLevel,labelUpgrade,labelRepair,labelEvol;
+	
 	
 	private ClickerDAO dao;
 	private Pickax pick;
@@ -56,8 +57,10 @@ public class Store extends JFrame implements ActionListener{
 	public Store() {
 		pick = new Pickax();
 		grade = new Upgrade();
+		dao=new ClickerDAO();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(dao.saveUser());	
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,7 +71,6 @@ public class Store extends JFrame implements ActionListener{
 		JPanel mainPanel = new JPanel();
 		contentPane.add(mainPanel, BorderLayout.CENTER);
 		
-		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -82,37 +84,43 @@ public class Store extends JFrame implements ActionListener{
 		panel_1.add(panel_11, BorderLayout.CENTER);
 		panel_11.setLayout(new GridLayout(1, 1, 0, 0));
 		
+		// 수리하기 버튼 
 		btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
 		btnRepair.setBorderPainted(false);
 		btnRepair.setFocusPainted(false);
 //		btnRepair.setContentAreaFilled(false);
 		panel_11.add(btnRepair);
+		btnRepair.addActionListener(this);
 		
+		// 진화하기 버튼
 		btnEvol = new JButton(new ImageIcon(getClass().getResource("evolve.PNG")));
 		btnEvol.setFocusPainted(false);
 		btnEvol.setBorderPainted(false);
 		panel_11.add(btnEvol);
+		btnEvol.addActionListener(this);
 		
+		// 강화하기 버튼
 		btnUpgrade = new JButton(new ImageIcon(getClass().getResource("upgrade.png")));
 		btnUpgrade.setFocusPainted(false);
 		btnUpgrade.setBorderPainted(false);
 		panel_11.add(btnUpgrade);
+		btnUpgrade.addActionListener(this);
 		
 		JPanel panel_8 = new JPanel();
 		panel_1.add(panel_8, BorderLayout.SOUTH);
 		panel_8.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		JLabel lblNewLabel_7 = new JLabel("수리하기");
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblNewLabel_7);
+		labelRepair = new JLabel("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
+		labelRepair.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(labelRepair);
 		
-		JLabel lblNewLabel_8 = new JLabel("진화하기");
-		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblNewLabel_8);
+		labelEvol = new JLabel("진화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100))+")");
+		labelEvol.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(labelEvol);
 		
-		JLabel lblNewLabel_9 = new JLabel("강화하기");
-		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblNewLabel_9);
+		labelUpgrade = new JLabel("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
+		labelUpgrade.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_8.add(labelUpgrade);
 				
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
@@ -147,8 +155,9 @@ public class Store extends JFrame implements ActionListener{
 		JLabel lblNewLabel_5 = new JLabel("소지금");
 		panel_7.add(lblNewLabel_5);
 		
-		lblNewLabel_6 = new JLabel(pick.getMoney()+"");
-		panel_7.add(lblNewLabel_6);
+		// 소지금 표시
+		labelMoney = new JLabel(pick.getMoney()+"");
+		panel_7.add(labelMoney);
 		
 		JPanel panel_4 = new JPanel();
 		panel_2.add(panel_4);
@@ -166,10 +175,12 @@ public class Store extends JFrame implements ActionListener{
 		panel_9.add(panel_13);
 		panel_13.setLayout(new GridLayout(1, 1, 0, 0));
 		
+		// 곡괭이 이름 표시
 		txtPickName = new JLabel(pick.getPickName());
 		txtPickName.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtPickName);
 		
+		// 강화 레벨 표시
 		txtLevel = new JLabel("+"+pick.getLevel());
 		txtLevel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(txtLevel);
@@ -182,11 +193,12 @@ public class Store extends JFrame implements ActionListener{
 		panel_5.add(panel_10);
 		panel_10.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("공격력");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_10.add(lblNewLabel_1);
+		JLabel labelDmg = new JLabel("공격력");
+		labelDmg.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_10.add(labelDmg);
 		
-		txtPickDmg = new JLabel(pick.getDmg()+"");
+		// 공격력 수치 표시
+		txtPickDmg = new JLabel((int)(pick.getMul()*pick.getDmg())+"");
 		txtPickDmg.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(txtPickDmg);
 		
@@ -194,10 +206,11 @@ public class Store extends JFrame implements ActionListener{
 		panel_5.add(panel_12);
 		panel_12.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel_2 = new JLabel("내구도");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_12.add(lblNewLabel_2);
+		JLabel labelDura = new JLabel("내구도");
+		labelDura.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_12.add(labelDura);
 		
+		// 내구도 수치 표시
 		txtPickDura = new JLabel(pick.getDura()+"");
 		txtPickDura.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_12.add(txtPickDura);
@@ -208,7 +221,6 @@ public class Store extends JFrame implements ActionListener{
 			vo=dao.searchUser(lblNewLabel_4.getText());
 			int result=dao.saveUser();
 			if(result>0) {
-//				JOptionPane.showMessageDialog(this, "저장 완료");
 				String option[] = {"메인화면으로","게임 종료"};
 				int qe=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(qe==0) {
@@ -225,21 +237,30 @@ public class Store extends JFrame implements ActionListener{
 				MiddlePage m = new MiddlePage();		
 		}if(e.getSource()==btnRepair) {
 			grade.fixPick();
+			txtPickDura.setText(pick.getDura()+"");
+			labelMoney.setText(pick.getMoney()+"");
+			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
 		}
 		if(e.getSource()==btnEvol) {
 			grade.evol();
+			txtPickName.setText(pick.getPickName());
+			txtPickDura.setText(pick.getDura()+"");
+			txtPickDmg.setText((int)(pick.getDmg()*pick.getMul())+"");
+			txtLevel.setText("+" + pick.getLevel());
+			labelMoney.setText(pick.getMoney()+"");
+			pick.infoPick();
+			labelEvol.setText("진화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100))+")");
+			labelUpgrade.setText("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
+			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
 		}
 		if(e.getSource()==btnUpgrade) {
 			grade.upgrade();
+			txtPickDmg.setText((int)(pick.getDmg()*pick.getMul())+"");
+			txtLevel.setText("+" + pick.getLevel());
+			labelMoney.setText(pick.getMoney()+"");
+			pick.infoPick();
+			labelUpgrade.setText("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
+			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
 		}
-	}
-	
-	public void storeInfo() {
-		lblNewLabel_4.setText(pick.getUserId());
-		lblNewLabel_6.setText(pick.getMoney()+"");
-		txtPickName.setText(pick.getPickName());
-		txtLevel.setText(pick.getPickLevel()+"");
-		txtPickDura.setText(pick.getDura()+"");
-		txtPickDmg.setText(pick.getDmg()+"");
 	}
 }

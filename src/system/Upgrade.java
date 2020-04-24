@@ -4,10 +4,19 @@ package system;
 public class Upgrade {
 	
 	private Pickax pick = new Pickax();
+	
+	// 강화하기 메소드
 	public void upgrade() {
+		// 강화 실패 확률
 		int failPer = (pick.getLevel()*pick.getPickLevel()+pick.getPickLevel()*10);
+		// 난수 생성
 		int num = (int) (Math.random()*100);
-		int upMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())/* *100 */+pick.getLevel()*20*pick.getPickLevel());
+		// 강화 비용
+		int upMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel());
+		System.out.println(upMoney);
+		System.out.println(pick.getPickLevel());
+		System.out.println(pick.getLevel());
+		//강화 성공 실패 결과
 		if(pick.getMoney() >= upMoney) {
 			if(pick.getLevel()<5) {
 				pick.setScore(pick.getScore()-(pick.getPickLevel()+pick.getLevel()));
@@ -33,13 +42,20 @@ public class Upgrade {
 		}
 	}
 	
+	// 진화하기 메소드
 	public void evol() {
+		// 진화 실패확률
 		int failPer = (pick.getLevel()*pick.getPickLevel()+pick.getPickLevel()*10/*진화 확률*/);
+		// 난수 생성
 		int num = (int) (Math.random()*100);
-		int evolMoney = (int) Math.pow(pick.getPickLevel(), pick.getPickLevel()*100)/*진화 비용*/;
+		// 진화 비용
+		int evolMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100)/*진화 비용*/;
+		System.out.println("진화 금액 : "+evolMoney);
+		// 진화 성공 실패 결과
 		if(pick.getMoney() >= evolMoney) {
 			if(pick.getLevel()==5 && pick.getPickLevel()!=5) {
 				pick.setScore(pick.getScore()-pick.getPickLevel()*pick.getLevel());
+				pick.setMoney(pick.getMoney()-evolMoney);
 				if(num < (100-failPer)) {
 					System.out.println("진화 성공");
 					System.out.println(failPer);
@@ -83,7 +99,9 @@ public class Upgrade {
 		}
 	}	
 	
+	// 수리하기 메소드
 	public void fixPick() {
+		// 수리 비용
 		int fixMoney = pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel();
 		if(pick.getDura()>=100) {
 			System.out.println("내구도가 최대치 이므로 수리가 불가능 합니다.");

@@ -50,8 +50,6 @@ public class PickaxInfo extends JFrame{
 		setContentPane(contentPane);
 		setVisible(true);
 		
-//		dao=new ClickerDAO();
-		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
@@ -79,11 +77,5 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_5 = new JLabel(pick.getDura()+"");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_5);
-	}
-	
-	public void itemInfo() {
-		lblNewLabel_1.setText(pick.getPickName());
-		lblNewLabel_3.setText(pick.getDmg()+"");
-		lblNewLabel_5.setText(pick.getDura()+"");		
 	}
 }

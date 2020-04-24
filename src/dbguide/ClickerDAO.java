@@ -24,8 +24,8 @@ public class ClickerDAO {
 	
 	// 커넥션 연결
 	public Connection getConnection() {
-//		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
-		String url = "jdbc:oracle:thin:@192.168.31.178:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+//		String url = "jdbc:oracle:thin:@192.168.31.178:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
 		String user = "javadb";	// 허가받은 사용자 아이디
 		String password = "12345";	// 비밀번호
 		
