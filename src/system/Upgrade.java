@@ -36,10 +36,12 @@ public class Upgrade {
 	public void evol() {
 		int failPer = (pick.getLevel()*pick.getPickLevel()+pick.getPickLevel()*10/*진화 확률*/);
 		int num = (int) (Math.random()*100);
-		int evolMoney = (int) Math.pow(pick.getPickLevel(), pick.getPickLevel()*100)/*진화 비용*/;
+		int evolMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100)/*진화 비용*/;
+		System.out.println("진화 금액 : "+evolMoney);
 		if(pick.getMoney() >= evolMoney) {
 			if(pick.getLevel()==5 && pick.getPickLevel()!=5) {
 				pick.setScore(pick.getScore()-pick.getPickLevel()*pick.getLevel());
+				pick.setMoney(pick.getMoney()-evolMoney);
 				if(num < (100-failPer)) {
 					System.out.println("진화 성공");
 					System.out.println(failPer);
