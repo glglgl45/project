@@ -23,6 +23,17 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import net.miginfocom.swing.MigLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.CardLayout;
 
 public class MineStone extends JFrame implements ActionListener {
 
@@ -39,8 +50,8 @@ public class MineStone extends JFrame implements ActionListener {
 	private JButton btnStone4;
 	private JButton btnStone5;
 	private JLabel labelMoney;
-	private JLabel lavelDura;
-	private JLabel lblNewLabel;
+	private JLabel labelDura;
+	private JLabel labelShowID;
 	private JButton btnScore;
 	private ClickerDAO dao;
 	private HpBar oreHpBar1;
@@ -48,12 +59,14 @@ public class MineStone extends JFrame implements ActionListener {
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
 	private HpBar woodHpBar;
-	private JPanel panel_3;
-	private JPanel panel_4;
-	private JPanel panel_5;
-	private JPanel panel_6;
-	private JPanel panel_7;
-	private JPanel panel_8;
+	private JPanel paneCen1Ab;
+	private JPanel paneCen2Ab;
+	private JPanel paneCen3Ab;
+	private JPanel paneCen4Ab;
+	private JPanel paneCen5Ab;
+	private JPanel paneCen6Ab;
+	private JPanel paneOreBtnBordCenFlow;
+	private JPanel paneHpBordSouthBord;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -77,17 +90,12 @@ public class MineStone extends JFrame implements ActionListener {
 		stone3 = new Stone();
 		stone4 = new Stone();
 		wood = new Wood();
-		dao = new ClickerDAO();
+		oreHpBar2 = new HpBar();
+		oreHpBar3 = new HpBar();
+		oreHpBar4 = new HpBar();
+		woodHpBar = new HpBar();
 		
-		oreHpBar1 = new HpBar(stone1.maxHp, stone1.hp);
-		oreHpBar1.setLocation(56, 156);
-		oreHpBar1.setSize(100, 20);
-		oreHpBar2 = new HpBar(stone2.maxHp, stone2.hp);
-		oreHpBar3 = new HpBar(stone3.maxHp, stone3.hp);
-		oreHpBar4 = new HpBar(stone4.maxHp, stone4.hp);
-		woodHpBar = new HpBar(wood.maxHp, wood.hp);
-		
-		setDefaultCloseOperation(dao.saveUser());
+//		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -99,9 +107,9 @@ public class MineStone extends JFrame implements ActionListener {
 		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
 		setVisible(true);
 		
-		JPanel panel_0 = new JPanel();
-		mainPanel.add(panel_0, BorderLayout.NORTH);
-		panel_0.setLayout(new BorderLayout(0, 0));
+		JPanel paneTopBord = new JPanel();
+		mainPanel.add(paneTopBord, BorderLayout.NORTH);
+		paneTopBord.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnLogout = new JButton("로그아웃");
 		btnLogout.addActionListener(new ActionListener() {
@@ -119,10 +127,10 @@ public class MineStone extends JFrame implements ActionListener {
 				}
 			}
 		});
-		panel_0.add(btnLogout, BorderLayout.EAST);
+		paneTopBord.add(btnLogout, BorderLayout.EAST);
 		
 		btnScore = new JButton("점수 : " + pick.getScore());
-		panel_0.add(btnScore, BorderLayout.WEST);
+		paneTopBord.add(btnScore, BorderLayout.WEST);
 		btnScore.addActionListener(new ActionListener() {
 			
 			@Override
@@ -133,79 +141,95 @@ public class MineStone extends JFrame implements ActionListener {
 		});
 		btnScore.addActionListener(this);
 		
-		JPanel panel_1 = new JPanel();
-		mainPanel.add(panel_1, BorderLayout.SOUTH);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		JPanel paneBotBord = new JPanel();
+		mainPanel.add(paneBotBord, BorderLayout.SOUTH);
+		paneBotBord.setLayout(new BorderLayout(0, 0));
 		
-		lblNewLabel = new JLabel("ID : "+pick.getUserId());
-		panel_1.add(lblNewLabel, BorderLayout.WEST);
+		labelShowID = new JLabel("ID : "+pick.getUserId());
+		paneBotBord.add(labelShowID, BorderLayout.WEST);
 		
-		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2, BorderLayout.CENTER);
+		JPanel paneBotCenFlow = new JPanel();
+		paneBotBord.add(paneBotCenFlow, BorderLayout.CENTER);
 		
-		JButton btnpi = new JButton(pick.getPickName() + " +" + pick.getLevel());
-		btnpi.addActionListener(new ActionListener() {
+		JButton btnPick = new JButton(pick.getPickName() + " +" + pick.getLevel());
+		btnPick.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PickaxInfo mc = new PickaxInfo();
 			}
 		});
-		panel_2.add(btnpi);
+		paneBotCenFlow.add(btnPick);
 		
-		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
-		panel_2.add(lblNewLabel_2);
+		JLabel labelShowDura = new JLabel("내구도 : ");
+		paneBotCenFlow.add(labelShowDura);
 		
-		lavelDura = new JLabel(pick.getDura()+"");
-		panel_2.add(lavelDura);
+		labelDura = new JLabel(pick.getDura()+"");
+		paneBotCenFlow.add(labelDura);
 		
-		JPanel panel = new JPanel();
-		panel_1.add(panel, BorderLayout.EAST);
+		JPanel paneBotEastFlow = new JPanel();
+		paneBotBord.add(paneBotEastFlow, BorderLayout.EAST);
 		
-		JLabel lblNewLabel_1 = new JLabel("소지금 : ");
-		panel.add(lblNewLabel_1);
+		JLabel labelShowMoney = new JLabel("소지금 : ");
+		paneBotEastFlow.add(labelShowMoney);
 		
 		labelMoney = new JLabel(pick.getMoney()+"");
-		panel.add(labelMoney);
+		paneBotEastFlow.add(labelMoney);
 		
-		panel_3 = new JPanel();
-		contentPane.add(panel_3);
-		panel_3.setLayout(null);
+		paneCen1Ab = new JPanel();
+		contentPane.add(paneCen1Ab);
+		paneCen1Ab.setLayout(null);
+		
+		JPanel paneOreAndHpBord = new JPanel();
+		paneOreAndHpBord.setBounds(44, 48, 133, 119);
+		paneCen1Ab.add(paneOreAndHpBord);
+		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
+		
+		paneOreBtnBordCenFlow = new JPanel();
+		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
 		btnStone1 = new JButton();
-		btnStone1.setBounds(45, 27, 133, 109);
-		panel_3.add(btnStone1);
+		paneOreBtnBordCenFlow.add(btnStone1);
 		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
-		panel_3.add(oreHpBar1);
+		btnStone1.addActionListener(this);
 		
-		panel_4 = new JPanel();
-		contentPane.add(panel_4);
+		paneHpBordSouthBord = new JPanel();
+		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
+						paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+				//		dao = new ClickerDAO();
+						
+						oreHpBar1 = new HpBar();
+						paneHpBordSouthBord.add(oreHpBar1);
+						oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		paneCen2Ab = new JPanel();
+		contentPane.add(paneCen2Ab);
 		
 		btnStone2 = new JButton();
-		panel_4.add(btnStone2);
+		paneCen2Ab.add(btnStone2);
 		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		btnStone2.addActionListener(this);
 		
-		panel_5 = new JPanel();
-		contentPane.add(panel_5);
+		paneCen3Ab = new JPanel();
+		contentPane.add(paneCen3Ab);
 		
 		btnStone3 = new JButton();
-		panel_5.add(btnStone3);
+		paneCen3Ab.add(btnStone3);
 		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		btnStone3.addActionListener(this);
 		
-		panel_6 = new JPanel();
-		contentPane.add(panel_6);
+		paneCen4Ab = new JPanel();
+		contentPane.add(paneCen4Ab);
 		
 		btnStone4 = new JButton();
-		panel_6.add(btnStone4);
+		paneCen4Ab.add(btnStone4);
 		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		btnStone4.addActionListener(this);
 		
-		panel_7 = new JPanel();
-		contentPane.add(panel_7);
+		paneCen5Ab = new JPanel();
+		contentPane.add(paneCen5Ab);
 		
 		JButton back = new JButton("나가기");
-		panel_7.add(back);
+		paneCen5Ab.add(back);
 		back.setIcon(new ImageIcon(MineStone.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -216,14 +240,13 @@ public class MineStone extends JFrame implements ActionListener {
 			}
 		});
 		
-		panel_8 = new JPanel();
-		contentPane.add(panel_8);
+		paneCen6Ab = new JPanel();
+		contentPane.add(paneCen6Ab);
 		
 		btnStone5 = new JButton();
-		panel_8.add(btnStone5);
+		paneCen6Ab.add(btnStone5);
 		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/wood.png")));
 		btnStone5.addActionListener(this);
-		btnStone1.addActionListener(this);
 		
 	}
 
@@ -250,38 +273,37 @@ public class MineStone extends JFrame implements ActionListener {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone1.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar1.setCurHp(stone1.hp);
-		oreHpBar1.setMaxHp(stone1.maxHp);
-		repaint();
+		oreHpBar1.settingHp(stone1.maxHp, stone1.hp, btnStone1.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		repaint(); // 클릭시 repaint()로 hp 게이지 변화
 	}
 	public void hitStone2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone2.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitStone3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone3.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitStone4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + stone4.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
 	}
 	public void hitStone5() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + wood.hit(pick.atkWood()));
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
 	}
 }

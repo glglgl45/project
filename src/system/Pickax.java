@@ -77,6 +77,14 @@ public class Pickax {
 	public void setPickLevel(int pickLevel) {
 		Pickax.pickLevel = pickLevel;
 	}
+	
+	public double getMul() {
+		return mul;
+	}
+
+	public void setMul(double mul) {
+		Pickax.mul = mul;
+	}
 
 	public void initPick() {
 		pickName = "돌 곡괭이";
@@ -96,13 +104,6 @@ public class Pickax {
 		dmg = 3;
 		pickLevel = 1;
 		dura = 100;
-	}
-	public double getMul() {
-		return mul;
-	}
-
-	public void setMul(double mul) {
-		Pickax.mul = mul;
 	}
 
 	public void copperPick() {
@@ -147,13 +148,14 @@ public class Pickax {
 		return mul;
 	}
 	
+	// 채광 메소드
 	public int atk() {
-		if(getDura() > 0) {
+		if(getDura() > 0) { // 내구도가 0 보다 크면 채광
 			double atk = dmg * mul;
 			setDura(getDura()-1);
 			setScore(getScore()-1);
 			return (int) atk;
-		} else {
+		} else { // 내구도가 0이면 채광 불가
 			double atk = 0;
 			System.out.println("내구도가 부족합니다.");
 			setScore(getScore()-1);
