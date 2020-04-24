@@ -51,17 +51,6 @@ public class MiddlePage extends JFrame {
 	 * Create the frame.
 	 */
 	public MiddlePage() {
-		pick = new Pickax();
-		dao=new ClickerDAO();
-//		vo=dao.searchUser(pick.getUserId());
-//		pick.setMoney(vo.getGold());	
-//		pick.setDmg(vo.getDamage());
-//		pick.setDura(vo.getDurability());
-//		pick.setLevel(vo.getEnhance());
-//		pick.setMul(vo.getMul());
-//		pick.setPickName(vo.getPickName());
-//		pick.setScore(vo.getScore());
-//		pick.setPickLevel(vo.getPickLevel());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -71,6 +60,8 @@ public class MiddlePage extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 		
+		pick = new Pickax();
+		dao=new ClickerDAO();
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -82,8 +73,6 @@ public class MiddlePage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MineSelect ms = new MineSelect();
-//				vo=dao.searchUser(lblNewLabel_1.getText());
-//				ms.mineInfo();
 			}
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
@@ -95,8 +84,6 @@ public class MiddlePage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Store s = new Store();
-//				vo=dao.searchUser(lblNewLabel_1.getText());	
-//				s.storeInfo();
 				s.setVisible(true);
 			}
 		});
@@ -132,7 +119,6 @@ public class MiddlePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PickaxInfo pic = new PickaxInfo();
-//				pic.itemInfo();
 			}
 		});
 		panel.add(btnPickaxInfo);
@@ -188,14 +174,6 @@ public class MiddlePage extends JFrame {
 		btnLogout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				vo.setDurability(pick.getDura());
-//				vo.setEnhance(pick.getLevel());
-//				vo.setGold(pick.getMoney());
-//				vo.setPickLevel(pick.getPickLevel());
-//				vo.setScore(pick.getScore());
-//				vo.setPickName(pick.getPickName());
-//				vo.setDamage(pick.getDmg());
-//				vo.setMul(pick.getMul());
 				dao.saveUser();
 				
 				String option[] = {"메인화면으로","게임 종료"};
@@ -211,10 +189,5 @@ public class MiddlePage extends JFrame {
 			}
 		});
 		panel_2.add(btnLogout, BorderLayout.EAST);
-	}
-	
-	public void playInfo() {	
-		lblNewLabel_1.setText(pick.getPickName());
-		lblNewLabel_2.setText(pick.getMoney()+"");
 	}
 }

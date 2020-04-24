@@ -208,7 +208,6 @@ public class Store extends JFrame implements ActionListener{
 			vo=dao.searchUser(lblNewLabel_4.getText());
 			int result=dao.saveUser();
 			if(result>0) {
-//				JOptionPane.showMessageDialog(this, "저장 완료");
 				String option[] = {"메인화면으로","게임 종료"};
 				int qe=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(qe==0) {
@@ -232,14 +231,5 @@ public class Store extends JFrame implements ActionListener{
 		if(e.getSource()==btnUpgrade) {
 			grade.upgrade();
 		}
-	}
-	
-	public void storeInfo() {
-		lblNewLabel_4.setText(pick.getUserId());
-		lblNewLabel_6.setText(pick.getMoney()+"");
-		txtPickName.setText(pick.getPickName());
-		txtLevel.setText(pick.getPickLevel()+"");
-		txtPickDura.setText(pick.getDura()+"");
-		txtPickDmg.setText(pick.getDmg()+"");
 	}
 }
