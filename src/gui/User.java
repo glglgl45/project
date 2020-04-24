@@ -102,13 +102,13 @@ public class User extends JFrame implements ActionListener {
 		if(e.getActionCommand().equals("상점")) {
 			Store store = new Store();
 			ClickerUserVO userVO=dao.searchUser(txtID.getText());
-			store.storeInfo(userVO);
+			store.storeInfo();
 			store.setVisible(true);
 		}
 	}
 	
 	public void playInfo(ClickerUserVO userVO) {
-		txtSword.setText(userVO.getPickName()+"("+userVO.getCurrentEnhance()+")");			
+		txtSword.setText(userVO.getPickName()+"("+userVO.getEnhance()+")");			
 		txtID.setText(userVO.getId());
 		txtGold.setText(userVO.getGold()+"");	
 	}

@@ -13,15 +13,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
 import gui.MainPage;
 import system.Pickax;
 
-public class MineSelect extends JFrame {
+public class MineSelect extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel, lblNewLabel_1;
 	private JButton btnNewButton_2,btnpi;
+	
+	private Pickax pick;
+	private ClickerDAO dao;
+	private ClickerUserVO vo;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -47,7 +52,10 @@ public class MineSelect extends JFrame {
 		setVisible(true);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		Pickax pick = new Pickax();
+		dao=new ClickerDAO();
+		
+		
+		pick = new Pickax();
 		pick.infoPick();
 		
 		JPanel panel = new JPanel();
@@ -58,6 +66,7 @@ public class MineSelect extends JFrame {
 		btnLogout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dao.saveUser();
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(result==0) {
@@ -78,7 +87,7 @@ public class MineSelect extends JFrame {
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		lblNewLabel = new JLabel("ID : 아이디");
+		lblNewLabel = new JLabel("ID : "+pick.getUserId());
 		panel_1.add(lblNewLabel, BorderLayout.WEST);
 		
 		lblNewLabel_1 = new JLabel("소지금 : "+pick.getMoney()+"");
@@ -96,7 +105,15 @@ public class MineSelect extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.CENTER);
 		
-		JButton btnNewButton = new JButton("돌 곡괭이 0");
+		JButton btnNewButton = new JButton(pick.getPickName() + " +" + pick.getLevel());
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo mc = new PickaxInfo();
+				
+			}
+		});
 		panel_3.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
@@ -166,15 +183,18 @@ public class MineSelect extends JFrame {
 				dispose();
 				MineDiamond mc = new MineDiamond();
 			}
-		});
-		
+		});		
 		setVisible(true);
 	}
 	
-	public void mineInfo(ClickerUserVO userVO) {
-		lblNewLabel.setText("ID : "+userVO.getId());
-		lblNewLabel_1.setText("소지금 : "+userVO.getGold()+"");
-		btnNewButton_2.setText("점수 : "+userVO.getScore());
-		btnpi.setText(userVO.getPickName()+" +"+userVO.getCurrentEnhance()+" 내구도 : "+userVO.getCurrentDurability());
+	public void mineInfo() {
+		lblNewLabel.setText("ID : "+pick.getUserId());
+		lblNewLabel_1.setText("소지금 : "+pick.getMoney()+"");
+		btnNewButton_2.setText("점수 : "+pick.getScore());		
+		btnpi.setText(pick.getPickName()+" +"+pick.getLevel()+" 내구도 : "+pick.getDura());
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {		
+	}	
 }

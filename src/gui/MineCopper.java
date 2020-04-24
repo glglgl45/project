@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dbguide.ClickerDAO;
 import gui.MainPage;
 import ore.*;
 import system.*;
@@ -37,8 +38,10 @@ public class MineCopper extends JFrame implements ActionListener {
 	private JButton btncopper5;
 	private JLabel labelMoney;
 	private JLabel lavelDura;
+	private JLabel lblNewLabel;
 	private JButton btnScore;
-
+	private ClickerDAO dao;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -61,6 +64,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		copper3 = new Copper();
 		copper4 = new Copper();
 		copper5 = new Copper();
+		dao = new ClickerDAO();
 
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -80,6 +84,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		btnLogout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dao.saveUser();
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(result==0) {
@@ -101,13 +106,13 @@ public class MineCopper extends JFrame implements ActionListener {
 		mainPanel.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("ID : 아이디");
+		lblNewLabel = new JLabel("ID : "+pick.getUserId());
 		panel_1.add(lblNewLabel, BorderLayout.WEST);
 		
 		JPanel panel_2 = new JPanel();
 		panel_1.add(panel_2, BorderLayout.CENTER);
 		
-		JButton btnpi = new JButton(pick.getPickName() + " " + pick.getLevel());
+		JButton btnpi = new JButton(pick.getPickName() + " +" + pick.getLevel());
 		btnpi.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

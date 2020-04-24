@@ -1,14 +1,48 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
+
+class BackImg extends JPanel {
+	
+	private BufferedImage img;
+	
+	public BackImg() {
+		try {
+			URL url = getClass().getResource("main-demo.png");
+			img = ImageIO.read(new File(url.getFile()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(img, 0, 0, null);
+	}
+	
+	@Override
+	public Dimension getPreferredSize() {
+		if(img==null) {
+			return new Dimension(100, 100);
+		}
+		return new Dimension(img.getWidth(), img.getHeight());
+	}
+}
 
 public class MainPage extends JFrame {
 
@@ -41,6 +75,8 @@ public class MainPage extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		add(new BackImg());
+		pack();
 		setVisible(true);
 		
 		JPanel panel = new JPanel();
