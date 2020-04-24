@@ -95,10 +95,11 @@ public class MainPage extends JFrame {
 				Login l = new Login();
 			}
 		});
-		btnLogin.setBounds(500, 500, 111, 111);
+		btnLogin.setBounds(294, 266, 111, 29);
 		backPanel.add(btnLogin);
 		
 		btnSignUp = new JButton("회원가입");
+		btnSignUp.setBounds(294, 325, 111, 29);
 		btnSignUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
