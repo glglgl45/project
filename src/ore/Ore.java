@@ -5,7 +5,7 @@ public class Ore {
 	public int hp;
 	public String name;
 	public int reward;
-
+	public int maxHp;
 
 	public int hit(int atk) {		
 		if(hp > 0 && hp > atk) {
