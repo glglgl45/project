@@ -140,6 +140,7 @@ public class SignUp extends JFrame implements ActionListener {
 					vo.setPickName(pick.getPickName());
 					vo.setDamage(pick.getDmg());
 					vo.setMul(pick.getMul());
+					vo.setProgress(0);		//엔딩확인 초기값
 					
 //					txtID.setText("");
 					passwordField.setText("");

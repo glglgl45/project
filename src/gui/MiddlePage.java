@@ -53,8 +53,8 @@ public class MiddlePage extends JFrame {
 		pick = new Pickax();
 		dao=new ClickerDAO();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -131,8 +131,8 @@ public class MiddlePage extends JFrame {
 		panel_1.add(panel_4, BorderLayout.CENTER);
 		
 
-		JButton btnNewButton1 = new JButton("돌곡괭이 0");
-		btnNewButton1.addActionListener(new ActionListener() {
+		JButton btnPickInfo = new JButton(pick.getPickName() + " +" + pick.getLevel());
+		btnPickInfo.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -143,7 +143,7 @@ public class MiddlePage extends JFrame {
 
 		//JButton btnNewButton1 = new JButton(pick.getPickName()+" +"+pick.getLevel());
 
-		panel_4.add(btnNewButton1);
+		panel_4.add(btnPickInfo);
 		
 		JLabel lblNewLabel_3 = new JLabel("내구도 : ");
 		panel_4.add(lblNewLabel_3);
