@@ -123,6 +123,14 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		btnScore = new JButton("점수 : " + pick.getScore());
 		panel_0.add(btnScore, BorderLayout.WEST);
+		btnScore.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Ranking ranking = new Ranking();
+				
+			}
+		});
 		btnScore.addActionListener(this);
 		
 		JPanel panel_1 = new JPanel();

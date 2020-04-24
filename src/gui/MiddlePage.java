@@ -84,7 +84,7 @@ public class MiddlePage extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/scroll1.png")));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
-		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mining.png")));
+		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mine-cart.PNG")));
 		panel.add(btnMine);
 		
 		JButton btnStore = new JButton("상점");
@@ -96,7 +96,7 @@ public class MiddlePage extends JFrame {
 				s.setVisible(true);
 			}
 		});
-		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/shop.png")));
+		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/blacksmithing.PNG")));
 		panel.add(btnStore);
 		int key=pick.getPickLevel();
 		switch (key) {
@@ -166,6 +166,14 @@ public class MiddlePage extends JFrame {
 		
 		JButton btnNewButton_1 = new JButton("점수 : " + pick.getScore());
 		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Ranking ranking = new Ranking();
+				
+			}
+		});
 		panel_2.add(btnNewButton_1, BorderLayout.WEST);
 		
 		JButton btnLogout = new JButton("로그아웃");

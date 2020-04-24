@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import dbguide.ClickerUserVO;
 import lombok.AllArgsConstructor;
@@ -148,8 +149,8 @@ public class ClickerDAO {
 		return  result;
 	}
 	
-	public ArrayList<ClickerUserVO> listAllUser() {
-		ArrayList<ClickerUserVO> list = new ArrayList<>();
+	public Vector<ClickerUserVO> listAllUser() {
+		Vector<ClickerUserVO> list = new Vector<>();
 		String sql="select * from ClickerUserInfo";
 		
 		try(Connection con=getConnection();
@@ -177,8 +178,8 @@ public class ClickerDAO {
 		return list;
 	}
 	
-	public ArrayList<ClickerUserVO> listEndUser() {
-		ArrayList<ClickerUserVO> list = new ArrayList<>();
+	public Vector<ClickerUserVO> listEndUser() {
+		Vector<ClickerUserVO> list = new Vector<>();
 		String sql="select * from ClickerUserInfo where progress=1";
 		
 		try(Connection con=getConnection();
@@ -206,8 +207,8 @@ public class ClickerDAO {
 		return list;
 	}
 	
-	public ArrayList<ClickerUserVO> listIngUser() {
-		ArrayList<ClickerUserVO> list = new ArrayList<>();
+	public Vector<ClickerUserVO> listIngUser() {
+		Vector<ClickerUserVO> list = new Vector<>();
 		String sql="select * from ClickerUserInfo where progress=0";
 		
 		try(Connection con=getConnection();
@@ -233,10 +234,7 @@ public class ClickerDAO {
 			e.printStackTrace();
 		}		
 		return list;
-	}
-	
-	
-	
+	}	
 	
 	//아이템 조회 - itemName, currentenhance로 해당 아이템의 설정 정보 조회
 //	public ClickerItemVO searchItem(String pickName, int enhance) {
