@@ -137,6 +137,14 @@ public class MiddlePage extends JFrame {
 		panel_1.add(panel_4, BorderLayout.CENTER);
 		
 		JButton btnNewButton = new JButton("돌곡괭이 0");
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PickaxInfo pick = new PickaxInfo();
+				
+			}
+		});
 		panel_4.add(btnNewButton);
 		
 		JLabel lblNewLabel_3 = new JLabel("내구도 : ");
