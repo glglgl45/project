@@ -19,4 +19,5 @@ public class ClickerUserVO {
 	private int score;
 	private int damage;
 	private double mul;
+	private int progress;
 }

@@ -66,8 +66,8 @@ public class MineDiamond extends JFrame implements ActionListener {
 		diamondWall = new DiamondWall();
 		dao = new ClickerDAO();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -102,6 +102,14 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btnScore = new JButton("점수 : " + pick.getScore());
 		panel_0.add(btnScore, BorderLayout.WEST);
+		btnScore.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Ranking ranking = new Ranking();
+				
+			}
+		});
 		btnScore.addActionListener(this);
 		
 		JPanel panel_1 = new JPanel();
@@ -195,6 +203,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 			if(diamondWall.hp==0) { // diamondWall의 hp가 다 닳았을 때
 				dispose();
 				GameClear gc = new GameClear();
+				dao.saveEndUser();
 			}
 		}
 	}
