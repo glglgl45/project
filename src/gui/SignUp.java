@@ -80,7 +80,6 @@ import system.Pickax;
 		private JPasswordField passwordField1;
 		private Pickax pick;
 		private ClickerDAO dao;
-		private ClickerUserVO vo;
 
 		public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
@@ -99,8 +98,8 @@ import system.Pickax;
 	 * Create the frame.
 	 */
 	public SignUp() {
-		Pickax pick = new Pickax();
-		ClickerDAO dao = new ClickerDAO();
+		pick = new Pickax();
+		dao = new ClickerDAO();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -174,12 +173,14 @@ import system.Pickax;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if(e.getActionCommand().equals("회원가입") || e.getSource()==passwordField1) {
-			vo = new ClickerUserVO();
-			if(txtID.getText()!=null && new String(passwordField.getPassword())!=null && new String(passwordField1.getPassword())!=null) {
+		if(e.getActionCommand().equals("회원가입") || e.getSource()==passwordField1) {		//회원가입 버튼 및 passwordField1에서 엔터 입력 시
+			if(txtID.getText()!=null && 	//아이디, 비밀번호, 비밀번호 확인 칸의 입력상태 확인
+					new String(passwordField.getPassword())!=null && 
+					new String(passwordField1.getPassword())!=null) {	
 				
 				if(new String(passwordField.getPassword()).equals(new String(passwordField1.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
-					//초기 설정 값
+					ClickerUserVO vo = new ClickerUserVO();
+					//초기 설정 값 (회원가입 시 DB에 입력될 초기 값)
 					vo.setId(txtID.getText());	
 					vo.setPwd(new String(passwordField.getPassword()));
 					vo.setDurability(pick.getDura());
@@ -190,71 +191,28 @@ import system.Pickax;
 					vo.setPickName(pick.getPickName());
 					vo.setDamage(pick.getDmg());
 					vo.setMul(pick.getMul());
-					vo.setProgress(0);		//엔딩확인 초기값
+					vo.setProgress(0);	//엔딩확인 초기값
 					
-//					txtID.setText("");
+					//txtID.setText("");	//테스트 중
 					passwordField.setText("");
 					passwordField1.setText("");						
 					
-					int result=dao.insertUser(vo);
-					if(result>0) {						
+					int result=dao.insertUser(vo);	//DB에 저장
+					if(result>0) {	//DB에 INSERT 성공 시
 						JOptionPane.showMessageDialog(this, "가입 완료");
 						pick.setUserId(txtID.getText());
 						MiddlePage mp = new MiddlePage();
-//						mp.playInfo();
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
 					}				
-				}else if(!(new String(passwordField.getPassword()).equals(new String(passwordField1.getPassword())))) {
+				}else if(!(new String(passwordField.getPassword()).equals(new String(passwordField1.getPassword())))) {	//비밀번호-비밀번호 확인 입력 정보 확인
 					JOptionPane.showMessageDialog(this, "비밀번호가 일치하지 않습니다.");
 				}				
-			}else if(txtID.getText()==null || new String(passwordField.getPassword())==null || new String(passwordField1.getPassword())==null) {
+			}else if(txtID.getText()==null || //아이디, 비밀번호, 비밀번호 확인의 빈칸 확인
+					new String(passwordField.getPassword())==null || 
+					new String(passwordField1.getPassword())==null) {
 				JOptionPane.showMessageDialog(this, "정보를 모두 기입해 주세요");
 			}
 		}
 	}
 }
-	
-
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//		if(e.getActionCommand().equals("회원가입")) {
-//			vo = new ClickerUserVO();
-//			if(txtID.getText()!=null && new String(passwordField.getPassword())!=null && new String(passwordField1.getPassword())!=null) {
-//				
-//				if(new String(passwordField.getPassword()).equals(new String(passwordField1.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
-//					//초기 설정 값
-//					vo.setId(txtID.getText());	
-//					vo.setPwd(new String(passwordField.getPassword()));
-//					vo.setDurability(pick.getDura());
-//					vo.setEnhance(pick.getLevel());
-//					vo.setGold(pick.getMoney());
-//					vo.setPickLevel(pick.getPickLevel());
-//					vo.setScore(pick.getScore());
-//					vo.setPickName(pick.getPickName());
-//					vo.setDamage(pick.getDmg());
-//					vo.setMul(pick.getMul());
-//					vo.setProgress(0);		//엔딩확인 초기값
-//					
-////					txtID.setText("");
-//					passwordField.setText("");
-//					passwordField1.setText("");						
-//					
-//					int result=dao.insertUser(vo);
-//					if(result>0) {						
-//						JOptionPane.showMessageDialog(this, "가입 완료");
-//						pick.setUserId(txtID.getText());
-//						MiddlePage mp = new MiddlePage();
-////						mp.playInfo();
-//					}else {
-//						JOptionPane.showMessageDialog(this, "아이디 중복");
-//					}				
-//				}else if(!(new String(passwordField.getPassword()).equals(new String(passwordField1.getPassword())))) {
-//					JOptionPane.showMessageDialog(this, "비밀번호가 일치하지 않습니다.");
-//				}				
-//			}else if(txtID.getText()==null || new String(passwordField.getPassword())==null || new String(passwordField1.getPassword())==null) {
-//				JOptionPane.showMessageDialog(this, "정보를 모두 기입해 주세요");
-//			}
-//		}
-//	}
-//}

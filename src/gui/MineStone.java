@@ -115,7 +115,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnLogout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dao.saveUser();
+				dao.saveUser();	//DB에 게임 진행사항 저장
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(result==0) {
@@ -194,12 +194,12 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
-						paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-						dao = new ClickerDAO();
+		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+		dao = new ClickerDAO();
 						
-						oreHpBar1 = new HpBar();
-						paneHpBordSouthBord.add(oreHpBar1);
-						oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		oreHpBar1 = new HpBar();
+		paneHpBordSouthBord.add(oreHpBar1);
+		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		paneCen2Ab = new JPanel();
 		contentPane.add(paneCen2Ab);

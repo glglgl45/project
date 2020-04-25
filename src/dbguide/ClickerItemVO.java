@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClickerItemVO {
+public class ClickerItemVO {	//미사용 클래스 삭제 예정
 
 	private String pickName;
 	private int pickLevel;
