@@ -29,12 +29,7 @@ import javax.swing.JPasswordField;
 	
 	class BackImg1 extends JPanel {
 		
-		private JPanel ContentPane;
-		
-		private ClickerDAO dao;
-		private Pickax pick;
-		private ClickerUserVO vo;
-		
+		private JPanel ContentPane;		
 		private BufferedImage img;
 		
 		public BackImg1() {
@@ -66,7 +61,7 @@ import javax.swing.JPasswordField;
 	
 	
 	
-	public class Login extends JFrame implements ActionListener {
+	public class Login extends JFrame {
 
 		private JPanel contentPane;
 		private JButton btnLogin;
@@ -75,6 +70,9 @@ import javax.swing.JPasswordField;
 		private JTextField txtId;
 		private JPasswordField txtPw;
 
+		private ClickerDAO dao;
+		private Pickax pick;
+		
 		public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -92,8 +90,8 @@ import javax.swing.JPasswordField;
 	 * Create the frame.
 	 */
 	public Login() {
-		Pickax pick = new Pickax();
-		ClickerDAO dao = new ClickerDAO();
+		pick = new Pickax();
+		dao = new ClickerDAO();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -111,54 +109,6 @@ import javax.swing.JPasswordField;
 		lblNewLabel.setBounds(304, 255, 97, 35);
 		backPanel.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("로그인");
-		btnNewButton.setFont(new Font("굴림", Font.BOLD, 12));
-		btnNewButton.setBounds(246, 477, 97, 23);
-		backPanel.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ClickerDAO dao = new ClickerDAO();
-				ClickerUserVO vo = dao.searchUser(txtId.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
-
-				if(e.getActionCommand().equals("로그인") || e.getSource()==txtPw) {
-					if(((ClickerUserVO) vo).getId().equals(txtId.getText()) && ((ClickerUserVO) vo).getPwd().equals(new String(txtPw.getPassword()))) {		
-						Pickax pick = new Pickax();
-						pick.setUserId(txtId.getText());
-						vo=dao.searchUser(txtId.getText());
-						pick.setMoney(((ClickerUserVO) vo).getGold());	
-						pick.setDmg(((ClickerUserVO) vo).getDamage());
-						pick.setDura(((ClickerUserVO) vo).getDurability());
-						pick.setLevel(((ClickerUserVO) vo).getEnhance());
-						pick.setMul(((ClickerUserVO) vo).getMul());
-						pick.setPickName(((ClickerUserVO) vo).getPickName());
-						pick.setScore(((ClickerUserVO) vo).getScore());
-						pick.setPickLevel(((ClickerUserVO) vo).getPickLevel());
-						dispose();
-						MiddlePage mp = new MiddlePage();
-					}else {
-						JOptionPane.showMessageDialog(getParent(), "로그인 정보를 확인해 주세요.");
-					}
-				}
-			}
-		});
-		
-		
-		
-		JButton btnNewButton_1 = new JButton("돌아가기");
-		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 12));
-		btnNewButton_1.setBounds(380, 477, 97, 23);
-		backPanel.add(btnNewButton_1);
-		
-		btnNewButton_1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				MainPage m = new MainPage();
-			}
-		});
-		
 		txtId = new JTextField();
 		txtId.setBounds(296, 300, 116, 21);
 		backPanel.add(txtId);
@@ -173,42 +123,53 @@ import javax.swing.JPasswordField;
 		txtPw.setBounds(304, 389, 105, 21);
 		backPanel.add(txtPw);
 		setVisible(true);
-		dao=new ClickerDAO();
 		
+		JButton btnNewButton = new JButton("로그인");
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 12));
+		btnNewButton.setBounds(246, 477, 97, 23);
+		backPanel.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ClickerUserVO vo = new ClickerUserVO();
+				vo = dao.searchUser(txtId.getText()); //DB 존재 유/무 조회
+				if(vo!=null) {
+					if(e.getActionCommand().equals("로그인") || e.getSource()==txtPw) {	//로그인버튼 및 txtPw에서 엔터 입력 시 진행
+						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
+								vo.getPwd().equals(new String(txtPw.getPassword()))) {							
+							//vo=dao.searchUser(txtId.getText());	//테스트 중
+							
+							//DB의 정보를 Pickax의 변수에 입력 
+							pick.setUserId(vo.getId());	
+							pick.setMoney(vo.getGold());							
+							pick.setDmg(vo.getDamage());
+							pick.setDura(vo.getDurability());
+							pick.setLevel(vo.getEnhance());
+							pick.setMul(vo.getMul());
+							pick.setPickName(vo.getPickName());
+							pick.setScore(vo.getScore());
+							pick.setPickLevel(vo.getPickLevel());
+							dispose();
+							MiddlePage mp = new MiddlePage();					
+					}else {
+						JOptionPane.showMessageDialog(getParent(), "비밀번호를 확인해 주세요.");				
+					}
+				}else {
+					JOptionPane.showMessageDialog(getParent(), "ID를 확인해 주세요.");
+				}
+			}
+		}
+	});		
+		JButton btnNewButton_1 = new JButton("돌아가기");
+		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 12));
+		btnNewButton_1.setBounds(380, 477, 97, 23);
+		backPanel.add(btnNewButton_1);		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainPage m = new MainPage();
+			}
+		});		
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	
-//	@Override
-//	public void actionPerformed(ActionEvent e) {		
-//		
-//		ClickerDAO dao = new ClickerDAO();
-//		ClickerUserVO vo = dao.searchUser(txtId.getText());	//DB에 없는 아이디 입력 시 에러 발생  처리방법 필요
-//
-//		if(e.getActionCommand().equals("로그인") || e.getSource()==txtPw) {
-//			if(((ClickerUserVO) vo).getId().equals(txtId.getText()) && ((ClickerUserVO) vo).getPwd().equals(new String(txtPw.getPassword()))) {		
-//				dispose();
-//				Pickax pick = new Pickax();
-//				pick.setUserId(txtId.getText());
-//				vo=dao.searchUser(txtId.getText());
-//				pick.setMoney(((ClickerUserVO) vo).getGold());	
-//				pick.setDmg(((ClickerUserVO) vo).getDamage());
-//				pick.setDura(((ClickerUserVO) vo).getDurability());
-//				pick.setLevel(((ClickerUserVO) vo).getEnhance());
-//				pick.setMul(((ClickerUserVO) vo).getMul());
-//				pick.setPickName(((ClickerUserVO) vo).getPickName());
-//				pick.setScore(((ClickerUserVO) vo).getScore());
-//				pick.setPickLevel(((ClickerUserVO) vo).getPickLevel());
-//				MiddlePage mp = new MiddlePage();
-//			}else {
-//				JOptionPane.showMessageDialog(this, "로그인 정보를 확인해 주세요.");
-//			}
-//		}
-//	}
 }

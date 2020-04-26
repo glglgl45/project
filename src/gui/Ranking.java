@@ -106,7 +106,7 @@ public class Ranking extends JFrame {
 	
 
 	
-	public void ingList() {
+	public void ingList() {	//클리어 못한 유저 리스트
 		Vector<ClickerUserVO> vecList=dao.listIngUser();		
 		
 		for(ClickerUserVO vo:vecList) {
@@ -115,7 +115,7 @@ public class Ranking extends JFrame {
 		}
 	}
 	
-	public void endList() {
+	public void endList() { //클리어 유저 리스트
 		Vector<ClickerUserVO> vecList=dao.listEndUser();		
 		
 		for(ClickerUserVO vo:vecList) {

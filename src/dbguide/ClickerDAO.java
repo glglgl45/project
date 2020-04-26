@@ -27,8 +27,8 @@ public class ClickerDAO {
 	
 	// 커넥션 연결
 	public Connection getConnection() {
-		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
-//		String url = "jdbc:oracle:thin:@192.168.31.178:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+//		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+		String url = "jdbc:oracle:thin:@192.168.31.178:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
 		String user = "javadb";	// 허가받은 사용자 아이디
 		String password = "12345";	// 비밀번호
 		
@@ -41,7 +41,7 @@ public class ClickerDAO {
 		return con;
 	}
 	
-	//회원가입
+	//오라클DB ClickerUserInfo 테이블에 INSERT (회원가입)
 	public int insertUser(ClickerUserVO vo) {
 		int result=0;
 		String sql="insert into ClickerUserInfo values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -68,7 +68,7 @@ public class ClickerDAO {
 		return result;	
 	}
 	
-	//로그인 - 데이터 조회
+	//ClickerUserInfo 테이블에서 ID를 이용한 조회 (로그인)
 	public ClickerUserVO searchUser(String id) {
 		ClickerUserVO vo=null;
 		String sql="select * from ClickerUserInfo where id=?";
@@ -100,7 +100,8 @@ public class ClickerDAO {
 		return vo;
 	}
 	
-	//데이터 저장
+	//오라클DB ClickerUserInfo 테이블에서 ID를 이용한 UPDATE (게임 진행사항 저장) 
+	//로그인 시 Pickax로 입력되어 게임 진행 중 변경된 정보를 DB로 저장
 	public int saveUser() {
 		int result=0;
 		String sql="update ClickerUserInfo set pickname=?, enhance=?, picklevel=?, durability=?, gold=?, score=?, damage=?, mul=? where id=?";
@@ -125,6 +126,7 @@ public class ClickerDAO {
 		return  result;
 	}
 	
+	//오라클DB ClickerUserInfo 테이블에서 ID를 이용한 UPDATE (게임 클리어 시 progress 컬럼을 1로 변경)
 	public int saveEndUser() {
 		int result=0;
 		String sql="update ClickerUserInfo set pickname=?, enhance=?, picklevel=?, durability=?, gold=?, score=?, damage=?, mul=?, progress=1 where id=?";
@@ -149,6 +151,7 @@ public class ClickerDAO {
 		return  result;
 	}
 	
+	//오라클DB ClickerUserInfo 테이블 정보 조회 (전체)
 	public Vector<ClickerUserVO> listAllUser() {
 		Vector<ClickerUserVO> list = new Vector<>();
 		String sql="select * from ClickerUserInfo";
@@ -178,6 +181,7 @@ public class ClickerDAO {
 		return list;
 	}
 	
+	//오라클DB ClickerUserInfo 테이블 정보 조회 (progress 컬럼이 1인 회원 조회 / 게임 클리어 유저 랭킹 리스트 출력용)
 	public Vector<ClickerUserVO> listEndUser() {
 		Vector<ClickerUserVO> list = new Vector<>();
 		String sql="select * from ClickerUserInfo where progress=1";
@@ -207,6 +211,7 @@ public class ClickerDAO {
 		return list;
 	}
 	
+	//오라클DB ClickerUserInfo 테이블 정보 조회 (progress 컬럼이 0인 회원 조회 / 게임 클리어를 못한 유저 랭킹 리스트 출력용)
 	public Vector<ClickerUserVO> listIngUser() {
 		Vector<ClickerUserVO> list = new Vector<>();
 		String sql="select * from ClickerUserInfo where progress=0";
@@ -234,33 +239,5 @@ public class ClickerDAO {
 			e.printStackTrace();
 		}		
 		return list;
-	}	
-	
-	//아이템 조회 - itemName, currentenhance로 해당 아이템의 설정 정보 조회
-//	public ClickerItemVO searchItem(String pickName, int enhance) {
-//		ClickerItemVO vo=null;
-//		String sql="select * from ClickerItemInfo where pickname=? and enhance=?";
-//		
-//		try(Connection con=getConnection();
-//				PreparedStatement pstmt=con.prepareStatement(sql)) {
-//			
-//			pstmt.setString(1, pickName);
-//			pstmt.setInt(2, enhance);
-//			ResultSet rs=pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				vo=new ClickerItemVO();
-//				vo.setPickName(rs.getString("pickname"));
-//				vo.setPickLevel(rs.getInt("picklevel"));
-//				vo.setMul(rs.getInt("mul"));
-//				vo.setEnhance(rs.getInt("enhance"));
-//				vo.setAttack(rs.getInt("attack"));
-//				vo.setTotalDurability(rs.getInt("totaldurability"));
-//			}
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}		
-//		return vo;
-//	}
+	}
 }

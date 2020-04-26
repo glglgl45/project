@@ -19,7 +19,7 @@ public class Upgrade {
 		//강화 성공 실패 결과
 		if(pick.getMoney() >= upMoney) {
 			if(pick.getLevel()<5) {
-				pick.setScore(pick.getScore()-(pick.getPickLevel()+pick.getLevel()));
+				pick.setScore(pick.getScore()-(pick.getPickLevel()+pick.getLevel())); // 강화시도 시 점수 차감
 				if(num > (100-failPer)) {
 					System.out.println("실패");
 					System.out.println(failPer);
@@ -54,7 +54,7 @@ public class Upgrade {
 		// 진화 성공 실패 결과
 		if(pick.getMoney() >= evolMoney) {
 			if(pick.getLevel()==5 && pick.getPickLevel()!=5) {
-				pick.setScore(pick.getScore()-pick.getPickLevel()*pick.getLevel());
+				pick.setScore(pick.getScore()-pick.getPickLevel()*pick.getLevel()); // 진화시도 시 점수 차감
 				pick.setMoney(pick.getMoney()-evolMoney);
 				if(num < (100-failPer)) {
 					System.out.println("진화 성공");
@@ -111,8 +111,9 @@ public class Upgrade {
 				System.out.println("소지금이 부족합니다.");
 			} else {
 				System.out.println("곡괭이가 수리 되었습니다.");
-				pick.setDura(100);
-				pick.setMoney(pick.getMoney()-fixMoney);
+				pick.setDura(100); // 수리로 인한 내구도 복구
+				pick.setMoney(pick.getMoney()-fixMoney); // 수리비용 청구
+				pick.setScore(pick.getScore()-1); // 수리시 점수 차감
 			}
 		}
 	}

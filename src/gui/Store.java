@@ -218,8 +218,7 @@ public class Store extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("로그아웃")) {
-			vo=dao.searchUser(lblNewLabel_4.getText());
-			dao.saveUser();
+			dao.saveUser();	//DB에 게임 진행사항 저장
 			String option[] = {"메인화면으로","게임 종료"};
 			int qe=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 			if(qe==0) {
