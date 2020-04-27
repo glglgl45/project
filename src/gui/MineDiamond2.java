@@ -61,9 +61,9 @@ public class MineDiamond2 extends JFrame implements ActionListener {
 	private JPanel paneCen5Ab;
 	private JPanel paneCen6Ab;
 	private JPanel paneOreBtnBordCenFlow;
-	private JPanel paneOreBtnBordCenFlow_2;
 	private JPanel paneOreBtnBordCenFlow_1;
 	private JPanel paneHpBordSouthBord;
+	private JPanel paneHpBordSouthBord_2;
 	private JPanel paneHpBordSouthBord_1;
 	private JPanel paneOreAndHpBord;
 	private JLabel lblNewLabel;
@@ -96,7 +96,7 @@ public class MineDiamond2 extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
-		setDefaultCloseOperation(dao.saveUser());
+//		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 650);
 		mainPanel = new JPanel();
@@ -134,30 +134,6 @@ public class MineDiamond2 extends JFrame implements ActionListener {
 		
 		btnScore = new JButton("점수 : " + pick.getScore());
 		paneTopBord.add(btnScore, BorderLayout.WEST);
-		oreHpBar1 = new HpBar();
-		
-		paneOreAndHpBord = new JPanel();
-		paneTopBord.add(paneOreAndHpBord, BorderLayout.CENTER);
-		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
-		paneOreAndHpBord.setBackground(new Color(255, 0, 0, 0));
-		
-		paneHpBordSouthBord = new JPanel();
-		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
-		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		
-		paneHpBordSouthBord.add(oreHpBar1);
-		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		paneOreBtnBordCenFlow_2 = new JPanel();
-		oreHpBar1.add(paneOreBtnBordCenFlow_2);
-		btnOre1= new JButton();
-		paneOreBtnBordCenFlow_2.add(btnOre1);
-		btnOre1.setBorderPainted(false);
-		btnOre1.setFocusPainted(false);
-		btnOre1.setContentAreaFilled(false);
-		btnOre1.setIcon(ore1.OreImg());
-		paneOreBtnBordCenFlow_2.setBackground(new Color(255,0,0,0));
-		btnOre1.addActionListener(this);
 		btnScore.addActionListener(new ActionListener() {
 			
 			@Override
@@ -236,6 +212,11 @@ public class MineDiamond2 extends JFrame implements ActionListener {
 		oreHpBar2 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar2);
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		paneHpBordSouthBord_2 = new JPanel();
+		paneHpBordSouthBord_2.setBounds(-223, 69, 106, 23);
+		paneCen2Ab.add(paneHpBordSouthBord_2);
+		paneHpBordSouthBord_2.setLayout(new BorderLayout(0, 0));
 		
 		paneCen3Ab = new JPanel();
 		paneCen3Ab.setBounds(469, 0, 234, 273);
@@ -346,6 +327,24 @@ public class MineDiamond2 extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		paneOreAndHpBord = new JPanel();
+		paneOreAndHpBord.setBounds(-122, 99, 524, 23);
+		contentPane.add(paneOreAndHpBord);
+		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
+		paneOreAndHpBord.setBackground(new Color(255, 0, 0, 0));
+		btnOre1= new JButton();
+		btnOre1.setBounds(49, 117, 132, 108);
+		contentPane.add(btnOre1);
+		btnOre1.setBorderPainted(false);
+		btnOre1.setFocusPainted(false);
+		btnOre1.setContentAreaFilled(false);
+		btnOre1.setIcon(ore1.OreImg());
+		oreHpBar1 = new HpBar();
+		oreHpBar1.setBounds(23, 99, 132, 23);
+		contentPane.add(oreHpBar1);
+		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		btnOre1.addActionListener(this);
 		
 		lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(0, 0, 702, 540);

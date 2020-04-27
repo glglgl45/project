@@ -23,12 +23,15 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.CardLayout;
+import java.awt.Color;
 
 public class MineDiamond extends JFrame implements ActionListener {
 
@@ -64,6 +67,8 @@ public class MineDiamond extends JFrame implements ActionListener {
 	private JPanel paneOreBtnBordCenFlow_1;
 	private JPanel paneHpBordSouthBord;
 	private JPanel paneHpBordSouthBord_1;
+	
+	private ImageIcon icon;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -93,6 +98,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
+		icon = new ImageIcon(MineDiamond.class.getResource("/img/다이아.jpg"));
 		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,7 +107,15 @@ public class MineDiamond extends JFrame implements ActionListener {
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
 		mainPanel.setLayout(new BorderLayout(0, 0));
-		contentPane = new JPanel();
+		contentPane = new JPanel() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				g.drawImage(icon.getImage(), 0, 0, null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
+//		contentPane.setBackground(Color.BLACK);
 		mainPanel.add(contentPane, BorderLayout.CENTER);
 		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
 		setVisible(true);
@@ -186,12 +200,13 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		btnOre1= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setBorderPainted(false);
-		btnOre1.setFocusPainted(false);
-		btnOre1.setContentAreaFilled(false);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
+		paneOreBtnBordCenFlow.add(btnOre1);
+		transBtn(btnOre1);
+		paneOreBtnBordCenFlow.setOpaque(false);
+		paneOreAndHpBord.setOpaque(false);
+		paneCen1Ab.setOpaque(false);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -215,11 +230,15 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
+		btnOre2.setIcon(ore2.OreImg());
+		btnOre2.addActionListener(this);
 		btnOre2.setBorderPainted(false);
 		btnOre2.setFocusPainted(false);
 		btnOre2.setContentAreaFilled(false);
-		btnOre2.setIcon(ore2.OreImg());
-		btnOre2.addActionListener(this);
+//		transBtn(btnOre2);
+		paneOreBtnBordCenFlow_1.setOpaque(false);
+		paneOreAndHpBord_2.setOpaque(false);
+		paneCen2Ab.setOpaque(false); 
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
@@ -249,6 +268,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btnOre3.setContentAreaFilled(false);
 		btnOre3.setIcon(ore3.OreImg());
 		btnOre3.addActionListener(this);
+		paneOreBtnBordCenFlow.setOpaque(false);
+		paneOreAndHpBord_3.setOpaque(false);
+		paneCen3Ab.setOpaque(false);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -367,5 +389,12 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btnScore.setText("점수 : " + pick.getScore());
 		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
 		repaint(); // 클릭시 repaint()로 hp 게이지 변화
+	}
+	// 버튼 투명화 메소드
+	public void transBtn(JButton btn) {
+		btn.setBorderPainted(false); // 버튼 테두리 투명화
+		btn.setFocusPainted(false); // 버튼 클릭시 포커스 투명화
+		btn.setContentAreaFilled(false); // 버튼 배경색 투명화
+		// 상위 패널 또한 패널.setOpaque(false); 를 설정
 	}
 }
