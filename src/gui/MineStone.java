@@ -14,8 +14,6 @@ import gui.MainPage;
 import ore.*;
 import system.*;
 
-//import img.*;
-
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,40 +29,31 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.CardLayout;
-import java.awt.Color;
-import javax.swing.UIManager;
-import java.awt.SystemColor;
 
 public class MineStone extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
-	// 광석 선언
 	private Ore ore1;
 	private Ore ore2;
 	private Ore ore3;
 	private Ore ore4;
 	private Ore ore5;
-	// 광석 버튼 선언
 	private JButton btnOre1;
 	private JButton btnOre2;
 	private JButton btnOre3;
 	private JButton btnOre4;
 	private JButton btnOre5;
-	// 광석 hp 게이지 선언
+	private JLabel labelMoney;
+	private JLabel labelDura;
+	private JLabel labelShowID;
+	private JButton btnScore;
+	private ClickerDAO dao;
 	private HpBar oreHpBar1;
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
 	private HpBar oreHpBar5;
-	
-	private JLabel labelMoney;
-	private JLabel labelDura;
-	private JLabel labelShowID;
-	private JButton btnScore;
-	// dao 선언
-	private ClickerDAO dao;
-	
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -93,19 +82,19 @@ public class MineStone extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		ore1 = new Stone();
-		ore2 = new Stone();
-		ore3 = new Stone();
-		ore4 = new Stone();
-		ore5 = new Wood();
+		ore1= new Stone();
+		ore2= new Stone();
+		ore3= new Stone();
+		ore4= new Stone();
+		ore5 = new Stone();
 		oreHpBar1 = new HpBar();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
-		setDefaultCloseOperation(dao.saveUser());
 		
+		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 650);
 		mainPanel = new JPanel();
@@ -196,11 +185,12 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
-		btnOre1 = new JButton();
+		
+		btnOre1= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setBorderPainted(false);
 		btnOre1.setFocusPainted(false);
 		btnOre1.setContentAreaFilled(false);
-		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
 		
@@ -224,7 +214,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre2 = new JButton();
+		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
 		btnOre2.setBorderPainted(false);
 		btnOre2.setFocusPainted(false);
@@ -253,7 +243,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre3 = new JButton();
+		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
 		btnOre3.setBorderPainted(false);
 		btnOre3.setFocusPainted(false);
@@ -264,7 +254,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-						
+		
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -282,7 +272,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre4 = new JButton();
+		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
 		btnOre4.setBorderPainted(false);
 		btnOre4.setFocusPainted(false);
@@ -320,10 +310,9 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		paneCen6Ab = new JPanel();
 		contentPane.add(paneCen6Ab);
-		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
-		paneOreAndHpBord_5.setBounds(40, 5, 133, 119);
+		paneOreAndHpBord_5.setBounds(44, 48, 133, 119);
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
@@ -331,7 +320,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre5 = new JButton();
+		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
 		btnOre5.setBorderPainted(false);
 		btnOre5.setFocusPainted(false);
@@ -342,8 +331,8 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
+		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
