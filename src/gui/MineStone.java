@@ -29,6 +29,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.CardLayout;
+import java.awt.Color;
 
 public class MineStone extends JFrame implements ActionListener {
 
@@ -175,13 +176,15 @@ public class MineStone extends JFrame implements ActionListener {
 		paneBotEastFlow.add(labelMoney);
 		
 		paneCen1Ab = new JPanel();
+		paneCen1Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen1Ab);
 		paneCen1Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord = new JPanel();
-		paneOreAndHpBord.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord.setBounds(50, 60, 133, 119);
 		paneCen1Ab.add(paneOreAndHpBord);
 		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
+		paneOreAndHpBord.setBackground(new Color(255, 0, 0, 0)); // 색상 변경
 		
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
@@ -193,20 +196,24 @@ public class MineStone extends JFrame implements ActionListener {
 		btnOre1.setContentAreaFilled(false);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
+		paneOreBtnBordCenFlow.setBackground(new Color(255, 0, 0, 0));
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+		paneHpBordSouthBord.setBackground(new Color(255, 0, 0, 0));
 						
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		oreHpBar1.setBackground(new Color(255, 0, 0, 0));
 		
 		paneCen2Ab = new JPanel();
+		paneCen2Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen2Ab);
 		paneCen2Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_2 = new JPanel();
-		paneOreAndHpBord_2.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_2.setBounds(50, 60, 133, 119);
 		paneCen2Ab.add(paneOreAndHpBord_2);
 		paneOreAndHpBord_2.setLayout(new BorderLayout(0, 0));
 		
@@ -231,11 +238,12 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		paneCen3Ab = new JPanel();
+		paneCen3Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen3Ab);
 		paneCen3Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_3 = new JPanel();
-		paneOreAndHpBord_3.setBounds(44, 38, 133, 119);
+		paneOreAndHpBord_3.setBounds(50, 60, 133, 119);
 		paneCen3Ab.add(paneOreAndHpBord_3);
 		paneOreAndHpBord_3.setLayout(new BorderLayout(0, 0));
 		
@@ -260,11 +268,12 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		paneCen4Ab = new JPanel();
+		paneCen4Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen4Ab);
 		paneCen4Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_4 = new JPanel();
-		paneOreAndHpBord_4.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_4.setBounds(50, 60, 133, 119);
 		paneCen4Ab.add(paneOreAndHpBord_4);
 		paneOreAndHpBord_4.setLayout(new BorderLayout(0, 0));
 		
@@ -289,11 +298,14 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		paneCen5Ab = new JPanel();
+		paneCen5Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen5Ab);
+		paneCen5Ab.setLayout(null);
 		
 		
 		
 		JButton back = new JButton("나가기");
+		back.setBounds(30, 65, 172, 108);
 		paneCen5Ab.add(back);
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
@@ -309,10 +321,13 @@ public class MineStone extends JFrame implements ActionListener {
 		});
 		
 		paneCen6Ab = new JPanel();
+		paneCen6Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen6Ab);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
+
 		paneOreAndHpBord_5.setBounds(44, 48, 133, 119);
+
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
