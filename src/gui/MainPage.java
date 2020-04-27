@@ -135,7 +135,6 @@ public class MainPage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Ranking ra = new Ranking();
-				dispose();
 			}
 		});		
 		setVisible(true);
