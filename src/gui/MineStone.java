@@ -300,9 +300,10 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		paneCen6Ab = new JPanel();
 		contentPane.add(paneCen6Ab);
+		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
-		paneOreAndHpBord_5.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_5.setBounds(40, 5, 133, 119);
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
