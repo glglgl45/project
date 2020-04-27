@@ -237,6 +237,7 @@ public class Store extends JFrame implements ActionListener{
 			txtPickDura.setText(pick.getDura()+"");
 			labelMoney.setText(pick.getMoney()+"");
 			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
+			dao.saveUser();	//DB에 게임 진행사항 저장
 		}
 		if(e.getSource()==btnEvol) {
 			grade.evol();
@@ -249,6 +250,7 @@ public class Store extends JFrame implements ActionListener{
 			labelEvol.setText("진화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100))+")");
 			labelUpgrade.setText("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
 			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
+			dao.saveUser();	//DB에 게임 진행사항 저장
 		}
 		if(e.getSource()==btnUpgrade) {
 			grade.upgrade();
@@ -258,6 +260,7 @@ public class Store extends JFrame implements ActionListener{
 			pick.infoPick();
 			labelUpgrade.setText("강화하기"+"("+((int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*100+pick.getLevel()*20*pick.getPickLevel()))+")");
 			labelRepair.setText("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
+			dao.saveUser();	//DB에 게임 진행사항 저장
 		}
 	}
 }

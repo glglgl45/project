@@ -25,20 +25,10 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
 import system.Pickax;
-
-
 	
 	class BackImg2 extends JPanel {
 		
-		private JPanel ContentPane;
-		
-		private Pickax pick;
-	
-		private JButton btnBack;
-		
 		private BufferedImage img;
-		
-		private ClickerUserVO vo;
 		
 		public BackImg2() {
 			setLayout(null);
@@ -68,13 +58,13 @@ import system.Pickax;
 	public class UserDel extends JFrame implements ActionListener{
 
 		private JPanel contentPane;
-		private JButton btnLogin;
-		private JTextField lblPw;
-		private JTextField lblPw2;
+		private JButton btnUserDel;
+		private JLabel lblID, lblPw;
 		private JTextField txtId;
 		private JPasswordField txtPw;
 		private Pickax pick;
 		private ClickerDAO dao;
+		private ClickerUserVO vo;
 
 		public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
@@ -106,7 +96,7 @@ import system.Pickax;
 		JPanel backPanel = new BackImg2();
 		contentPane.add(backPanel,BorderLayout.CENTER);
 		
-		JLabel lblID = new JLabel("아이디");
+		lblID = new JLabel("아이디");
 		lblID.setHorizontalAlignment(SwingConstants.CENTER);
 		lblID.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		lblID.setBounds(230, 272, 97, 35);
@@ -117,7 +107,7 @@ import system.Pickax;
 		backPanel.add(txtId);
 		txtId.setColumns(10);
 		
-		JLabel lblPw = new JLabel("비밀번호");
+		lblPw = new JLabel("비밀번호");
 		lblPw.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPw.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		lblPw.setBounds(215, 332, 128, 35);
@@ -130,7 +120,7 @@ import system.Pickax;
 		
 		setVisible(true);
 		
-		JButton btnUserDel = new JButton("회원삭제");
+		btnUserDel = new JButton("회원삭제");
 		btnUserDel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		btnUserDel.setBounds(230, 427, 110, 30);
 		backPanel.add(btnUserDel);
@@ -146,22 +136,21 @@ import system.Pickax;
 				MainPage m = new MainPage();
 			}
 		});
-//		backPanel.add(btnBack);
-		
 		btnUserDel.addActionListener(this);
 		txtPw.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		if(e.getActionCommand().equals("회원삭제") || e.getSource()==txtPw) {		//회원가입 버튼 및 txtPw에서 엔터 입력 시
 			if(txtId.getText()!=null && new String(txtPw.getPassword())!=null) {	//아이디, 비밀번호 칸의 입력상태 확인
-				ClickerUserVO vo=dao.searchUser(txtId.getText());
+				vo=dao.searchUser(txtId.getText());
 				if(txtId.getText().equals(vo.getId()) && new String(txtPw.getPassword()).equals(vo.getPwd())) {	//DB의 ID, 비밀번호와 사용자가 입력한 값이 맞다면
 					int result=dao.deleteUser(txtId.getText());	//DB에서 정보 삭제	
 					if(result>0) {	//DB에 DELETE 성공 시
 						JOptionPane.showMessageDialog(this, "탈퇴 완료");
+						txtId.setText("");
+						txtPw.setText("");
 					}else {
 						JOptionPane.showMessageDialog(this, "시스템 에러");
 					}				
