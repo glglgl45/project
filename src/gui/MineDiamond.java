@@ -187,6 +187,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btndiamond1 = new JButton();
 		paneOreBtnBordCenFlow.add(btndiamond1);
+		btndiamond1.setBorderPainted(false);
+		btndiamond1.setFocusPainted(false);
+		btndiamond1.setContentAreaFilled(false);
 		btndiamond1.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond1.addActionListener(this);
 		
@@ -213,6 +216,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btndiamond2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btndiamond2);
+		btndiamond2.setBorderPainted(false);
+		btndiamond2.setFocusPainted(false);
+		btndiamond2.setContentAreaFilled(false);
 		btndiamond2.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond2.addActionListener(this);
 		
@@ -240,6 +246,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btndiamond3 = new JButton();
 		paneOreBtnBordCenFlow.add(btndiamond3);
+		btndiamond3.setBorderPainted(false);
+		btndiamond3.setFocusPainted(false);
+		btndiamond3.setContentAreaFilled(false);
 		btndiamond3.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond3.addActionListener(this);
 		
@@ -268,6 +277,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btndiamond4 = new JButton();
 		paneOreBtnBordCenFlow.add(btndiamond4);
+		btndiamond4.setBorderPainted(false);
+		btndiamond4.setFocusPainted(false);
+		btndiamond4.setContentAreaFilled(false);
 		btndiamond4.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond4.addActionListener(this);
 		
@@ -288,6 +300,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -312,6 +327,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btndiamond5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btndiamond5);
+		btndiamond5.setBorderPainted(false);
+		btndiamond5.setFocusPainted(false);
+		btndiamond5.setContentAreaFilled(false);
 		btndiamond5.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamondwall.jpg")));
 		btndiamond5.addActionListener(this);
 		

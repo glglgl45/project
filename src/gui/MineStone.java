@@ -190,6 +190,9 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		btnStone1 = new JButton();
 		paneOreBtnBordCenFlow.add(btnStone1);
+		btnStone1.setBorderPainted(false);
+		btnStone1.setFocusPainted(false);
+		btnStone1.setContentAreaFilled(false);
 		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		btnStone1.addActionListener(this);
 		
@@ -216,6 +219,9 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		btnStone2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btnStone2);
+		btnStone2.setBorderPainted(false);
+		btnStone2.setFocusPainted(false);
+		btnStone2.setContentAreaFilled(false);
 		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		btnStone2.addActionListener(this);
 		
@@ -243,6 +249,9 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		btnStone3 = new JButton();
 		paneOreBtnBordCenFlow.add(btnStone3);
+		btnStone3.setBorderPainted(false);
+		btnStone3.setFocusPainted(false);
+		btnStone3.setContentAreaFilled(false);
 		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		btnStone3.addActionListener(this);
 		
@@ -271,6 +280,9 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		btnStone4 = new JButton();
 		paneOreBtnBordCenFlow.add(btnStone4);
+		btnStone4.setBorderPainted(false);
+		btnStone4.setFocusPainted(false);
+		btnStone4.setContentAreaFilled(false);
 		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
 		btnStone4.addActionListener(this);
 		
@@ -291,6 +303,9 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineStone.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -316,6 +331,9 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		btnStone5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btnStone5);
+		btnStone5.setBorderPainted(false);
+		btnStone5.setFocusPainted(false);
+		btnStone5.setContentAreaFilled(false);
 		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/wood.png")));
 		btnStone5.addActionListener(this);
 		

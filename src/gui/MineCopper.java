@@ -187,6 +187,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btncopper1 = new JButton();
 		paneOreBtnBordCenFlow.add(btncopper1);
+		btncopper1.setBorderPainted(false);
+		btncopper1.setFocusPainted(false);
+		btncopper1.setContentAreaFilled(false);
 		btncopper1.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper1.addActionListener(this);
 		
@@ -213,6 +216,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btncopper2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btncopper2);
+		btncopper2.setBorderPainted(false);
+		btncopper2.setFocusPainted(false);
+		btncopper2.setContentAreaFilled(false);
 		btncopper2.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper2.addActionListener(this);
 		
@@ -240,6 +246,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btncopper3 = new JButton();
 		paneOreBtnBordCenFlow.add(btncopper3);
+		btncopper3.setBorderPainted(false);
+		btncopper3.setFocusPainted(false);
+		btncopper3.setContentAreaFilled(false);
 		btncopper3.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper3.addActionListener(this);
 		
@@ -268,6 +277,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btncopper4 = new JButton();
 		paneOreBtnBordCenFlow.add(btncopper4);
+		btncopper4.setBorderPainted(false);
+		btncopper4.setFocusPainted(false);
+		btncopper4.setContentAreaFilled(false);
 		btncopper4.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper4.addActionListener(this);
 		
@@ -288,6 +300,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -312,6 +327,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btncopper5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btncopper5);
+		btncopper5.setBorderPainted(false);
+		btncopper5.setFocusPainted(false);
+		btncopper5.setContentAreaFilled(false);
 		btncopper5.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper5.addActionListener(this);
 		

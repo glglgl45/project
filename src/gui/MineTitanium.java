@@ -187,6 +187,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		btntitanium1 = new JButton();
 		paneOreBtnBordCenFlow.add(btntitanium1);
+		btntitanium1.setBorderPainted(false);
+		btntitanium1.setFocusPainted(false);
+		btntitanium1.setContentAreaFilled(false);
 		btntitanium1.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		btntitanium1.addActionListener(this);
 		
@@ -213,6 +216,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		btntitanium2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btntitanium2);
+		btntitanium2.setBorderPainted(false);
+		btntitanium2.setFocusPainted(false);
+		btntitanium2.setContentAreaFilled(false);
 		btntitanium2.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		btntitanium2.addActionListener(this);
 		
@@ -240,6 +246,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		btntitanium3 = new JButton();
 		paneOreBtnBordCenFlow.add(btntitanium3);
+		btntitanium3.setBorderPainted(false);
+		btntitanium3.setFocusPainted(false);
+		btntitanium3.setContentAreaFilled(false);
 		btntitanium3.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		btntitanium3.addActionListener(this);
 		
@@ -268,6 +277,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		btntitanium4 = new JButton();
 		paneOreBtnBordCenFlow.add(btntitanium4);
+		btntitanium4.setBorderPainted(false);
+		btntitanium4.setFocusPainted(false);
+		btntitanium4.setContentAreaFilled(false);
 		btntitanium4.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		btntitanium4.addActionListener(this);
 		
@@ -288,6 +300,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -312,6 +327,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		btntitanium5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btntitanium5);
+		btntitanium5.setBorderPainted(false);
+		btntitanium5.setFocusPainted(false);
+		btntitanium5.setContentAreaFilled(false);
 		btntitanium5.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
 		btntitanium5.addActionListener(this);
 		

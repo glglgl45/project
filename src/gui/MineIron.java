@@ -187,6 +187,9 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btniron1 = new JButton();
 		paneOreBtnBordCenFlow.add(btniron1);
+		btniron1.setBorderPainted(false);
+		btniron1.setFocusPainted(false);
+		btniron1.setContentAreaFilled(false);
 		btniron1.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
 		btniron1.addActionListener(this);
 		
@@ -213,6 +216,9 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btniron2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btniron2);
+		btniron2.setBorderPainted(false);
+		btniron2.setFocusPainted(false);
+		btniron2.setContentAreaFilled(false);
 		btniron2.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
 		btniron2.addActionListener(this);
 		
@@ -240,6 +246,9 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btniron3 = new JButton();
 		paneOreBtnBordCenFlow.add(btniron3);
+		btniron3.setBorderPainted(false);
+		btniron3.setFocusPainted(false);
+		btniron3.setContentAreaFilled(false);
 		btniron3.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
 		btniron3.addActionListener(this);
 		
@@ -268,6 +277,9 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btniron4 = new JButton();
 		paneOreBtnBordCenFlow.add(btniron4);
+		btniron4.setBorderPainted(false);
+		btniron4.setFocusPainted(false);
+		btniron4.setContentAreaFilled(false);
 		btniron4.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
 		btniron4.addActionListener(this);
 		
@@ -288,6 +300,9 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineIron.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -312,6 +327,9 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btniron5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btniron5);
+		btniron5.setBorderPainted(false);
+		btniron5.setFocusPainted(false);
+		btniron5.setContentAreaFilled(false);
 		btniron5.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
 		btniron5.addActionListener(this);
 		
