@@ -189,6 +189,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setBorderPainted(false);
+		btnOre1.setFocusPainted(false);
+		btnOre1.setContentAreaFilled(false);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
 		
@@ -214,6 +217,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
+		btnOre2.setBorderPainted(false);
+		btnOre2.setFocusPainted(false);
+		btnOre2.setContentAreaFilled(false);
 		btnOre2.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre2.addActionListener(this);
 		
@@ -240,6 +246,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
+		btnOre3.setBorderPainted(false);
+		btnOre3.setFocusPainted(false);
+		btnOre3.setContentAreaFilled(false);
 		btnOre3.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre3.addActionListener(this);
 		
@@ -267,6 +276,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
+		btnOre4.setBorderPainted(false);
+		btnOre4.setFocusPainted(false);
+		btnOre4.setContentAreaFilled(false);
 		btnOre4.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre4.addActionListener(this);
 		
@@ -286,6 +298,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineCopper.class.getResource("/img/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -310,6 +325,9 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
+		btnOre5.setBorderPainted(false);
+		btnOre5.setFocusPainted(false);
+		btnOre5.setContentAreaFilled(false);
 		btnOre5.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre5.addActionListener(this);
 		
