@@ -34,16 +34,16 @@ public class MineDiamond extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
-	private Ore diamond1;
-	private Ore diamond2;
-	private Ore diamond3;
-	private Ore diamond4;
-	private Ore diamond;
-	private JButton btndiamond1;
-	private JButton btndiamond2;
-	private JButton btndiamond3;
-	private JButton btndiamond4;
-	private JButton btndiamond5;
+	private Ore ore1;
+	private Ore ore2;
+	private Ore ore3;
+	private Ore ore4;
+	private Ore ore5;
+	private JButton btnOre1;
+	private JButton btnOre2;
+	private JButton btnOre3;
+	private JButton btnOre4;
+	private JButton btnOre5;
 	private JLabel labelMoney;
 	private JLabel labelDura;
 	private JLabel labelShowID;
@@ -53,7 +53,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
-	private HpBar diamondHpBar;
+	private HpBar oreHpBar5;
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -82,15 +82,16 @@ public class MineDiamond extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		diamond = new DiamondWall();
-		diamond1 = new Diamond();
-		diamond2 = new Diamond();
-		diamond3 = new Diamond();
-		diamond4 = new Diamond();
+		ore1= new Diamond();
+		ore2= new Diamond();
+		ore3= new Diamond();
+		ore4= new Diamond();
+		ore5 = new DiamondWall();
+		oreHpBar1 = new HpBar();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
-		diamondHpBar = new HpBar();
+		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
 		setDefaultCloseOperation(dao.saveUser());
@@ -185,6 +186,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
+<<<<<<< HEAD
 		btndiamond1 = new JButton();
 		paneOreBtnBordCenFlow.add(btndiamond1);
 		btndiamond1.setBorderPainted(false);
@@ -192,12 +194,17 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btndiamond1.setContentAreaFilled(false);
 		btndiamond1.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond1.addActionListener(this);
+=======
+		btnOre1= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
+		btnOre1.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
 						
-		oreHpBar1 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
@@ -214,6 +221,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btndiamond2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btndiamond2);
 		btndiamond2.setBorderPainted(false);
@@ -221,6 +229,12 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btndiamond2.setContentAreaFilled(false);
 		btndiamond2.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond2.addActionListener(this);
+=======
+		btnOre2= new JButton();
+		paneOreBtnBordCenFlow_1.add(btnOre2);
+		btnOre2.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
+		btnOre2.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
@@ -244,6 +258,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btndiamond3 = new JButton();
 		paneOreBtnBordCenFlow.add(btndiamond3);
 		btndiamond3.setBorderPainted(false);
@@ -251,6 +266,12 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btndiamond3.setContentAreaFilled(false);
 		btndiamond3.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond3.addActionListener(this);
+=======
+		btnOre3= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre3);
+		btnOre3.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
+		btnOre3.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -260,7 +281,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btndiamond3.addActionListener(this);
+		btnOre3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
 		contentPane.add(paneCen4Ab);
@@ -275,6 +296,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btndiamond4 = new JButton();
 		paneOreBtnBordCenFlow.add(btndiamond4);
 		btndiamond4.setBorderPainted(false);
@@ -282,6 +304,12 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btndiamond4.setContentAreaFilled(false);
 		btndiamond4.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
 		btndiamond4.addActionListener(this);
+=======
+		btnOre4= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre4);
+		btnOre4.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
+		btnOre4.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -291,7 +319,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btndiamond4.addActionListener(this);
+		btnOre4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
@@ -300,10 +328,14 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+<<<<<<< HEAD
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/door.png")));
+=======
+		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/door.png")));
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -325,6 +357,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btndiamond5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btndiamond5);
 		btndiamond5.setBorderPainted(false);
@@ -332,15 +365,21 @@ public class MineDiamond extends JFrame implements ActionListener {
 		btndiamond5.setContentAreaFilled(false);
 		btndiamond5.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamondwall.jpg")));
 		btndiamond5.addActionListener(this);
+=======
+		btnOre5= new JButton();
+		paneOreBtnBordCenFlow_1.add(btnOre5);
+		btnOre5.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamondwall.jpg")));
+		btnOre5.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
 		dao = new ClickerDAO();
 						
-		diamondHpBar = new HpBar();
-		paneHpBordSouthBord_1.add(diamondHpBar);
-		diamondHpBar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		oreHpBar5 = new HpBar();
+		paneHpBordSouthBord_1.add(oreHpBar5);
+		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		
 
@@ -349,70 +388,42 @@ public class MineDiamond extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 <<<<<<< HEAD
+		hitOre(ore1,oreHpBar1,btnOre1);
+
+		if (e.getSource()==btnOre1) {
+			hitOre(ore1,oreHpBar1,btnOre1);
+=======
+<<<<<<< HEAD
 		if (e.getSource()==btnOre1) {
 			hitOre(ore1,oreHpBar1,btnOre1);
 =======
 		if (e.getSource()==btndiamond1) {
 			hitdiamond1();
 >>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		}
-		if (e.getSource()==btndiamond2) {
-			hitdiamond2();
+		if (e.getSource()==btnOre2) {
+			hitOre(ore2,oreHpBar2,btnOre2);
 		}
-		if (e.getSource()==btndiamond3) {
-			hitdiamond3();
+		if (e.getSource()==btnOre3) {
+			hitOre(ore3,oreHpBar3,btnOre3);
 		}
-		if (e.getSource()==btndiamond4) {
-			hitdiamond4();
+		if (e.getSource()==btnOre4) {
+			hitOre(ore4,oreHpBar4,btnOre4);
 		}
-		if (e.getSource()==btndiamond5) {
-			hitdiamond5();
+		if (e.getSource()==btnOre5) {
+			hitOre(ore5,oreHpBar5,btnOre5);
 		}
+		
 	}
 	
-	public void hitdiamond1() {
+	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
 		pick.infoPick();
-		pick.setMoney(pick.getMoney() + diamond1.hit(pick.atk()));
+		pick.setMoney(pick.getMoney() + ore.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
 		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar1.settingHp(diamond1.maxHp, diamond1.hp, btndiamond1.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
 		repaint(); // 클릭시 repaint()로 hp 게이지 변화
-	}
-	public void hitdiamond2() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + diamond2.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar2.settingHp(diamond2.maxHp, diamond2.hp, btndiamond2.getWidth());
-		repaint();
-	}
-	public void hitdiamond3() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + diamond3.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar3.settingHp(diamond3.maxHp, diamond3.hp, btndiamond3.getWidth());
-		repaint();
-	}
-	public void hitdiamond4() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + diamond4.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar4.settingHp(diamond4.maxHp, diamond4.hp, btndiamond4.getWidth());
-		repaint();
-	}
-	public void hitdiamond5() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + diamond.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		diamondHpBar.settingHp(diamond.maxHp, diamond.hp, btndiamond5.getWidth());
-		repaint();
 	}
 }

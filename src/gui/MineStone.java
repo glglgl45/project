@@ -14,6 +14,8 @@ import gui.MainPage;
 import ore.*;
 import system.*;
 
+//import img.*;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,7 +58,11 @@ public class MineStone extends JFrame implements ActionListener {
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
+<<<<<<< HEAD
 	private HpBar oreHpBar;
+=======
+	private HpBar oreHpBar5;
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -85,18 +91,34 @@ public class MineStone extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		stone1 = new Stone();
-		stone2 = new Stone();
-		stone3 = new Stone();
-		stone4 = new Stone();
-		wood = new Wood();
+		ore1 = new Stone();
+		ore2 = new Stone();
+		ore3 = new Stone();
+		ore4 = new Stone();
+		ore5 = new Wood();
+		oreHpBar1 = new HpBar();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
-		woodHpBar = new HpBar();
+		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		
+=======
+<<<<<<< HEAD
+		
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		setDefaultCloseOperation(dao.saveUser());
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+//		setDefaultCloseOperation(dao.saveUser());
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -188,16 +210,42 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		btnOre1 = new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+		btnStone1 = new JButton();
+		paneOreBtnBordCenFlow.add(btnStone1);
+		btnStone1.setBorderPainted(false);
+		btnStone1.setFocusPainted(false);
+		btnStone1.setContentAreaFilled(false);
+		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
+		btnStone1.addActionListener(this);
+<<<<<<< HEAD
+=======
+		btnOre1 = new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
+		btnOre1.addActionListener(this);
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
 						
-		oreHpBar1 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
@@ -214,13 +262,20 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btnStone2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btnStone2);
 		btnStone2.setBorderPainted(false);
 		btnStone2.setFocusPainted(false);
 		btnStone2.setContentAreaFilled(false);
-		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone2.addActionListener(this);
+=======
+		btnOre2 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btnOre2);
+		btnOre2.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
+		btnOre2.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
@@ -244,13 +299,20 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btnStone3 = new JButton();
 		paneOreBtnBordCenFlow.add(btnStone3);
 		btnStone3.setBorderPainted(false);
 		btnStone3.setFocusPainted(false);
 		btnStone3.setContentAreaFilled(false);
-		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone3.addActionListener(this);
+=======
+		btnOre3 = new JButton();
+		paneOreBtnBordCenFlow.add(btnOre3);
+		btnOre3.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
+		btnOre3.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -260,7 +322,7 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnStone3.addActionListener(this);
+		btnOre3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
 		contentPane.add(paneCen4Ab);
@@ -275,13 +337,20 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btnStone4 = new JButton();
 		paneOreBtnBordCenFlow.add(btnStone4);
 		btnStone4.setBorderPainted(false);
 		btnStone4.setFocusPainted(false);
 		btnStone4.setContentAreaFilled(false);
-		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone4.addActionListener(this);
+=======
+		btnOre4 = new JButton();
+		paneOreBtnBordCenFlow.add(btnOre4);
+		btnOre4.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
+		btnOre4.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -292,8 +361,12 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 <<<<<<< HEAD
+		btnOre4.addActionListener(this);
+=======
+<<<<<<< HEAD
 =======
 		btnStone4.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 >>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneCen5Ab = new JPanel();
@@ -303,10 +376,18 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+<<<<<<< HEAD
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
+<<<<<<< HEAD
 		back.setIcon(new ImageIcon(MineStone.class.getResource("/gui/door.png")));
+=======
+		back.setIcon(new ImageIcon(MineStone.class.getResource("/img/door.png")));
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+=======
+		back.setIcon(new ImageIcon(MineStone.class.getResource("/img/door.png")));
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -329,22 +410,28 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btnStone5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btnStone5);
 		btnStone5.setBorderPainted(false);
 		btnStone5.setFocusPainted(false);
 		btnStone5.setContentAreaFilled(false);
-		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/wood.png")));
+		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/img/wood.png")));
 		btnStone5.addActionListener(this);
+=======
+		btnOre5 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btnOre5);
+		btnOre5.setIcon(new ImageIcon(MineStone.class.getResource("/img/wood.png")));
+		btnOre5.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
 		dao = new ClickerDAO();
 						
-		woodHpBar = new HpBar();
-		paneHpBordSouthBord_1.add(woodHpBar);
-		woodHpBar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		paneHpBordSouthBord_1.add(oreHpBar5);
+		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		
 
@@ -352,21 +439,20 @@ public class MineStone extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btnStone1) {
-//			hitStone1();
-			hitOre(stone1,oreHpBar1,btnStone1);
+		if (e.getSource()==btnOre1) {
+			hitOre(ore1,oreHpBar1,btnOre1);
 		}
-		if (e.getSource()==btnStone2) {
-			hitStone2();
+		if (e.getSource()==btnOre2) {
+			hitOre(ore2,oreHpBar2,btnOre2);
 		}
-		if (e.getSource()==btnStone3) {
-			hitStone3();
+		if (e.getSource()==btnOre3) {
+			hitOre(ore3,oreHpBar3,btnOre3);
 		}
-		if (e.getSource()==btnStone4) {
-			hitStone4();
+		if (e.getSource()==btnOre4) {
+			hitOre(ore4,oreHpBar4,btnOre4);
 		}
-		if (e.getSource()==btnStone5) {
-			hitStone5();
+		if (e.getSource()==btnOre5) {
+			hitOre(ore5,oreHpBar5,btnOre5);
 		}
 	}
 	
@@ -378,51 +464,5 @@ public class MineStone extends JFrame implements ActionListener {
 		btnScore.setText("점수 : " + pick.getScore());
 		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
 		repaint(); // 클릭시 repaint()로 hp 게이지 변화
-	}
-	
-	public void hitStone1() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + stone1.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar1.settingHp(stone1.maxHp, stone1.hp, btnStone1.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
-		repaint(); // 클릭시 repaint()로 hp 게이지 변화
-	}
-	public void hitStone2() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + stone2.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar2.settingHp(stone2.maxHp, stone2.hp, btnStone2.getWidth());
-		repaint();
-	}
-	public void hitStone3() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + stone3.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar3.settingHp(stone3.maxHp, stone3.hp, btnStone3.getWidth());
-		repaint();
-	}
-	public void hitStone4() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + stone4.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar4.settingHp(stone4.maxHp, stone4.hp, btnStone4.getWidth());
-		repaint();
-	}
-	public void hitStone5() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + wood.hit(pick.atkWood()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		woodHpBar.settingHp(wood.maxHp, wood.hp, btnStone5.getWidth());
-		repaint();
 	}
 }

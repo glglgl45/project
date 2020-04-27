@@ -34,16 +34,16 @@ public class MineCopper extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
-	private Ore copper1;
-	private Ore copper2;
-	private Ore copper3;
-	private Ore copper4;
-	private Ore copper;
-	private JButton btncopper1;
-	private JButton btncopper2;
-	private JButton btncopper3;
-	private JButton btncopper4;
-	private JButton btncopper5;
+	private Ore ore1;
+	private Ore ore2;
+	private Ore ore3;
+	private Ore ore4;
+	private Ore ore5;
+	private JButton btnOre1;
+	private JButton btnOre2;
+	private JButton btnOre3;
+	private JButton btnOre4;
+	private JButton btnOre5;
 	private JLabel labelMoney;
 	private JLabel labelDura;
 	private JLabel labelShowID;
@@ -53,7 +53,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
-	private HpBar copperHpBar;
+	private HpBar oreHpBar5;
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -64,6 +64,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	private JPanel paneOreBtnBordCenFlow_1;
 	private JPanel paneHpBordSouthBord;
 	private JPanel paneHpBordSouthBord_1;
+	private JButton btncopper1;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -82,15 +83,16 @@ public class MineCopper extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		copper = new Copper();
-		copper1 = new Copper();
-		copper2 = new Copper();
-		copper3 = new Copper();
-		copper4 = new Copper();
+		ore1= new Copper();
+		ore2= new Copper();
+		ore3= new Copper();
+		ore4= new Copper();
+		ore5 = new Copper();
+		oreHpBar1 = new HpBar();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
-		copperHpBar = new HpBar();
+		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
 		setDefaultCloseOperation(dao.saveUser());
@@ -186,11 +188,15 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
 <<<<<<< HEAD
+	}
+=======
+<<<<<<< HEAD
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
 =======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		btncopper1 = new JButton();
 		paneOreBtnBordCenFlow.add(btncopper1);
 		btncopper1.setBorderPainted(false);
@@ -198,13 +204,21 @@ public class MineCopper extends JFrame implements ActionListener {
 		btncopper1.setContentAreaFilled(false);
 		btncopper1.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper1.addActionListener(this);
+<<<<<<< HEAD
+
+		btnOre1= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
+		btnOre1.addActionListener(this);
+
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 >>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
 						
-		oreHpBar1 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
@@ -221,6 +235,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btncopper2 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btncopper2);
 		btncopper2.setBorderPainted(false);
@@ -228,6 +243,12 @@ public class MineCopper extends JFrame implements ActionListener {
 		btncopper2.setContentAreaFilled(false);
 		btncopper2.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper2.addActionListener(this);
+=======
+		btnOre2= new JButton();
+		paneOreBtnBordCenFlow_1.add(btnOre2);
+		btnOre2.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
+		btnOre2.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
@@ -251,6 +272,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btncopper3 = new JButton();
 		paneOreBtnBordCenFlow.add(btncopper3);
 		btncopper3.setBorderPainted(false);
@@ -258,6 +280,12 @@ public class MineCopper extends JFrame implements ActionListener {
 		btncopper3.setContentAreaFilled(false);
 		btncopper3.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper3.addActionListener(this);
+=======
+		btnOre3= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre3);
+		btnOre3.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
+		btnOre3.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -267,7 +295,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btncopper3.addActionListener(this);
+		btnOre3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
 		contentPane.add(paneCen4Ab);
@@ -282,6 +310,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btncopper4 = new JButton();
 		paneOreBtnBordCenFlow.add(btncopper4);
 		btncopper4.setBorderPainted(false);
@@ -289,6 +318,12 @@ public class MineCopper extends JFrame implements ActionListener {
 		btncopper4.setContentAreaFilled(false);
 		btncopper4.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper4.addActionListener(this);
+=======
+		btnOre4= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre4);
+		btnOre4.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
+		btnOre4.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -298,7 +333,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btncopper4.addActionListener(this);
+		btnOre4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
@@ -307,10 +342,14 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
+<<<<<<< HEAD
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/door.png")));
+=======
+		back.setIcon(new ImageIcon(MineCopper.class.getResource("/img/door.png")));
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -332,6 +371,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+<<<<<<< HEAD
 		btncopper5 = new JButton();
 		paneOreBtnBordCenFlow_1.add(btncopper5);
 		btncopper5.setBorderPainted(false);
@@ -339,15 +379,21 @@ public class MineCopper extends JFrame implements ActionListener {
 		btncopper5.setContentAreaFilled(false);
 		btncopper5.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper5.addActionListener(this);
+=======
+		btnOre5= new JButton();
+		paneOreBtnBordCenFlow_1.add(btnOre5);
+		btnOre5.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
+		btnOre5.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
 		dao = new ClickerDAO();
 						
-		copperHpBar = new HpBar();
-		paneHpBordSouthBord_1.add(copperHpBar);
-		copperHpBar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		oreHpBar5 = new HpBar();
+		paneHpBordSouthBord_1.add(oreHpBar5);
+		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		
 
@@ -355,66 +401,30 @@ public class MineCopper extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btncopper1) {
-			hitcopper1();
+		if (e.getSource()==btnOre1) {
+			hitOre(ore1,oreHpBar1,btnOre1);
 		}
-		if (e.getSource()==btncopper2) {
-			hitcopper2();
+		if (e.getSource()==btnOre2) {
+			hitOre(ore2,oreHpBar2,btnOre2);
 		}
-		if (e.getSource()==btncopper3) {
-			hitcopper3();
+		if (e.getSource()==btnOre3) {
+			hitOre(ore3,oreHpBar3,btnOre3);
 		}
-		if (e.getSource()==btncopper4) {
-			hitcopper4();
+		if (e.getSource()==btnOre4) {
+			hitOre(ore4,oreHpBar4,btnOre4);
 		}
-		if (e.getSource()==btncopper5) {
-			hitcopper5();
+		if (e.getSource()==btnOre5) {
+			hitOre(ore5,oreHpBar5,btnOre5);
 		}
 	}
 	
-	public void hitcopper1() {
+	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
 		pick.infoPick();
-		pick.setMoney(pick.getMoney() + copper1.hit(pick.atk()));
+		pick.setMoney(pick.getMoney() + ore.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
 		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar1.settingHp(copper1.maxHp, copper1.hp, btncopper1.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
 		repaint(); // 클릭시 repaint()로 hp 게이지 변화
-	}
-	public void hitcopper2() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + copper2.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar2.settingHp(copper2.maxHp, copper2.hp, btncopper2.getWidth());
-		repaint();
-	}
-	public void hitcopper3() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + copper3.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar3.settingHp(copper3.maxHp, copper3.hp, btncopper3.getWidth());
-		repaint();
-	}
-	public void hitcopper4() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + copper4.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar4.settingHp(copper4.maxHp, copper4.hp, btncopper4.getWidth());
-		repaint();
-	}
-	public void hitcopper5() {
-		pick.infoPick();
-		pick.setMoney(pick.getMoney() + copper.hit(pick.atk()));
-		labelMoney.setText(pick.getMoney()+"");
-		labelDura.setText(pick.getDura()+"");
-		btnScore.setText("점수 : " + pick.getScore());
-		copperHpBar.settingHp(copper.maxHp, copper.hp, btncopper5.getWidth());
-		repaint();
 	}
 }
