@@ -65,6 +65,12 @@ public class MineStone extends JFrame implements ActionListener {
 	private JPanel paneOreBtnBordCenFlow_1;
 	private JPanel paneHpBordSouthBord;
 	private JPanel paneHpBordSouthBord_1;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -207,6 +213,11 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		oreHpBar1.setBackground(new Color(255, 0, 0, 0));
 		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (25).jpg")));
+		lblNewLabel.setBounds(0, 0, 234, 273);
+		paneCen1Ab.add(lblNewLabel);
+		
 		paneCen2Ab = new JPanel();
 		paneCen2Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen2Ab);
@@ -236,6 +247,11 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar2 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar2);
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (26).jpg")));
+		lblNewLabel_1.setBounds(0, 0, 234, 273);
+		paneCen2Ab.add(lblNewLabel_1);
 		
 		paneCen3Ab = new JPanel();
 		paneCen3Ab.setBackground(Color.GRAY);
@@ -267,6 +283,11 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (27).jpg")));
+		lblNewLabel_2.setBounds(0, 0, 234, 273);
+		paneCen3Ab.add(lblNewLabel_2);
+		
 		paneCen4Ab = new JPanel();
 		paneCen4Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen4Ab);
@@ -297,6 +318,11 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (28).jpg")));
+		lblNewLabel_3.setBounds(0, 0, 234, 273);
+		paneCen4Ab.add(lblNewLabel_3);
+		
 		paneCen5Ab = new JPanel();
 		paneCen5Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen5Ab);
@@ -311,6 +337,11 @@ public class MineStone extends JFrame implements ActionListener {
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineStone.class.getResource("/img/door.png")));
+		
+		lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (29).jpg")));
+		lblNewLabel_4.setBounds(0, 0, 234, 273);
+		paneCen5Ab.add(lblNewLabel_4);
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -323,10 +354,11 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen6Ab = new JPanel();
 		paneCen6Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen6Ab);
+		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
 
-		paneOreAndHpBord_5.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_5.setBounds(50, 60, 133, 119);
 
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
@@ -350,6 +382,11 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel_5 = new JLabel("New label");
+		lblNewLabel_5.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (30).jpg")));
+		lblNewLabel_5.setBounds(0, 0, 234, 273);
+		paneCen6Ab.add(lblNewLabel_5);
 		
 		
 
