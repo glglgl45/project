@@ -24,7 +24,7 @@ class BackImg extends JPanel {
 	public BackImg() {
 		setLayout(null);
 		try {
-			URL url = getClass().getResource("main-demo.png");
+			URL url = getClass().getResource("/img/main-demo.png");
 			img = ImageIO.read(new File(url.getFile()));
 		} catch (Exception e) {
 			e.printStackTrace();

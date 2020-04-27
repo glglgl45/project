@@ -330,6 +330,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource()==btnOre1) {
 			hitOre(ore1,oreHpBar1,btnOre1);
 		}
 		if (e.getSource()==btnOre2) {
