@@ -142,10 +142,3 @@ public class MainPage extends JFrame {
 		setVisible(true);
 	}
 }
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
