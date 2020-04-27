@@ -94,7 +94,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
-//		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -330,6 +330,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource()==btnOre1) {
 			hitOre(ore1,oreHpBar1,btnOre1);
 		}
 		if (e.getSource()==btnOre2) {

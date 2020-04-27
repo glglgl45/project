@@ -13,6 +13,7 @@ public class Copper extends Ore {
 		int ranHp = (int) (oreHp + (Math.random()*(oreHp*ranPerCal*2)-(oreHp*ranPerCal))); // 난수 적용 체력 ex) 기준 체력=20 ; 난수 체력 = 16~24 상하한 20%
 		super.maxHp = ranHp; // 게이지 구현을 위한 최대 체력
 		super.hp = ranHp; // 변화되는 현재 hp
+		super.imgPath = "/img/Copper.png"; // 이미지 출력을 위한 경로 지정
 		
 		// 보상
 		int reward = 80; // 기준 보상

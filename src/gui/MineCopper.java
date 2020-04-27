@@ -94,7 +94,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
-//		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -188,7 +188,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
+		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();

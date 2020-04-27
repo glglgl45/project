@@ -100,7 +100,7 @@ public class MineStone extends JFrame implements ActionListener {
 		dao = new ClickerDAO();
 		
 		
-//		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -194,7 +194,7 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		btnOre1 = new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
+		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
@@ -285,7 +285,6 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);

@@ -30,7 +30,7 @@ public class HpBar extends JPanel{
 		if(perHp > 0) {
 			if(perHp >= 70) {	// 게이지 70% 이상 초록색
 				g.setColor(Color.GREEN);
-				g.fillRect(posX+1, posY+1, perHp, height-2);				
+				g.fillRect(posX+1, posY+1, perHp-2, height-2);				
 			} else if(perHp >= 30) {	// 게이지 30%~70% 주황색
 				g.setColor(Color.ORANGE);
 				g.fillRect(posX+1, posY+1, perHp, height-2);
