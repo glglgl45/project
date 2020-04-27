@@ -37,16 +37,16 @@ public class MineStone extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
-	private Ore stone1;
-	private Ore stone2;
-	private Ore stone3;
-	private Ore stone4;
-	private Ore wood;
-	private JButton btnStone1;
-	private JButton btnStone2;
-	private JButton btnStone3;
-	private JButton btnStone4;
-	private JButton btnStone5;
+	private Ore ore1;
+	private Ore ore2;
+	private Ore ore3;
+	private Ore ore4;
+	private Ore ore5;
+	private JButton btnOre1;
+	private JButton btnOre2;
+	private JButton btnOre3;
+	private JButton btnOre4;
+	private JButton btnOre5;
 	private JLabel labelMoney;
 	private JLabel labelDura;
 	private JLabel labelShowID;
@@ -56,7 +56,7 @@ public class MineStone extends JFrame implements ActionListener {
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
-	private HpBar woodHpBar;
+	private HpBar oreHpBar;
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -96,12 +96,7 @@ public class MineStone extends JFrame implements ActionListener {
 		woodHpBar = new HpBar();
 		dao = new ClickerDAO();
 		
-<<<<<<< HEAD
-		
 		setDefaultCloseOperation(dao.saveUser());
-=======
-//		setDefaultCloseOperation(dao.saveUser());
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -193,20 +188,10 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
-<<<<<<< HEAD
 		btnOre1 = new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
-=======
-		btnStone1 = new JButton();
-		paneOreBtnBordCenFlow.add(btnStone1);
-		btnStone1.setBorderPainted(false);
-		btnStone1.setFocusPainted(false);
-		btnStone1.setContentAreaFilled(false);
-		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
-		btnStone1.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
