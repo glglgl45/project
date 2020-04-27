@@ -103,7 +103,7 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblNewLabel_7);
 		
-		JLabel lblDmg = new JLabel(pick.getDmg()+"");
+		JLabel lblDmg = new JLabel(pick.getDmg()*pick.getMul()+"");
 		lblDmg.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblDmg);
 		

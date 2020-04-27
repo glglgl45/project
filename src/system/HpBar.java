@@ -23,7 +23,7 @@ public class HpBar extends JPanel{
 	
 	@Override
 	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
+		//super.paintComponent(g);
 		int perHp = (curHp*width)/maxHp;
 		g.setColor(Color.BLACK);
 		g.drawRect(posX, posY, width-2, height-1);
