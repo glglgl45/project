@@ -13,6 +13,19 @@ public class Pickax {
 	private static int score = 99999; // 점수
 	private static String userId; // 아이디
 	
+	// DB에 있는 데이터를 곡괭이에 세팅하는 메소드
+	public void pickSet(String userID, int gold, int dmg, int durability, 
+						int enhance, int multiple, String pickName, int score, int pickLevel) {
+		userId = userID; // pick.setUserId(vo.getId());	
+		money = gold; // pick.setMoney(vo.getGold());
+		this.dmg = dmg; // pick.setDmg(vo.getDamage());
+		dura = durability; // pick.setDura(vo.getDurability());
+		level = enhance; // pick.setMul(vo.getMul());
+		this.pickName = pickName; // pick.setPickName(vo.getPickName());
+		this.score = score; // pick.setScore(vo.getScore());
+		this.pickLevel = pickLevel; // pick.setPickLevel(vo.getPickLevel());
+	}
+	
 	public String getUserId() {
 		return userId;
 	}

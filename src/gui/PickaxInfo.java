@@ -53,37 +53,38 @@ public class PickaxInfo extends JFrame{
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel);
-		panel.setLayout(null);
+		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("★곡괭이★");
-		lblNewLabel.setBounds(0, 0, 337, 184);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel(pick.getPickName() + " +" + pick.getLevel());
-		lblNewLabel_1.setBounds(337, 0, 337, 184);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("★공격력★");
-		lblNewLabel_2.setBounds(0, 184, 337, 184);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel(pick.getDmg()+"");
-		lblNewLabel_3.setBounds(337, 184, 337, 184);
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("★내구도★");
-		lblNewLabel_4.setBounds(0, 368, 337, 184);
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_4);
 		
 		lblNewLabel_5 = new JLabel(pick.getDura()+"");
-		lblNewLabel_5.setBounds(337, 368, 337, 184);
 		lblNewLabel_5.setIcon(null);
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_5);
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.NORTH);
+		
+		JLabel lblNewLabel_6 = new JLabel("★이 \"\"곡괭이는 \"\"광산에서만 캘수 있으며 강화수치가 4인경우 운이 좋다면 그 다음 단계의 광산을 캘수 있습니다.★");
+		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(lblNewLabel_6);
 	}
 }
