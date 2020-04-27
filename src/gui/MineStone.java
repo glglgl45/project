@@ -99,8 +99,16 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
+<<<<<<< HEAD
 		
+=======
+<<<<<<< HEAD
+		
+		setDefaultCloseOperation(dao.saveUser());
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 //		setDefaultCloseOperation(dao.saveUser());
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -193,18 +201,29 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		btnOre1 = new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setIcon(ore1.OreImg());
+		btnOre1.addActionListener(this);
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		btnStone1 = new JButton();
 		paneOreBtnBordCenFlow.add(btnStone1);
 		btnStone1.setBorderPainted(false);
 		btnStone1.setFocusPainted(false);
 		btnStone1.setContentAreaFilled(false);
-		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone1.addActionListener(this);
+<<<<<<< HEAD
 =======
 		btnOre1 = new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnOre1.addActionListener(this);
+=======
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 >>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
@@ -233,7 +252,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone2.setBorderPainted(false);
 		btnStone2.setFocusPainted(false);
 		btnStone2.setContentAreaFilled(false);
-		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone2.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone2.addActionListener(this);
 =======
 		btnOre2 = new JButton();
@@ -270,7 +289,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone3.setBorderPainted(false);
 		btnStone3.setFocusPainted(false);
 		btnStone3.setContentAreaFilled(false);
-		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone3.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone3.addActionListener(this);
 =======
 		btnOre3 = new JButton();
@@ -308,7 +327,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone4.setBorderPainted(false);
 		btnStone4.setFocusPainted(false);
 		btnStone4.setContentAreaFilled(false);
-		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/gui/stone.png")));
+		btnStone4.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone4.addActionListener(this);
 =======
 		btnOre4 = new JButton();
@@ -325,7 +344,14 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+<<<<<<< HEAD
 		btnOre4.addActionListener(this);
+=======
+<<<<<<< HEAD
+=======
+		btnStone4.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
@@ -338,7 +364,11 @@ public class MineStone extends JFrame implements ActionListener {
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
+<<<<<<< HEAD
 		back.setIcon(new ImageIcon(MineStone.class.getResource("/gui/door.png")));
+=======
+		back.setIcon(new ImageIcon(MineStone.class.getResource("/img/door.png")));
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 =======
 		back.setIcon(new ImageIcon(MineStone.class.getResource("/img/door.png")));
 >>>>>>> branch 'master' of https://github.com/glglgl45/project.git
@@ -370,7 +400,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone5.setBorderPainted(false);
 		btnStone5.setFocusPainted(false);
 		btnStone5.setContentAreaFilled(false);
-		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/gui/wood.png")));
+		btnStone5.setIcon(new ImageIcon(MineStone.class.getResource("/img/wood.png")));
 		btnStone5.addActionListener(this);
 =======
 		btnOre5 = new JButton();
