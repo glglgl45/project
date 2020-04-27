@@ -85,7 +85,7 @@ public class Store extends JFrame implements ActionListener{
 		panel_11.setLayout(new GridLayout(1, 1, 0, 0));
 		
 		// 수리하기 버튼 
-		btnRepair = new JButton(new ImageIcon(getClass().getResource("repair.png")));
+		btnRepair = new JButton(new ImageIcon(getClass().getResource("/img/repair.png")));
 		btnRepair.setBorderPainted(false);
 		btnRepair.setFocusPainted(false);
 //		btnRepair.setContentAreaFilled(false);
@@ -93,14 +93,14 @@ public class Store extends JFrame implements ActionListener{
 		btnRepair.addActionListener(this);
 		
 		// 진화하기 버튼
-		btnEvol = new JButton(new ImageIcon(getClass().getResource("evolve.PNG")));
+		btnEvol = new JButton(new ImageIcon(getClass().getResource("/img/evolve.PNG")));
 		btnEvol.setFocusPainted(false);
 		btnEvol.setBorderPainted(false);
 		panel_11.add(btnEvol);
 		btnEvol.addActionListener(this);
 		
 		// 강화하기 버튼
-		btnUpgrade = new JButton(new ImageIcon(getClass().getResource("upgrade.png")));
+		btnUpgrade = new JButton(new ImageIcon(getClass().getResource("/img/upgrade.png")));
 		btnUpgrade.setFocusPainted(false);
 		btnUpgrade.setBorderPainted(false);
 		panel_11.add(btnUpgrade);
