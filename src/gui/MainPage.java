@@ -114,6 +114,32 @@ public class MainPage extends JFrame implements MouseListener {
 		txtPw.setBounds(355, 310, 120, 30);
 		backPanel.add(txtPw);
 		txtPw.setColumns(10);
+		txtPw.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ClickerUserVO vo = new ClickerUserVO();
+				vo = dao.searchUser(txtId.getText()); //DB 존재 유/무 조회
+				if(vo!=null) {
+					if(e.getActionCommand().equals("로그인") || e.getSource()==txtPw) {	//로그인버튼 및 txtPw에서 엔터 입력 시 진행
+						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
+								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
+							if(vo.getProgress()==1) {
+								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
+								dispose();
+							}else {								
+								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
+								dispose();
+								MiddlePage mp = new MiddlePage();										
+							}
+						}else {
+							JOptionPane.showMessageDialog(getParent(), "비밀번호를 확인해 주세요.");				
+						}
+					}else {
+						JOptionPane.showMessageDialog(getParent(), "ID를 확인해 주세요.");
+					}
+				}
+			}
+		});
 		
 		setVisible(true);
 		
@@ -198,7 +224,6 @@ public class MainPage extends JFrame implements MouseListener {
 		btnScore.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				Ranking ra = new Ranking();
 			}
 		});

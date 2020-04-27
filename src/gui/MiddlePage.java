@@ -173,7 +173,7 @@ public class MiddlePage extends JFrame {
 		paneBot.add(panel_4, BorderLayout.CENTER);
 		
 
-		JButton btnNewButton1 = new JButton("돌곡괭이 0");
+		JButton btnNewButton1 = new JButton(pick.getPickName() + " +" + pick.getLevel());
 		btnNewButton1.addActionListener(new ActionListener() {
 			//곡괭이에 대한 정보 표시
 			@Override
