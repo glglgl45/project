@@ -212,7 +212,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(MineIron.class.getResource("/bckimg/mine (1).jpg")));
-		lblNewLabel.setBounds(0, 0, 234, 273);
+		lblNewLabel.setBounds(0, 0, 234, 274);
 		paneCen1Ab.add(lblNewLabel);
 		
 		paneCen2Ab = new JPanel();
@@ -246,7 +246,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon(MineIron.class.getResource("/bckimg/mine (2).jpg")));
-		lblNewLabel_1.setBounds(0, 0, 234, 273);
+		lblNewLabel_1.setBounds(0, 0, 234, 274);
 		paneCen2Ab.add(lblNewLabel_1);
 		
 		paneCen3Ab = new JPanel();
@@ -280,7 +280,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setIcon(new ImageIcon(MineIron.class.getResource("/bckimg/mine (3).jpg")));
-		lblNewLabel_2.setBounds(0, 0, 234, 273);
+		lblNewLabel_2.setBounds(0, 0, 234, 274);
 		paneCen3Ab.add(lblNewLabel_2);
 		btnOre3.addActionListener(this);
 		
@@ -315,7 +315,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		lblNewLabel_3 = new JLabel("New label");
 		lblNewLabel_3.setIcon(new ImageIcon(MineIron.class.getResource("/bckimg/mine (4).jpg")));
-		lblNewLabel_3.setBounds(0, 0, 234, 273);
+		lblNewLabel_3.setBounds(0, 0, 234, 270);
 		paneCen4Ab.add(lblNewLabel_3);
 		btnOre4.addActionListener(this);
 		
@@ -335,7 +335,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		lblNewLabel_4 = new JLabel("New label");
 		lblNewLabel_4.setIcon(new ImageIcon(MineIron.class.getResource("/bckimg/mine (5).jpg")));
-		lblNewLabel_4.setBounds(0, 0, 234, 273);
+		lblNewLabel_4.setBounds(0, 0, 234, 270);
 		paneCen5Ab.add(lblNewLabel_4);
 		back.addActionListener(new ActionListener() {
 
@@ -377,7 +377,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		lblNewLabel_5 = new JLabel("New label");
 		lblNewLabel_5.setIcon(new ImageIcon(MineIron.class.getResource("/bckimg/mine (6).jpg")));
-		lblNewLabel_5.setBounds(0, 0, 234, 273);
+		lblNewLabel_5.setBounds(0, 0, 234, 270);
 		paneCen6Ab.add(lblNewLabel_5);
 		
 		
