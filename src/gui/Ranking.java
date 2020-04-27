@@ -59,7 +59,7 @@ public class Ranking extends JFrame {
 	 * Create the frame.
 	 */
 	public Ranking() {
-		
+		// 랭킹점수 창 크기
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,7 +68,7 @@ public class Ranking extends JFrame {
 		
 		dao = new ClickerDAO();
 		contentPane.setLayout(null);
-		
+		//랭킹 이름 만들기
 		JLabel lblNewLabel = new JLabel("★Ranking★");
 		lblNewLabel.setIcon(null);
 		lblNewLabel.setBounds(5, 5, 674, 48);
@@ -76,7 +76,7 @@ public class Ranking extends JFrame {
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
 		contentPane.add(lblNewLabel);
 		
-		
+		//ScrollPane 안에 컬럼 만들기
 		String columnNames[]= {"이름","점수"};
 		model1 = new DefaultTableModel(columnNames, 0);
 		
