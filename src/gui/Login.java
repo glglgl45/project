@@ -21,7 +21,6 @@ import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
-import sun.util.logging.resources.logging;
 import system.Pickax;
 import java.awt.Font;
 import javax.swing.JPasswordField;

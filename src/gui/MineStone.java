@@ -332,7 +332,8 @@ public class MineStone extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==btnStone1) {
-			hitStone1();
+//			hitStone1();
+			hitOre(stone1,oreHpBar1,btnStone1);
 		}
 		if (e.getSource()==btnStone2) {
 			hitStone2();
@@ -346,6 +347,16 @@ public class MineStone extends JFrame implements ActionListener {
 		if (e.getSource()==btnStone5) {
 			hitStone5();
 		}
+	}
+	
+	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + ore.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		repaint(); // 클릭시 repaint()로 hp 게이지 변화
 	}
 	
 	public void hitStone1() {

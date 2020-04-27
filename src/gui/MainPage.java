@@ -142,7 +142,3 @@ public class MainPage extends JFrame {
 		setVisible(true);
 	}
 }
-
-
-
-
