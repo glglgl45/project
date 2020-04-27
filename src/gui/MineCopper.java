@@ -65,6 +65,12 @@ public class MineCopper extends JFrame implements ActionListener {
 	private JPanel paneHpBordSouthBord;
 	private JPanel paneHpBordSouthBord_1;
 	private JButton btncopper1;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -202,6 +208,11 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(MineCopper.class.getResource("/bckimg/mine (7).jpg")));
+		lblNewLabel.setBounds(0, 0, 234, 273);
+		paneCen1Ab.add(lblNewLabel);
+		
 		paneCen2Ab = new JPanel();
 		contentPane.add(paneCen2Ab);
 		paneCen2Ab.setLayout(null);
@@ -231,6 +242,11 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1.add(oreHpBar2);
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(MineCopper.class.getResource("/bckimg/mine (8).jpg")));
+		lblNewLabel_1.setBounds(0, 0, 234, 273);
+		paneCen2Ab.add(lblNewLabel_1);
+		
 		paneCen3Ab = new JPanel();
 		contentPane.add(paneCen3Ab);
 		paneCen3Ab.setLayout(null);
@@ -259,6 +275,11 @@ public class MineCopper extends JFrame implements ActionListener {
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(MineCopper.class.getResource("/bckimg/mine (9).jpg")));
+		lblNewLabel_2.setBounds(0, 0, 234, 273);
+		paneCen3Ab.add(lblNewLabel_2);
 		btnOre3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
@@ -289,19 +310,31 @@ public class MineCopper extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3.setIcon(new ImageIcon(MineCopper.class.getResource("/bckimg/mine (10).jpg")));
+		lblNewLabel_3.setBounds(0, 0, 234, 273);
+		paneCen4Ab.add(lblNewLabel_3);
 		btnOre4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
+		paneCen5Ab.setLayout(null);
 		
 		
 		
 		JButton back = new JButton("나가기");
+		back.setBounds(44, 38, 172, 108);
 		paneCen5Ab.add(back);
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineCopper.class.getResource("/img/door.png")));
+		
+		lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setIcon(new ImageIcon(MineCopper.class.getResource("/bckimg/mine (11).jpg")));
+		lblNewLabel_4.setBounds(0, 0, 234, 273);
+		paneCen5Ab.add(lblNewLabel_4);
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -313,9 +346,10 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		paneCen6Ab = new JPanel();
 		contentPane.add(paneCen6Ab);
+		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
-		paneOreAndHpBord_5.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_5.setBounds(44, 38, 133, 119);
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
@@ -338,6 +372,11 @@ public class MineCopper extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel_5 = new JLabel("New label");
+		lblNewLabel_5.setIcon(new ImageIcon(MineCopper.class.getResource("/bckimg/mine (12).jpg")));
+		lblNewLabel_5.setBounds(0, 0, 234, 273);
+		paneCen6Ab.add(lblNewLabel_5);
 		
 		
 

@@ -14,8 +14,6 @@ import gui.MainPage;
 import ore.*;
 import system.*;
 
-//import img.*;
-
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,39 +30,31 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.CardLayout;
 import java.awt.Color;
-import javax.swing.UIManager;
-import java.awt.SystemColor;
 
 public class MineStone extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
-	// 광석 선언
 	private Ore ore1;
 	private Ore ore2;
 	private Ore ore3;
 	private Ore ore4;
 	private Ore ore5;
-	// 광석 버튼 선언
 	private JButton btnOre1;
 	private JButton btnOre2;
 	private JButton btnOre3;
 	private JButton btnOre4;
 	private JButton btnOre5;
-	// 광석 hp 게이지 선언
+	private JLabel labelMoney;
+	private JLabel labelDura;
+	private JLabel labelShowID;
+	private JButton btnScore;
+	private ClickerDAO dao;
 	private HpBar oreHpBar1;
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
 	private HpBar oreHpBar5;
-	
-	private JLabel labelMoney;
-	private JLabel labelDura;
-	private JLabel labelShowID;
-	private JButton btnScore;
-	// dao 선언
-	private ClickerDAO dao;
-	
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -75,6 +65,12 @@ public class MineStone extends JFrame implements ActionListener {
 	private JPanel paneOreBtnBordCenFlow_1;
 	private JPanel paneHpBordSouthBord;
 	private JPanel paneHpBordSouthBord_1;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -93,19 +89,19 @@ public class MineStone extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		ore1 = new Stone();
-		ore2 = new Stone();
-		ore3 = new Stone();
-		ore4 = new Stone();
-		ore5 = new Wood();
+		ore1= new Stone();
+		ore2= new Stone();
+		ore3= new Stone();
+		ore4= new Stone();
+		ore5 = new Stone();
 		oreHpBar1 = new HpBar();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
-		setDefaultCloseOperation(dao.saveUser());
 		
+		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 650);
 		mainPanel = new JPanel();
@@ -198,11 +194,12 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
-		btnOre1 = new JButton();
+		
+		btnOre1= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setBorderPainted(false);
 		btnOre1.setFocusPainted(false);
 		btnOre1.setContentAreaFilled(false);
-		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
 		paneOreBtnBordCenFlow.setBackground(new Color(255, 0, 0, 0));
@@ -215,6 +212,11 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		oreHpBar1.setBackground(new Color(255, 0, 0, 0));
+		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (25).jpg")));
+		lblNewLabel.setBounds(0, 0, 234, 273);
+		paneCen1Ab.add(lblNewLabel);
 		
 		paneCen2Ab = new JPanel();
 		paneCen2Ab.setBackground(Color.DARK_GRAY);
@@ -230,7 +232,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre2 = new JButton();
+		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
 		btnOre2.setBorderPainted(false);
 		btnOre2.setFocusPainted(false);
@@ -246,6 +248,11 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1.add(oreHpBar2);
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (26).jpg")));
+		lblNewLabel_1.setBounds(0, 0, 234, 273);
+		paneCen2Ab.add(lblNewLabel_1);
+		
 		paneCen3Ab = new JPanel();
 		paneCen3Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen3Ab);
@@ -260,7 +267,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre3 = new JButton();
+		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
 		btnOre3.setBorderPainted(false);
 		btnOre3.setFocusPainted(false);
@@ -271,10 +278,15 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-						
+		
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (27).jpg")));
+		lblNewLabel_2.setBounds(0, 0, 234, 273);
+		paneCen3Ab.add(lblNewLabel_2);
 		
 		paneCen4Ab = new JPanel();
 		paneCen4Ab.setBackground(Color.DARK_GRAY);
@@ -290,7 +302,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre4 = new JButton();
+		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
 		btnOre4.setBorderPainted(false);
 		btnOre4.setFocusPainted(false);
@@ -306,6 +318,11 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (28).jpg")));
+		lblNewLabel_3.setBounds(0, 0, 234, 273);
+		paneCen4Ab.add(lblNewLabel_3);
+		
 		paneCen5Ab = new JPanel();
 		paneCen5Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen5Ab);
@@ -320,6 +337,11 @@ public class MineStone extends JFrame implements ActionListener {
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
 		back.setIcon(new ImageIcon(MineStone.class.getResource("/img/door.png")));
+		
+		lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (29).jpg")));
+		lblNewLabel_4.setBounds(0, 0, 234, 273);
+		paneCen5Ab.add(lblNewLabel_4);
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -335,7 +357,9 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
+
 		paneOreAndHpBord_5.setBounds(50, 60, 133, 119);
+
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
@@ -343,7 +367,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre5 = new JButton();
+		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
 		btnOre5.setBorderPainted(false);
 		btnOre5.setFocusPainted(false);
@@ -354,10 +378,15 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
+		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel_5 = new JLabel("New label");
+		lblNewLabel_5.setIcon(new ImageIcon(MineStone.class.getResource("/bckimg/mine (30).jpg")));
+		lblNewLabel_5.setBounds(0, 0, 234, 273);
+		paneCen6Ab.add(lblNewLabel_5);
 		
 		
 
