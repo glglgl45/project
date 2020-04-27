@@ -7,7 +7,8 @@ public class DiamondWall extends Ore {
 		super.maxHp = 500000;
 		super.hp = 500000;
 		super.name = "다이아몬드 벽";
-		super.reward = 200000;
+		super.reward = 0;
+		super.imgPath = "/img/diamondwall.jpg";
 	}
 
 }

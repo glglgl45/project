@@ -191,7 +191,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
+		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
@@ -216,7 +216,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
-		btnOre2.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
+		btnOre2.setIcon(ore2.OreImg());
 		btnOre2.addActionListener(this);
 		
 		paneHpBordSouthBord_1 = new JPanel();
@@ -242,7 +242,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
-		btnOre3.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
+		btnOre3.setIcon(ore3.OreImg());
 		btnOre3.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
@@ -269,7 +269,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
-		btnOre4.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
+		btnOre4.setIcon(ore4.OreImg());
 		btnOre4.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
@@ -312,7 +312,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
-		btnOre5.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
+		btnOre5.setIcon(ore5.OreImg());
 		btnOre5.addActionListener(this);
 		
 		paneHpBordSouthBord_1 = new JPanel();
