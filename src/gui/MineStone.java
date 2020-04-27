@@ -15,6 +15,7 @@ import ore.*;
 import system.*;
 
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +24,8 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.GridBagLayout;
@@ -83,6 +86,7 @@ public class MineStone extends JFrame implements ActionListener {
 				}
 			}
 		});
+		
 	}
 
 	public MineStone() {
@@ -101,6 +105,7 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
 		
+		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 650);
@@ -112,6 +117,14 @@ public class MineStone extends JFrame implements ActionListener {
 		mainPanel.add(contentPane, BorderLayout.CENTER);
 		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
 		setVisible(true);
+		mainPanel.setBackground(new Color(255, 0, 0, 0));
+		contentPane.setBackground(new Color(255, 0, 0, 0));
+		
+//		BackGround backGround = new BackGround();
+//		backGround.setLayout(new FlowLayout());
+//		backGround.add(mainPanel);
+//		backGround.setSize(100,100);
+//		backGround.setVisible(true);
 		
 		JPanel paneTopBord = new JPanel();
 		mainPanel.add(paneTopBord, BorderLayout.NORTH);
@@ -145,7 +158,7 @@ public class MineStone extends JFrame implements ActionListener {
 				
 			}
 		});
-		btnScore.addActionListener(this);
+//		btnScore.addActionListener(this);
 		
 		JPanel paneBotBord = new JPanel();
 		mainPanel.add(paneBotBord, BorderLayout.SOUTH);
@@ -185,24 +198,25 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen1Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen1Ab);
 		paneCen1Ab.setLayout(null);
+		paneCen1Ab.setBackground(new Color(255, 0, 0, 0));
 		
 		JPanel paneOreAndHpBord = new JPanel();
 		paneOreAndHpBord.setBounds(50, 60, 133, 119);
 		paneCen1Ab.add(paneOreAndHpBord);
 		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
-		paneOreAndHpBord.setBackground(new Color(255, 0, 0, 0)); // 색상 변경
+//		paneOreAndHpBord.setBackground(new Color(255, 0, 0, 0)); // 색상 변경
 		
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.setBorderPainted(false);
 		btnOre1.setFocusPainted(false);
 		btnOre1.setContentAreaFilled(false);
-		btnOre1.setIcon(ore1.OreImg());
-		btnOre1.addActionListener(this);
 		paneOreBtnBordCenFlow.setBackground(new Color(255, 0, 0, 0));
+		btnOre1.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -231,8 +245,10 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		paneOreBtnBordCenFlow_1.setBackground(new Color(255, 0, 0, 0));
 		
 		btnOre2= new JButton();
+		btnOre2.setBackground(new Color(255, 0, 0, 0));
 		paneOreBtnBordCenFlow_1.add(btnOre2);
 		btnOre2.setBorderPainted(false);
 		btnOre2.setFocusPainted(false);
@@ -388,9 +404,17 @@ public class MineStone extends JFrame implements ActionListener {
 		lblNewLabel_5.setBounds(0, 0, 234, 273);
 		paneCen6Ab.add(lblNewLabel_5);
 		
-		
 
 	}
+	
+	// 이미지
+//	class BackGround extends JPanel{
+//		public void paintComponent(Graphics g){
+//			super.paintComponent(g);
+//			g.drawImage(bg,0,0,getWidth(),getHeight(),this);
+//		}
+//		
+//	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -411,6 +435,7 @@ public class MineStone extends JFrame implements ActionListener {
 		}
 	}
 	
+	
 	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + ore.hit(pick.atk()));
@@ -420,4 +445,6 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
 		repaint(); // 클릭시 repaint()로 hp 게이지 변화
 	}
+	
+	
 }
