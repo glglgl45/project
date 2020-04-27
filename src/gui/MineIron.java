@@ -14,8 +14,6 @@ import gui.MainPage;
 import ore.*;
 import system.*;
 
-import img.*;
-
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,20 +31,19 @@ import java.awt.Insets;
 import java.awt.CardLayout;
 
 public class MineIron extends JFrame implements ActionListener {
-	
-	
+
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
-	private Ore ore1;
-	private Ore ore2;
-	private Ore ore3;
-	private Ore ore4;
-	private Ore ore5;
-	private JButton btnOre1;
-	private JButton btnOre2;
-	private JButton btnOre3;
-	private JButton btnOre4;
-	private JButton btnOre5;
+	private Ore iron1;
+	private Ore iron2;
+	private Ore iron3;
+	private Ore iron4;
+	private Ore iron;
+	private JButton btniron1;
+	private JButton btniron2;
+	private JButton btniron3;
+	private JButton btniron4;
+	private JButton btniron5;
 	private JLabel labelMoney;
 	private JLabel labelDura;
 	private JLabel labelShowID;
@@ -56,7 +53,7 @@ public class MineIron extends JFrame implements ActionListener {
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
-	private HpBar oreHpBar5;
+	private HpBar ironHpBar;
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -85,16 +82,15 @@ public class MineIron extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		ore1= new Iron();
-		ore2= new Iron();
-		ore3= new Iron();
-		ore4= new Iron();
-		ore5 = new Iron();
-		oreHpBar1 = new HpBar();
+		iron = new Iron();
+		iron1 = new Iron();
+		iron2 = new Iron();
+		iron3 = new Iron();
+		iron4 = new Iron();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
-		oreHpBar5 = new HpBar();
+		ironHpBar = new HpBar();
 		dao = new ClickerDAO();
 		
 		setDefaultCloseOperation(dao.saveUser());
@@ -189,15 +185,19 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
-		btnOre1= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
-		btnOre1.addActionListener(this);
+		btniron1 = new JButton();
+		paneOreBtnBordCenFlow.add(btniron1);
+		btniron1.setBorderPainted(false);
+		btniron1.setFocusPainted(false);
+		btniron1.setContentAreaFilled(false);
+		btniron1.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		btniron1.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
 						
+		oreHpBar1 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
@@ -214,10 +214,13 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre2= new JButton();
-		paneOreBtnBordCenFlow_1.add(btnOre2);
-		btnOre2.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
-		btnOre2.addActionListener(this);
+		btniron2 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btniron2);
+		btniron2.setBorderPainted(false);
+		btniron2.setFocusPainted(false);
+		btniron2.setContentAreaFilled(false);
+		btniron2.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		btniron2.addActionListener(this);
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
@@ -241,10 +244,13 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre3= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre3);
-		btnOre3.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
-		btnOre3.addActionListener(this);
+		btniron3 = new JButton();
+		paneOreBtnBordCenFlow.add(btniron3);
+		btniron3.setBorderPainted(false);
+		btniron3.setFocusPainted(false);
+		btniron3.setContentAreaFilled(false);
+		btniron3.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		btniron3.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -254,7 +260,7 @@ public class MineIron extends JFrame implements ActionListener {
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre3.addActionListener(this);
+		btniron3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
 		contentPane.add(paneCen4Ab);
@@ -269,10 +275,13 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre4= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre4);
-		btnOre4.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
-		btnOre4.addActionListener(this);
+		btniron4 = new JButton();
+		paneOreBtnBordCenFlow.add(btniron4);
+		btniron4.setBorderPainted(false);
+		btniron4.setFocusPainted(false);
+		btniron4.setContentAreaFilled(false);
+		btniron4.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		btniron4.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -282,7 +291,7 @@ public class MineIron extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre4.addActionListener(this);
+		btniron4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
@@ -291,7 +300,10 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
-		back.setIcon(new ImageIcon(MineIron.class.getResource("/img/door.png")));
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
+		back.setIcon(new ImageIcon(MineIron.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -313,19 +325,22 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre5= new JButton();
-		paneOreBtnBordCenFlow_1.add(btnOre5);
-		btnOre5.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
-		btnOre5.addActionListener(this);
+		btniron5 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btniron5);
+		btniron5.setBorderPainted(false);
+		btniron5.setFocusPainted(false);
+		btniron5.setContentAreaFilled(false);
+		btniron5.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
+		btniron5.addActionListener(this);
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
 		dao = new ClickerDAO();
 						
-		oreHpBar5 = new HpBar();
-		paneHpBordSouthBord_1.add(oreHpBar5);
-		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		ironHpBar = new HpBar();
+		paneHpBordSouthBord_1.add(ironHpBar);
+		ironHpBar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		
 
@@ -333,31 +348,66 @@ public class MineIron extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btnOre1) {
-//			hitStone1();
-			hitOre(ore1,oreHpBar1,btnOre1);
+		if (e.getSource()==btniron1) {
+			hitiron1();
 		}
-		if (e.getSource()==btnOre2) {
-			hitOre(ore2,oreHpBar2,btnOre2);
+		if (e.getSource()==btniron2) {
+			hitiron2();
 		}
-		if (e.getSource()==btnOre3) {
-			hitOre(ore3,oreHpBar3,btnOre3);
+		if (e.getSource()==btniron3) {
+			hitiron3();
 		}
-		if (e.getSource()==btnOre4) {
-			hitOre(ore4,oreHpBar4,btnOre4);
+		if (e.getSource()==btniron4) {
+			hitiron4();
 		}
-		if (e.getSource()==btnOre5) {
-			hitOre(ore5,oreHpBar5,btnOre5);
+		if (e.getSource()==btniron5) {
+			hitiron5();
 		}
 	}
 	
-	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
+	public void hitiron1() {
 		pick.infoPick();
-		pick.setMoney(pick.getMoney() + ore.hit(pick.atk()));
+		pick.setMoney(pick.getMoney() + iron1.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
 		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		oreHpBar1.settingHp(iron1.maxHp, iron1.hp, btniron1.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
 		repaint(); // 클릭시 repaint()로 hp 게이지 변화
+	}
+	public void hitiron2() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + iron2.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar2.settingHp(iron2.maxHp, iron2.hp, btniron2.getWidth());
+		repaint();
+	}
+	public void hitiron3() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + iron3.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar3.settingHp(iron3.maxHp, iron3.hp, btniron3.getWidth());
+		repaint();
+	}
+	public void hitiron4() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + iron4.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar4.settingHp(iron4.maxHp, iron4.hp, btniron4.getWidth());
+		repaint();
+	}
+	public void hitiron5() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + iron.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		ironHpBar.settingHp(iron.maxHp, iron.hp, btniron5.getWidth());
+		repaint();
 	}
 }

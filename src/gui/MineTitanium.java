@@ -34,16 +34,16 @@ public class MineTitanium extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
-	private Ore ore1;
-	private Ore ore2;
-	private Ore ore3;
-	private Ore ore4;
-	private Ore ore5;
-	private JButton btnOre1;
-	private JButton btnOre2;
-	private JButton btnOre3;
-	private JButton btnOre4;
-	private JButton btnOre5;
+	private Ore titanium1;
+	private Ore titanium2;
+	private Ore titanium3;
+	private Ore titanium4;
+	private Ore titanium;
+	private JButton btntitanium1;
+	private JButton btntitanium2;
+	private JButton btntitanium3;
+	private JButton btntitanium4;
+	private JButton btntitanium5;
 	private JLabel labelMoney;
 	private JLabel labelDura;
 	private JLabel labelShowID;
@@ -53,7 +53,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 	private HpBar oreHpBar2;
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
-	private HpBar oreHpBar5;
+	private HpBar titaniumHpBar;
 	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
@@ -82,16 +82,15 @@ public class MineTitanium extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		ore1= new Titanium();
-		ore2= new Titanium();
-		ore3= new Titanium();
-		ore4= new Titanium();
-		ore5 = new Titanium();
-		oreHpBar1 = new HpBar();
+		titanium = new Titanium();
+		titanium1 = new Titanium();
+		titanium2 = new Titanium();
+		titanium3 = new Titanium();
+		titanium4 = new Titanium();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
-		oreHpBar5 = new HpBar();
+		titaniumHpBar = new HpBar();
 		dao = new ClickerDAO();
 		
 		setDefaultCloseOperation(dao.saveUser());
@@ -186,15 +185,19 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
-		btnOre1= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
-		btnOre1.addActionListener(this);
+		btntitanium1 = new JButton();
+		paneOreBtnBordCenFlow.add(btntitanium1);
+		btntitanium1.setBorderPainted(false);
+		btntitanium1.setFocusPainted(false);
+		btntitanium1.setContentAreaFilled(false);
+		btntitanium1.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		btntitanium1.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
 						
+		oreHpBar1 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
@@ -211,10 +214,13 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre2= new JButton();
-		paneOreBtnBordCenFlow_1.add(btnOre2);
-		btnOre2.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
-		btnOre2.addActionListener(this);
+		btntitanium2 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btntitanium2);
+		btntitanium2.setBorderPainted(false);
+		btntitanium2.setFocusPainted(false);
+		btntitanium2.setContentAreaFilled(false);
+		btntitanium2.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		btntitanium2.addActionListener(this);
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
@@ -238,10 +244,13 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre3= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre3);
-		btnOre3.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
-		btnOre3.addActionListener(this);
+		btntitanium3 = new JButton();
+		paneOreBtnBordCenFlow.add(btntitanium3);
+		btntitanium3.setBorderPainted(false);
+		btntitanium3.setFocusPainted(false);
+		btntitanium3.setContentAreaFilled(false);
+		btntitanium3.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		btntitanium3.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -251,7 +260,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre3.addActionListener(this);
+		btntitanium3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
 		contentPane.add(paneCen4Ab);
@@ -266,10 +275,13 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre4= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre4);
-		btnOre4.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
-		btnOre4.addActionListener(this);
+		btntitanium4 = new JButton();
+		paneOreBtnBordCenFlow.add(btntitanium4);
+		btntitanium4.setBorderPainted(false);
+		btntitanium4.setFocusPainted(false);
+		btntitanium4.setContentAreaFilled(false);
+		btntitanium4.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		btntitanium4.addActionListener(this);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -279,7 +291,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre4.addActionListener(this);
+		btntitanium4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
@@ -288,7 +300,10 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
-		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/door.png")));
+		back.setBorderPainted(false);
+		back.setFocusPainted(false);
+		back.setContentAreaFilled(false);
+		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -310,19 +325,22 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		btnOre5= new JButton();
-		paneOreBtnBordCenFlow_1.add(btnOre5);
-		btnOre5.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
-		btnOre5.addActionListener(this);
+		btntitanium5 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btntitanium5);
+		btntitanium5.setBorderPainted(false);
+		btntitanium5.setFocusPainted(false);
+		btntitanium5.setContentAreaFilled(false);
+		btntitanium5.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
+		btntitanium5.addActionListener(this);
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
 		dao = new ClickerDAO();
 						
-		oreHpBar5 = new HpBar();
-		paneHpBordSouthBord_1.add(oreHpBar5);
-		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		titaniumHpBar = new HpBar();
+		paneHpBordSouthBord_1.add(titaniumHpBar);
+		titaniumHpBar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		
 
@@ -330,30 +348,66 @@ public class MineTitanium extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==btnOre1) {
-			hitOre(ore1,oreHpBar1,btnOre1);
+		if (e.getSource()==btntitanium1) {
+			hittitanium1();
 		}
-		if (e.getSource()==btnOre2) {
-			hitOre(ore2,oreHpBar2,btnOre2);
+		if (e.getSource()==btntitanium2) {
+			hittitanium2();
 		}
-		if (e.getSource()==btnOre3) {
-			hitOre(ore3,oreHpBar3,btnOre3);
+		if (e.getSource()==btntitanium3) {
+			hittitanium3();
 		}
-		if (e.getSource()==btnOre4) {
-			hitOre(ore4,oreHpBar4,btnOre4);
+		if (e.getSource()==btntitanium4) {
+			hittitanium4();
 		}
-		if (e.getSource()==btnOre5) {
-			hitOre(ore5,oreHpBar5,btnOre5);
+		if (e.getSource()==btntitanium5) {
+			hittitanium5();
 		}
 	}
 	
-	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
+	public void hittitanium1() {
 		pick.infoPick();
-		pick.setMoney(pick.getMoney() + ore.hit(pick.atk()));
+		pick.setMoney(pick.getMoney() + titanium1.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
 		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
-		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		oreHpBar1.settingHp(titanium1.maxHp, titanium1.hp, btntitanium1.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
 		repaint(); // 클릭시 repaint()로 hp 게이지 변화
+	}
+	public void hittitanium2() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + titanium2.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar2.settingHp(titanium2.maxHp, titanium2.hp, btntitanium2.getWidth());
+		repaint();
+	}
+	public void hittitanium3() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + titanium3.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar3.settingHp(titanium3.maxHp, titanium3.hp, btntitanium3.getWidth());
+		repaint();
+	}
+	public void hittitanium4() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + titanium4.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar4.settingHp(titanium4.maxHp, titanium4.hp, btntitanium4.getWidth());
+		repaint();
+	}
+	public void hittitanium5() {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + titanium.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		titaniumHpBar.settingHp(titanium.maxHp, titanium.hp, btntitanium5.getWidth());
+		repaint();
 	}
 }
