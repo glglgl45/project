@@ -34,7 +34,7 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 	        contentPane = (JPanel) getContentPane();
 	        contentPane.setLayout(new BorderLayout());
 	        contentPane.setBackground(Color.BLACK);
-	        setSize(new Dimension(700, 600));
+	        setSize(new Dimension(730, 650));
 	        headerLabel.setForeground(Color.WHITE);
 	        headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	        // add the header label
@@ -68,11 +68,11 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 		public void paintComponents(Graphics g) {
 			super.paintComponents(g);
 		}
-
+	
 	public static void main(String[] args) {
 	    new GameClear();
 	}
-	 
+	
 	ImageIcon setIcon = new ImageIcon(GameClear.class.getResource("smile.png")); 
 	String[] str = {"랭킹 보러 가기"};
 	
