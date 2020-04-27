@@ -187,33 +187,10 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
-<<<<<<< HEAD
-	}
-=======
-<<<<<<< HEAD
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
-=======
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
-		btncopper1 = new JButton();
-		paneOreBtnBordCenFlow.add(btncopper1);
-		btncopper1.setBorderPainted(false);
-		btncopper1.setFocusPainted(false);
-		btncopper1.setContentAreaFilled(false);
-		btncopper1.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
-		btncopper1.addActionListener(this);
-<<<<<<< HEAD
-
-		btnOre1= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
-		btnOre1.addActionListener(this);
-
-=======
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -235,25 +212,14 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btncopper2 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btncopper2);
-		btncopper2.setBorderPainted(false);
-		btncopper2.setFocusPainted(false);
-		btncopper2.setContentAreaFilled(false);
-		btncopper2.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
-		btncopper2.addActionListener(this);
-=======
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
 		btnOre2.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre2.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar2 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar2);
@@ -272,25 +238,14 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btncopper3 = new JButton();
-		paneOreBtnBordCenFlow.add(btncopper3);
-		btncopper3.setBorderPainted(false);
-		btncopper3.setFocusPainted(false);
-		btncopper3.setContentAreaFilled(false);
-		btncopper3.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
-		btncopper3.addActionListener(this);
-=======
 		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
 		btnOre3.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre3.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
@@ -310,25 +265,14 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btncopper4 = new JButton();
-		paneOreBtnBordCenFlow.add(btncopper4);
-		btncopper4.setBorderPainted(false);
-		btncopper4.setFocusPainted(false);
-		btncopper4.setContentAreaFilled(false);
-		btncopper4.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
-		btncopper4.addActionListener(this);
-=======
 		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
 		btnOre4.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre4.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
@@ -342,14 +286,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
-<<<<<<< HEAD
-		back.setBorderPainted(false);
-		back.setFocusPainted(false);
-		back.setContentAreaFilled(false);
-		back.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/door.png")));
-=======
 		back.setIcon(new ImageIcon(MineCopper.class.getResource("/img/door.png")));
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -371,25 +308,14 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btncopper5 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btncopper5);
-		btncopper5.setBorderPainted(false);
-		btncopper5.setFocusPainted(false);
-		btncopper5.setContentAreaFilled(false);
-		btncopper5.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
-		btncopper5.addActionListener(this);
-=======
 		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
 		btnOre5.setIcon(new ImageIcon(MineCopper.class.getResource("/img/copper.png")));
 		btnOre5.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
