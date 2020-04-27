@@ -25,6 +25,8 @@ import javax.swing.border.EmptyBorder;
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
 import system.Pickax;
+
+
 	
 	class BackImg2 extends JPanel {
 		
@@ -41,7 +43,7 @@ import system.Pickax;
 		public BackImg2() {
 			setLayout(null);
 			try {
-				URL url = getClass().getResource("/img/main-demo.png");
+				URL url = getClass().getResource("main-demo.png");
 				img = ImageIO.read(new File(url.getFile()));
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -63,15 +65,14 @@ import system.Pickax;
 		}
 	}
 	
-	public class SignUp extends JFrame implements ActionListener{
+	public class UserDel extends JFrame implements ActionListener{
 
 		private JPanel contentPane;
 		private JButton btnLogin;
-		private JTextField textField;
-		private JTextField textField_1;
+		private JTextField lblPw;
+		private JTextField lblPw2;
 		private JTextField txtId;
 		private JPasswordField txtPw;
-		private JPasswordField txtPw2;
 		private Pickax pick;
 		private ClickerDAO dao;
 
@@ -79,7 +80,7 @@ import system.Pickax;
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						SignUp frame = new SignUp();
+						UserDel frame = new UserDel();
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -91,7 +92,7 @@ import system.Pickax;
 	/**
 	 * Create the frame.
 	 */
-	public SignUp() {
+	public UserDel() {
 		pick = new Pickax();
 		dao = new ClickerDAO();
 		
@@ -101,7 +102,6 @@ import system.Pickax;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0,0));
 		setContentPane(contentPane);
-		
 		
 		JPanel backPanel = new BackImg2();
 		contentPane.add(backPanel,BorderLayout.CENTER);
@@ -128,27 +128,16 @@ import system.Pickax;
 		backPanel.add(txtPw);
 		txtPw.setColumns(10);
 		
-		JLabel lblPw2 = new JLabel("비밀번호확인");
-		lblPw2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPw2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		lblPw2.setBounds(180, 393, 204, 35);
-		backPanel.add(lblPw2);
-		
-		txtPw2 = new JPasswordField();
-		txtPw2.setBounds(368, 398, 120, 30);
-		backPanel.add(txtPw2);
-		txtPw2.setColumns(10);
 		setVisible(true);
-		dao=new ClickerDAO();
 		
-		JButton btnSignUp = new JButton("회원가입");
-		btnSignUp.setFont(new Font("맑은 고딕", Font.BOLD, 18));
-		btnSignUp.setBounds(230, 463, 110, 30);
-		backPanel.add(btnSignUp);
+		JButton btnUserDel = new JButton("회원삭제");
+		btnUserDel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		btnUserDel.setBounds(230, 427, 110, 30);
+		backPanel.add(btnUserDel);
 		
 		JButton btnBack = new JButton("돌아가기");
 		btnBack.setFont(new Font("맑은 고딕", Font.BOLD, 18));
-		btnBack.setBounds(367, 463, 110, 30);
+		btnBack.setBounds(368, 427, 110, 30);
 		backPanel.add(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			@Override
@@ -159,19 +148,18 @@ import system.Pickax;
 		});
 //		backPanel.add(btnBack);
 		
-		btnSignUp.addActionListener(this);
-		txtPw2.addActionListener(this);
+		btnUserDel.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if(e.getActionCommand().equals("회원가입") || e.getSource()==txtPw2) {		//회원가입 버튼 및 passwordField1에서 엔터 입력 시
+		if(e.getActionCommand().equals("회원가입") || e.getSource()==passwordField1) {		//회원가입 버튼 및 passwordField1에서 엔터 입력 시
 			if(txtId.getText()!=null && 	//아이디, 비밀번호, 비밀번호 확인 칸의 입력상태 확인
 					new String(txtPw.getPassword())!=null && 
-					new String(txtPw2.getPassword())!=null) {	
+					new String(passwordField1.getPassword())!=null) {	
 				
-				if(new String(txtPw.getPassword()).equals(new String(txtPw2.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
+				if(new String(txtPw.getPassword()).equals(new String(passwordField1.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
 					ClickerUserVO vo = new ClickerUserVO();
 					//초기 설정 값 (회원가입 시 DB에 입력될 초기 값)
 					vo.setId(txtId.getText());	
@@ -188,7 +176,7 @@ import system.Pickax;
 					
 					//txtID.setText("");	//테스트 중
 					txtPw.setText("");
-					txtPw2.setText("");						
+					passwordField1.setText("");						
 					
 					int result=dao.insertUser(vo);	//DB에 저장
 					if(result>0) {	//DB에 INSERT 성공 시
@@ -198,12 +186,12 @@ import system.Pickax;
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
 					}				
-				}else if(!(new String(txtPw.getPassword()).equals(new String(txtPw2.getPassword())))) {	//비밀번호-비밀번호 확인 입력 정보 확인
+				}else if(!(new String(txtPw.getPassword()).equals(new String(passwordField1.getPassword())))) {	//비밀번호-비밀번호 확인 입력 정보 확인
 					JOptionPane.showMessageDialog(this, "비밀번호가 일치하지 않습니다.");
 				}				
 			}else if(txtId.getText()==null || //아이디, 비밀번호, 비밀번호 확인의 빈칸 확인
 					new String(txtPw.getPassword())==null || 
-					new String(txtPw2.getPassword())==null) {
+					new String(passwordField1.getPassword())==null) {
 				JOptionPane.showMessageDialog(this, "정보를 모두 기입해 주세요");
 			}
 		}

@@ -96,7 +96,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 600);
+		setBounds(100, 100, 730, 650);
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
