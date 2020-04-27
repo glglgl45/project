@@ -78,7 +78,7 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_3);
 		
-		JLabel lblDura = new JLabel("New label");
+		JLabel lblDura = new JLabel(pick.getDura()+"");
 		lblDura.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblDura);
 		
@@ -95,7 +95,7 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblNewLabel_5);
 		
-		JLabel lblName = new JLabel("New label");
+		JLabel lblName = new JLabel(pick.getPickName() + " +" + pick.getLevel());
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblName);
 		
@@ -103,7 +103,7 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblNewLabel_7);
 		
-		JLabel lblDmg = new JLabel("New label");
+		JLabel lblDmg = new JLabel(pick.getDmg()+"");
 		lblDmg.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblDmg);
 		
