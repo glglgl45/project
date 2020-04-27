@@ -65,8 +65,8 @@ public class PickaxInfo extends JFrame{
 		east_panel_2.add(cent_panel_6, BorderLayout.CENTER);
 		cent_panel_6.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblImg = new JLabel("");
-		lblImg.setIcon(null);
+		JLabel lblImg = new JLabel();
+		lblImg.setIcon(new ImageIcon(PickaxInfo.class.getResource(pick.pickImg())));
 		lblImg.setHorizontalAlignment(SwingConstants.CENTER);
 		cent_panel_6.add(lblImg, BorderLayout.CENTER);
 		
