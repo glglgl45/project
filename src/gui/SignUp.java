@@ -176,14 +176,14 @@ import system.Pickax;
 					//초기 설정 값 (회원가입 시 DB에 입력될 초기 값)
 					vo.setId(txtId.getText());	
 					vo.setPwd(new String(txtPw.getPassword()));
-					vo.setDurability(pick.getDura());
-					vo.setEnhance(pick.getLevel());
-					vo.setGold(pick.getMoney());
-					vo.setPickLevel(pick.getPickLevel());
-					vo.setScore(pick.getScore());
-					vo.setPickName(pick.getPickName());
-					vo.setDamage(pick.getDmg());
-					vo.setMul(pick.getMul());
+					vo.setDurability(100);
+					vo.setEnhance(0);
+					vo.setGold(0);
+					vo.setPickLevel(1);
+					vo.setScore(99999);
+					vo.setPickName("돌 곡괭이");
+					vo.setDamage(3);
+					vo.setMul(1);
 					vo.setProgress(0);	//엔딩확인 초기값
 					
 					//txtID.setText("");	//테스트 중
@@ -194,6 +194,7 @@ import system.Pickax;
 					if(result>0) {	//DB에 INSERT 성공 시
 						JOptionPane.showMessageDialog(this, "가입 완료");
 						pick.setUserId(txtId.getText());
+						pick=dao.insertPickax(pick.getUserId());
 						MiddlePage mp = new MiddlePage();
 					}else {
 						JOptionPane.showMessageDialog(this, "아이디 중복");
