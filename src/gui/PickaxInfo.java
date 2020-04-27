@@ -44,7 +44,7 @@ public class PickaxInfo extends JFrame{
 	 */
 	public PickaxInfo() {
 		pick=new Pickax();
-		setBounds(100, 100, 700, 600);
+		setBounds(100, 100, 730, 650);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
