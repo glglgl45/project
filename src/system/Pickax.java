@@ -189,4 +189,9 @@ public class Pickax {
 			return (int) atkWood;			
 		}
 	}
+    //곡괭이 정보를 불러올때 필요한 메소드
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 }

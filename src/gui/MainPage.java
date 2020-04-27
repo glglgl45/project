@@ -137,8 +137,7 @@ public class MainPage extends JFrame {
 				Ranking ra = new Ranking();
 				dispose();
 			}
-		});
-		
+		});		
 		setVisible(true);
 	}
 }
