@@ -105,7 +105,7 @@ public class ClickerDAO {
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)) {
 			pstmt.setString(1, id);
-			result=pstmt.executeUpdate(sql);
+			result=pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -59,9 +59,8 @@ public class Ranking extends JFrame {
 	 * Create the frame.
 	 */
 	public Ranking() {
-		
 		// 랭킹점수 창 크기
-		setBounds(100, 100, 730, 650);
+		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
