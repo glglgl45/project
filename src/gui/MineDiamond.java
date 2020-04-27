@@ -185,21 +185,10 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
-		
-<<<<<<< HEAD
-		btndiamond1 = new JButton();
-		paneOreBtnBordCenFlow.add(btndiamond1);
-		btndiamond1.setBorderPainted(false);
-		btndiamond1.setFocusPainted(false);
-		btndiamond1.setContentAreaFilled(false);
-		btndiamond1.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		btndiamond1.addActionListener(this);
-=======
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
 		btnOre1.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -221,25 +210,14 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btndiamond2 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btndiamond2);
-		btndiamond2.setBorderPainted(false);
-		btndiamond2.setFocusPainted(false);
-		btndiamond2.setContentAreaFilled(false);
-		btndiamond2.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		btndiamond2.addActionListener(this);
-=======
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
 		btnOre2.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
 		btnOre2.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar2 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar2);
@@ -258,30 +236,18 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btndiamond3 = new JButton();
-		paneOreBtnBordCenFlow.add(btndiamond3);
-		btndiamond3.setBorderPainted(false);
-		btndiamond3.setFocusPainted(false);
-		btndiamond3.setContentAreaFilled(false);
-		btndiamond3.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		btndiamond3.addActionListener(this);
-=======
 		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
 		btnOre3.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
 		btnOre3.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
 		contentPane.add(paneCen4Ab);
@@ -296,30 +262,18 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btndiamond4 = new JButton();
-		paneOreBtnBordCenFlow.add(btndiamond4);
-		btndiamond4.setBorderPainted(false);
-		btndiamond4.setFocusPainted(false);
-		btndiamond4.setContentAreaFilled(false);
-		btndiamond4.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		btndiamond4.addActionListener(this);
-=======
 		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
 		btnOre4.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamond.png")));
 		btnOre4.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
@@ -328,14 +282,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
-<<<<<<< HEAD
-		back.setBorderPainted(false);
-		back.setFocusPainted(false);
-		back.setContentAreaFilled(false);
-		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/door.png")));
-=======
 		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/door.png")));
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -357,25 +304,14 @@ public class MineDiamond extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btndiamond5 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btndiamond5);
-		btndiamond5.setBorderPainted(false);
-		btndiamond5.setFocusPainted(false);
-		btndiamond5.setContentAreaFilled(false);
-		btndiamond5.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamondwall.jpg")));
-		btndiamond5.addActionListener(this);
-=======
 		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
 		btnOre5.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/diamondwall.jpg")));
 		btnOre5.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
@@ -387,20 +323,8 @@ public class MineDiamond extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-		hitOre(ore1,oreHpBar1,btnOre1);
-
 		if (e.getSource()==btnOre1) {
 			hitOre(ore1,oreHpBar1,btnOre1);
-=======
-<<<<<<< HEAD
-		if (e.getSource()==btnOre1) {
-			hitOre(ore1,oreHpBar1,btnOre1);
-=======
-		if (e.getSource()==btndiamond1) {
-			hitdiamond1();
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		}
 		if (e.getSource()==btnOre2) {
 			hitOre(ore2,oreHpBar2,btnOre2);

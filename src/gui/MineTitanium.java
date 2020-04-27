@@ -186,20 +186,10 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
-<<<<<<< HEAD
-		btntitanium1 = new JButton();
-		paneOreBtnBordCenFlow.add(btntitanium1);
-		btntitanium1.setBorderPainted(false);
-		btntitanium1.setFocusPainted(false);
-		btntitanium1.setContentAreaFilled(false);
-		btntitanium1.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
-		btntitanium1.addActionListener(this);
-=======
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
 		btnOre1.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -221,25 +211,14 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btntitanium2 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btntitanium2);
-		btntitanium2.setBorderPainted(false);
-		btntitanium2.setFocusPainted(false);
-		btntitanium2.setContentAreaFilled(false);
-		btntitanium2.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
-		btntitanium2.addActionListener(this);
-=======
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
 		btnOre2.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
 		btnOre2.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar2 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar2);
@@ -258,30 +237,18 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btntitanium3 = new JButton();
-		paneOreBtnBordCenFlow.add(btntitanium3);
-		btntitanium3.setBorderPainted(false);
-		btntitanium3.setFocusPainted(false);
-		btntitanium3.setContentAreaFilled(false);
-		btntitanium3.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
-		btntitanium3.addActionListener(this);
-=======
 		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
 		btnOre3.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
 		btnOre3.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
-						
+		
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre3.addActionListener(this);
 		
 		paneCen4Ab = new JPanel();
 		contentPane.add(paneCen4Ab);
@@ -296,30 +263,18 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btntitanium4 = new JButton();
-		paneOreBtnBordCenFlow.add(btntitanium4);
-		btntitanium4.setBorderPainted(false);
-		btntitanium4.setFocusPainted(false);
-		btntitanium4.setContentAreaFilled(false);
-		btntitanium4.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
-		btntitanium4.addActionListener(this);
-=======
 		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
 		btnOre4.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
 		btnOre4.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnOre4.addActionListener(this);
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
@@ -328,14 +283,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
-<<<<<<< HEAD
-		back.setBorderPainted(false);
-		back.setFocusPainted(false);
-		back.setContentAreaFilled(false);
-		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/door.png")));
-=======
 		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/door.png")));
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -357,25 +305,14 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btntitanium5 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btntitanium5);
-		btntitanium5.setBorderPainted(false);
-		btntitanium5.setFocusPainted(false);
-		btntitanium5.setContentAreaFilled(false);
-		btntitanium5.setIcon(new ImageIcon(MineTitanium.class.getResource("/gui/titanium.png")));
-		btntitanium5.addActionListener(this);
-=======
 		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
 		btnOre5.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/titanium.png")));
 		btnOre5.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);

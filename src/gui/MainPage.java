@@ -113,7 +113,7 @@ public class MainPage extends JFrame {
 		});
 		backPanel.add(btnEnd);
 		
-		btnSignUpDel = new JButton("회원삭제");
+		btnSignUpDel = new JButton("회원삭제");  
 		btnSignUpDel.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		btnSignUpDel.setBounds(227, 356, 250, 50);
 		backPanel.add(btnSignUpDel);
