@@ -189,20 +189,10 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
-<<<<<<< HEAD
-		btniron1 = new JButton();
-		paneOreBtnBordCenFlow.add(btniron1);
-		btniron1.setBorderPainted(false);
-		btniron1.setFocusPainted(false);
-		btniron1.setContentAreaFilled(false);
-		btniron1.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
-		btniron1.addActionListener(this);
-=======
 		btnOre1= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
 		btnOre1.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -224,25 +214,14 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btniron2 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btniron2);
-		btniron2.setBorderPainted(false);
-		btniron2.setFocusPainted(false);
-		btniron2.setContentAreaFilled(false);
-		btniron2.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
-		btniron2.addActionListener(this);
-=======
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
 		btnOre2.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
 		btnOre2.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar2 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar2);
@@ -261,25 +240,14 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btniron3 = new JButton();
-		paneOreBtnBordCenFlow.add(btniron3);
-		btniron3.setBorderPainted(false);
-		btniron3.setFocusPainted(false);
-		btniron3.setContentAreaFilled(false);
-		btniron3.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
-		btniron3.addActionListener(this);
-=======
 		btnOre3= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre3);
 		btnOre3.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
 		btnOre3.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
@@ -299,25 +267,14 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btniron4 = new JButton();
-		paneOreBtnBordCenFlow.add(btniron4);
-		btniron4.setBorderPainted(false);
-		btniron4.setFocusPainted(false);
-		btniron4.setContentAreaFilled(false);
-		btniron4.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
-		btniron4.addActionListener(this);
-=======
 		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
 		btnOre4.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
 		btnOre4.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
@@ -331,14 +288,7 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
-<<<<<<< HEAD
-		back.setBorderPainted(false);
-		back.setFocusPainted(false);
-		back.setContentAreaFilled(false);
-		back.setIcon(new ImageIcon(MineIron.class.getResource("/gui/door.png")));
-=======
 		back.setIcon(new ImageIcon(MineIron.class.getResource("/img/door.png")));
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -360,25 +310,14 @@ public class MineIron extends JFrame implements ActionListener {
 		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-<<<<<<< HEAD
-		btniron5 = new JButton();
-		paneOreBtnBordCenFlow_1.add(btniron5);
-		btniron5.setBorderPainted(false);
-		btniron5.setFocusPainted(false);
-		btniron5.setContentAreaFilled(false);
-		btniron5.setIcon(new ImageIcon(MineIron.class.getResource("/gui/iron.png")));
-		btniron5.addActionListener(this);
-=======
 		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
 		btnOre5.setIcon(new ImageIcon(MineIron.class.getResource("/img/iron.png")));
 		btnOre5.addActionListener(this);
->>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord_1 = new JPanel();
 		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
 		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
@@ -391,7 +330,6 @@ public class MineIron extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==btnOre1) {
-//			hitStone1();
 			hitOre(ore1,oreHpBar1,btnOre1);
 		}
 		if (e.getSource()==btnOre2) {
