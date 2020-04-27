@@ -29,8 +29,9 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.CardLayout;
+import java.awt.Color;
 
-public class MineTitanium extends JFrame implements ActionListener {
+public class MineDiamond2 extends JFrame implements ActionListener {
 
 	private JPanel mainPanel, contentPane;
 	private Pickax pick;
@@ -54,28 +55,24 @@ public class MineTitanium extends JFrame implements ActionListener {
 	private HpBar oreHpBar3;
 	private HpBar oreHpBar4;
 	private HpBar oreHpBar5;
-	private JPanel paneCen1Ab;
 	private JPanel paneCen2Ab;
 	private JPanel paneCen3Ab;
 	private JPanel paneCen4Ab;
 	private JPanel paneCen5Ab;
 	private JPanel paneCen6Ab;
 	private JPanel paneOreBtnBordCenFlow;
+	private JPanel paneOreBtnBordCenFlow_2;
 	private JPanel paneOreBtnBordCenFlow_1;
 	private JPanel paneHpBordSouthBord;
 	private JPanel paneHpBordSouthBord_1;
+	private JPanel paneOreAndHpBord;
 	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MineTitanium frame = new MineTitanium();
+					MineDiamond2 frame = new MineDiamond2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -84,16 +81,15 @@ public class MineTitanium extends JFrame implements ActionListener {
 		});
 	}
 
-	public MineTitanium() {
+	public MineDiamond2() {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
-		ore1= new Titanium();
-		ore2= new Titanium();
-		ore3= new Titanium();
-		ore4= new Titanium();
-		ore5 = new Titanium();
-		oreHpBar1 = new HpBar();
+		ore1= new Diamond();
+		ore2= new Diamond();
+		ore3= new Diamond();
+		ore4= new Diamond();
+		ore5 = new DiamondWall();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
@@ -106,14 +102,16 @@ public class MineTitanium extends JFrame implements ActionListener {
 		mainPanel = new JPanel();
 		mainPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(mainPanel);
-		mainPanel.setLayout(new BorderLayout(0, 0));
+		mainPanel.setLayout(null);
 		contentPane = new JPanel();
-		mainPanel.add(contentPane, BorderLayout.CENTER);
-		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
+		contentPane.setBounds(5, 28, 704, 546);
+		mainPanel.add(contentPane);
 		setVisible(true);
+		contentPane.setBackground(new Color(255, 0, 0, 0));
 		
 		JPanel paneTopBord = new JPanel();
-		mainPanel.add(paneTopBord, BorderLayout.NORTH);
+		paneTopBord.setBounds(5, 5, 704, 23);
+		mainPanel.add(paneTopBord);
 		paneTopBord.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnLogout = new JButton("로그아웃");
@@ -136,6 +134,30 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		btnScore = new JButton("점수 : " + pick.getScore());
 		paneTopBord.add(btnScore, BorderLayout.WEST);
+		oreHpBar1 = new HpBar();
+		
+		paneOreAndHpBord = new JPanel();
+		paneTopBord.add(paneOreAndHpBord, BorderLayout.CENTER);
+		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
+		paneOreAndHpBord.setBackground(new Color(255, 0, 0, 0));
+		
+		paneHpBordSouthBord = new JPanel();
+		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
+		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+		
+		paneHpBordSouthBord.add(oreHpBar1);
+		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		paneOreBtnBordCenFlow_2 = new JPanel();
+		oreHpBar1.add(paneOreBtnBordCenFlow_2);
+		btnOre1= new JButton();
+		paneOreBtnBordCenFlow_2.add(btnOre1);
+		btnOre1.setBorderPainted(false);
+		btnOre1.setFocusPainted(false);
+		btnOre1.setContentAreaFilled(false);
+		btnOre1.setIcon(ore1.OreImg());
+		paneOreBtnBordCenFlow_2.setBackground(new Color(255,0,0,0));
+		btnOre1.addActionListener(this);
 		btnScore.addActionListener(new ActionListener() {
 			
 			@Override
@@ -147,7 +169,8 @@ public class MineTitanium extends JFrame implements ActionListener {
 		btnScore.addActionListener(this);
 		
 		JPanel paneBotBord = new JPanel();
-		mainPanel.add(paneBotBord, BorderLayout.SOUTH);
+		paneBotBord.setBounds(5, 574, 704, 33);
+		mainPanel.add(paneBotBord);
 		paneBotBord.setLayout(new BorderLayout(0, 0));
 		
 		labelShowID = new JLabel("ID : "+pick.getUserId());
@@ -179,51 +202,24 @@ public class MineTitanium extends JFrame implements ActionListener {
 		
 		labelMoney = new JLabel(pick.getMoney()+"");
 		paneBotEastFlow.add(labelMoney);
-		
-		paneCen1Ab = new JPanel();
-		contentPane.add(paneCen1Ab);
-		paneCen1Ab.setLayout(null);
-		
-		JPanel paneOreAndHpBord = new JPanel();
-		paneOreAndHpBord.setBounds(44, 48, 133, 119);
-		paneCen1Ab.add(paneOreAndHpBord);
-		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
-		
-		paneOreBtnBordCenFlow = new JPanel();
-		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
-		
-		btnOre1= new JButton();
-		paneOreBtnBordCenFlow.add(btnOre1);
-		btnOre1.setBorderPainted(false);
-		btnOre1.setFocusPainted(false);
-		btnOre1.setContentAreaFilled(false);
-		btnOre1.setIcon(ore1.OreImg());
-		btnOre1.addActionListener(this);
-		
-		paneHpBordSouthBord = new JPanel();
-		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
-		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-						
-		paneHpBordSouthBord.add(oreHpBar1);
-		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(MineTitanium.class.getResource("/bckimg/mine (19).jpg")));
-		lblNewLabel.setBounds(0, 0, 234, 274);
-		paneCen1Ab.add(lblNewLabel);
+		contentPane.setLayout(null);
 		
 		paneCen2Ab = new JPanel();
+		paneCen2Ab.setBounds(235, 0, 234, 273);
 		contentPane.add(paneCen2Ab);
 		paneCen2Ab.setLayout(null);
+		paneCen2Ab.setBackground(new Color(255, 0, 0, 0));
 		
 		JPanel paneOreAndHpBord_2 = new JPanel();
 		paneOreAndHpBord_2.setBounds(44, 48, 133, 119);
 		paneCen2Ab.add(paneOreAndHpBord_2);
 		paneOreAndHpBord_2.setLayout(new BorderLayout(0, 0));
+		paneOreAndHpBord_2.setBackground(new Color(255, 0, 0, 0));
 		
 		paneOreBtnBordCenFlow_1 = new JPanel();
 		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
 		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		paneOreBtnBordCenFlow_1.setBackground(new Color(255, 0, 0, 0));
 		
 		btnOre2= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre2);
@@ -241,12 +237,8 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1.add(oreHpBar2);
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(MineTitanium.class.getResource("/bckimg/mine (20).jpg")));
-		lblNewLabel_1.setBounds(0, 0, 234, 274);
-		paneCen2Ab.add(lblNewLabel_1);
-		
 		paneCen3Ab = new JPanel();
+		paneCen3Ab.setBounds(469, 0, 234, 273);
 		contentPane.add(paneCen3Ab);
 		paneCen3Ab.setLayout(null);
 		
@@ -270,22 +262,18 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		
+						
 		oreHpBar3 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon(MineTitanium.class.getResource("/bckimg/mine (21).jpg")));
-		lblNewLabel_2.setBounds(0, 0, 234, 274);
-		paneCen3Ab.add(lblNewLabel_2);
-		
 		paneCen4Ab = new JPanel();
+		paneCen4Ab.setBounds(1, 273, 234, 273);
 		contentPane.add(paneCen4Ab);
 		paneCen4Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_4 = new JPanel();
-		paneOreAndHpBord_4.setBounds(44, 38, 133, 119);
+		paneOreAndHpBord_4.setBounds(44, 48, 133, 119);
 		paneCen4Ab.add(paneOreAndHpBord_4);
 		paneOreAndHpBord_4.setLayout(new BorderLayout(0, 0));
 		
@@ -309,29 +297,18 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setIcon(new ImageIcon(MineTitanium.class.getResource("/bckimg/mine (22).jpg")));
-		lblNewLabel_3.setBounds(0, 0, 234, 270);
-		paneCen4Ab.add(lblNewLabel_3);
-		
 		paneCen5Ab = new JPanel();
+		paneCen5Ab.setBounds(235, 273, 234, 273);
 		contentPane.add(paneCen5Ab);
-		paneCen5Ab.setLayout(null);
 		
 		
 		
-		JButton back = new JButton("");
-		back.setBounds(44, 38, 172, 108);
+		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
 		back.setContentAreaFilled(false);
-		back.setIcon(new ImageIcon(MineTitanium.class.getResource("/img/door.png")));
-		
-		lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setIcon(new ImageIcon(MineTitanium.class.getResource("/bckimg/mine (23).jpg")));
-		lblNewLabel_4.setBounds(0, 0, 234, 270);
-		paneCen5Ab.add(lblNewLabel_4);
+		back.setIcon(new ImageIcon(MineDiamond2.class.getResource("/img/door.png")));
 		back.addActionListener(new ActionListener() {
 
 			@Override
@@ -342,11 +319,11 @@ public class MineTitanium extends JFrame implements ActionListener {
 		});
 		
 		paneCen6Ab = new JPanel();
+		paneCen6Ab.setBounds(469, 273, 234, 273);
 		contentPane.add(paneCen6Ab);
-		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
-		paneOreAndHpBord_5.setBounds(44, 38, 133, 119);
+		paneOreAndHpBord_5.setBounds(44, 48, 133, 119);
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
@@ -370,10 +347,9 @@ public class MineTitanium extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_5 = new JLabel("New label");
-		lblNewLabel_5.setIcon(new ImageIcon(MineTitanium.class.getResource("/bckimg/mine (24).jpg")));
-		lblNewLabel_5.setBounds(0, 0, 234, 270);
-		paneCen6Ab.add(lblNewLabel_5);
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(0, 0, 702, 540);
+		mainPanel.add(lblNewLabel);
 		
 		
 
@@ -396,6 +372,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		if (e.getSource()==btnOre5) {
 			hitOre(ore5,oreHpBar5,btnOre5);
 		}
+		
 	}
 	
 	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
