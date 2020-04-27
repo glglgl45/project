@@ -27,8 +27,8 @@ public class ClickerDAO {
 	
 	// 커넥션 연결
 	public Connection getConnection() {
-//		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
-		String url = "jdbc:oracle:thin:@192.168.31.178:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+		String url = "jdbc:oracle:thin:@192.168.0.15:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
+//		String url = "jdbc:oracle:thin:@192.168.31.178:1521:orcl";	// 데이터베이스 서버 주소 및 연결 문자열
 		String user = "javadb";	// 허가받은 사용자 아이디
 		String password = "12345";	// 비밀번호
 		
@@ -39,6 +39,35 @@ public class ClickerDAO {
 			e.printStackTrace();
 		}
 		return con;
+	}
+	
+	//DB정보를 Pickax로 연결
+	public Pickax insertPickax(String id) {
+		Pickax pickax=null;
+		String sql="select * from ClickerUserInfo where id=?";
+		try(Connection con=getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, id);
+			ResultSet rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pickax=new Pickax();
+				pickax.setUserId(rs.getString("ID"));
+				pickax.setPickName(rs.getString("PickName"));
+				pickax.setLevel(rs.getInt("Enhance"));
+				pickax.setPickLevel(rs.getInt("PickLevel"));
+				pickax.setDura(rs.getInt("Durability"));
+				pickax.setMoney(rs.getInt("Gold"));
+				pickax.setScore(rs.getInt("Score"));
+				pickax.setDmg(rs.getInt("Damage"));
+				pickax.setMul(rs.getDouble("Mul"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return pickax;
 	}
 	
 	//오라클DB ClickerUserInfo 테이블에 INSERT (회원가입)
@@ -66,6 +95,22 @@ public class ClickerDAO {
 			e.printStackTrace();
 		}
 		return result;	
+	}
+	
+	//DB정보 삭제 (회원탈퇴)
+	public int deleteUser(String id) {
+		int result=0;
+		String sql="delete from ClickerUserInfo where id=?";
+		
+		try(Connection con=getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)) {
+			pstmt.setString(1, id);
+			result=pstmt.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return result;
 	}
 	
 	//ClickerUserInfo 테이블에서 ID를 이용한 조회 (로그인)

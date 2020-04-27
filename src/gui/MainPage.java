@@ -49,7 +49,7 @@ class BackImg extends JPanel {
 public class MainPage extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnLogin, btnSignUp, btnEnd;
+	private JButton btnLogin, btnSignUp, btnEnd,btnSignUpDel,btnScore;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -84,7 +84,7 @@ public class MainPage extends JFrame {
 				Login l = new Login();
 			}
 		});
-		btnLogin.setBounds(227, 270, 250, 50);
+		btnLogin.setBounds(227, 236, 250, 50);
 //		btnLogin.setBorderPainted(false);
 		btnLogin.setFocusPainted(false);
 //		btnLogin.setContentAreaFilled(false);
@@ -92,7 +92,7 @@ public class MainPage extends JFrame {
 		
 		btnSignUp = new JButton("회원가입");
 		btnSignUp.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-		btnSignUp.setBounds(227, 356, 250, 50);
+		btnSignUp.setBounds(227, 296, 250, 50);
 		btnSignUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -104,7 +104,7 @@ public class MainPage extends JFrame {
 		
 		btnEnd = new JButton("게임종료");
 		btnEnd.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-		btnEnd.setBounds(227, 440, 250, 50);
+		btnEnd.setBounds(227, 474, 250, 50);
 		btnEnd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -112,6 +112,32 @@ public class MainPage extends JFrame {
 			}
 		});
 		backPanel.add(btnEnd);
+		
+		btnSignUpDel = new JButton("회원삭제");
+		btnSignUpDel.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		btnSignUpDel.setBounds(227, 356, 250, 50);
+		backPanel.add(btnSignUpDel);
+		
+		btnSignUpDel.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		backPanel.add(btnSignUpDel);
+		
+		btnScore = new JButton("점수보기");
+		btnScore.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		btnScore.setBounds(227, 414, 250, 50);
+		backPanel.add(btnScore);
+		
+		btnScore.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Ranking ra = new Ranking();
+				dispose();
+			}
+		});
 		
 		setVisible(true);
 	}
