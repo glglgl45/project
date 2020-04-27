@@ -22,6 +22,7 @@ import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
 import java.awt.CardLayout;
 import javax.swing.JRadioButton;
+import java.awt.Color;
 
 public class MiddlePage extends JFrame {
 
@@ -71,6 +72,7 @@ public class MiddlePage extends JFrame {
 		paneCen.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.GREEN);
 		paneCen.add(panel_2, BorderLayout.SOUTH);
 		
 		JPanel panel_8 = new JPanel();
@@ -92,10 +94,12 @@ public class MiddlePage extends JFrame {
 		panel_8.add(rdbtnNewRadioButton_4);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.PINK);
 		paneCen.add(panel, BorderLayout.CENTER);
 		
 
 		JPanel panel_7 = new JPanel();
+		panel_7.setBackground(Color.CYAN);
 		
 		JPanel panel_6 = new JPanel();
 		

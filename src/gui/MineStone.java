@@ -186,6 +186,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneBotEastFlow.add(labelMoney);
 		
 		paneCen1Ab = new JPanel();
+		paneCen1Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen1Ab);
 		paneCen1Ab.setLayout(null);
 		
@@ -193,6 +194,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreAndHpBord.setBounds(44, 48, 133, 119);
 		paneCen1Ab.add(paneOreAndHpBord);
 		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
+		paneOreAndHpBord.setBackground(new Color(255, 0, 0, 0)); // 색상 변경
 		
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
@@ -203,15 +205,19 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow.add(btnOre1);
 		btnOre1.setIcon(ore1.OreImg());
 		btnOre1.addActionListener(this);
+		paneOreBtnBordCenFlow.setBackground(new Color(255, 0, 0, 0));
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+		paneHpBordSouthBord.setBackground(new Color(255, 0, 0, 0));
 						
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		oreHpBar1.setBackground(new Color(255, 0, 0, 0));
 		
 		paneCen2Ab = new JPanel();
+		paneCen2Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen2Ab);
 		paneCen2Ab.setLayout(null);
 		
@@ -241,6 +247,7 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		paneCen3Ab = new JPanel();
+		paneCen3Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen3Ab);
 		paneCen3Ab.setLayout(null);
 		
@@ -270,6 +277,7 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		paneCen4Ab = new JPanel();
+		paneCen4Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen4Ab);
 		paneCen4Ab.setLayout(null);
 		
@@ -299,6 +307,7 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		paneCen5Ab = new JPanel();
+		paneCen5Ab.setBackground(Color.GRAY);
 		contentPane.add(paneCen5Ab);
 		
 		
@@ -319,6 +328,7 @@ public class MineStone extends JFrame implements ActionListener {
 		});
 		
 		paneCen6Ab = new JPanel();
+		paneCen6Ab.setBackground(Color.DARK_GRAY);
 		contentPane.add(paneCen6Ab);
 		paneCen6Ab.setLayout(null);
 		
