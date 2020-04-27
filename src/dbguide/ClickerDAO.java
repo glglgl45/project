@@ -41,6 +41,35 @@ public class ClickerDAO {
 		return con;
 	}
 	
+	//DB정보를 Pickax로 연결
+	public Pickax insertPickax(String id) {
+		Pickax pickax=null;
+		String sql="select * from ClickerUserInfo where id=?";
+		try(Connection con=getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, id);
+			ResultSet rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pickax=new Pickax();
+				pickax.setUserId(rs.getString("ID"));
+				pickax.setPickName(rs.getString("PickName"));
+				pickax.setLevel(rs.getInt("Enhance"));
+				pickax.setPickLevel(rs.getInt("PickLevel"));
+				pickax.setDura(rs.getInt("Durability"));
+				pickax.setMoney(rs.getInt("Gold"));
+				pickax.setScore(rs.getInt("Score"));
+				pickax.setDmg(rs.getInt("Damage"));
+				pickax.setMul(rs.getDouble("Mul"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return pickax;
+	}
+	
 	//오라클DB ClickerUserInfo 테이블에 INSERT (회원가입)
 	public int insertUser(ClickerUserVO vo) {
 		int result=0;
@@ -66,6 +95,22 @@ public class ClickerDAO {
 			e.printStackTrace();
 		}
 		return result;	
+	}
+	
+	//DB정보 삭제 (회원탈퇴)
+	public int deleteUser(String id) {
+		int result=0;
+		String sql="delete from ClickerUserInfo where id=?";
+		
+		try(Connection con=getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)) {
+			pstmt.setString(1, id);
+			result=pstmt.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return result;
 	}
 	
 	//ClickerUserInfo 테이블에서 ID를 이용한 조회 (로그인)

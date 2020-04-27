@@ -21,6 +21,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.CardLayout;
 
 public class MineDiamond extends JFrame implements ActionListener {
 
@@ -30,17 +38,32 @@ public class MineDiamond extends JFrame implements ActionListener {
 	private Ore diamond2;
 	private Ore diamond3;
 	private Ore diamond4;
-	private Ore diamondWall;
+	private Ore diamond;
 	private JButton btndiamond1;
 	private JButton btndiamond2;
 	private JButton btndiamond3;
 	private JButton btndiamond4;
 	private JButton btndiamond5;
 	private JLabel labelMoney;
-	private JLabel lavelDura;
-	private JLabel lblNewLabel;
+	private JLabel labelDura;
+	private JLabel labelShowID;
 	private JButton btnScore;
 	private ClickerDAO dao;
+	private HpBar oreHpBar1;
+	private HpBar oreHpBar2;
+	private HpBar oreHpBar3;
+	private HpBar oreHpBar4;
+	private HpBar diamondHpBar;
+	private JPanel paneCen1Ab;
+	private JPanel paneCen2Ab;
+	private JPanel paneCen3Ab;
+	private JPanel paneCen4Ab;
+	private JPanel paneCen5Ab;
+	private JPanel paneCen6Ab;
+	private JPanel paneOreBtnBordCenFlow;
+	private JPanel paneOreBtnBordCenFlow_1;
+	private JPanel paneHpBordSouthBord;
+	private JPanel paneHpBordSouthBord_1;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -59,14 +82,18 @@ public class MineDiamond extends JFrame implements ActionListener {
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);
+		diamond = new DiamondWall();
 		diamond1 = new Diamond();
 		diamond2 = new Diamond();
 		diamond3 = new Diamond();
 		diamond4 = new Diamond();
-		diamondWall = new DiamondWall();
+		oreHpBar2 = new HpBar();
+		oreHpBar3 = new HpBar();
+		oreHpBar4 = new HpBar();
+		diamondHpBar = new HpBar();
 		dao = new ClickerDAO();
 		
-		setDefaultCloseOperation(dao.saveUser());
+//		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -78,9 +105,9 @@ public class MineDiamond extends JFrame implements ActionListener {
 		contentPane.setLayout(new GridLayout(2, 3, 0, 0));
 		setVisible(true);
 		
-		JPanel panel_0 = new JPanel();
-		mainPanel.add(panel_0, BorderLayout.NORTH);
-		panel_0.setLayout(new BorderLayout(0, 0));
+		JPanel paneTopBord = new JPanel();
+		mainPanel.add(paneTopBord, BorderLayout.NORTH);
+		paneTopBord.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnLogout = new JButton("로그아웃");
 		btnLogout.addActionListener(new ActionListener() {
@@ -98,10 +125,10 @@ public class MineDiamond extends JFrame implements ActionListener {
 				}
 			}
 		});
-		panel_0.add(btnLogout, BorderLayout.EAST);
+		paneTopBord.add(btnLogout, BorderLayout.EAST);
 		
 		btnScore = new JButton("점수 : " + pick.getScore());
-		panel_0.add(btnScore, BorderLayout.WEST);
+		paneTopBord.add(btnScore, BorderLayout.WEST);
 		btnScore.addActionListener(new ActionListener() {
 			
 			@Override
@@ -112,61 +139,155 @@ public class MineDiamond extends JFrame implements ActionListener {
 		});
 		btnScore.addActionListener(this);
 		
-		JPanel panel_1 = new JPanel();
-		mainPanel.add(panel_1, BorderLayout.SOUTH);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		JPanel paneBotBord = new JPanel();
+		mainPanel.add(paneBotBord, BorderLayout.SOUTH);
+		paneBotBord.setLayout(new BorderLayout(0, 0));
 		
-		lblNewLabel = new JLabel("ID : "+pick.getUserId());
-		panel_1.add(lblNewLabel, BorderLayout.WEST);
+		labelShowID = new JLabel("ID : "+pick.getUserId());
+		paneBotBord.add(labelShowID, BorderLayout.WEST);
 		
-		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2, BorderLayout.CENTER);
+		JPanel paneBotCenFlow = new JPanel();
+		paneBotBord.add(paneBotCenFlow, BorderLayout.CENTER);
 		
-		JButton btnpi = new JButton(pick.getPickName() + " +" + pick.getLevel());
-		btnpi.addActionListener(new ActionListener() {
+		JButton btnPick = new JButton(pick.getPickName() + " +" + pick.getLevel());
+		btnPick.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PickaxInfo mc = new PickaxInfo();
 			}
 		});
-		panel_2.add(btnpi);
+		paneBotCenFlow.add(btnPick);
 		
-		JLabel lblNewLabel_2 = new JLabel("내구도 : ");
-		panel_2.add(lblNewLabel_2);
+		JLabel labelShowDura = new JLabel("내구도 : ");
+		paneBotCenFlow.add(labelShowDura);
 		
-		lavelDura = new JLabel(pick.getDura()+"");
-		panel_2.add(lavelDura);
+		labelDura = new JLabel(pick.getDura()+"");
+		paneBotCenFlow.add(labelDura);
 		
-		JPanel panel = new JPanel();
-		panel_1.add(panel, BorderLayout.EAST);
+		JPanel paneBotEastFlow = new JPanel();
+		paneBotBord.add(paneBotEastFlow, BorderLayout.EAST);
 		
-		JLabel lblNewLabel_1 = new JLabel("소지금 : ");
-		panel.add(lblNewLabel_1);
+		JLabel labelShowMoney = new JLabel("소지금 : ");
+		paneBotEastFlow.add(labelShowMoney);
 		
 		labelMoney = new JLabel(pick.getMoney()+"");
-		panel.add(labelMoney);
+		paneBotEastFlow.add(labelMoney);
 		
-		btndiamond1 = new JButton(diamond1.name+" : "+diamond1.hp);
+		paneCen1Ab = new JPanel();
+		contentPane.add(paneCen1Ab);
+		paneCen1Ab.setLayout(null);
+		
+		JPanel paneOreAndHpBord = new JPanel();
+		paneOreAndHpBord.setBounds(44, 48, 133, 119);
+		paneCen1Ab.add(paneOreAndHpBord);
+		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
+		
+		paneOreBtnBordCenFlow = new JPanel();
+		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
+		
+		btndiamond1 = new JButton();
+		paneOreBtnBordCenFlow.add(btndiamond1);
 		btndiamond1.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		contentPane.add(btndiamond1);
 		btndiamond1.addActionListener(this);
 		
-		btndiamond2 = new JButton(diamond2.name+" : "+diamond2.hp);
+		paneHpBordSouthBord = new JPanel();
+		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
+		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+						
+		oreHpBar1 = new HpBar();
+		paneHpBordSouthBord.add(oreHpBar1);
+		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		paneCen2Ab = new JPanel();
+		contentPane.add(paneCen2Ab);
+		paneCen2Ab.setLayout(null);
+		
+		JPanel paneOreAndHpBord_2 = new JPanel();
+		paneOreAndHpBord_2.setBounds(44, 48, 133, 119);
+		paneCen2Ab.add(paneOreAndHpBord_2);
+		paneOreAndHpBord_2.setLayout(new BorderLayout(0, 0));
+		
+		paneOreBtnBordCenFlow_1 = new JPanel();
+		paneOreAndHpBord_2.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
+		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		btndiamond2 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btndiamond2);
 		btndiamond2.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		contentPane.add(btndiamond2);
 		btndiamond2.addActionListener(this);
 		
-		btndiamond3 = new JButton(diamond3.name+" : "+diamond3.hp);
+		paneHpBordSouthBord_1 = new JPanel();
+		paneOreAndHpBord_2.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
+		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
+		dao = new ClickerDAO();
+						
+		oreHpBar2 = new HpBar();
+		paneHpBordSouthBord_1.add(oreHpBar2);
+		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		paneCen3Ab = new JPanel();
+		contentPane.add(paneCen3Ab);
+		paneCen3Ab.setLayout(null);
+		
+		JPanel paneOreAndHpBord_3 = new JPanel();
+		paneOreAndHpBord_3.setBounds(44, 38, 133, 119);
+		paneCen3Ab.add(paneOreAndHpBord_3);
+		paneOreAndHpBord_3.setLayout(new BorderLayout(0, 0));
+		
+		paneOreBtnBordCenFlow = new JPanel();
+		paneOreAndHpBord_3.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
+		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		btndiamond3 = new JButton();
+		paneOreBtnBordCenFlow.add(btndiamond3);
 		btndiamond3.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		contentPane.add(btndiamond3);
 		btndiamond3.addActionListener(this);
 		
-		btndiamond4 = new JButton(diamond4.name+" : "+diamond4.hp);
+		paneHpBordSouthBord = new JPanel();
+		paneOreAndHpBord_3.add(paneHpBordSouthBord, BorderLayout.SOUTH);
+		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+		dao = new ClickerDAO();
+						
+		oreHpBar3 = new HpBar();
+		paneHpBordSouthBord.add(oreHpBar3);
+		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		btndiamond3.addActionListener(this);
+		
+		paneCen4Ab = new JPanel();
+		contentPane.add(paneCen4Ab);
+		paneCen4Ab.setLayout(null);
+		
+		JPanel paneOreAndHpBord_4 = new JPanel();
+		paneOreAndHpBord_4.setBounds(44, 48, 133, 119);
+		paneCen4Ab.add(paneOreAndHpBord_4);
+		paneOreAndHpBord_4.setLayout(new BorderLayout(0, 0));
+		
+		paneOreBtnBordCenFlow = new JPanel();
+		paneOreAndHpBord_4.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
+		paneOreBtnBordCenFlow.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		btndiamond4 = new JButton();
+		paneOreBtnBordCenFlow.add(btndiamond4);
 		btndiamond4.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamond.png")));
-		contentPane.add(btndiamond4);
 		btndiamond4.addActionListener(this);
 		
+		paneHpBordSouthBord = new JPanel();
+		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
+		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
+		dao = new ClickerDAO();
+						
+		oreHpBar4 = new HpBar();
+		paneHpBordSouthBord.add(oreHpBar4);
+		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		btndiamond4.addActionListener(this);
+		
+		paneCen5Ab = new JPanel();
+		contentPane.add(paneCen5Ab);
+		
+		
+		
 		JButton back = new JButton("나가기");
+		paneCen5Ab.add(back);
 		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -176,12 +297,35 @@ public class MineDiamond extends JFrame implements ActionListener {
 				MineSelect m = new MineSelect();
 			}
 		});
-		contentPane.add(back);
 		
-		btndiamond5 = new JButton(diamondWall.name);
+		paneCen6Ab = new JPanel();
+		contentPane.add(paneCen6Ab);
+		
+		JPanel paneOreAndHpBord_5 = new JPanel();
+		paneOreAndHpBord_5.setBounds(44, 48, 133, 119);
+		paneCen6Ab.add(paneOreAndHpBord_5);
+		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
+		
+		paneOreBtnBordCenFlow_1 = new JPanel();
+		paneOreAndHpBord_5.add(paneOreBtnBordCenFlow_1, BorderLayout.CENTER);
+		paneOreBtnBordCenFlow_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		btndiamond5 = new JButton();
+		paneOreBtnBordCenFlow_1.add(btndiamond5);
 		btndiamond5.setIcon(new ImageIcon(MineDiamond.class.getResource("/gui/diamondwall.jpg")));
-		contentPane.add(btndiamond5);
 		btndiamond5.addActionListener(this);
+		
+		paneHpBordSouthBord_1 = new JPanel();
+		paneOreAndHpBord_5.add(paneHpBordSouthBord_1, BorderLayout.SOUTH);
+		paneHpBordSouthBord_1.setLayout(new BorderLayout(0, 0));
+		dao = new ClickerDAO();
+						
+		diamondHpBar = new HpBar();
+		paneHpBordSouthBord_1.add(diamondHpBar);
+		diamondHpBar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		
+
 	}
 
 	@Override
@@ -200,53 +344,52 @@ public class MineDiamond extends JFrame implements ActionListener {
 		}
 		if (e.getSource()==btndiamond5) {
 			hitdiamond5();
-			if(diamondWall.hp==0) { // diamondWall의 hp가 다 닳았을 때
-				dispose();
-				GameClear gc = new GameClear();
-				dao.saveEndUser();
-			}
 		}
 	}
 	
 	public void hitdiamond1() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond1.hit(pick.atk()));
-		btndiamond1.setText(diamond1.name+" : "+ diamond1.hp);
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
-		
+		oreHpBar1.settingHp(diamond1.maxHp, diamond1.hp, btndiamond1.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		repaint(); // 클릭시 repaint()로 hp 게이지 변화
 	}
 	public void hitdiamond2() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond2.hit(pick.atk()));
-		btndiamond2.setText(diamond2.name+" : " + diamond2.hp);
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar2.settingHp(diamond2.maxHp, diamond2.hp, btndiamond2.getWidth());
+		repaint();
 	}
 	public void hitdiamond3() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond3.hit(pick.atk()));
-		btndiamond3.setText(diamond3.name+" : "+ diamond3.hp);
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar3.settingHp(diamond3.maxHp, diamond3.hp, btndiamond3.getWidth());
+		repaint();
 	}
 	public void hitdiamond4() {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + diamond4.hit(pick.atk()));
-		btndiamond4.setText(diamond4.name+" : "+ diamond4.hp);
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar4.settingHp(diamond4.maxHp, diamond4.hp, btndiamond4.getWidth());
+		repaint();
 	}
 	public void hitdiamond5() {
 		pick.infoPick();
-		pick.setMoney(pick.getMoney() + diamondWall.hit(pick.atk()));
-		btndiamond5.setText(diamondWall.name);
+		pick.setMoney(pick.getMoney() + diamond.hit(pick.atk()));
 		labelMoney.setText(pick.getMoney()+"");
-		lavelDura.setText(pick.getDura()+"");
+		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
+		diamondHpBar.settingHp(diamond.maxHp, diamond.hp, btndiamond5.getWidth());
+		repaint();
 	}
 }
