@@ -90,7 +90,7 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		woodHpBar = new HpBar();
 		
-		setDefaultCloseOperation(dao.saveUser());
+//		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
