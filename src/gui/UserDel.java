@@ -27,15 +27,7 @@ import system.Pickax;
 	
 	class BackImg2 extends JPanel {
 		
-		private JPanel ContentPane;
-		
-		private Pickax pick;
-	
-		private JButton btnBack;
-		
 		private BufferedImage img;
-		
-		private ClickerUserVO vo;
 		
 		public BackImg2() {
 			setLayout(null);
@@ -71,6 +63,7 @@ import system.Pickax;
 		private JPasswordField txtPw;
 		private Pickax pick;
 		private ClickerDAO dao;
+		private ClickerUserVO vo;
 
 		public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
@@ -142,7 +135,6 @@ import system.Pickax;
 				MainPage m = new MainPage();
 			}
 		});
-		
 		btnUserDel.addActionListener(this);
 	}
 

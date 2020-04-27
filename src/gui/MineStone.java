@@ -190,7 +190,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen1Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord = new JPanel();
-		paneOreAndHpBord.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord.setBounds(50, 60, 133, 119);
 		paneCen1Ab.add(paneOreAndHpBord);
 		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
 		
@@ -216,7 +216,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen2Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_2 = new JPanel();
-		paneOreAndHpBord_2.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_2.setBounds(50, 60, 133, 119);
 		paneCen2Ab.add(paneOreAndHpBord_2);
 		paneOreAndHpBord_2.setLayout(new BorderLayout(0, 0));
 		
@@ -245,7 +245,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen3Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_3 = new JPanel();
-		paneOreAndHpBord_3.setBounds(44, 38, 133, 119);
+		paneOreAndHpBord_3.setBounds(50, 60, 133, 119);
 		paneCen3Ab.add(paneOreAndHpBord_3);
 		paneOreAndHpBord_3.setLayout(new BorderLayout(0, 0));
 		
@@ -274,7 +274,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen4Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_4 = new JPanel();
-		paneOreAndHpBord_4.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_4.setBounds(50, 60, 133, 119);
 		paneCen4Ab.add(paneOreAndHpBord_4);
 		paneOreAndHpBord_4.setLayout(new BorderLayout(0, 0));
 		
@@ -300,10 +300,12 @@ public class MineStone extends JFrame implements ActionListener {
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
+		paneCen5Ab.setLayout(null);
 		
 		
 		
 		JButton back = new JButton("나가기");
+		back.setBounds(30, 65, 172, 108);
 		paneCen5Ab.add(back);
 		back.setBorderPainted(false);
 		back.setFocusPainted(false);
@@ -323,7 +325,7 @@ public class MineStone extends JFrame implements ActionListener {
 		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
-		paneOreAndHpBord_5.setBounds(40, 5, 133, 119);
+		paneOreAndHpBord_5.setBounds(50, 60, 133, 119);
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
