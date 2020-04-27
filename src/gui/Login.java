@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
+import sun.util.logging.resources.logging;
 import system.Pickax;
 import java.awt.Font;
 import javax.swing.JPasswordField;
@@ -136,21 +137,16 @@ import javax.swing.JPasswordField;
 				if(vo!=null) {
 					if(e.getActionCommand().equals("로그인") || e.getSource()==txtPw) {	//로그인버튼 및 txtPw에서 엔터 입력 시 진행
 						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
-								vo.getPwd().equals(new String(txtPw.getPassword()))) {							
-							//vo=dao.searchUser(txtId.getText());	//테스트 중
-							
-							//DB의 정보를 Pickax의 변수에 입력 
-							pick.setUserId(vo.getId());	
-							pick.setMoney(vo.getGold());							
-							pick.setDmg(vo.getDamage());
-							pick.setDura(vo.getDurability());
-							pick.setLevel(vo.getEnhance());
-							pick.setMul(vo.getMul());
-							pick.setPickName(vo.getPickName());
-							pick.setScore(vo.getScore());
-							pick.setPickLevel(vo.getPickLevel());
-							dispose();
-							MiddlePage mp = new MiddlePage();					
+								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
+							if(vo.getProgress()==1) {
+								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
+								dispose();
+								Login l = new Login();
+							}else {								
+								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
+								dispose();
+								MiddlePage mp = new MiddlePage();										
+							}
 					}else {
 						JOptionPane.showMessageDialog(getParent(), "비밀번호를 확인해 주세요.");				
 					}

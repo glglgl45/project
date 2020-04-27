@@ -25,11 +25,6 @@ import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import net.miginfocom.swing.MigLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -94,6 +89,7 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar3 = new HpBar();
 		oreHpBar4 = new HpBar();
 		woodHpBar = new HpBar();
+		dao = new ClickerDAO();
 		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -195,7 +191,6 @@ public class MineStone extends JFrame implements ActionListener {
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
 		paneHpBordSouthBord.setLayout(new BorderLayout(0, 0));
-		dao = new ClickerDAO();
 						
 		oreHpBar1 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar1);
