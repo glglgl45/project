@@ -65,10 +65,6 @@ import system.Pickax;
 		}
 	}
 	
-	
-	
-	
-	
 	public class UserDel extends JFrame implements ActionListener{
 
 		private JPanel contentPane;

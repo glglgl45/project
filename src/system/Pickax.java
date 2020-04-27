@@ -26,6 +26,23 @@ public class Pickax {
 		this.pickLevel = pickLevel; // pick.setPickLevel(vo.getPickLevel());
 	}
 	
+	// 현재 곡괭이의 레벨을 이미지로 출력
+	public String pickImg() {
+		if(pickLevel==1) {
+			return "/img/pickax-stone.png";
+		} else if(pickLevel==2) {
+			return "/img/pickax-copper.png";
+		} else if(pickLevel==3) {
+			return "/img/pickax-steel.png";
+		} else if(pickLevel==4) {
+			return "/img/pickax-platinum2.png";
+		} else if(pickLevel==5) {
+			return "/img/pickax-dia.png";
+		} else {
+			return "error";
+		}
+	}
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -188,5 +205,10 @@ public class Pickax {
 			setScore(getScore()-1);
 			return (int) atkWood;			
 		}
+	}
+    //곡괭이 정보를 불러올때 필요한 메소드
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 }

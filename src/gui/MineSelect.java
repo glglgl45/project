@@ -137,7 +137,7 @@ public class MineSelect extends JFrame {
 		panel_2.setLayout(new GridLayout(2, 3, 0, 0));
 		
 		JButton btnMineStone = new JButton("돌 광산");
-		btnMineStone.setIcon(new ImageIcon(MineSelect.class.getResource("/gui/enterence-stone.png")));
+		btnMineStone.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-stone.png")));
 		btnMineStone.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -148,7 +148,7 @@ public class MineSelect extends JFrame {
 		panel_2.add(btnMineStone);
 		
 		JButton btnMineCopper = new JButton("구리 광산");
-		btnMineCopper.setIcon(new ImageIcon(MineSelect.class.getResource("/gui/enterence-copper.png")));
+		btnMineCopper.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-copper.png")));
 		btnMineCopper.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -159,7 +159,7 @@ public class MineSelect extends JFrame {
 		panel_2.add(btnMineCopper);
 		
 		JButton btnMineIron = new JButton("철 광산");
-		btnMineIron.setIcon(new ImageIcon(MineSelect.class.getResource("/gui/enterencesteel.png")));
+		btnMineIron.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterencesteel.png")));
 		panel_2.add(btnMineIron);
 		btnMineIron.addActionListener(new ActionListener() {
 			@Override
@@ -169,7 +169,7 @@ public class MineSelect extends JFrame {
 			}
 		});
 		JButton btnMineTitanium = new JButton("티타늄 광산");
-		btnMineTitanium.setIcon(new ImageIcon(MineSelect.class.getResource("/gui/enterence-platinum.png")));
+		btnMineTitanium.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-platinum.png")));
 		panel_2.add(btnMineTitanium);
 		btnMineTitanium.addActionListener(new ActionListener() {
 			@Override
@@ -180,7 +180,7 @@ public class MineSelect extends JFrame {
 		});
 		
 		JButton btnBack = new JButton("");
-		btnBack.setIcon(new ImageIcon(MineSelect.class.getResource("/gui/GTFO.png")));
+		btnBack.setIcon(new ImageIcon(MineSelect.class.getResource("/img/GTFO.png")));
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -191,7 +191,7 @@ public class MineSelect extends JFrame {
 		panel_2.add(btnBack);
 		
 		JButton btnMineDiamond = new JButton("다이아몬드 광산");
-		btnMineDiamond.setIcon(new ImageIcon(MineSelect.class.getResource("/gui/enterence-diamond.png")));
+		btnMineDiamond.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-diamond.png")));
 		panel_2.add(btnMineDiamond);
 		btnMineDiamond.addActionListener(new ActionListener() {
 			@Override

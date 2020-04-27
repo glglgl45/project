@@ -76,15 +76,15 @@ public class MiddlePage extends JFrame {
 		});
 		//스크롤2 이미지 삽입
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/scroll2.png")));
+		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/scroll2.png")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel);
 		//스크롤1 이미지 삽입
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/scroll1.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/scroll1.png")));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblNewLabel_1);
-		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/mine-cart.PNG")));
+		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
 		panel.add(btnMine);//광산차 이미지 삽입
 		//상점 버튼을 누를시 store으로 연결
 		JButton btnStore = new JButton("상점");
@@ -96,25 +96,25 @@ public class MiddlePage extends JFrame {
 				s.setVisible(true);
 			}
 		});
-		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/gui/blacksmithing.PNG")));
+		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/blacksmithing.PNG")));
 		panel.add(btnStore);
 		//pickLevel에 따른 곡괭이 이미지 변경
 		int key=pick.getPickLevel();
 		switch (key) {
 		case 1:
-			img=new ImageIcon(getClass().getResource("pickax-stone.png"));
+			img=new ImageIcon(getClass().getResource("/img/pickax-stone.png"));
 			break;
 		case 2:
-			img=new ImageIcon(getClass().getResource("pickax-copper.png"));			
+			img=new ImageIcon(getClass().getResource("/img/pickax-copper.png"));			
 			break;
 		case 3:
-			img=new ImageIcon(getClass().getResource("pickax-steel.png"));
+			img=new ImageIcon(getClass().getResource("/img/pickax-steel.png"));
 			break;
 		case 4:
-			img=new ImageIcon(getClass().getResource("pickax-platinum.png"));
+			img=new ImageIcon(getClass().getResource("/img/pickax-platinum.png"));
 			break;
 		case 5:
-			img=new ImageIcon(getClass().getResource("pickax-dia.png"));
+			img=new ImageIcon(getClass().getResource("/img/pickax-dia.png"));
 			break;
 		}
 		

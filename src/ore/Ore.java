@@ -1,11 +1,14 @@
 package ore;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public class Ore {
 	public int hp;
 	public String name;
 	public int reward;
 	public int maxHp;
+	public String imgPath;
 
 	public int hit(int atk) {		
 		if(hp > 0 && hp > atk) {
@@ -23,5 +26,10 @@ public class Ore {
 				return 0;
 			}
 		}
+	}
+
+	public ImageIcon OreImg() {
+		ImageIcon img = new ImageIcon(Ore.class.getResource(imgPath));
+		return img;
 	}
 }
