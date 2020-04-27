@@ -93,7 +93,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		diamondHpBar = new HpBar();
 		dao = new ClickerDAO();
 		
-//		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -348,8 +348,13 @@ public class MineDiamond extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
+		if (e.getSource()==btnOre1) {
+			hitOre(ore1,oreHpBar1,btnOre1);
+=======
 		if (e.getSource()==btndiamond1) {
 			hitdiamond1();
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		}
 		if (e.getSource()==btndiamond2) {
 			hitdiamond2();

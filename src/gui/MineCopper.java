@@ -93,7 +93,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		copperHpBar = new HpBar();
 		dao = new ClickerDAO();
 		
-//		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -185,6 +185,12 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
+<<<<<<< HEAD
+		btnOre1= new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setIcon(ore1.OreImg());
+		btnOre1.addActionListener(this);
+=======
 		btncopper1 = new JButton();
 		paneOreBtnBordCenFlow.add(btncopper1);
 		btncopper1.setBorderPainted(false);
@@ -192,6 +198,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		btncopper1.setContentAreaFilled(false);
 		btncopper1.setIcon(new ImageIcon(MineCopper.class.getResource("/gui/copper.png")));
 		btncopper1.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);

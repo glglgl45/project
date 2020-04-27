@@ -96,7 +96,12 @@ public class MineStone extends JFrame implements ActionListener {
 		woodHpBar = new HpBar();
 		dao = new ClickerDAO();
 		
+<<<<<<< HEAD
+		
+		setDefaultCloseOperation(dao.saveUser());
+=======
 //		setDefaultCloseOperation(dao.saveUser());
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		mainPanel = new JPanel();
@@ -188,6 +193,12 @@ public class MineStone extends JFrame implements ActionListener {
 		paneOreBtnBordCenFlow = new JPanel();
 		paneOreAndHpBord.add(paneOreBtnBordCenFlow, BorderLayout.CENTER);
 		
+<<<<<<< HEAD
+		btnOre1 = new JButton();
+		paneOreBtnBordCenFlow.add(btnOre1);
+		btnOre1.setIcon(ore1.OreImg());
+		btnOre1.addActionListener(this);
+=======
 		btnStone1 = new JButton();
 		paneOreBtnBordCenFlow.add(btnStone1);
 		btnStone1.setBorderPainted(false);
@@ -195,6 +206,7 @@ public class MineStone extends JFrame implements ActionListener {
 		btnStone1.setContentAreaFilled(false);
 		btnStone1.setIcon(new ImageIcon(MineStone.class.getResource("/img/stone.png")));
 		btnStone1.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -294,7 +306,10 @@ public class MineStone extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+<<<<<<< HEAD
+=======
 		btnStone4.addActionListener(this);
+>>>>>>> branch 'master' of https://github.com/glglgl45/project.git
 		
 		paneCen5Ab = new JPanel();
 		contentPane.add(paneCen5Ab);
