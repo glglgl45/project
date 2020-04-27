@@ -20,6 +20,8 @@ import system.Pickax;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
+import java.awt.CardLayout;
+import javax.swing.JRadioButton;
 
 public class MiddlePage extends JFrame {
 
@@ -45,16 +47,13 @@ public class MiddlePage extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public MiddlePage() {
 		pick = new Pickax();
 		dao=new ClickerDAO();
 		//창 크기 조절
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -62,11 +61,59 @@ public class MiddlePage extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);		
 		//창 중간에 패널 넣기
+		JPanel paneCenGrid = new JPanel();
+		contentPane.add(paneCenGrid, BorderLayout.CENTER);
+		paneCenGrid.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel paneCen = new JPanel();
+		paneCenGrid.add(paneCen);
+		paneCen.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel_2 = new JPanel();
+		paneCen.add(panel_2, BorderLayout.SOUTH);
+		
+		JPanel panel_8 = new JPanel();
+		panel_2.add(panel_8);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("");
+		panel_8.add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("");
+		panel_8.add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("");
+		panel_8.add(rdbtnNewRadioButton_2);
+		
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("");
+		panel_8.add(rdbtnNewRadioButton_3);
+		
+		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("");
+		panel_8.add(rdbtnNewRadioButton_4);
+		
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(0, 2, 0, 0));
-		//광산 버튼 추가
+		paneCen.add(panel, BorderLayout.CENTER);
+		
+
+		JPanel panel_7 = new JPanel();
+		
+		JPanel panel_6 = new JPanel();
+		
+		JPanel panel_9 = new JPanel();
+		panel_9.setBounds(298, 81, 67, 25);
+		panel_6.add(panel_9);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		panel_9.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/scrollmid.jpg")));
+		lblNewLabel_1.setBounds(0, 0, 674, 207);
+		panel_6.add(lblNewLabel_1);
+		
+		paneCenGrid.add(panel_7);
+		
 		JButton btnMine = new JButton("광산");
+		panel_7.add(btnMine);
 		btnMine.addActionListener(new ActionListener() {
 			@Override//광산 버튼 누를시 광산 창으로 연결
 			public void actionPerformed(ActionEvent e) {
@@ -74,20 +121,10 @@ public class MiddlePage extends JFrame {
 				MineSelect ms = new MineSelect();
 			}
 		});
-		//스크롤2 이미지 삽입
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/scroll2.png")));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lblNewLabel);
-		//스크롤1 이미지 삽입
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/scroll1.png")));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lblNewLabel_1);
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
-		panel.add(btnMine);//광산차 이미지 삽입
 		//상점 버튼을 누를시 store으로 연결
 		JButton btnStore = new JButton("상점");
+		panel_7.add(btnStore);
 		btnStore.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -97,8 +134,7 @@ public class MiddlePage extends JFrame {
 			}
 		});
 		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/blacksmithing.PNG")));
-		panel.add(btnStore);
-		//pickLevel에 따른 곡괭이 이미지 변경
+		// pickLevel에 따른 곡괭이 이미지 변경
 		int key=pick.getPickLevel();
 		switch (key) {
 		case 1:
@@ -118,18 +154,18 @@ public class MiddlePage extends JFrame {
 			break;
 		}
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.SOUTH);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		JPanel paneBot = new JPanel();
+		contentPane.add(paneBot, BorderLayout.SOUTH);
+		paneBot.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_3 = new JPanel();
-		panel_1.add(panel_3, BorderLayout.WEST);
+		paneBot.add(panel_3, BorderLayout.WEST);
 		//아이디를 표시
 		JLabel lblNewLabel_5 = new JLabel("ID : "+pick.getUserId());
 		panel_3.add(lblNewLabel_5);
 		
 		JPanel panel_4 = new JPanel();
-		panel_1.add(panel_4, BorderLayout.CENTER);
+		paneBot.add(panel_4, BorderLayout.CENTER);
 		
 
 		JButton btnNewButton1 = new JButton("돌곡괭이 0");
@@ -153,7 +189,7 @@ public class MiddlePage extends JFrame {
 		panel_4.add(lblNewLabel_4);
 		
 		JPanel panel_5 = new JPanel();
-		panel_1.add(panel_5, BorderLayout.EAST);
+		paneBot.add(panel_5, BorderLayout.EAST);
 		//아이디에 있는 소지금 표시
 		JLabel lblNewLabel_6 = new JLabel("소지금 : ");
 		panel_5.add(lblNewLabel_6);
@@ -161,9 +197,9 @@ public class MiddlePage extends JFrame {
 		JLabel lblNewLabel_7 = new JLabel(pick.getMoney()+"");
 		panel_5.add(lblNewLabel_7);
 		
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.NORTH);
-		panel_2.setLayout(new BorderLayout(0, 0));
+		JPanel paneTop = new JPanel();
+		contentPane.add(paneTop, BorderLayout.NORTH);
+		paneTop.setLayout(new BorderLayout(0, 0));
 		//왼쪽 상단에 있는 점수 표시
 		JButton btnNewButton_1 = new JButton("점수 : " + pick.getScore());
 		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -175,7 +211,7 @@ public class MiddlePage extends JFrame {
 				
 			}
 		});
-		panel_2.add(btnNewButton_1, BorderLayout.WEST);
+		paneTop.add(btnNewButton_1, BorderLayout.WEST);
 		//로그아웃 버큰 누를시 게임 종료 창 연결
 		JButton btnLogout = new JButton("로그아웃");
 		btnLogout.addActionListener(new ActionListener() {
@@ -195,6 +231,6 @@ public class MiddlePage extends JFrame {
 				}
 			}
 		});
-		panel_2.add(btnLogout, BorderLayout.EAST);
+		paneTop.add(btnLogout, BorderLayout.EAST);
 	}
 }
