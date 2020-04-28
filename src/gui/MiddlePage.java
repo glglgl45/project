@@ -186,7 +186,8 @@ public class MiddlePage extends JFrame implements ActionListener{
 		paneCenBot.setLayout(null);
 		
 		JButton btnMine = new JButton("");
-		btnMine.setBounds(80, 5, 280, 258);
+		btnMine.setHorizontalAlignment(SwingConstants.LEADING);
+		btnMine.setBounds(12, 5, 280, 258);
 		transBtn(btnMine);
 		paneCenBot.add(btnMine);
 		btnMine.addActionListener(new ActionListener() {
@@ -199,7 +200,7 @@ public class MiddlePage extends JFrame implements ActionListener{
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
 		//상점 버튼을 누를시 store으로 연결
 		JButton btnStore = new JButton("");
-		btnStore.setBounds(354, 5, 257, 233);
+		btnStore.setBounds(435, 5, 257, 233);
 		transBtn(btnStore);
 		paneCenBot.add(btnStore);
 		btnStore.setContentAreaFilled(false);
@@ -217,14 +218,14 @@ public class MiddlePage extends JFrame implements ActionListener{
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(171, 238, 108, 25);
+		lblNewLabel_2.setBounds(103, 238, 108, 25);
 		paneCenBot.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_8 = new JLabel("상점가기");
 		lblNewLabel_8.setForeground(Color.WHITE);
 		lblNewLabel_8.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_8.setBounds(437, 238, 94, 25);
+		lblNewLabel_8.setBounds(518, 238, 94, 25);
 		paneCenBot.add(lblNewLabel_8);
 		
 		JPanel paneBot = new JPanel();
@@ -304,6 +305,9 @@ public class MiddlePage extends JFrame implements ActionListener{
 			}
 		});
 		paneTop.add(btnLogout, BorderLayout.EAST);
+
+		btnMine.setCursor(pick.entranceCursor());
+		btnStore.setCursor(pick.entranceCursor());
 	}
 	
 

@@ -1,5 +1,9 @@
 package system;
 
+import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 
 public class Pickax {
 	
@@ -12,6 +16,8 @@ public class Pickax {
 	private static int dura = 100; // 내구도
 	private static int score = 99999; // 점수
 	private static String userId; // 아이디
+	private String pathCursor;
+	private String pathClick;
 	
 	// DB에 있는 데이터를 곡괭이에 세팅하는 메소드
 	public void pickSet(String userID, int gold, int dmg, int durability, 
@@ -39,6 +45,7 @@ public class Pickax {
 		} else if(pickLevel==5) {
 			return "/img/pickax/pickax-diamond.png";
 		} else {
+			System.out.println("에러 : 곡괭이 레벨이 이미지로 출력이 안됨");
 			return "error";
 		}
 	}
@@ -219,7 +226,7 @@ public class Pickax {
 			setScore(getScore()-1);
 			return (int) atk;
 		} else {
-			double atkWood = dmg/3;
+			double atkWood = 1;
 			setScore(getScore()-1);
 			return (int) atkWood;			
 		}
@@ -228,5 +235,68 @@ public class Pickax {
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
 		
+	}
+	// 커서
+	public Cursor cursor(){ 
+		// 경로 지정
+		if(pickLevel==1) {
+			pathCursor = "/img/pickax/pickax-stone.png";
+		} else if(pickLevel==2) {
+			pathCursor = "/img/pickax/pickax-copper.png";
+		} else if(pickLevel==3) {
+			pathCursor = "/img/pickax/pickax-iron.png";
+		} else if(pickLevel==4) {
+			pathCursor = "/img/pickax/pickax-titanium.png";
+		} else if(pickLevel==5) {
+			pathCursor = "/img/pickax/pickax-diamond.png";
+		} else {
+			System.out.println("에러 : 곡괭이 커서 이미지 경로 문제");
+		}
+		// 커서 이미지 변경
+		Toolkit tk = Toolkit.getDefaultToolkit(); 
+		Image cursorimage=tk.getImage(Pickax.class.getResource(pathCursor));
+		Point point=new Point(20,20); 
+		Cursor cursor=tk.createCustomCursor(cursorimage, point, "cursor");
+		return cursor;
+	}
+	
+	public Cursor click() {
+		// 경로 지정
+		if(pickLevel==1) {
+			pathClick = "/img/pickax/pickaxStoneClick.png";
+		} else if(pickLevel==2) {
+			pathClick = "/img/pickax/pickaxCopperClick.png";
+		} else if(pickLevel==3) {
+			pathClick = "/img/pickax/pickaxIronClick.png";
+		} else if(pickLevel==4) {
+			pathClick = "/img/pickax/pickaxTitaniumClick.png";
+		} else if(pickLevel==5) {
+			pathClick = "/img/pickax/pickaxDiamondClick.png";
+		} else {
+			System.out.println("에러 : 곡괭이 클릭 시 커서 이미지 경로 문제");
+		}
+		// 클릭 시 커서 이미지 변경
+		Toolkit tk = Toolkit.getDefaultToolkit(); 
+		Image cursorimage=tk.getImage(Pickax.class.getResource(pathClick));
+		Point point=new Point(20,20); 
+		Cursor cursor=tk.createCustomCursor(cursorimage, point, "click");
+		return cursor;		
+	}
+
+	public Cursor exitCursor() {
+		// 커서 이미지 변경
+		Toolkit tk = Toolkit.getDefaultToolkit(); 
+		Image cursorimage=tk.getImage(Pickax.class.getResource("/img/redExit.png"));
+		Point point=new Point(20,20); 
+		Cursor cursor=tk.createCustomCursor(cursorimage, point, "click");
+		return cursor;		
+	}
+	public Cursor entranceCursor() {
+		// 커서 이미지 변경
+		Toolkit tk = Toolkit.getDefaultToolkit(); 
+		Image cursorimage=tk.getImage(Pickax.class.getResource("/img/entranceCursor.png"));
+		Point point=new Point(20,20); 
+		Cursor cursor=tk.createCustomCursor(cursorimage, point, "click");
+		return cursor;		
 	}
 }

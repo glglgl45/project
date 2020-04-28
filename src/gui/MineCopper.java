@@ -19,6 +19,8 @@ import img.*;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -34,7 +36,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.CardLayout;
 
-public class MineCopper extends JFrame implements ActionListener {
+public class MineCopper extends JFrame implements ActionListener,MouseListener {
 	
 	
 	private JPanel mainPanel, contentPane;
@@ -363,7 +365,19 @@ public class MineCopper extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		
+		btnOre1.addMouseListener(this);
+		btnOre2.addMouseListener(this);
+		btnOre3.addMouseListener(this);
+		btnOre4.addMouseListener(this);
+		btnOre5.addMouseListener(this);
+		back.addMouseListener(this);
+
+		btnOre1.setCursor(pick.cursor());
+		btnOre2.setCursor(pick.cursor());
+		btnOre3.setCursor(pick.cursor());
+		btnOre4.setCursor(pick.cursor());
+		btnOre5.setCursor(pick.cursor());
+		back.setCursor(pick.exitCursor());
 
 	}
 
@@ -371,18 +385,33 @@ public class MineCopper extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==btnOre1) {
 			hitOre(ore1,oreHpBar1,btnOre1);
+			if(ore1.hp==0) {
+				btnOre1.setIcon(new ImageIcon(MineStone.class.getResource("/img/ore/copperBroken.png")));
+			}
 		}
 		if (e.getSource()==btnOre2) {
 			hitOre(ore2,oreHpBar2,btnOre2);
+			if(ore2.hp==0) {
+				btnOre2.setIcon(new ImageIcon(MineStone.class.getResource("/img/ore/copperBroken.png")));
+			}
 		}
 		if (e.getSource()==btnOre3) {
 			hitOre(ore3,oreHpBar3,btnOre3);
+			if(ore3.hp==0) {
+				btnOre3.setIcon(new ImageIcon(MineStone.class.getResource("/img/ore/copperBroken.png")));
+			}
 		}
 		if (e.getSource()==btnOre4) {
 			hitOre(ore4,oreHpBar4,btnOre4);
+			if(ore4.hp==0) {
+				btnOre4.setIcon(new ImageIcon(MineStone.class.getResource("/img/ore/copperBroken.png")));
+			}
 		}
 		if (e.getSource()==btnOre5) {
 			hitOre(ore5,oreHpBar5,btnOre5);
+			if(ore5.hp==0) {
+				btnOre5.setIcon(new ImageIcon(MineStone.class.getResource("/img/ore/copperBroken.png")));
+			}
 		}
 	}
 	
@@ -402,6 +431,33 @@ public class MineCopper extends JFrame implements ActionListener {
 		btn.setFocusPainted(false); // 버튼 클릭시 포커스 투명화
 		btn.setContentAreaFilled(false); // 버튼 배경색 투명화
 		// 상위 패널 또한 패널.setOpaque(false); 를 설정
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+
+	@Override
+	public void mouseExited(MouseEvent e) {}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		btnOre1.setCursor(pick.click());
+		btnOre2.setCursor(pick.click());
+		btnOre3.setCursor(pick.click());
+		btnOre4.setCursor(pick.click());
+		btnOre5.setCursor(pick.click());
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		btnOre1.setCursor(pick.cursor());
+		btnOre2.setCursor(pick.cursor());
+		btnOre3.setCursor(pick.cursor());
+		btnOre4.setCursor(pick.cursor());
+		btnOre5.setCursor(pick.cursor());
 	}
 
 }
