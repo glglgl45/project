@@ -26,18 +26,21 @@ import java.awt.CardLayout;
 import javax.swing.JRadioButton;
 import java.awt.Color;
 
-public class MiddlePage extends JFrame {
+public class MiddlePage extends JFrame implements ActionListener{
 
 	private Pickax pick;
 	
 	private JPanel contentPane;
 	private ImageIcon img;
+	private ImageIcon scroll1, scroll2, scroll3, scroll4, scroll5, scroll6, scroll7;
 	
 	private ClickerDAO dao;
 	private ClickerUserVO vo;
 	
 	private ButtonGroup btnGroup;
-	private JRadioButton radio1, radio2, radio3, radio4, radio5;
+	private JRadioButton radio1, radio2, radio3, radio4, radio5, radio6, radio7;
+	int pos = 1;
+	private JPanel paneCenTop;
 	
 	private ImageIcon icon;
 	/**
@@ -60,6 +63,13 @@ public class MiddlePage extends JFrame {
 		pick = new Pickax();
 		dao=new ClickerDAO();
 		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/middlepg.jpg"));
+		scroll1 = new ImageIcon(MiddlePage.class.getResource("/img/scroll1.png"));
+		scroll2 = new ImageIcon(MiddlePage.class.getResource("/img/scroll2.png"));
+		scroll3 = new ImageIcon(MiddlePage.class.getResource("/img/scroll3.png"));
+		scroll4 = new ImageIcon(MiddlePage.class.getResource("/img/scroll4.png"));
+		scroll5 = new ImageIcon(MiddlePage.class.getResource("/img/scroll5.png"));
+		scroll6 = new ImageIcon(MiddlePage.class.getResource("/img/scroll6.png"));
+		scroll7 = new ImageIcon(MiddlePage.class.getResource("/img/scroll7.png"));
 		//창 크기 조절
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,35 +92,94 @@ public class MiddlePage extends JFrame {
 		contentPane.add(paneCenGrid, BorderLayout.CENTER);
 		paneCenGrid.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel paneCenTop = new JPanel();
+		paneCenTop = new JPanel(){
+			@Override
+			protected void paintComponent(Graphics g) {
+				
+				if(pos == 1) {
+					g.drawImage(scroll1.getImage(), 0, 0, null);
+				} else if(pos == 2) {
+					g.drawImage(scroll2.getImage(), 0, 0, null);
+				} else if(pos == 3) {
+					g.drawImage(scroll3.getImage(), 0, 0, null);
+				} else if(pos == 4) {
+					g.drawImage(scroll4.getImage(), 0, 0, null);
+				} else if(pos == 5) {
+					g.drawImage(scroll5.getImage(), 0, 0, null);
+				} else if(pos == 6) {
+					g.drawImage(scroll6.getImage(), 0, 0, null);
+				} else if(pos == 7) {
+					g.drawImage(scroll7.getImage(), 0, 0, null);
+				}
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
 		paneCenGrid.add(paneCenTop);
 		paneCenTop.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.GREEN);
 		paneCenTop.add(panel_2, BorderLayout.SOUTH);
+		panel_2.setOpaque(false);
 		
 		JPanel panel_8 = new JPanel();
 		panel_2.add(panel_8);
+		panel_8.setOpaque(false);
 		
-
+		// 라디오 버튼 생성
 		radio1 = new JRadioButton();
 		radio2 = new JRadioButton();
 		radio3 = new JRadioButton();
 		radio4 = new JRadioButton();
 		radio5 = new JRadioButton();
+		radio6 = new JRadioButton();
+		radio7 = new JRadioButton();
+		
+		// 기본 선택값 부여
+		radio1.setSelected(true);
+
+		// 라디오 버튼 리스너 추가
+		radio1.addActionListener(this);
+		radio2.addActionListener(this);
+		radio3.addActionListener(this);
+		radio4.addActionListener(this);
+		radio5.addActionListener(this);
+		radio6.addActionListener(this);
+		radio7.addActionListener(this);
+		
+		// 라디오 버튼 투명화
+		radio1.setOpaque(false);
+		radio2.setOpaque(false);
+		radio3.setOpaque(false);
+		radio4.setOpaque(false);
+		radio5.setOpaque(false);
+		radio6.setOpaque(false);
+		radio7.setOpaque(false);
+
+		// 라디오 버튼 그룹화
+		btnGroup = new ButtonGroup();
+		btnGroup.add(radio1);
+		btnGroup.add(radio2);
+		btnGroup.add(radio3);
+		btnGroup.add(radio4);
+		btnGroup.add(radio5);
+		btnGroup.add(radio6);
+		btnGroup.add(radio7);
 
 		panel_8.add(radio1);
 		panel_8.add(radio2);
 		panel_8.add(radio3);
 		panel_8.add(radio4);
 		panel_8.add(radio5);
+		panel_8.add(radio6);
+		panel_8.add(radio7);
 		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.PINK);
 		paneCenTop.add(panel, BorderLayout.CENTER);
-		
+		panel.setOpaque(false);
 
 		JPanel paneCenBot = new JPanel();
 		paneCenBot.setOpaque(false);
@@ -130,7 +199,7 @@ public class MiddlePage extends JFrame {
 		
 		paneCenGrid.add(paneCenBot);
 		
-		JButton btnMine = new JButton("광산");
+		JButton btnMine = new JButton("");
 		transBtn(btnMine);
 		paneCenBot.add(btnMine);
 		btnMine.addActionListener(new ActionListener() {
@@ -142,7 +211,7 @@ public class MiddlePage extends JFrame {
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
 		//상점 버튼을 누를시 store으로 연결
-		JButton btnStore = new JButton("상점");
+		JButton btnStore = new JButton("");
 		transBtn(btnStore);
 		paneCenBot.add(btnStore);
 		btnStore.addActionListener(new ActionListener() {
@@ -154,25 +223,6 @@ public class MiddlePage extends JFrame {
 			}
 		});
 		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/blacksmithing.PNG")));
-		// pickLevel에 따른 곡괭이 이미지 변경
-		int key=pick.getPickLevel();
-		switch (key) {
-		case 1:
-			img=new ImageIcon(getClass().getResource("/img/pickax-stone.png"));
-			break;
-		case 2:
-			img=new ImageIcon(getClass().getResource("/img/pickax-copper.png"));			
-			break;
-		case 3:
-			img=new ImageIcon(getClass().getResource("/img/pickax-steel.png"));
-			break;
-		case 4:
-			img=new ImageIcon(getClass().getResource("/img/pickax-platinum.png"));
-			break;
-		case 5:
-			img=new ImageIcon(getClass().getResource("/img/pickax-dia.png"));
-			break;
-		}
 		
 		JPanel paneBot = new JPanel();
 		contentPane.add(paneBot, BorderLayout.SOUTH);
@@ -198,7 +248,6 @@ public class MiddlePage extends JFrame {
 			}
 		});
 
-		//JButton btnNewButton1 = new JButton(pick.getPickName()+" +"+pick.getLevel());
 
 		panel_4.add(btnNewButton1);
 		// 곡괭이 내구도 표시
@@ -263,6 +312,29 @@ public class MiddlePage extends JFrame {
 		// 상위 패널 또한 패널.setOpaque(false); 를 설정
 	}
 
-
-
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==radio1) {
+			pos = 1;
+			repaint();
+		} else if(e.getSource()==radio2) {
+			pos = 2;
+			repaint();
+		} else if(e.getSource()==radio3) {
+			pos = 3;
+			repaint();
+		} else if(e.getSource()==radio4) {
+			pos = 4;
+			repaint();
+		} else if(e.getSource()==radio5) {
+			pos = 5;
+			repaint();
+		} else if(e.getSource()==radio6) {
+			pos = 6;
+			repaint();
+		} else if(e.getSource()==radio7) {
+			pos = 7;
+			repaint();
+		}
+	}
 }
