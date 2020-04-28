@@ -102,8 +102,7 @@ public class MiddlePage extends JFrame {
 		
 
 		JPanel paneCenBot = new JPanel();
-		paneCenBot.setBackground(Color.CYAN);
-		
+		paneCenBot.setOpaque(false);
 		JPanel panel_6 = new JPanel();
 		
 		JPanel panel_9 = new JPanel();
@@ -121,6 +120,7 @@ public class MiddlePage extends JFrame {
 		paneCenGrid.add(paneCenBot);
 		
 		JButton btnMine = new JButton("광산");
+		transBtn(btnMine);
 		paneCenBot.add(btnMine);
 		btnMine.addActionListener(new ActionListener() {
 			@Override//광산 버튼 누를시 광산 창으로 연결
@@ -132,6 +132,7 @@ public class MiddlePage extends JFrame {
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
 		//상점 버튼을 누를시 store으로 연결
 		JButton btnStore = new JButton("상점");
+		transBtn(btnStore);
 		paneCenBot.add(btnStore);
 		btnStore.addActionListener(new ActionListener() {
 			@Override
@@ -241,4 +242,16 @@ public class MiddlePage extends JFrame {
 		});
 		paneTop.add(btnLogout, BorderLayout.EAST);
 	}
+	
+
+	// 버튼 투명화 메소드
+	public void transBtn(JButton btn) {
+		btn.setBorderPainted(false); // 버튼 테두리 투명화
+		btn.setFocusPainted(false); // 버튼 클릭시 포커스 투명화
+		btn.setContentAreaFilled(false); // 버튼 배경색 투명화
+		// 상위 패널 또한 패널.setOpaque(false); 를 설정
+	}
+
+
+
 }
