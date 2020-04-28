@@ -315,8 +315,6 @@ public class MineDiamond extends JFrame implements ActionListener {
 		contentPane.add(paneCen5Ab);
 		paneCen5Ab.setLayout(null);
 		
-		
-		
 		JButton back = new JButton("");
 		back.setBounds(30, 65, 172, 108);
 		paneCen5Ab.add(back);
@@ -362,9 +360,6 @@ public class MineDiamond extends JFrame implements ActionListener {
 		oreHpBar5 = new HpBar();
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		
-
 	}
 
 	@Override
@@ -383,8 +378,11 @@ public class MineDiamond extends JFrame implements ActionListener {
 		}
 		if (e.getSource()==btnOre5) {
 			hitOre(ore5,oreHpBar5,btnOre5);
+			if(ore5.equals(0)) {
+				dispose();
+				GameClear gc = new GameClear();
+			}
 		}
-		
 	}
 	
 	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
