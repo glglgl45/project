@@ -148,6 +148,10 @@ public class MainPage extends JFrame implements MouseListener {
 					}else {
 						JOptionPane.showMessageDialog(getParent(), "ID를 확인해 주세요.");
 					}
+				}else {
+					JOptionPane.showMessageDialog(getParent(), "존재하지 않는 계정입니다.\n회원가입 후 이용해 주세요.");
+					txtId.setText("");
+					txtPw.setText("");
 				}
 			}
 		});
@@ -191,6 +195,10 @@ public class MainPage extends JFrame implements MouseListener {
 					}else {
 						JOptionPane.showMessageDialog(getParent(), "ID를 확인해 주세요.");
 					}
+				}else {
+					JOptionPane.showMessageDialog(getParent(), "존재하지 않는 계정입니다.\n회원가입 후 이용해 주세요.");
+					txtId.setText("");
+					txtPw.setText("");
 				}
 			}
 		});
