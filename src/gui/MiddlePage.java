@@ -17,6 +17,7 @@ import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
 import system.Pickax;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
@@ -33,6 +34,9 @@ public class MiddlePage extends JFrame {
 	
 	private ClickerDAO dao;
 	private ClickerUserVO vo;
+	
+	private ButtonGroup btnGroup;
+	private JRadioButton radio1, radio2, radio3, radio4, radio5;
 	/**
 	 * Launch the application.
 	 */
@@ -67,39 +71,38 @@ public class MiddlePage extends JFrame {
 		contentPane.add(paneCenGrid, BorderLayout.CENTER);
 		paneCenGrid.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel paneCen = new JPanel();
-		paneCenGrid.add(paneCen);
-		paneCen.setLayout(new BorderLayout(0, 0));
+		JPanel paneCenTop = new JPanel();
+		paneCenGrid.add(paneCenTop);
+		paneCenTop.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.GREEN);
-		paneCen.add(panel_2, BorderLayout.SOUTH);
+		paneCenTop.add(panel_2, BorderLayout.SOUTH);
 		
 		JPanel panel_8 = new JPanel();
 		panel_2.add(panel_8);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("");
-		panel_8.add(rdbtnNewRadioButton);
+
+		radio1 = new JRadioButton();
+		radio2 = new JRadioButton();
+		radio3 = new JRadioButton();
+		radio4 = new JRadioButton();
+		radio5 = new JRadioButton();
+
+		panel_8.add(radio1);
+		panel_8.add(radio2);
+		panel_8.add(radio3);
+		panel_8.add(radio4);
+		panel_8.add(radio5);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("");
-		panel_8.add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("");
-		panel_8.add(rdbtnNewRadioButton_2);
-		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("");
-		panel_8.add(rdbtnNewRadioButton_3);
-		
-		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("");
-		panel_8.add(rdbtnNewRadioButton_4);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.PINK);
-		paneCen.add(panel, BorderLayout.CENTER);
+		paneCenTop.add(panel, BorderLayout.CENTER);
 		
 
-		JPanel panel_7 = new JPanel();
-		panel_7.setBackground(Color.CYAN);
+		JPanel paneCenBot = new JPanel();
+		paneCenBot.setBackground(Color.CYAN);
 		
 		JPanel panel_6 = new JPanel();
 		
@@ -115,10 +118,10 @@ public class MiddlePage extends JFrame {
 		lblNewLabel_1.setBounds(0, 0, 674, 207);
 		panel_6.add(lblNewLabel_1);
 		
-		paneCenGrid.add(panel_7);
+		paneCenGrid.add(paneCenBot);
 		
 		JButton btnMine = new JButton("광산");
-		panel_7.add(btnMine);
+		paneCenBot.add(btnMine);
 		btnMine.addActionListener(new ActionListener() {
 			@Override//광산 버튼 누를시 광산 창으로 연결
 			public void actionPerformed(ActionEvent e) {
@@ -129,7 +132,7 @@ public class MiddlePage extends JFrame {
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
 		//상점 버튼을 누를시 store으로 연결
 		JButton btnStore = new JButton("상점");
-		panel_7.add(btnStore);
+		paneCenBot.add(btnStore);
 		btnStore.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

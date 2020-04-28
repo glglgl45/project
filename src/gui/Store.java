@@ -163,6 +163,11 @@ public class Store extends JFrame implements ActionListener{
 		panel_2.add(panel_4);
 		panel_4.setLayout(new BorderLayout(0, 0));
 		
+		JLabel lblImg = new JLabel("");
+		lblImg.setIcon(new ImageIcon(PickaxInfo.class.getResource(pick.pickImg())));
+		lblImg.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(lblImg, BorderLayout.CENTER);
+		
 		JPanel panel_5 = new JPanel();
 		panel_2.add(panel_5);
 		panel_5.setLayout(new GridLayout(0, 1, 0, 0));
