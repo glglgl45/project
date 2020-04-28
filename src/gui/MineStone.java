@@ -97,7 +97,7 @@ public class MineStone extends JFrame implements ActionListener {
 		ore2= new Stone();
 		ore3= new Stone();
 		ore4= new Stone();
-		ore5 = new Stone();
+		ore5 = new Wood();
 		oreHpBar1 = new HpBar();
 		oreHpBar2 = new HpBar();
 		oreHpBar3 = new HpBar();
@@ -410,14 +410,24 @@ public class MineStone extends JFrame implements ActionListener {
 			hitOre(ore4,oreHpBar4,btnOre4);
 		}
 		if (e.getSource()==btnOre5) {
-			hitOre(ore5,oreHpBar5,btnOre5);
+			hitWood(ore5,oreHpBar5,btnOre5);
 		}
 	}
 	
-	
+
 	public void hitOre(Ore ore, HpBar oreHpBar, JButton btnOre) {
 		pick.infoPick();
 		pick.setMoney(pick.getMoney() + ore.hit(pick.atk()));
+		labelMoney.setText(pick.getMoney()+"");
+		labelDura.setText(pick.getDura()+"");
+		btnScore.setText("점수 : " + pick.getScore());
+		oreHpBar.settingHp(ore.maxHp, ore.hp, btnOre.getWidth()); // hp게이지 세팅(최대hp,현재hp,가로길이)
+		repaint(); // 클릭시 repaint()로 hp 게이지 변화
+	}
+	
+	public void hitWood(Ore ore, HpBar oreHpBar, JButton btnOre) {
+		pick.infoPick();
+		pick.setMoney(pick.getMoney() + ore.hit(pick.atkWood()));
 		labelMoney.setText(pick.getMoney()+"");
 		labelDura.setText(pick.getDura()+"");
 		btnScore.setText("점수 : " + pick.getScore());
