@@ -379,7 +379,8 @@ public class MineDiamond extends JFrame implements ActionListener {
 		if (e.getSource()==btnOre5) {
 			hitOre(ore5,oreHpBar5,btnOre5);
 			if(ore5.hp==0) {
-				dispose();
+				dao.saveEndUser();
+				dispose();				
 				GameClear gc = new GameClear();
 			}
 		}
