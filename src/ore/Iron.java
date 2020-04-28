@@ -13,7 +13,7 @@ public class Iron extends Ore {
 		super.maxHp = ranHp; // 게이지 구현을 위한 최대 체력
 		super.hp = ranHp; // 변화되는 현재 hp
 		super.name = "철 광석";
-		super.imgPath = "/img/iron.png";
+		super.imgPath = "/img/ore/iron.png";
 		
 		
 		int reward = 600;

@@ -29,15 +29,15 @@ public class Pickax {
 	// 현재 곡괭이의 레벨을 이미지로 출력
 	public String pickImg() {
 		if(pickLevel==1) {
-			return "/img/pickax-stone.png";
+			return "/img/pickax/pickax-stone.png";
 		} else if(pickLevel==2) {
-			return "/img/pickax-copper.png";
+			return "/img/pickax/pickax-copper.png";
 		} else if(pickLevel==3) {
-			return "/img/pickax-steel.png";
+			return "/img/pickax/pickax-iron.png";
 		} else if(pickLevel==4) {
-			return "/img/pickax-platinum2.png";
+			return "/img/pickax/pickax-titanium.png";
 		} else if(pickLevel==5) {
-			return "/img/pickax-dia.png";
+			return "/img/pickax/pickax-diamond.png";
 		} else {
 			return "error";
 		}
@@ -178,13 +178,31 @@ public class Pickax {
 		return mul;
 	}
 	
+	public int crit() {
+		int ran = (int) (Math.random()*100);
+		if(ran > 90) {
+			return 1;
+		} else if(ran < 10) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
 	// 채광 메소드
 	public int atk() {
 		if(getDura() > 0) { // 내구도가 0 보다 크면 채광
-			double atk = dmg * mul;
-			setDura(getDura()-1);
-			setScore(getScore()-1);
-			return (int) atk;
+			if(crit()==1) {
+				double atk = dmg * mul * mul;
+				setDura(getDura()-1);
+				setScore(getScore()-1);
+				return (int) atk;
+			} else {
+				double atk = dmg * mul;
+				setDura(getDura()-1);
+				setScore(getScore()-1);
+				return (int) atk;
+			}
 		} else { // 내구도가 0이면 채광 불가
 			double atk = 0;
 			System.out.println("내구도가 부족합니다.");
