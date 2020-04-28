@@ -126,7 +126,7 @@ public class MainPage extends JFrame implements MouseListener {
 							if(vo.getProgress()==1) {
 								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
 								dispose();
-							}else {								
+							}else {
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
 								dispose();
 								MiddlePage mp = new MiddlePage();										
