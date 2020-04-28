@@ -79,7 +79,7 @@ public class Ranking extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		//ScrollPane 안에 컬럼 만들기
-		String columnNames[]= {"순위","이름","점수","곡괭이","강화","데미지","소지금"};
+		String columnNames[]= {"순위","이름","점수","곡괭이","강화","소지금"};
 		model1 = new DefaultTableModel(columnNames, 0);
 		
 		JPanel panel_1 = new JPanel();
@@ -90,7 +90,7 @@ public class Ranking extends JFrame {
 		JScrollPane scrollPane_1 = new JScrollPane();
 		panel_1.add(scrollPane_1, BorderLayout.CENTER);
 		
-		String columnNames1[]= {"순위","이름","점수","곡괭이","강화","데미지","소지금"};
+		String columnNames1[]= {"순위","이름","점수","곡괭이","강화","소지금"};
 		model2 = new DefaultTableModel(columnNames1, 0);		
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -103,10 +103,9 @@ public class Ranking extends JFrame {
 		table.getColumnModel().getColumn(0).setPreferredWidth(50);	//테이블 컬럼 사이즈 조정
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table.getColumnModel().getColumn(3).setPreferredWidth(100);
-		table.getColumnModel().getColumn(4).setPreferredWidth(80);
-		table.getColumnModel().getColumn(5).setPreferredWidth(100);
-		table.getColumnModel().getColumn(6).setPreferredWidth(91);
+		table.getColumnModel().getColumn(3).setPreferredWidth(150);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+		table.getColumnModel().getColumn(5).setPreferredWidth(120);
 		model1.setNumRows(0);
 		ingList();		
 		scrollPane.setViewportView(table);
@@ -116,10 +115,9 @@ public class Ranking extends JFrame {
 		table_2.getColumnModel().getColumn(0).setPreferredWidth(50);	//테이블 컬럼 사이즈 조정
 		table_2.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table_2.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table_2.getColumnModel().getColumn(3).setPreferredWidth(100);
-		table_2.getColumnModel().getColumn(4).setPreferredWidth(80);
-		table_2.getColumnModel().getColumn(5).setPreferredWidth(100);
-		table_2.getColumnModel().getColumn(6).setPreferredWidth(91);
+		table_2.getColumnModel().getColumn(3).setPreferredWidth(150);
+		table_2.getColumnModel().getColumn(4).setPreferredWidth(100);
+		table_2.getColumnModel().getColumn(5).setPreferredWidth(120);
 		model2.setNumRows(0);
 		endList();
 		scrollPane_1.setViewportView(table_2);
