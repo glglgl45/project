@@ -98,7 +98,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
-		icon = new ImageIcon(MineDiamond.class.getResource("/img/다이아.jpg"));
+		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/diamine.jpg"));
 		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -295,11 +295,13 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btnOre4= new JButton();
 		paneOreBtnBordCenFlow.add(btnOre4);
-		btnOre4.setBorderPainted(false);
-		btnOre4.setFocusPainted(false);
-		btnOre4.setContentAreaFilled(false);
 		btnOre4.setIcon(ore4.OreImg());
 		btnOre4.addActionListener(this);
+
+		transBtn(btnOre4);
+		paneOreBtnBordCenFlow.setOpaque(false);
+		paneOreAndHpBord_4.setOpaque(false);
+		paneCen4Ab.setOpaque(false);
 		
 		paneHpBordSouthBord = new JPanel();
 		paneOreAndHpBord_4.add(paneHpBordSouthBord, BorderLayout.SOUTH);
@@ -316,9 +318,8 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		JButton back = new JButton("나가기");
 		paneCen5Ab.add(back);
-		back.setBorderPainted(false);
-		back.setFocusPainted(false);
-		back.setContentAreaFilled(false);
+		transBtn(back);
+		paneCen5Ab.setOpaque(false);
 		back.setIcon(new ImageIcon(MineDiamond.class.getResource("/img/door.png")));
 		back.addActionListener(new ActionListener() {
 
@@ -343,9 +344,11 @@ public class MineDiamond extends JFrame implements ActionListener {
 		
 		btnOre5= new JButton();
 		paneOreBtnBordCenFlow_1.add(btnOre5);
-		btnOre5.setBorderPainted(false);
-		btnOre5.setFocusPainted(false);
-		btnOre5.setContentAreaFilled(false);
+		transBtn(btnOre5);
+		paneOreBtnBordCenFlow_1.setOpaque(false);
+		paneOreAndHpBord_5.setOpaque(false);
+		paneCen4Ab.setOpaque(false);
+		paneCen6Ab.setOpaque(false);
 		btnOre5.setIcon(ore5.OreImg());
 		btnOre5.addActionListener(this);
 		
