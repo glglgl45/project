@@ -15,7 +15,7 @@ public class Stone extends Ore {
 		super.hp = ranHp; // 변화되는 현재 hp
 		
 		super.name = "돌 광석";
-		super.imgPath = "/img/stone.png"; // 이미지 출력을 위한 경로 지정
+		super.imgPath = "/img/ore/stone.png"; // 이미지 출력을 위한 경로 지정
 		
 		// 보상
 		int reward = 3; // 돌 광석은 보상이 낮아 난수 적용 안함 구리부터 적용

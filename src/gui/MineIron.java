@@ -106,7 +106,7 @@ public class MineIron extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
-		icon = new ImageIcon(MineIron.class.getResource("/bckimg/steelmine.jpg"));
+		icon = new ImageIcon(MineIron.class.getResource("/img/bckimg/steelmine.jpg"));
 		
 		
 		setDefaultCloseOperation(dao.saveUser());

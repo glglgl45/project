@@ -100,7 +100,7 @@ public class Store extends JFrame implements ActionListener{
 		panel_1.add(panel_8, BorderLayout.SOUTH);
 		panel_8.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		labelRepair = new JLabel("수리하기"+"("+(pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel())+")");
+		labelRepair = new JLabel("수리하기"+"("+((int)(Math.pow(pick.getPickLevel(), pick.getPickLevel()))*10+pick.getLevel()*pick.getPickLevel())+")");
 		labelRepair.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_8.add(labelRepair);
 		

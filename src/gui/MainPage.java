@@ -113,7 +113,7 @@ public class MainPage extends JFrame implements MouseListener {
 		txtPw = new JPasswordField();
 		txtPw.setBounds(355, 310, 120, 30);
 		backPanel.add(txtPw);
-		txtPw.setColumns(10);
+		txtPw.setColumns(10); 
 		txtPw.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -124,8 +124,19 @@ public class MainPage extends JFrame implements MouseListener {
 						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
 								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
 							if(vo.getProgress()==1) {
-								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
-								dispose();
+//								dispose();
+								String options[] = {"확인","계정삭제","랭킹보기"};
+								int sel=JOptionPane.showOptionDialog(getParent(), "이미 클리한 계정입니다.\n삭제 후 재가입하여 이용해 주세요.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+								if(sel==2) {									
+									Ranking rank = new Ranking();
+								}else if(sel==1) {
+									int result=dao.deleteUser(txtId.getText());
+									if(result>0) {
+										JOptionPane.showMessageDialog(getParent(), "삭제 완료\n재가입 후 이용해 주세요.");
+										txtId.setText("");
+										txtPw.setText("");
+									}									
+								}
 							}else {
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
 								dispose();
@@ -137,10 +148,13 @@ public class MainPage extends JFrame implements MouseListener {
 					}else {
 						JOptionPane.showMessageDialog(getParent(), "ID를 확인해 주세요.");
 					}
+				}else {
+					JOptionPane.showMessageDialog(getParent(), "존재하지 않는 계정입니다.\n회원가입 후 이용해 주세요.");
+					txtId.setText("");
+					txtPw.setText("");
 				}
 			}
-		});
-		
+		});		
 		setVisible(true);
 		
 		btnLogin = new JButton("로그인");
@@ -156,8 +170,19 @@ public class MainPage extends JFrame implements MouseListener {
 						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
 								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
 							if(vo.getProgress()==1) {
-								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
-								dispose();
+//								dispose();
+								String options[] = {"확인","계정삭제","랭킹보기"};
+								int sel=JOptionPane.showOptionDialog(getParent(), "이미 클리한 계정입니다.\n삭제 후 재가입하여 이용해 주세요.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+								if(sel==2) {									
+									Ranking rank = new Ranking();
+								}else if(sel==1) {
+									int result=dao.deleteUser(txtId.getText());
+									if(result>0) {
+										JOptionPane.showMessageDialog(getParent(), "삭제 완료\n재가입 후 이용해 주세요.");
+										txtId.setText("");
+										txtPw.setText("");
+									}									
+								}
 							}else {								
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
 								dispose();
@@ -169,6 +194,10 @@ public class MainPage extends JFrame implements MouseListener {
 					}else {
 						JOptionPane.showMessageDialog(getParent(), "ID를 확인해 주세요.");
 					}
+				}else {
+					JOptionPane.showMessageDialog(getParent(), "존재하지 않는 계정입니다.\n회원가입 후 이용해 주세요.");
+					txtId.setText("");
+					txtPw.setText("");
 				}
 			}
 		});

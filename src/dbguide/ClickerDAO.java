@@ -229,7 +229,7 @@ public class ClickerDAO {
 	//오라클DB ClickerUserInfo 테이블 정보 조회 (progress 컬럼이 1인 회원 조회 / 게임 클리어 유저 랭킹 리스트 출력용)
 	public Vector<ClickerUserVO> listEndUser() {
 		Vector<ClickerUserVO> list = new Vector<>();
-		String sql="select * from ClickerUserInfo where progress=1 order by picklevel desc, enhance desc, score desc";
+		String sql="select * from ClickerUserInfo where progress=1 order by picklevel desc, enhance desc, score desc, gold desc";
 		
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql);
@@ -259,7 +259,7 @@ public class ClickerDAO {
 	//오라클DB ClickerUserInfo 테이블 정보 조회 (progress 컬럼이 0인 회원 조회 / 게임 클리어를 못한 유저 랭킹 리스트 출력용)
 	public Vector<ClickerUserVO> listIngUser() {
 		Vector<ClickerUserVO> list = new Vector<>();
-		String sql="select * from ClickerUserInfo where progress=0 order by picklevel desc, enhance desc, score desc";
+		String sql="select * from ClickerUserInfo where progress=0 order by picklevel desc, enhance desc, score desc, gold desc";
 		
 		try(Connection con=getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql);

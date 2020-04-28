@@ -166,8 +166,7 @@ import javax.swing.JPasswordField;
 					if(e.getActionCommand().equals("로그인") || e.getSource()==txtPw) {	//로그인버튼 및 txtPw에서 엔터 입력 시 진행
 						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
 								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
-							if(vo.getProgress()==1) {
-								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
+							if(vo.getProgress()==1) {							
 								dispose();
 								Login l = new Login();
 							}else {								
