@@ -77,7 +77,7 @@ public class Ranking extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		//ScrollPane 안에 컬럼 만들기
-		String columnNames[]= {"이름","점수"};
+		String columnNames[]= {"순위","이름","점수"};
 		model1 = new DefaultTableModel(columnNames, 0);
 		
 		JPanel panel_1 = new JPanel();
@@ -88,7 +88,7 @@ public class Ranking extends JFrame {
 		JScrollPane scrollPane_1 = new JScrollPane();
 		panel_1.add(scrollPane_1, BorderLayout.CENTER);
 		
-		String columnNames1[]= {"이름","점수"};
+		String columnNames1[]= {"순위","이름","점수"};
 		model2 = new DefaultTableModel(columnNames1, 0);		
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -109,17 +109,18 @@ public class Ranking extends JFrame {
 	public void ingList() {	//클리어 못한 유저 리스트
 		vecList=dao.listIngUser();		
 		
+		int i=1;
 		for(ClickerUserVO vo:vecList) {
-			Object[] objList = {vo.getId(),vo.getScore()};
+			Object[] objList = {i++,vo.getId(),vo.getScore()};
 			model1.addRow(objList);
 		}
 	}
 	
 	public void endList() { //클리어 유저 리스트
 		vecList=dao.listEndUser();		
-		
+		int i=1;
 		for(ClickerUserVO vo:vecList) {
-			Object[] objList = {vo.getId(),vo.getScore()};
+			Object[] objList = {i++, vo.getId(),vo.getScore()};
 			model2.addRow(objList);
 		}
 	}

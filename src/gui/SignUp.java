@@ -173,6 +173,7 @@ import system.Pickax;
 				
 				if(new String(txtPw.getPassword()).equals(new String(txtPw2.getPassword()))) {	//비밀번호-비밀번호 확인의 정보 비교
 					ClickerUserVO vo = new ClickerUserVO();
+					
 					//초기 설정 값 (회원가입 시 DB에 입력될 초기 값)
 					vo.setId(txtId.getText());	
 					vo.setPwd(new String(txtPw.getPassword()));
