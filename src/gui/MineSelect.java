@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +29,8 @@ public class MineSelect extends JFrame {
 	private Pickax pick;
 	private ClickerDAO dao;
 	private ClickerUserVO vo;
-
+	private ImageIcon icon;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,6 +48,7 @@ public class MineSelect extends JFrame {
 		dao=new ClickerDAO();
 		pick = new Pickax();
 		pick.infoPick();		
+		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/mineselect.JPG"));
 		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,6 +60,7 @@ public class MineSelect extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
+		
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
@@ -128,7 +132,14 @@ public class MineSelect extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel(pick.getDura()+"");
 		panel_3.add(lblNewLabel_3);
 		
-		JPanel panel_2 = new JPanel();
+		JPanel panel_2 = new JPanel(){
+			@Override
+			protected void paintComponent(Graphics g) {
+				g.drawImage(icon.getImage(), 0, 0, null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
 		contentPane.add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new GridLayout(2, 3, 0, 0));
 		
@@ -141,9 +152,12 @@ public class MineSelect extends JFrame {
 				MineStone ms = new MineStone();
 			}
 		});
+
+		transBtn(btnMineStone);
 		panel_2.add(btnMineStone);
 		
 		JButton btnMineCopper = new JButton("구리 광산");
+		transBtn(btnMineCopper);
 		btnMineCopper.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-copper.png")));
 		btnMineCopper.addActionListener(new ActionListener() {
 			@Override
@@ -155,6 +169,7 @@ public class MineSelect extends JFrame {
 		panel_2.add(btnMineCopper);
 		
 		JButton btnMineIron = new JButton("철 광산");
+		transBtn(btnMineIron);
 		btnMineIron.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterencesteel.png")));
 		panel_2.add(btnMineIron);
 		btnMineIron.addActionListener(new ActionListener() {
@@ -165,6 +180,7 @@ public class MineSelect extends JFrame {
 			}
 		});
 		JButton btnMineTitanium = new JButton("티타늄 광산");
+		transBtn(btnMineTitanium);
 		btnMineTitanium.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-platinum.png")));
 		panel_2.add(btnMineTitanium);
 		btnMineTitanium.addActionListener(new ActionListener() {
@@ -176,6 +192,7 @@ public class MineSelect extends JFrame {
 		});
 		
 		JButton btnBack = new JButton("");
+		transBtn(btnBack);
 		btnBack.setIcon(new ImageIcon(MineSelect.class.getResource("/img/GTFO.png")));
 		btnBack.addActionListener(new ActionListener() {
 			@Override
@@ -187,6 +204,7 @@ public class MineSelect extends JFrame {
 		panel_2.add(btnBack);
 		
 		JButton btnMineDiamond = new JButton("다이아몬드 광산");
+		transBtn(btnMineDiamond);
 		btnMineDiamond.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-diamond.png")));
 		panel_2.add(btnMineDiamond);
 		btnMineDiamond.addActionListener(new ActionListener() {
@@ -198,4 +216,14 @@ public class MineSelect extends JFrame {
 		});		
 		setVisible(true);
 	}
+	
+	// 버튼 투명화 메소드
+	public void transBtn(JButton btn) {
+		btn.setBorderPainted(false); // 버튼 테두리 투명화
+		btn.setFocusPainted(false); // 버튼 클릭시 포커스 투명화
+		btn.setContentAreaFilled(false); // 버튼 배경색 투명화
+		// 상위 패널 또한 패널.setOpaque(false); 를 설정
+	}
+
+
 }
