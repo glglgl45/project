@@ -48,7 +48,7 @@ public class MineSelect extends JFrame {
 		dao=new ClickerDAO();
 		pick = new Pickax();
 		pick.infoPick();		
-		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/mineselect.JPG"));
+		icon = new ImageIcon(MineDiamond.class.getResource("/img/bckimg/mineselect.JPG"));
 		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

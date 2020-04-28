@@ -100,7 +100,7 @@ public class MineCopper extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
-		icon = new ImageIcon(MineCopper.class.getResource("/bckimg/coppermine.jpg"));
+		icon = new ImageIcon(MineCopper.class.getResource("/img/bckimg/coppermine.jpg"));
 		
 		
 		setDefaultCloseOperation(dao.saveUser());

@@ -63,7 +63,7 @@ public class MiddlePage extends JFrame implements ActionListener{
 	public MiddlePage() {
 		pick = new Pickax();
 		dao=new ClickerDAO();
-		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/middlepg.jpg"));
+		icon = new ImageIcon(MineDiamond.class.getResource("/img/bckimg/middlepg.jpg"));
 		scroll1 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll1.png"));
 		scroll2 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll2.png"));
 		scroll3 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll3.png"));
