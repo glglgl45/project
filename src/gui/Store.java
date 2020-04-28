@@ -46,6 +46,7 @@ public class Store extends JFrame implements ActionListener{
 	}
 
 	public Store() {
+		setTitle("광산에서 탈출하기");
 		pick = new Pickax();
 		grade = new Upgrade();
 		dao=new ClickerDAO();

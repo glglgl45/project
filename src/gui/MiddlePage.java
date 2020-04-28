@@ -14,39 +14,32 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
-import dbguide.ClickerUserVO;
 import system.Pickax;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.CardLayout;
 import javax.swing.JRadioButton;
 import java.awt.Color;
 import java.awt.Font;
 
 public class MiddlePage extends JFrame implements ActionListener{
 
+	private int pos = 1;
 	private Pickax pick;
 	
 	private JPanel contentPane;
-	private ImageIcon img;
-	private ImageIcon scroll1, scroll2, scroll3, scroll4, scroll5, scroll6, scroll7;
+	private JPanel paneCenTop;
 	
 	private ClickerDAO dao;
-	private ClickerUserVO vo;
 	
 	private ButtonGroup btnGroup;
 	private JRadioButton radio1, radio2, radio3, radio4, radio5, radio6, radio7;
-	int pos = 1;
-	private JPanel paneCenTop;
-	
+
+	private ImageIcon scroll1, scroll2, scroll3, scroll4, scroll5, scroll6, scroll7;
 	private ImageIcon icon;
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -61,9 +54,12 @@ public class MiddlePage extends JFrame implements ActionListener{
 	}
 	
 	public MiddlePage() {
+		setTitle("광산에서 탈출하기");
 		pick = new Pickax();
 		dao=new ClickerDAO();
-		icon = new ImageIcon(MineDiamond.class.getResource("/img/bckimg/middlepg.jpg"));
+		
+		// 이미지 세팅
+		icon = new ImageIcon(MiddlePage.class.getResource("/img/bckimg/middlepg.jpg"));
 		scroll1 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll1.png"));
 		scroll2 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll2.png"));
 		scroll3 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll3.png"));
@@ -71,8 +67,9 @@ public class MiddlePage extends JFrame implements ActionListener{
 		scroll5 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll5.png"));
 		scroll6 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll6.png"));
 		scroll7 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll7.png"));
+		
 		//창 크기 조절
-		setDefaultCloseOperation(dao.saveUser());
+		setDefaultCloseOperation(dao.saveUser()); // 강제종료 시 계정 정보 저장
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 650);
 		

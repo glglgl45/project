@@ -33,7 +33,7 @@ import system.Pickax;
 		public BackImg00() {
 			setLayout(null);
 			try {
-				URL url = getClass().getResource("main-demo.png");
+				URL url = getClass().getResource("/img/main-demo.png");
 				img = ImageIO.read(new File(url.getFile()));
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -83,6 +83,7 @@ import system.Pickax;
 	 * Create the frame.
 	 */
 	public UserDel() {
+		setTitle("광산에서 탈출하기");
 		pick = new Pickax();
 		dao = new ClickerDAO();
 		

@@ -83,6 +83,7 @@ public class MainPage extends JFrame implements MouseListener {
 	}
 
 	public MainPage() {
+		setTitle("광산에서 탈출하기");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 650);
 		contentPane = new JPanel();

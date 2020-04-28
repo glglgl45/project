@@ -45,6 +45,7 @@ public class MineSelect extends JFrame {
 	}
 
 	public MineSelect() {
+		setTitle("광산에서 탈출하기");
 		dao=new ClickerDAO();
 		pick = new Pickax();
 		pick.infoPick();		

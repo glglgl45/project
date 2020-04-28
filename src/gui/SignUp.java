@@ -92,6 +92,7 @@ import system.Pickax;
 	 * Create the frame.
 	 */
 	public SignUp() {
+		setTitle("광산에서 탈출하기");
 		pick = new Pickax();
 		dao = new ClickerDAO();
 		

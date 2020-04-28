@@ -86,6 +86,7 @@ public class MineCopper extends JFrame implements ActionListener {
 	}
 
 	public MineCopper() {
+		setTitle("광산에서 탈출하기");
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);

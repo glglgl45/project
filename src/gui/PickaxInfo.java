@@ -7,17 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import dbguide.ClickerDAO;
-import dbguide.ClickerItemVO;
-import dbguide.ClickerUserVO;
 import system.Pickax;
 
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import java.awt.Font;
-import javax.swing.JTextArea;
 
 public class PickaxInfo extends JFrame{
 	private JPanel contentPane;
@@ -45,6 +40,7 @@ public class PickaxInfo extends JFrame{
 	 */
 	//곡괭이 정보 창 크기
 	public PickaxInfo() {
+		setTitle("광산에서 탈출하기");
 		pick=new Pickax();
 		setBounds(100, 100, 730, 650);
 		contentPane = new JPanel();
@@ -103,7 +99,7 @@ public class PickaxInfo extends JFrame{
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblNewLabel_7);
 		
-		JLabel lblDmg = new JLabel(pick.getDmg()*pick.getMul()+"");
+		JLabel lblDmg = new JLabel((int)(pick.getDmg()*pick.getMul())+"");
 		lblDmg.setHorizontalAlignment(SwingConstants.CENTER);
 		top_panel_4.add(lblDmg);
 		

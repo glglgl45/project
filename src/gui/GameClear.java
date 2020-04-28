@@ -29,6 +29,7 @@ public class GameClear extends JFrame implements MouseListener, KeyListener {
 	private Pickax pick = new Pickax();
 	 
 	public GameClear() {
+		setTitle("광산에서 탈출하기");
 		try {
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 	        contentPane = (JPanel) getContentPane();

@@ -84,6 +84,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 	}
 
 	public MineDiamond() {
+		setTitle("광산에서 탈출하기");
 		pick = new Pickax();
 		pick.infoPick();
 		pick.setScore(pick.getScore()-pick.getPickLevel()*5);

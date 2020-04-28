@@ -63,6 +63,7 @@ public class Ranking extends JFrame {
 	 * Create the frame.
 	 */
 	public Ranking() {
+		setTitle("광산에서 탈출하기");
 		// 랭킹점수 창 크기
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel()/*{
