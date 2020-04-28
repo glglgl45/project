@@ -125,10 +125,17 @@ public class MainPage extends JFrame implements MouseListener {
 								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
 							if(vo.getProgress()==1) {
 //								dispose();
-								String options[] = {"확인", "랭킹보기"};
-								int sel=JOptionPane.showOptionDialog(getParent(), "클리어를 축하드립니다.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
-								if(sel==1) {									
+								String options[] = {"확인","계정삭제","랭킹보기"};
+								int sel=JOptionPane.showOptionDialog(getParent(), "이미 클리한 계정입니다.\n삭제 후 재가입하여 이용해 주세요.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+								if(sel==2) {									
 									Ranking rank = new Ranking();
+								}else if(sel==1) {
+									int result=dao.deleteUser(txtId.getText());
+									if(result>0) {
+										JOptionPane.showMessageDialog(getParent(), "삭제 완료\n재가입 후 이용해 주세요.");
+										txtId.setText("");
+										txtPw.setText("");
+									}									
 								}
 							}else {
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
@@ -161,7 +168,18 @@ public class MainPage extends JFrame implements MouseListener {
 								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
 							if(vo.getProgress()==1) {
 //								dispose();
-								JOptionPane.showConfirmDialog(getParent(), "클리어를 축하드립니다.","확인",JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
+								String options[] = {"확인","계정삭제","랭킹보기"};
+								int sel=JOptionPane.showOptionDialog(getParent(), "이미 클리한 계정입니다.\n삭제 후 재가입하여 이용해 주세요.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+								if(sel==2) {									
+									Ranking rank = new Ranking();
+								}else if(sel==1) {
+									int result=dao.deleteUser(txtId.getText());
+									if(result>0) {
+										JOptionPane.showMessageDialog(getParent(), "삭제 완료\n재가입 후 이용해 주세요.");
+										txtId.setText("");
+										txtPw.setText("");
+									}									
+								}
 							}else {								
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
 								dispose();
