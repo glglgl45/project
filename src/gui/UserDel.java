@@ -26,11 +26,11 @@ import dbguide.ClickerDAO;
 import dbguide.ClickerUserVO;
 import system.Pickax;
 	
-	class BackImg2 extends JPanel {
+	class BackImg00 extends JPanel {
 		
 		private BufferedImage img;
 		
-		public BackImg2() {
+		public BackImg00() {
 			setLayout(null);
 			try {
 				URL url = getClass().getResource("main-demo.png");
@@ -93,7 +93,7 @@ import system.Pickax;
 		contentPane.setLayout(new BorderLayout(0,0));
 		setContentPane(contentPane);
 		
-		JPanel backPanel = new BackImg2();
+		JPanel backPanel = new BackImg00();
 		contentPane.add(backPanel,BorderLayout.CENTER);
 		
 		lblID = new JLabel("아이디");

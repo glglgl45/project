@@ -201,7 +201,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneCen1Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord = new JPanel();
-		paneOreAndHpBord.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord.setBounds(50, 60, 133, 119);
 		paneCen1Ab.add(paneOreAndHpBord);
 		paneOreAndHpBord.setLayout(new BorderLayout(0, 0));
 		
@@ -224,7 +224,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar1);
 		oreHpBar1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel = new JLabel("New label");
+		lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(0, 0, 234, 274);
 		paneCen1Ab.add(lblNewLabel);
 		
@@ -233,7 +233,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneCen2Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_2 = new JPanel();
-		paneOreAndHpBord_2.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_2.setBounds(50, 60, 133, 119);
 		paneCen2Ab.add(paneOreAndHpBord_2);
 		paneOreAndHpBord_2.setLayout(new BorderLayout(0, 0));
 		
@@ -258,7 +258,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1.add(oreHpBar2);
 		oreHpBar2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(0, 0, 234, 274);
 		paneCen2Ab.add(lblNewLabel_1);
 		
@@ -267,7 +267,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneCen3Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_3 = new JPanel();
-		paneOreAndHpBord_3.setBounds(44, 38, 133, 119);
+		paneOreAndHpBord_3.setBounds(50, 60, 133, 119);
 		paneCen3Ab.add(paneOreAndHpBord_3);
 		paneOreAndHpBord_3.setLayout(new BorderLayout(0, 0));
 		
@@ -292,7 +292,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar3);
 		oreHpBar3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBounds(0, 0, 234, 274);
 		paneCen3Ab.add(lblNewLabel_2);
 		btnOre3.addActionListener(this);
@@ -302,7 +302,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneCen4Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_4 = new JPanel();
-		paneOreAndHpBord_4.setBounds(44, 48, 133, 119);
+		paneOreAndHpBord_4.setBounds(50, 60, 133, 119);
 		paneCen4Ab.add(paneOreAndHpBord_4);
 		paneOreAndHpBord_4.setLayout(new BorderLayout(0, 0));
 		
@@ -327,7 +327,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneHpBordSouthBord.add(oreHpBar4);
 		oreHpBar4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setBounds(0, 0, 234, 270);
 		paneCen4Ab.add(lblNewLabel_3);
 		btnOre4.addActionListener(this);
@@ -338,15 +338,15 @@ public class MineIron extends JFrame implements ActionListener {
 		
 		
 		
-		JButton back = new JButton("나가기");
-		back.setBounds(31, 5, 172, 108);
+		JButton back = new JButton("");
+		back.setBounds(30, 65, 172, 108);
 		paneCen5Ab.add(back);
 		transBtn(back);
 		paneOreBtnBordCenFlow.setOpaque(false);
 		paneCen5Ab.setOpaque(false);
 		back.setIcon(new ImageIcon(MineIron.class.getResource("/img/door.png")));
 		
-		lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setBounds(0, 0, 234, 270);
 		paneCen5Ab.add(lblNewLabel_4);
 		back.addActionListener(new ActionListener() {
@@ -363,7 +363,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneCen6Ab.setLayout(null);
 		
 		JPanel paneOreAndHpBord_5 = new JPanel();
-		paneOreAndHpBord_5.setBounds(46, 5, 142, 128);
+		paneOreAndHpBord_5.setBounds(50, 60, 133, 119);
 		paneCen6Ab.add(paneOreAndHpBord_5);
 		paneOreAndHpBord_5.setLayout(new BorderLayout(0, 0));
 		
@@ -388,7 +388,7 @@ public class MineIron extends JFrame implements ActionListener {
 		paneHpBordSouthBord_1.add(oreHpBar5);
 		oreHpBar5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblNewLabel_5 = new JLabel("New label");
+		lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setBounds(0, 0, 234, 270);
 		paneCen6Ab.add(lblNewLabel_5);
 		
