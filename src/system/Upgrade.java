@@ -1,7 +1,9 @@
 package system;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-public class Upgrade {
+public class Upgrade extends JFrame {
 	
 	private Pickax pick = new Pickax();
 	
@@ -21,10 +23,12 @@ public class Upgrade {
 			if(pick.getLevel()<5) {
 				pick.setScore(pick.getScore()-(pick.getPickLevel()+pick.getLevel())); // 강화시도 시 점수 차감
 				if(num > (100-failPer)) {
+					JOptionPane.showMessageDialog(this, "강화에 실패하였습니다", "강화 결과", JOptionPane.INFORMATION_MESSAGE, null);
 					System.out.println("실패");
 					System.out.println(failPer);
 					pick.infoPick();
 				} else {
+					JOptionPane.showMessageDialog(this, "강화에 성공하였습니다\n"+"현재 레벨 : "+pick.getLevel()+"\n"+"강화 후 레벨 : "+(pick.getLevel()+1), "강화 결과", JOptionPane.INFORMATION_MESSAGE, null);
 					System.out.println("성공");
 					System.out.println("현재 레벨 : " + pick.getLevel());
 					System.out.println(pick.getLevel());
@@ -35,9 +39,11 @@ public class Upgrade {
 				}
 				pick.setMoney(pick.getMoney()-upMoney);
 			} else {
+				JOptionPane.showMessageDialog(this, "더 이상 강화할 수 없습니다.", "강화 결과", JOptionPane.WARNING_MESSAGE, null);
 				System.out.println("더 이상 강화할 수 없습니다.");
 			}
 		} else {
+			JOptionPane.showMessageDialog(this, "소지금이 부족합니다.", "소지금을 확인하세요", JOptionPane.INFORMATION_MESSAGE, null);
 			System.out.println("소지금이 부족합니다.");
 		}
 	}
@@ -57,6 +63,7 @@ public class Upgrade {
 				pick.setScore(pick.getScore()-pick.getPickLevel()*pick.getLevel()); // 진화시도 시 점수 차감
 				pick.setMoney(pick.getMoney()-evolMoney);
 				if(num < (100-failPer)) {
+					JOptionPane.showMessageDialog(this, "진화에 성공하였습니다", "진화 결과", JOptionPane.INFORMATION_MESSAGE, null);
 					System.out.println("진화 성공");
 					System.out.println(failPer);
 					pick.setPickLevel(pick.getPickLevel()+1);
@@ -85,16 +92,20 @@ public class Upgrade {
 						break;
 					}
 				} else {
+					JOptionPane.showMessageDialog(this, "진화에 실패하였습니다", "진화 결과", JOptionPane.INFORMATION_MESSAGE, null);
 					System.out.println("진화 실패");
 					System.out.println(failPer);
 					pick.infoPick();
 				}
 			} else if(pick.getPickLevel()==5){
+				JOptionPane.showMessageDialog(this, "최종 진화 단계 입니다.", "진화 결과", JOptionPane.WARNING_MESSAGE, null);
 				System.out.println("최종 진화 단계 입니다.");
 			} else {
+				JOptionPane.showMessageDialog(this, "진화할 수 없습니다.", "진화 결과", JOptionPane.WARNING_MESSAGE, null);
 				System.out.println("진화할 수 없습니다.");
 			}
 		} else {
+			JOptionPane.showMessageDialog(this, "소지금이 부족합니다.", "진화 결과", JOptionPane.WARNING_MESSAGE, null);
 			System.out.println("소지금이 부족합니다.");
 		}
 	}	
@@ -104,12 +115,15 @@ public class Upgrade {
 		// 수리 비용
 		int fixMoney = pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel();
 		if(pick.getDura()>=100) {
+			JOptionPane.showMessageDialog(this, "내구도가 최대치 이므로 수리가 불가능 합니다.", "수리 결과", JOptionPane.WARNING_MESSAGE, null);
 			System.out.println("내구도가 최대치 이므로 수리가 불가능 합니다.");
 		} else {
 			pick.setScore(pick.getScore()-pick.getPickLevel());
 			if(pick.getMoney() < fixMoney) {
+				JOptionPane.showMessageDialog(this, "소지금이 부족합니다.", "소지금을 확인하세요", JOptionPane.INFORMATION_MESSAGE, null);
 				System.out.println("소지금이 부족합니다.");
 			} else {
+				JOptionPane.showMessageDialog(this, "곡괭이가 수리 되었습니다.", "수리 결과", JOptionPane.INFORMATION_MESSAGE, null);
 				System.out.println("곡괭이가 수리 되었습니다.");
 				pick.setDura(100); // 수리로 인한 내구도 복구
 				pick.setMoney(pick.getMoney()-fixMoney); // 수리비용 청구
