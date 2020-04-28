@@ -118,14 +118,14 @@ public class MiddlePage extends JFrame implements ActionListener{
 		paneCenGrid.add(paneCenTop);
 		paneCenTop.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(Color.GREEN);
-		paneCenTop.add(panel_2, BorderLayout.SOUTH);
-		panel_2.setOpaque(false);
+		JPanel paneRadio = new JPanel();
+		paneRadio.setBackground(Color.GREEN);
+		paneCenTop.add(paneRadio, BorderLayout.SOUTH);
+		paneRadio.setOpaque(false);
 		
-		JPanel panel_8 = new JPanel();
-		panel_2.add(panel_8);
-		panel_8.setOpaque(false);
+		JPanel paneRadioBtn = new JPanel();
+		paneRadio.add(paneRadioBtn);
+		paneRadioBtn.setOpaque(false);
 		
 		// 라디오 버튼 생성
 		radio1 = new JRadioButton();
@@ -167,35 +167,22 @@ public class MiddlePage extends JFrame implements ActionListener{
 		btnGroup.add(radio6);
 		btnGroup.add(radio7);
 
-		panel_8.add(radio1);
-		panel_8.add(radio2);
-		panel_8.add(radio3);
-		panel_8.add(radio4);
-		panel_8.add(radio5);
-		panel_8.add(radio6);
-		panel_8.add(radio7);
+		paneRadioBtn.add(radio1);
+		paneRadioBtn.add(radio2);
+		paneRadioBtn.add(radio3);
+		paneRadioBtn.add(radio4);
+		paneRadioBtn.add(radio5);
+		paneRadioBtn.add(radio6);
+		paneRadioBtn.add(radio7);
 		
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.PINK);
-		paneCenTop.add(panel, BorderLayout.CENTER);
-		panel.setOpaque(false);
+		JPanel paneScroll = new JPanel();
+		paneScroll.setBackground(Color.PINK);
+		paneCenTop.add(paneScroll, BorderLayout.CENTER);
+		paneScroll.setOpaque(false);
 
 		JPanel paneCenBot = new JPanel();
 		paneCenBot.setOpaque(false);
-		JPanel panel_6 = new JPanel();
-		
-		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(298, 81, 67, 25);
-		panel_6.add(panel_9);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		panel_9.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/scrollmid.jpg")));
-		lblNewLabel_1.setBounds(0, 0, 674, 207);
-		panel_6.add(lblNewLabel_1);
 		
 		paneCenGrid.add(paneCenBot);
 		
