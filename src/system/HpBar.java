@@ -24,19 +24,19 @@ public class HpBar extends JPanel{
 	@Override
 	protected void paintComponent(Graphics g) {
 		//super.paintComponent(g);
-		int perHp = (curHp*width)/maxHp;
+		double perHp = (curHp*width)/maxHp;
 		g.setColor(Color.BLACK);
 		g.drawRect(posX, posY, width-2, height-1);
 		if(perHp > 0) {
 			if(perHp >= 70) {	// 게이지 70% 이상 초록색
 				g.setColor(Color.GREEN);
-				g.fillRect(posX+1, posY+1, perHp-2, height-2);				
+				g.fillRect(posX+1, posY+1, (int) (perHp-2), height-2);				
 			} else if(perHp >= 30) {	// 게이지 30%~70% 주황색
 				g.setColor(Color.ORANGE);
-				g.fillRect(posX+1, posY+1, perHp, height-2);
+				g.fillRect(posX+1, posY+1, (int) perHp, height-2);
 			} else {		// 게이지 30% 미만 빨간색
 				g.setColor(Color.RED);
-				g.fillRect(posX+1, posY+1, perHp, height-2);
+				g.fillRect(posX+1, posY+1, (int) perHp, height-2);
 			}
 		} else {
 			g.setColor(Color.BLACK);	// 채광 완료시 검은색 꽉찬 게이지

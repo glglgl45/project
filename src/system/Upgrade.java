@@ -113,7 +113,7 @@ public class Upgrade extends JFrame {
 	// 수리하기 메소드
 	public void fixPick() {
 		// 수리 비용
-		int fixMoney = pick.getPickLevel()*pick.getPickLevel()*10+pick.getLevel()*pick.getPickLevel();
+		int fixMoney = (int) (Math.pow(pick.getPickLevel(), pick.getPickLevel())*10+pick.getLevel()*pick.getPickLevel());
 		if(pick.getDura()>=100) {
 			JOptionPane.showMessageDialog(this, "내구도가 최대치 이므로 수리가 불가능 합니다.", "수리 결과", JOptionPane.WARNING_MESSAGE, null);
 			System.out.println("내구도가 최대치 이므로 수리가 불가능 합니다.");
