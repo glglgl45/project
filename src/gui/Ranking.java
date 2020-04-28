@@ -96,11 +96,13 @@ public class Ranking extends JFrame {
 		contentPane.add(scrollPane);		
 		
 		table = new JTable(model1);
+		table.getColumn("순위").setPreferredWidth(5);
 		model1.setNumRows(0);
 		ingList();		
 		scrollPane.setViewportView(table);
 		
 		table_2 = new JTable(model2);
+		table_2.getColumn("순위").setPreferredWidth(5);
 		model2.setNumRows(0);
 		endList();
 		scrollPane_1.setViewportView(table_2);
@@ -108,7 +110,6 @@ public class Ranking extends JFrame {
 	
 	public void ingList() {	//클리어 못한 유저 리스트
 		vecList=dao.listIngUser();		
-		
 		int i=1;
 		for(ClickerUserVO vo:vecList) {
 			Object[] objList = {i++,vo.getId(),vo.getScore()};
