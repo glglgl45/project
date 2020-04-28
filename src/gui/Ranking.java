@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,6 +41,7 @@ public class Ranking extends JFrame {
 	private JTable table_1;
 	private JTable table_2;
 	private Vector<ClickerUserVO> vecList;
+	private ImageIcon icon;
 
 	/**
 	 * Launch the application.
@@ -63,28 +65,51 @@ public class Ranking extends JFrame {
 	public Ranking() {
 		// 랭킹점수 창 크기
 		setBounds(100, 100, 700, 600);
-		contentPane = new JPanel();
+		contentPane = new JPanel()/*{
+			@Override
+			protected void paintComponent(Graphics g) {
+				g.drawImage(icon.getImage(), 0, 0, null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		}*/;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		setVisible(true);
+		icon = new ImageIcon(Ranking.class.getResource("/img/bckimg/middlepg.jpg"));
 		
 		dao = new ClickerDAO();
-		contentPane.setLayout(null);
+		contentPane.setLayout(new BorderLayout(0, 0));
+
+		JPanel paneTop = new JPanel();
+		contentPane.add(paneTop, BorderLayout.NORTH);
+//		paneTop.setOpaque(false);
+
 		//랭킹 이름 만들기
 		JLabel lblNewLabel = new JLabel("★Ranking★");
 		lblNewLabel.setIcon(null);
-		lblNewLabel.setBounds(5, 5, 674, 48);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
-		contentPane.add(lblNewLabel);
+		paneTop.add(lblNewLabel);
+		
+		JPanel paneBot = new JPanel();
+		contentPane.add(paneBot, BorderLayout.CENTER);
+		paneBot.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel paneCenTop = new JPanel();
+		paneBot.add(paneCenTop);
+		
+		JPanel paneCenBot = new JPanel();
+		paneBot.add(paneCenBot);
+		
 		
 		//ScrollPane 안에 컬럼 만들기
 		String columnNames[]= {"순위","이름","점수","곡괭이","강화","데미지","소지금"};
 		model1 = new DefaultTableModel(columnNames, 0);
+		paneCenTop.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(5, 373, 674, 184);
-		contentPane.add(panel_1);
+		paneCenTop.add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -92,10 +117,20 @@ public class Ranking extends JFrame {
 		
 		String columnNames1[]= {"순위","이름","점수","곡괭이","강화","데미지","소지금"};
 		model2 = new DefaultTableModel(columnNames1, 0);		
+		paneCenBot.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panePlaying = new JPanel();
+		paneCenBot.add(panePlaying, BorderLayout.NORTH);
+		
+		JLabel lblNewLabel_2 = new JLabel("플레이 유저");
+		panePlaying.add(lblNewLabel_2);
+		
+		JPanel panel_3 = new JPanel();
+		paneCenBot.add(panel_3, BorderLayout.CENTER);
+		panel_3.setLayout(new BorderLayout(0, 0));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(5, 74, 674, 300);
-		contentPane.add(scrollPane);	
+		panel_3.add(scrollPane);	
 		
 		
 		table = new JTable(model1);
@@ -123,6 +158,14 @@ public class Ranking extends JFrame {
 		model2.setNumRows(0);
 		endList();
 		scrollPane_1.setViewportView(table_2);
+		
+		JPanel paneClear = new JPanel();
+		paneCenTop.add(paneClear, BorderLayout.NORTH);
+		
+		JLabel lblNewLabel_1 = new JLabel("클리어 유저");
+		paneClear.add(lblNewLabel_1);
+		
+		
 		
 		// DefaultTableCellHeaderRenderer 생성 (가운데 정렬을 위한)
 		DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
