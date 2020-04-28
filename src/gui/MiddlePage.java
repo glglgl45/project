@@ -130,7 +130,7 @@ public class MiddlePage extends JFrame {
 		
 		paneCenGrid.add(paneCenBot);
 		
-		JButton btnMine = new JButton("광산");
+		JButton btnMine = new JButton("");
 		transBtn(btnMine);
 		paneCenBot.add(btnMine);
 		btnMine.addActionListener(new ActionListener() {
@@ -142,7 +142,7 @@ public class MiddlePage extends JFrame {
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
 		//상점 버튼을 누를시 store으로 연결
-		JButton btnStore = new JButton("상점");
+		JButton btnStore = new JButton("");
 		transBtn(btnStore);
 		paneCenBot.add(btnStore);
 		btnStore.addActionListener(new ActionListener() {
