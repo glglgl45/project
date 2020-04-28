@@ -113,7 +113,7 @@ public class MainPage extends JFrame implements MouseListener {
 		txtPw = new JPasswordField();
 		txtPw.setBounds(355, 310, 120, 30);
 		backPanel.add(txtPw);
-		txtPw.setColumns(10);
+		txtPw.setColumns(10); 
 		txtPw.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -124,8 +124,12 @@ public class MainPage extends JFrame implements MouseListener {
 						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
 								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
 							if(vo.getProgress()==1) {
-								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
-								dispose();
+//								dispose();
+								String options[] = {"확인", "랭킹보기"};
+								int sel=JOptionPane.showOptionDialog(getParent(), "클리어를 축하드립니다.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+								if(sel==1) {									
+									Ranking rank = new Ranking();
+								}
 							}else {
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
 								dispose();
@@ -156,8 +160,8 @@ public class MainPage extends JFrame implements MouseListener {
 						if(vo.getId().equals(txtId.getText()) && //DB의 아이디와 비밀번호가 모두 일치시 진행
 								vo.getPwd().equals(new String(txtPw.getPassword()))) {	
 							if(vo.getProgress()==1) {
-								JOptionPane.showMessageDialog(getParent(), "게임을 이미 클리어 하셔서 접속 거부 당하셨습니다.");
-								dispose();
+//								dispose();
+								JOptionPane.showConfirmDialog(getParent(), "클리어를 축하드립니다.","확인",JOptionPane.CLOSED_OPTION, JOptionPane.INFORMATION_MESSAGE);
 							}else {								
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
 								dispose();
