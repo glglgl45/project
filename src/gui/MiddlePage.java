@@ -64,13 +64,13 @@ public class MiddlePage extends JFrame implements ActionListener{
 		pick = new Pickax();
 		dao=new ClickerDAO();
 		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/middlepg.jpg"));
-		scroll1 = new ImageIcon(MiddlePage.class.getResource("/img/scroll1.png"));
-		scroll2 = new ImageIcon(MiddlePage.class.getResource("/img/scroll2.png"));
-		scroll3 = new ImageIcon(MiddlePage.class.getResource("/img/scroll3.png"));
-		scroll4 = new ImageIcon(MiddlePage.class.getResource("/img/scroll4.png"));
-		scroll5 = new ImageIcon(MiddlePage.class.getResource("/img/scroll5.png"));
-		scroll6 = new ImageIcon(MiddlePage.class.getResource("/img/scroll6.png"));
-		scroll7 = new ImageIcon(MiddlePage.class.getResource("/img/scroll7.png"));
+		scroll1 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll1.png"));
+		scroll2 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll2.png"));
+		scroll3 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll3.png"));
+		scroll4 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll4.png"));
+		scroll5 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll5.png"));
+		scroll6 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll6.png"));
+		scroll7 = new ImageIcon(MiddlePage.class.getResource("/img/scroll/scroll7.png"));
 		//창 크기 조절
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

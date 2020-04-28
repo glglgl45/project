@@ -11,7 +11,7 @@ public class Wood extends Ore {
 		super.maxHp = ranHp; // 게이지 구현을 위한 최대 체력
 		super.hp = ranHp; // 변화되는 현재 hp
 		super.name = "나무";
-		super.imgPath = "/img/wood.png";
+		super.imgPath = "/img/ore/wood.png";
 		
 		super.reward = 1;
 		int ranReward = (int) (reward + (Math.random()*(reward/5*2)-(reward/5))); // 난수 적용 보상 ex) 기준 보상=80 ; 난수 보상 = 64~96 상하한 20%
