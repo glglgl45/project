@@ -100,7 +100,7 @@ public class MineTitanium extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
-		icon = new ImageIcon(MineTitanium.class.getResource("/bckimg/Titaniummine.jpg"));
+		icon = new ImageIcon(MineTitanium.class.getResource("/img/bckimg/Titaniummine.jpg"));
 		
 		
 		setDefaultCloseOperation(dao.saveUser());

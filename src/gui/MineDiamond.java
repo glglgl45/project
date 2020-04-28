@@ -98,7 +98,7 @@ public class MineDiamond extends JFrame implements ActionListener {
 		oreHpBar4 = new HpBar();
 		oreHpBar5 = new HpBar();
 		dao = new ClickerDAO();
-		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/diamine.jpg"));
+		icon = new ImageIcon(MineDiamond.class.getResource("/img/bckimg/diamine.jpg"));
 		
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
