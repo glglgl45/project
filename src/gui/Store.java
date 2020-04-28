@@ -12,22 +12,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import dbguide.ClickerDAO;
-import dbguide.ClickerItemVO;
 import dbguide.ClickerUserVO;
 import system.Pickax;
 import system.Upgrade;
-
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import java.awt.CardLayout;
 
 public class Store extends JFrame implements ActionListener{
 
@@ -70,7 +61,6 @@ public class Store extends JFrame implements ActionListener{
 		
 		JPanel mainPanel = new JPanel();
 		contentPane.add(mainPanel, BorderLayout.CENTER);
-		
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);

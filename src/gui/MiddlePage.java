@@ -21,6 +21,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
 import java.awt.CardLayout;
 import javax.swing.JRadioButton;
 import java.awt.Color;
@@ -37,6 +38,8 @@ public class MiddlePage extends JFrame {
 	
 	private ButtonGroup btnGroup;
 	private JRadioButton radio1, radio2, radio3, radio4, radio5;
+	
+	private ImageIcon icon;
 	/**
 	 * Launch the application.
 	 */
@@ -56,6 +59,7 @@ public class MiddlePage extends JFrame {
 	public MiddlePage() {
 		pick = new Pickax();
 		dao=new ClickerDAO();
+		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/middlepg.jpg"));
 		//창 크기 조절
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +71,14 @@ public class MiddlePage extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);		
 		//창 중간에 패널 넣기
-		JPanel paneCenGrid = new JPanel();
+		JPanel paneCenGrid = new JPanel(){
+			@Override
+			protected void paintComponent(Graphics g) {
+				g.drawImage(icon.getImage(), 0, 0, null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
 		contentPane.add(paneCenGrid, BorderLayout.CENTER);
 		paneCenGrid.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -102,8 +113,7 @@ public class MiddlePage extends JFrame {
 		
 
 		JPanel paneCenBot = new JPanel();
-		paneCenBot.setBackground(Color.CYAN);
-		
+		paneCenBot.setOpaque(false);
 		JPanel panel_6 = new JPanel();
 		
 		JPanel panel_9 = new JPanel();
@@ -121,6 +131,7 @@ public class MiddlePage extends JFrame {
 		paneCenGrid.add(paneCenBot);
 		
 		JButton btnMine = new JButton("광산");
+		transBtn(btnMine);
 		paneCenBot.add(btnMine);
 		btnMine.addActionListener(new ActionListener() {
 			@Override//광산 버튼 누를시 광산 창으로 연결
@@ -132,6 +143,7 @@ public class MiddlePage extends JFrame {
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
 		//상점 버튼을 누를시 store으로 연결
 		JButton btnStore = new JButton("상점");
+		transBtn(btnStore);
 		paneCenBot.add(btnStore);
 		btnStore.addActionListener(new ActionListener() {
 			@Override
@@ -241,4 +253,16 @@ public class MiddlePage extends JFrame {
 		});
 		paneTop.add(btnLogout, BorderLayout.EAST);
 	}
+	
+
+	// 버튼 투명화 메소드
+	public void transBtn(JButton btn) {
+		btn.setBorderPainted(false); // 버튼 테두리 투명화
+		btn.setFocusPainted(false); // 버튼 클릭시 포커스 투명화
+		btn.setContentAreaFilled(false); // 버튼 배경색 투명화
+		// 상위 패널 또한 패널.setOpaque(false); 를 설정
+	}
+
+
+
 }
