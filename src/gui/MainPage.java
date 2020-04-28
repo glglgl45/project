@@ -155,8 +155,7 @@ public class MainPage extends JFrame implements MouseListener {
 					txtPw.setText("");
 				}
 			}
-		});
-		
+		});		
 		setVisible(true);
 		
 		btnLogin = new JButton("로그인");
