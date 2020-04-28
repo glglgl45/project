@@ -144,7 +144,7 @@ public class MineSelect extends JFrame {
 		panel_2.setLayout(new GridLayout(2, 3, 0, 0));
 		
 		JButton btnMineStone = new JButton("돌 광산");
-		btnMineStone.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-stone.png")));
+		btnMineStone.setIcon(new ImageIcon(MineSelect.class.getResource("/img/entrance/entrance-stone.png")));
 		btnMineStone.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -158,7 +158,7 @@ public class MineSelect extends JFrame {
 		
 		JButton btnMineCopper = new JButton("구리 광산");
 		transBtn(btnMineCopper);
-		btnMineCopper.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-copper.png")));
+		btnMineCopper.setIcon(new ImageIcon(MineSelect.class.getResource("/img/entrance/entrance-copper.png")));
 		btnMineCopper.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -170,7 +170,7 @@ public class MineSelect extends JFrame {
 		
 		JButton btnMineIron = new JButton("철 광산");
 		transBtn(btnMineIron);
-		btnMineIron.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterencesteel.png")));
+		btnMineIron.setIcon(new ImageIcon(MineSelect.class.getResource("/img/entrance/entrance-iron.png")));
 		panel_2.add(btnMineIron);
 		btnMineIron.addActionListener(new ActionListener() {
 			@Override
@@ -181,7 +181,7 @@ public class MineSelect extends JFrame {
 		});
 		JButton btnMineTitanium = new JButton("티타늄 광산");
 		transBtn(btnMineTitanium);
-		btnMineTitanium.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-platinum.png")));
+		btnMineTitanium.setIcon(new ImageIcon(MineSelect.class.getResource("/img/entrance/entrance-titanium.png")));
 		panel_2.add(btnMineTitanium);
 		btnMineTitanium.addActionListener(new ActionListener() {
 			@Override
@@ -205,7 +205,7 @@ public class MineSelect extends JFrame {
 		
 		JButton btnMineDiamond = new JButton("다이아몬드 광산");
 		transBtn(btnMineDiamond);
-		btnMineDiamond.setIcon(new ImageIcon(MineSelect.class.getResource("/img/enterence-diamond.png")));
+		btnMineDiamond.setIcon(new ImageIcon(MineSelect.class.getResource("/img/entrance/entrance-diamond.png")));
 		panel_2.add(btnMineDiamond);
 		btnMineDiamond.addActionListener(new ActionListener() {
 			@Override
