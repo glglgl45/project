@@ -99,8 +99,8 @@ public class Ranking extends JFrame {
 		
 		
 		table = new JTable(model1);
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.getColumnModel().getColumn(0).setPreferredWidth(50);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);	//테이블 컬럼 사이즈 자동 변환 false
+		table.getColumnModel().getColumn(0).setPreferredWidth(50);	//테이블 컬럼 사이즈 조정
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table.getColumnModel().getColumn(2).setPreferredWidth(100);
 		table.getColumnModel().getColumn(3).setPreferredWidth(100);
@@ -112,8 +112,8 @@ public class Ranking extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		table_2 = new JTable(model2);
-		table_2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table_2.getColumnModel().getColumn(0).setPreferredWidth(50);
+		table_2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);	//테이블 컬럼 사이즈 자동 변환 false
+		table_2.getColumnModel().getColumn(0).setPreferredWidth(50);	//테이블 컬럼 사이즈 조정
 		table_2.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table_2.getColumnModel().getColumn(2).setPreferredWidth(100);
 		table_2.getColumnModel().getColumn(3).setPreferredWidth(100);
@@ -140,8 +140,11 @@ public class Ranking extends JFrame {
 	public void ingList() {	//클리어 못한 유저 리스트
 		vecList=dao.listIngUser();		
 		int i=1;
+		double d=0;
 		for(ClickerUserVO vo:vecList) {
-			Object[] objList = {i++,vo.getId(),vo.getScore(),vo.getPickName(),"+"+vo.getEnhance(),(vo.getDamage()*vo.getMul()),vo.getGold()};
+			d=vo.getDamage()*vo.getMul();
+			System.out.println(d);
+			Object[] objList = {i++,vo.getId(),vo.getScore(),vo.getPickName(),"+"+vo.getEnhance(),(int)d,vo.getGold()};
 			model1.addRow(objList);
 		}
 	}
@@ -149,8 +152,10 @@ public class Ranking extends JFrame {
 	public void endList() { //클리어 유저 리스트
 		vecList=dao.listEndUser();		
 		int i=1;
+		double d=0;
 		for(ClickerUserVO vo:vecList) {
-			Object[] objList = {i++, vo.getId(),vo.getScore()};
+			d=vo.getDamage()*vo.getMul();
+			Object[] objList = {i++, vo.getId(),vo.getScore(),vo.getPickName(),"+"+vo.getEnhance(),(int)d,vo.getGold()};
 			model2.addRow(objList);
 		}
 	}
