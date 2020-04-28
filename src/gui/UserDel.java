@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -136,10 +137,29 @@ import system.Pickax;
 			}
 		});
 		btnUserDel.addActionListener(this);
+		txtPw.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		if(e.getActionCommand().equals("회원삭제") || e.getSource()==txtPw) {		//회원가입 버튼 및 txtPw에서 엔터 입력 시
+			if(txtId.getText()!=null && new String(txtPw.getPassword())!=null) {	//아이디, 비밀번호 칸의 입력상태 확인
+				vo=dao.searchUser(txtId.getText());
+				if(txtId.getText().equals(vo.getId()) && new String(txtPw.getPassword()).equals(vo.getPwd())) {	//DB의 ID, 비밀번호와 사용자가 입력한 값이 맞다면
+					int result=dao.deleteUser(txtId.getText());	//DB에서 정보 삭제	
+					if(result>0) {	//DB에 DELETE 성공 시
+						JOptionPane.showMessageDialog(this, "탈퇴 완료");
+						txtId.setText("");
+						txtPw.setText("");
+					}else {
+						JOptionPane.showMessageDialog(this, "시스템 에러");
+					}				
+				}else {	//DB의 ID, 비밀번호와 사용자가 입력한 값 비교가 맞지 않다면
+					JOptionPane.showMessageDialog(this, "입력정보를 확인해주세요.");
+				}				
+			}else if(txtId.getText()==null || new String(txtPw.getPassword())==null) { //아이디, 비밀번호, 비밀번호 확인의 빈칸 확인
+				JOptionPane.showMessageDialog(this, "정보를 모두 기입해 주세요");
+			}
+		}
 	}
 }
