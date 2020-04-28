@@ -21,6 +21,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
 import java.awt.CardLayout;
 import javax.swing.JRadioButton;
 import java.awt.Color;
@@ -37,6 +38,8 @@ public class MiddlePage extends JFrame {
 	
 	private ButtonGroup btnGroup;
 	private JRadioButton radio1, radio2, radio3, radio4, radio5;
+	
+	private ImageIcon icon;
 	/**
 	 * Launch the application.
 	 */
@@ -56,6 +59,7 @@ public class MiddlePage extends JFrame {
 	public MiddlePage() {
 		pick = new Pickax();
 		dao=new ClickerDAO();
+		icon = new ImageIcon(MineDiamond.class.getResource("/bckimg/middlepg.jpg"));
 		//창 크기 조절
 		setDefaultCloseOperation(dao.saveUser());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +71,14 @@ public class MiddlePage extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);		
 		//창 중간에 패널 넣기
-		JPanel paneCenGrid = new JPanel();
+		JPanel paneCenGrid = new JPanel(){
+			@Override
+			protected void paintComponent(Graphics g) {
+				g.drawImage(icon.getImage(), 0, 0, null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
 		contentPane.add(paneCenGrid, BorderLayout.CENTER);
 		paneCenGrid.setLayout(new GridLayout(0, 1, 0, 0));
 		
