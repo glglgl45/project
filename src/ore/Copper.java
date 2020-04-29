@@ -16,7 +16,7 @@ public class Copper extends Ore {
 		super.imgPath = "/img/ore/Copper.png"; // 이미지 출력을 위한 경로 지정
 		
 		// 보상
-		int reward = 80; // 기준 보상
+		int reward = 120; // 기준 보상
 		int ranReward = (int) (reward + (Math.random()*(reward/5*2)-(reward/5))); // 난수 적용 보상 ex) 기준 보상=80 ; 난수 보상 = 64~96 상하한 20%
 		super.reward = ranReward; // 최종 보상
 	}

@@ -175,6 +175,10 @@ public class Ranking extends JFrame {
 		// 반복문을 이용하여 테이블을 가운데 정렬로 지정
 		for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
 			tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
+		}TableColumnModel tcmSchedule1 = table_2.getColumnModel();
+		// 반복문을 이용하여 테이블을 가운데 정렬로 지정
+		for (int i = 0; i < tcmSchedule1.getColumnCount(); i++) {
+			tcmSchedule1.getColumn(i).setCellRenderer(tScheduleCellRenderer);
 		}		
 	}
 	
@@ -182,7 +186,7 @@ public class Ranking extends JFrame {
 		vecList=dao.listIngUser();		
 		int i=1;
 		for(ClickerUserVO vo:vecList) {
-			Object[] objList = {i++,vo.getId(),vo.getScore(),vo.getPickName(),"+"+vo.getEnhance(),(int)(vo.getDamage()*vo.getMul()),vo.getGold()};
+			Object[] objList = {i++,vo.getId(),vo.getScore(),vo.getPickName(),"+"+vo.getEnhance(),vo.getGold()};
 			model1.addRow(objList);
 		}
 	}
@@ -191,7 +195,7 @@ public class Ranking extends JFrame {
 		vecList=dao.listEndUser();		
 		int i=1;
 		for(ClickerUserVO vo:vecList) {
-			Object[] objList = {i++, vo.getId(),vo.getScore(),vo.getPickName(),"+"+vo.getEnhance(),(int)(vo.getDamage()*vo.getMul()),vo.getGold()};
+			Object[] objList = {i++, vo.getId(),vo.getScore(),vo.getPickName(),"+"+vo.getEnhance(),vo.getGold()};
 			model2.addRow(objList);
 		}
 	}
