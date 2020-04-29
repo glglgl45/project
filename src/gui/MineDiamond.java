@@ -134,9 +134,9 @@ public class MineDiamond extends JFrame implements ActionListener, MouseListener
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(result==0) {
-					dispose();
 					MainPage m = new MainPage();
 					m.setVisible(true);
+					dispose();
 				}else if(result==1) {
 					System.exit(0);
 				}
@@ -327,8 +327,8 @@ public class MineDiamond extends JFrame implements ActionListener, MouseListener
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineSelect m = new MineSelect();
+				dispose();
 			}
 		});
 		
@@ -408,8 +408,8 @@ public class MineDiamond extends JFrame implements ActionListener, MouseListener
 			hitOre(ore5,oreHpBar5,btnOre5);
 			if(ore5.hp==0) {
 				dao.saveEndUser();
-				dispose();				
 				GameClear gc = new GameClear();
+				dispose();				
 			}
 		}
 	}

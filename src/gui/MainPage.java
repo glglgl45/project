@@ -92,7 +92,6 @@ public class MainPage extends JFrame implements MouseListener {
 		setContentPane(contentPane);
 		JPanel backPanel = new BackImg();
 		contentPane.add(backPanel,BorderLayout.CENTER);
-		pack();
 		
 		JLabel lblID = new JLabel("아이디");
 		lblID.setHorizontalAlignment(SwingConstants.CENTER);
@@ -127,7 +126,7 @@ public class MainPage extends JFrame implements MouseListener {
 							if(vo.getProgress()==1) {
 //								dispose();
 								String options[] = {"확인","계정삭제","랭킹보기"};
-								int sel=JOptionPane.showOptionDialog(getParent(), "이미 클리한 계정입니다.\n삭제 후 재가입하여 이용해 주세요.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+								int sel=JOptionPane.showOptionDialog(getParent(), "이미 클리어한 계정입니다.\n삭제 후 재가입하여 이용해 주세요.", "클리어 유저", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 								if(sel==2) {									
 									Ranking rank = new Ranking();
 								}else if(sel==1) {
@@ -140,8 +139,8 @@ public class MainPage extends JFrame implements MouseListener {
 								}
 							}else {
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
+								MiddlePage mp = new MiddlePage();
 								dispose();
-								MiddlePage mp = new MiddlePage();										
 							}
 						}else {
 							JOptionPane.showMessageDialog(getParent(), "비밀번호를 확인해 주세요.");				
@@ -186,8 +185,8 @@ public class MainPage extends JFrame implements MouseListener {
 								}
 							}else {								
 								pick=dao.insertPickax(txtId.getText());		//DB의 정보를 Pickax의 변수에 입력 
-								dispose();
 								MiddlePage mp = new MiddlePage();										
+								dispose();
 							}
 						}else {
 							JOptionPane.showMessageDialog(getParent(), "비밀번호를 확인해 주세요.");				
@@ -214,8 +213,8 @@ public class MainPage extends JFrame implements MouseListener {
 		btnSignUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				SignUp s = new SignUp();
+				dispose();
 			}
 		});
 		backPanel.add(btnSignUp);
@@ -242,8 +241,8 @@ public class MainPage extends JFrame implements MouseListener {
 		btnSignUpDel.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				UserDel ud = new UserDel();
+				dispose();
 			}
 		});
 		backPanel.add(btnSignUpDel);

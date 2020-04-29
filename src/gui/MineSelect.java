@@ -80,9 +80,9 @@ public class MineSelect extends JFrame {
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(result==0) {
-					dispose();
 					MainPage m = new MainPage();
 					m.setVisible(true);
+					dispose();
 				}else if(result==1) {
 					System.exit(0);
 				}
@@ -156,8 +156,8 @@ public class MineSelect extends JFrame {
 		btnMineStone.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineStone ms = new MineStone();
+				dispose();
 			}
 		});
 
@@ -170,8 +170,8 @@ public class MineSelect extends JFrame {
 		btnMineCopper.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineCopper mc = new MineCopper();
+				dispose();
 			}
 		});
 		panel_2.add(btnMineCopper);
@@ -183,8 +183,8 @@ public class MineSelect extends JFrame {
 		btnMineIron.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineIron mc = new MineIron();
+				dispose();
 			}
 		});
 		btnMineTitanium = new JButton("티타늄 광산");
@@ -194,8 +194,8 @@ public class MineSelect extends JFrame {
 		btnMineTitanium.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineTitanium mc = new MineTitanium();
+				dispose();
 			}
 		});
 		
@@ -205,8 +205,8 @@ public class MineSelect extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MiddlePage ud = new MiddlePage();
+				dispose();
 			}
 		});
 		panel_2.add(btnBack);
@@ -218,8 +218,8 @@ public class MineSelect extends JFrame {
 		btnMineDiamond.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineDiamond mc = new MineDiamond();
+				dispose();
 			}
 		});		
 		setVisible(true);

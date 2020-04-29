@@ -193,8 +193,8 @@ public class MiddlePage extends JFrame implements ActionListener{
 		btnMine.addActionListener(new ActionListener() {
 			@Override//광산 버튼 누를시 광산 창으로 연결
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineSelect ms = new MineSelect();
+				dispose();
 			}
 		});
 		btnMine.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/mine-cart.PNG")));
@@ -207,9 +207,9 @@ public class MiddlePage extends JFrame implements ActionListener{
 		btnStore.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				Store s = new Store();
 				s.setVisible(true);
+				dispose();
 			}
 		});
 		btnStore.setIcon(new ImageIcon(MiddlePage.class.getResource("/img/blacksmithing.PNG")));
@@ -295,9 +295,9 @@ public class MiddlePage extends JFrame implements ActionListener{
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);				
 				if(result==0) {
-					dispose();
 					MainPage m = new MainPage();
 					m.setVisible(true);
+					dispose();
 				}else if(result==1) {
 					
 					System.exit(0);
