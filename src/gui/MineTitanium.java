@@ -137,9 +137,9 @@ public class MineTitanium extends JFrame implements ActionListener, MouseListene
 				String option[] = {"메인화면으로","게임 종료"};
 				int result=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 				if(result==0) {
-					dispose();
 					MainPage m = new MainPage();
 					m.setVisible(true);
+					dispose();
 				}else if(result==1) {
 					System.exit(0);
 				}
@@ -330,8 +330,8 @@ public class MineTitanium extends JFrame implements ActionListener, MouseListene
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MineSelect m = new MineSelect();
+				dispose();
 			}
 		});
 		

@@ -132,7 +132,6 @@ public class Pickax {
 	}
 	
 	public void infoPick() {
-		System.out.println(pickName +"+"+ level +" : "+ dmg + "x"+ mul + " 소지금 : " +money);
 	}
 	
 	// 종류 별 정보
@@ -212,7 +211,6 @@ public class Pickax {
 			}
 		} else { // 내구도가 0이면 채광 불가
 			double atk = 0;
-			System.out.println("내구도가 부족합니다.");
 			setScore(getScore()-1);
 			return (int) atk;
 		}

@@ -218,16 +218,16 @@ public class Store extends JFrame implements ActionListener{
 			String option[] = {"메인화면으로","게임 종료"};
 			int qe=JOptionPane.showOptionDialog(getParent(), "로그아웃 후에 어떻게 할까요?", "Logout", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 			if(qe==0) {
-				dispose();
 				MainPage m = new MainPage();
 				m.setVisible(true);
+				dispose();
 			}else if(qe==1) {
 				System.exit(0);
 		}
 	}
 		if(e.getActionCommand().equals("돌아가기")) {
-			dispose();
 			MiddlePage m = new MiddlePage();		
+			dispose();
 		}if(e.getSource()==btnRepair) {
 			grade.fixPick();
 			txtPickDura.setText(pick.getDura()+"");

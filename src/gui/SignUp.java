@@ -154,8 +154,8 @@ import system.Pickax;
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				MainPage m = new MainPage();
+				dispose();
 			}
 		});
 //		backPanel.add(btnBack);
